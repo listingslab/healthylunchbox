@@ -4,6 +4,7 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import './index.css';
 
 import App from './components/App';
+import FoodGroup from './components/FoodGroup';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
 
@@ -13,7 +14,7 @@ const Root = () => {
       <div className="app">
         <Header />
         <Match exactly pattern="/" component={App} />
-        <Match pattern="/store/:storeId" component={App} />
+        <Match exactly pattern="/food-group" component={FoodGroup} />
         <Miss component={NotFound} />
       </div>
     </BrowserRouter>
