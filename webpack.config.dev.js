@@ -20,9 +20,11 @@ module.exports = {
       query: {
         presets: ['es2015-native-modules','es2015', 'react'],
       },
-    }, {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass'],
+    },
+    {
+      test: /\.styl$/,
+      include: path.join(__dirname, 'client'),
+      loader: 'style-loader!css-loader!stylus-loader'
     }],
   },
 
