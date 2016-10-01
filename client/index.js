@@ -1,10 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter, Match, Miss, Link } from 'react-router'
+import { BrowserRouter, Match, Miss } from 'react-router'
 
-import Home from './components/Home'
 import Header from './components/Header'
+import Home from './components/Home'
+import Page from './components/Page'
+import Lunchbox from './components/Lunchbox'
 import NotFound from './components/NotFound'
+
 import css from  './style.styl';
 
 const Root = () => {
@@ -12,8 +15,12 @@ const Root = () => {
     <BrowserRouter>
       <div>
         <Header />
-        <Match exactly pattern="/" component={Home} />
-        <Miss component={NotFound} />
+        <main>
+          <Match exactly pattern="/" component={Home} />
+          <Match pattern="/information/:slug" component={Page} />
+          <Match exactly pattern="/create-lunch-box" component={Lunchbox} />
+          <Miss component={NotFound} />
+        </main>
       </div>
     </BrowserRouter>
   )
