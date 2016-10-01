@@ -2,6 +2,8 @@ import React from 'react'
 
 export default () => {
   return (
-    <h2>Page Not Found</h2>
+    <div className="container">
+      <h2>Page Not Found</h2>
+    </div>
   )
 }
