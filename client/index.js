@@ -10,6 +10,12 @@ import NotFound from './components/NotFound'
 
 import css from  './style.styl';
 
+if(!sessionStorage.getItem('pages')) {
+  fetch('http://localhost:8888/wp-json/wp/v2/pages')
+    .then(response => response.json())
+    .then(data => sessionStorage.setItem('pages', JSON.stringify(data)))
+}
+
 const Root = () => {
   return (
     <BrowserRouter>
