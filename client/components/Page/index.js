@@ -4,6 +4,9 @@ import { Link } from 'react-router'
 import PageContent from '../Content'
 import NotFound from '../NotFound'
 
+import { WP_PAGES } from '../../constants'
+import RequestManager from '../../services/request-manager'
+
 export default class Page extends Component {
   constructor(props) {
     super(props)
@@ -14,11 +17,13 @@ export default class Page extends Component {
 
   componentWillMount() {
     const slug = this.props.params.slug
+
     if(!sessionStorage.getItem('pages')) {
-      fetch('http://localhost:8888/wp-json/wp/v2/pages')
-        .then(response => response.json())
-        .then(data => sessionStorage.setItem('pages', JSON.stringify(data)))
+      RequestManager.get(WP_PAGES).then(payload => {
+        sessionStorage.setItem('pages', JSON.stringify(payload))
+      })
     }
+
     if(sessionStorage.getItem('pages')) {
       const allPageData = JSON.parse(sessionStorage.getItem('pages'))
       const pageData = allPageData.filter(page => page.slug === slug)
