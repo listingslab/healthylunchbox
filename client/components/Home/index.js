@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import fetch from 'isomorphic-fetch'
 import Hero from '../Hero'
 import Card from '../Card'
-import { WP_POSTS } from '../../constants'
+import { WP_CONTENTCARDS } from '../../constants'
 import RequestManager from '../../services/request-manager'
 
 export default class Home extends Component {
@@ -14,13 +14,16 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
-    if(!sessionStorage.getItem('contentcards')) {
-      RequestManager.get(WP_POSTS).then(payload => {
+    const getContentCards = sessionStorage.getItem('contentcards')
+
+    if(!getContentCards) {
+      RequestManager.get(WP_CONTENTCARDS).then(payload => {
         sessionStorage.setItem('contentcards', JSON.stringify(payload))
         this.setState({contentCards: payload})
       })
     }
-    if(sessionStorage.getItem('contentcards')) {
+
+    if(getContentCards) {
       const contentCards = JSON.parse(sessionStorage.getItem('contentcards'))
       this.setState({contentCards: contentCards})
     }
