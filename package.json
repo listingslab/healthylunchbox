@@ -22,7 +22,9 @@
     "babel-preset-es2015-native-modules": "^6.9.4",
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.25.0",
+    "es6-promise": "^4.0.4",
     "file-loader": "^0.9.0",
+    "isomorphic-fetch": "^2.2.1",
     "jest-cli": "^15.1.1",
     "lodash.get": "^4.4.2",
     "react-slick": "^0.14.4",
@@ -34,6 +36,9 @@
     "webpack-hot-middleware": "^2.12.2"
   },
   "babel": {
-    "presets": ["react", "es2015"]
+    "presets": [
+      "react",
+      "es2015"
+    ]
   }
 }
