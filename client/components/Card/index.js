@@ -5,10 +5,6 @@ import fetch from 'isomorphic-fetch'
 import get from 'lodash.get'
 
 export default class Card extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const props = this.props
     const title = get(props, 'title.rendered')
