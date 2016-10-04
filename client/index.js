@@ -1,19 +1,28 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Match, Miss } from 'react-router'
+import fetch from 'isomorphic-fetch'
 
 import Header from './components/Header'
 import Home from './components/Home'
 import Page from './components/Page'
 import Lunchbox from './components/Lunchbox'
 import NotFound from './components/NotFound'
+import RequestManager from './services/request-manager'
+import { WP_PAGES, WP_CONTENTCARDS } from './constants'
 
 import css from  './style.styl';
 
 if(!sessionStorage.getItem('pages')) {
-  fetch('http://localhost:8888/wp-json/wp/v2/pages')
-    .then(response => response.json())
-    .then(data => sessionStorage.setItem('pages', JSON.stringify(data)))
+    RequestManager.get(WP_PAGES).then(payload => {
+      sessionStorage.setItem('pages', JSON.stringify(payload))
+    })
+}
+
+if(!sessionStorage.getItem('contentcards')) {
+  RequestManager.get(WP_CONTENTCARDS).then(payload => {
+    sessionStorage.setItem('contentcards', JSON.stringify(payload))
+  })
 }
 
 const Root = () => {
