@@ -28,6 +28,15 @@ export default class Home extends Component {
     }
   }
 
+  renderContentCards() {
+    if (!this.state.contentCards) {
+      return
+    }
+
+    return this.state.contentCards.map(cards => <Card key={cards.id} title={cards.title} description={cards.content} link={cards.slug} />)
+
+  }
+
   render() {
     return (
       <div>
@@ -38,7 +47,7 @@ export default class Home extends Component {
         </div>
         <div className="row">
           <div className="container">
-            { this.state.contentCards ? this.state.contentCards.map(cards => <Card key={cards.id} title={cards.title} description={cards.content} link={cards.slug} />) : ""}
+            { this.renderContentCards() }
           </div>
         </div>
         <div className="row info">
