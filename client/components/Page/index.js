@@ -17,14 +17,14 @@ export default class Page extends Component {
 
   componentWillMount() {
     const slug = this.props.params.slug
-
-    if(!sessionStorage.getItem('pages')) {
+    const getPages = sessionStorage.getItem('pages')
+    if(!getPages) {
       RequestManager.get(WP_PAGES).then(payload => {
         sessionStorage.setItem('pages', JSON.stringify(payload))
       })
     }
 
-    if(sessionStorage.getItem('pages')) {
+    if(getPages) {
       const allPageData = JSON.parse(sessionStorage.getItem('pages'))
       const pageData = allPageData.filter(page => page.slug === slug)
       this.setState({data: pageData[0]})
