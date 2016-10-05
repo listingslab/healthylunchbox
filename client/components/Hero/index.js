@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Link } from 'react-router'
 import { WP_HERO } from '../../constants'
+import RequestManager from '../../services/request-manager'
 import get from 'lodash.get'
 
 export default class Hero extends Component {
@@ -13,10 +14,20 @@ export default class Hero extends Component {
   }
 
   componentWillMount() {
-    if(sessionStorage.getItem('hero')) {
-      const hero = JSON.parse(sessionStorage.getItem('hero'))
-      this.setState({hero: hero[0]})
+    const getHero = sessionStorage.getItem('hero')
+
+    if(!getHero) {
+      RequestManager.get(WP_HERO).then(payload => {
+        sessionStorage.setItem('hero', JSON.stringify(payload[0]))
+        this.setState({hero: payload[0]})
+      })
     }
+
+    if(getHero) {
+      const hero = JSON.parse(getHero)
+      this.setState({hero: hero})
+    }
+
   }
 
   render() {
@@ -32,9 +43,7 @@ export default class Hero extends Component {
         <div className="hero__content">
           <h2>{title}</h2>
           <div dangerouslySetInnerHTML={{__html: description}}/>
-          <Link to={link}>
-            Get Started
-          </Link>
+          { link ? <Link to={link}>Get started</Link> : "" }
         </div>
         <div className="hero__image">
           <img src={image} />
