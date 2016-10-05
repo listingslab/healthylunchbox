@@ -7,9 +7,12 @@ import { WP_CONTENTCARDS } from '../../constants'
 import RequestManager from '../../services/request-manager'
 
 export default class Home extends Component {
+
   constructor() {
     super()
-    this.state = { contentCards: [] }
+    this.state = {
+      contentCards: []
+    }
   }
 
   componentWillMount() {
@@ -26,6 +29,7 @@ export default class Home extends Component {
       const contentCards = JSON.parse(sessionStorage.getItem('contentcards'))
       this.setState({contentCards: contentCards})
     }
+
   }
 
   renderContentCards() {
@@ -33,8 +37,7 @@ export default class Home extends Component {
       return
     }
 
-    return this.state.contentCards.map(cards => <Card key={cards.id} title={cards.title} description={cards.content} link={cards.slug} />)
-
+    return this.state.contentCards.map(cards => <Card key={cards.id} title={cards.title} description={cards.content} acf={cards.acf} />)
   }
 
   render() {
@@ -45,14 +48,14 @@ export default class Home extends Component {
             <Hero />
           </div>
         </div>
-        <div className="row">
-          <div className="container">
-            { this.renderContentCards() }
-          </div>
-        </div>
         <div className="row info">
           <div className="container">
             <InfoTabs />
+          </div>
+        </div>
+        <div className="row cards">
+          <div className="container">
+            { this.renderContentCards() }
           </div>
         </div>
       </div>
