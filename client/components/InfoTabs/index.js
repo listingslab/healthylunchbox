@@ -21,7 +21,6 @@ export default class InfoTabs extends Component {
 
     if(!getTabs) {
       RequestManager.get(WP_TABS).then(payload => {
-        console.log(payload)
         sessionStorage.setItem('tabs', JSON.stringify(payload))
         this.setState({tabs: payload})
       })
