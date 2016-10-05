@@ -17,9 +17,9 @@ export default class InfoTabs extends Component {
   }
 
   componentWillMount() {
-    const tabs = sessionStorage.getItem('tabs')
+    const getTabs = sessionStorage.getItem('tabs')
 
-    if(!tabs) {
+    if(!getTabs) {
       RequestManager.get(WP_TABS).then(payload => {
         console.log(payload)
         sessionStorage.setItem('tabs', JSON.stringify(payload))
@@ -27,9 +27,9 @@ export default class InfoTabs extends Component {
       })
     }
 
-    if(tabs) {
-      const parsedTabs = JSON.parse(tabs)
-      this.setState({tabs: parsedTabs})
+    if(getTabs) {
+      const tabs = JSON.parse(getTabs)
+      this.setState({tabs: tabs})
     }
   }
 
