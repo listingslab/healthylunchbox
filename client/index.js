@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Match, Miss } from 'react-router'
 import fetch from 'isomorphic-fetch'
-
 import Header from './components/Header'
 import Home from './components/Home'
 import Page from './components/Page'
@@ -13,26 +12,14 @@ import { WP_PAGES, WP_CONTENTCARDS, WP_HERO } from './constants'
 
 import css from  './style.styl';
 
-
 if(!sessionStorage.getItem('pages')) {
     RequestManager.get(WP_PAGES).then(payload => {
       sessionStorage.setItem('pages', JSON.stringify(payload))
     })
 }
 
-if(!sessionStorage.getItem('hero')) {
-    RequestManager.get(WP_HERO).then(payload => {
-      sessionStorage.setItem('hero', JSON.stringify(payload))
-    })
-}
-
-if(!sessionStorage.getItem('contentcards')) {
-  RequestManager.get(WP_CONTENTCARDS).then(payload => {
-    sessionStorage.setItem('contentcards', JSON.stringify(payload))
-  })
-}
-
 const Root = () => {
+
   return (
     <BrowserRouter>
       <div>
