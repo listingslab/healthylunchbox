@@ -8,7 +8,7 @@ import Page from './components/Page'
 import Lunchbox from './components/Lunchbox'
 import NotFound from './components/NotFound'
 import RequestManager from './services/request-manager'
-import { WP_PAGES, WP_CONTENTCARDS, WP_HERO } from './constants'
+import { WP_PAGES, WP_POSTS } from './constants'
 
 import css from  './style.styl';
 
@@ -16,6 +16,12 @@ if(!sessionStorage.getItem('pages')) {
     RequestManager.get(WP_PAGES).then(payload => {
       sessionStorage.setItem('pages', JSON.stringify(payload))
     })
+}
+
+if(!sessionStorage.getItem('posts')) {
+  RequestManager.get(WP_POSTS).then(payload => {
+    sessionStorage.setItem('posts', JSON.stringify(payload))
+  })
 }
 
 const Root = () => {
