@@ -9,9 +9,6 @@
     "clean": "rimraf dist",
     "test": "jest"
   },
-  "peerDependencies": {
-    "react": "^15.3.2"
-  },
   "dependencies": {
     "express": "^4.14.0",
     "react": "^15.3.2",
@@ -35,7 +32,6 @@
     "jest-cli": "^15.1.1",
     "lodash.get": "^4.4.2",
     "react-modal": "^1.4.0",
-    "react-slick": "^0.14.4",
     "react-tabs": "^0.8.0",
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.13.1",
