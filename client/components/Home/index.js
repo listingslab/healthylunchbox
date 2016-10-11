@@ -48,11 +48,6 @@ export default class Home extends Component {
             <Hero />
           </div>
         </div>
-        <div className="row info">
-          <div className="container">
-            <InfoTabs />
-          </div>
-        </div>
         <div className="row cards">
           <div className="container">
             { this.renderContentCards() }
