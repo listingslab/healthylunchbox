@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Modal from 'react-modal'
 import get from 'lodash.get'
 
@@ -10,7 +10,6 @@ export default class ModalWindow extends Component {
     const image = get(data, 'acf.food_image')
     const content = get(data, 'content.rendered')
     const currentItem = sessionStorage.getItem(group)
-
 
     return (
       <Modal isOpen={this.props.open} onRequestClose={this.props.close}>
@@ -24,4 +23,11 @@ export default class ModalWindow extends Component {
      </Modal>
     )
   }
+}
+
+ModalWindow.PropTypes = {
+    add: PropTypes.func.isRequired,
+    close: PropTypes.func.isRequired,
+    data: PropTypes.array.isRequired,
+    remove: PropTypes.func.isRequired,
 }
