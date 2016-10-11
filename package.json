@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js --history-api-fallback",
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
     "clean": "rimraf dist",
@@ -13,7 +13,7 @@
     "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^4.0.0-alpha.3",
+    "react-router": "^2.8.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
