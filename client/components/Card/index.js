@@ -12,7 +12,7 @@ export default class Card extends Component {
     const description = get(props, 'description.rendered')
     const image =  get(props, 'acf.contentcard_image')
     const label = get(props, 'acf.contentcard_label')
-    const link = '/information/' + get(props, 'acf.contentcard_link')
+    const link = '/pages/' + get(props, 'acf.contentcard_link')
 
     return (
       <div className="content-card">
