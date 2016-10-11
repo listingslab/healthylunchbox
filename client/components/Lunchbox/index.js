@@ -13,14 +13,7 @@ export default class Lunchbox extends Component {
       veges: sessionStorage.getItem('veges'),
       fruits: sessionStorage.getItem('fruits'),
       meatsandalternatives: sessionStorage.getItem('meatsandalternatives'),
-      dairy: sessionStorage.getItem('dairy'),
-      foods: {
-        breads: '',
-        dairy: '',
-        fruits: '',
-        vegies: '',
-        meatsandalternatives: ''
-      }
+      dairy: sessionStorage.getItem('dairy')
     }
   }
 
@@ -105,11 +98,11 @@ export default class Lunchbox extends Component {
               <h2>Breads & Cereals</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in lectus eu dui sollicitudin pellentesque. Morbi sed lacinia magna. Cras metus nisl, scelerisque eu aliquam quis, accumsan quis neque. Vestibulum et vestibulum eros. Etiam mollis enim eget velit tempus imperdiet. Maecenas ullamcorper risus et massa dictum, in imperdiet nunc luctus. Nam varius ac tellus feugiat egestas. Nulla ornare, elit et commodo suscipit, sapien lectus ornare massa, eu cursus lacus sapien in orci.</p>
             </div>
-            <div className="flex-grid">
+            <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
             {
               this.state.foods.breads && this.state.foods.breads.map(item => {
                 return (
-                  <div key={item.id} className="col col-xs-4">
+                  <div key={item.id} className="s-grid-cell">
                     <div key={item.id} onClick={this.openModal.bind(this, item)}>
                       <img src={item.acf.food_image} />
                       <h2>{item.title.rendered}</h2>
@@ -125,11 +118,11 @@ export default class Lunchbox extends Component {
                <h2>Veges & Salads</h2>
                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in lectus eu dui sollicitudin pellentesque. Morbi sed lacinia magna. Cras metus nisl, scelerisque eu aliquam quis, accumsan quis neque. Vestibulum et vestibulum eros. Etiam mollis enim eget velit tempus imperdiet. Maecenas ullamcorper risus et massa dictum, in imperdiet nunc luctus. Nam varius ac tellus feugiat egestas. Nulla ornare, elit et commodo suscipit, sapien lectus ornare massa, eu cursus lacus sapien in orci.</p>
              </div>
-             <div className="flex-grid">
+             <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
              {
                this.state.foods.vegies.map(item => {
                  return (
-                   <div key={item.id} className="col col-xs-4">
+                   <div key={item.id} className="s-grid-cell">
                      <div key={item.id} onClick={this.openModal.bind(this, item)}>
                        <img src={item.acf.food_image} />
                        <h2>{item.title.rendered}</h2>
@@ -145,11 +138,11 @@ export default class Lunchbox extends Component {
                <h2>Fruits</h2>
                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in lectus eu dui sollicitudin pellentesque. Morbi sed lacinia magna. Cras metus nisl, scelerisque eu aliquam quis, accumsan quis neque. Vestibulum et vestibulum eros. Etiam mollis enim eget velit tempus imperdiet. Maecenas ullamcorper risus et massa dictum, in imperdiet nunc luctus. Nam varius ac tellus feugiat egestas. Nulla ornare, elit et commodo suscipit, sapien lectus ornare massa, eu cursus lacus sapien in orci.</p>
              </div>
-             <div className="flex-grid">
+             <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
              {
                this.state.foods.fruits.map(item => {
                  return (
-                   <div key={item.id} className="col col-xs-4">
+                   <div key={item.id} className="s-grid-cell">
                      <div key={item.id} onClick={this.openModal.bind(this, item)}>
                        <img src={item.acf.food_image} />
                        <h2>{item.title.rendered}</h2>
@@ -161,11 +154,11 @@ export default class Lunchbox extends Component {
              </div>
            </TabPanel>
            <TabPanel>
-             <div className="flex-grid">
+             <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
              {
                this.state.foods.meatsandalternatives.map(item => {
                  return (
-                   <div key={item.id} className="col col-xs-4">
+                   <div key={item.id} className="s-grid-cell">
                      <div key={item.id} onClick={this.openModal.bind(this, item)}>
                        <img src={item.acf.food_image} />
                        <h2>{item.title.rendered}</h2>
@@ -177,11 +170,11 @@ export default class Lunchbox extends Component {
              </div>
            </TabPanel>
            <TabPanel>
-           <div className="flex-grid">
+           <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
            {
              this.state.foods.dairy.map(item => {
                return (
-                 <div key={item.id} className="col col-xs-4">
+                 <div key={item.id} className="s-grid-cell">
                    <div key={item.id} onClick={this.openModal.bind(this, item)}>
                      <img src={item.acf.food_image} />
                      <h2>{item.title.rendered}</h2>
@@ -196,6 +189,7 @@ export default class Lunchbox extends Component {
         </Tabs>
 
         { this.state.modalData && <ModalWindow open={this.state.open} data={this.state.modalData} close={this.hideModal.bind(this)} add={this.addToLunchbox.bind(this)} remove={this.removeFromLunchbox.bind(this)}  state={this.state}/> }
+
       </div>
     )
   }
