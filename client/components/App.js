@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Header'
-import { WP_POSTS, WP_PAGEs } from '../constants'
+import { WP_POSTS, WP_PAGES } from '../constants'
 import RequestManager from '../services/request-manager'
 
 export default class App extends Component {
