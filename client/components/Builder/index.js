@@ -8,6 +8,12 @@ import Lunchbox from '../Lunchbox'
 import ModalWindow from '../Modal'
 import FoodItem from '../FoodItem'
 
+import Breads from './icon_breads.svg'
+import Meats from './icon_meats.svg'
+import Dairy from './icon_dairy.svg'
+import Fruits from './icon_fruit.svg'
+import Vegies from './icon_veg.svg'
+
 export default class Builder extends Component {
   constructor() {
     super()
@@ -87,23 +93,24 @@ export default class Builder extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
+      <div className="row alt">
+          <Lunchbox
+            breads={this.state.breads}
+            vegies={this.state.vegies}
+            fruits={this.state.fruits}
+            meatsandalternatives={this.state.meatsandalternatives}
+            dairy={this.state.dairy} />
+      </div>
 
-        <Lunchbox
-          breads={this.state.breads}
-          vegies={this.state.vegies}
-          fruits={this.state.fruits}
-          meatsandalternatives={this.state.meatsandalternatives}
-          dairy={this.state.dairy} />
-
+      <div className="row">
         <Tabs>
            <TabList>
-            <Tab className={this.state.breads ? 'complete' : ''}><span>Breads & Cereals</span></Tab>
-            <Tab className={this.state.vegies ? 'complete' : ''}><span>Veges & Salads</span></Tab>
-            <Tab className={this.state.fruits ? 'complete' : ''}><span>Fruits</span></Tab>
-            <Tab className={this.state.meats ? 'complete' : ''}><span>Meats & Alternatives</span></Tab>
-            <Tab className={this.state.dairy ? 'complete' : ''}><span>Dairy</span></Tab>
-            <Tab className={this.state.water ? 'complete' : ''}><span>Water</span></Tab>
+            <Tab className={this.state.breads ? 'complete' : ''}><span><img src={Breads} /> Breads & Cereals</span></Tab>
+            <Tab className={this.state.vegies ? 'complete' : ''}><span><img src={Vegies} /> Veges & Salads</span></Tab>
+            <Tab className={this.state.fruits ? 'complete' : ''}><span><img src={Fruits} /> Fruits</span></Tab>
+            <Tab className={this.state.meats ? 'complete' : ''}><span><img src={Meats} /> Meats & Alternatives</span></Tab>
+            <Tab className={this.state.dairy ? 'complete' : ''}><span><img src={Dairy} /> Dairy</span></Tab>
            </TabList>
            <TabPanel>
             <div>
@@ -151,6 +158,10 @@ export default class Builder extends Component {
              </div>
            </TabPanel>
            <TabPanel>
+             <div>
+               <h2>Meats & Alternatives</h2>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in lectus eu dui sollicitudin pellentesque. Morbi sed lacinia magna. Cras metus nisl, scelerisque eu aliquam quis, accumsan quis neque. Vestibulum et vestibulum eros. Etiam mollis enim eget velit tempus imperdiet. Maecenas ullamcorper risus et massa dictum, in imperdiet nunc luctus. Nam varius ac tellus feugiat egestas. Nulla ornare, elit et commodo suscipit, sapien lectus ornare massa, eu cursus lacus sapien in orci.</p>
+             </div>
              <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
              {
                this.state.foods.meatsandalternatives.map(item => {
@@ -162,6 +173,10 @@ export default class Builder extends Component {
              </div>
            </TabPanel>
            <TabPanel>
+           <div>
+             <h2>Dairy</h2>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in lectus eu dui sollicitudin pellentesque. Morbi sed lacinia magna. Cras metus nisl, scelerisque eu aliquam quis, accumsan quis neque. Vestibulum et vestibulum eros. Etiam mollis enim eget velit tempus imperdiet. Maecenas ullamcorper risus et massa dictum, in imperdiet nunc luctus. Nam varius ac tellus feugiat egestas. Nulla ornare, elit et commodo suscipit, sapien lectus ornare massa, eu cursus lacus sapien in orci.</p>
+           </div>
            <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
            {
              this.state.foods.dairy.map(item => {
@@ -172,11 +187,11 @@ export default class Builder extends Component {
            }
            </div>
            </TabPanel>
-           <TabPanel>6</TabPanel>
         </Tabs>
 
         { this.state.modalData && <ModalWindow open={this.state.open} data={this.state.modalData} close={this.hideModal.bind(this)} add={this.addToLunchbox.bind(this)} remove={this.removeFromLunchbox.bind(this)}  state={this.state}/> }
 
+        </div>
       </div>
     )
   }
