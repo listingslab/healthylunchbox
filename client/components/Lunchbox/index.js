@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
 export default class Lunchbox extends Component {
-  constructor() {
-    super()
-  }
-
   render() {
     return (
       <div className="lunchbox">
