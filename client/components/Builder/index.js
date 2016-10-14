@@ -120,9 +120,7 @@ export default class Builder extends Component {
             <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
             {
               this.state.foods.breads && this.state.foods.breads.map(item => {
-                return (
-                  <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
-                )
+                return <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
               })
             }
             </div>
@@ -135,9 +133,7 @@ export default class Builder extends Component {
              <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
              {
               this.state.foods.vegies.map(item => {
-                 return (
-                    <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
-                 )
+                 return <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                })
              }
              </div>
@@ -150,9 +146,7 @@ export default class Builder extends Component {
              <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
              {
                this.state.foods.fruits.map(item => {
-                 return (
-                   <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
-                 )
+                 return <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                })
              }
              </div>
@@ -165,9 +159,7 @@ export default class Builder extends Component {
              <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
              {
                this.state.foods.meatsandalternatives.map(item => {
-                 return (
-                   <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
-                 )
+                 return <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                })
              }
              </div>
@@ -180,9 +172,7 @@ export default class Builder extends Component {
            <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4">
            {
              this.state.foods.dairy.map(item => {
-               return (
-                 <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
-               )
+               return <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
              })
            }
            </div>
