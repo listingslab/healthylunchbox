@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import ModalWindow from '../Modal'
-import FoodItem from '../FoodItem'
-
 import { WP_POSTS } from '../../constants'
 import RequestManager from '../../services/request-manager'
 
-export default class Lunchbox extends Component {
+import Lunchbox from '../Lunchbox'
+import ModalWindow from '../Modal'
+import FoodItem from '../FoodItem'
+
+export default class Builder extends Component {
   constructor() {
     super()
     this.state = {
@@ -87,13 +88,13 @@ export default class Lunchbox extends Component {
   render() {
     return (
       <div className="container">
-        <div className="lunchbox">
-          <img src={this.state.breads}/>
-          <img src={this.state.vegies}/>
-          <img src={this.state.fruits}/>
-          <img src={this.state.meatsandalternatives}/>
-          <img src={this.state.dairy}/>
-        </div>
+
+        <Lunchbox
+          breads={this.state.breads}
+          vegies={this.state.vegies}
+          fruits={this.state.fruits}
+          meatsandalternatives={this.state.meatsandalternatives}
+          dairy={this.state.dairy} />
 
         <Tabs>
            <TabList>
