@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 function makeRequest (url) {
 	return fetch(url)
 	.then(res => {
