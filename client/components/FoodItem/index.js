@@ -5,10 +5,10 @@ export default class FoodItem extends Component {
     const data = this.props.data
 
     return (
-      <div className="s-grid-cell">
+      <div className="s-grid-cell fooditem">
         <div key={data.id} onClick={this.props.onClick}>
           <img src={data.acf.food_image} />
-          <h2>{data.title.rendered}</h2>
+          <p>{data.title.rendered}</p>
         </div>
       </div>
     )
