@@ -43,11 +43,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <div className="row hero">
-          <div className="container">
-            <Hero />
-          </div>
-        </div>
+        <Hero />
         <div className="row cards">
           <div className="container">
             { this.renderContentCards() }
