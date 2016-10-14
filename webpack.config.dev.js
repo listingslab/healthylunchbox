@@ -30,7 +30,7 @@ module.exports = {
       loader: 'style-loader!css-loader!stylus-loader'
     },
     {
-      test: /\.(jpg|png)$/,
+      test: /\.(jpg|png|svg)$/,
       exclude: /node_modules/,
       loader: 'file',
     }
