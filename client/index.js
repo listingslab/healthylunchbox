@@ -1,16 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router'
-import fetch from 'isomorphic-fetch'
 
 import App from './components/App'
 import Home from './components/Home'
 import Page from './components/Page'
 import Builder from './components/Builder'
 import NotFound from './components/NotFound'
-
-import RequestManager from './services/request-manager'
-import { WP_PAGES, WP_POSTS } from './constants'
 
 import css from  './styles/style.styl';
 
