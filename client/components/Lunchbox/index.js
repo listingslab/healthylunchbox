@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ModalWindow from '../Modal'
+import FoodItem from '../FoodItem'
+
 import { WP_POSTS } from '../../constants'
 import RequestManager from '../../services/request-manager'
 
@@ -13,42 +15,51 @@ export default class Lunchbox extends Component {
       veges: sessionStorage.getItem('veges'),
       fruits: sessionStorage.getItem('fruits'),
       meatsandalternatives: sessionStorage.getItem('meatsandalternatives'),
-      dairy: sessionStorage.getItem('dairy')
+      dairy: sessionStorage.getItem('dairy'),
+      foods: {
+        breads: [],
+        vegies: [],
+        fruits: [],
+        meatsandalternatives: [],
+        dairy: []
+      }
     }
+  }
+
+  componentDidMount() {
+    const postData = sessionStorage.getItem('posts')
+
+    if(!postData) {
+      RequestManager.get(WP_POSTS).then(payload => {
+        sessionStorage.setItem('posts', JSON.stringify(payload))
+        this.filterPosts()
+      })
+    }
+
+    if(postData) {
+      this.filterPosts()
+    }
+
   }
 
   filterPosts() {
-    const postData = JSON.parse(sessionStorage.getItem('posts'))
-    const breads = postData.filter(post => post.acf.food_group === 'breads')
-    const vegies = postData.filter(post => post.acf.food_group === 'vegies')
-    const fruits = postData.filter(post => post.acf.food_group === 'fruits')
-    const dairy = postData.filter(post => post.acf.food_group === 'dairy')
-    const meatsandalternatives = postData.filter(post => post.acf.food_group === 'meatsandalternatives')
+      const postData = sessionStorage.getItem('posts')
+      const parsedData = JSON.parse(postData)
+      const breads = parsedData.filter(post => post.acf.food_group === 'breads')
+      const vegies = parsedData.filter(post => post.acf.food_group === 'vegies')
+      const fruits = parsedData.filter(post => post.acf.food_group === 'fruits')
+      const dairy = parsedData.filter(post => post.acf.food_group === 'dairy')
+      const meatsandalternatives = parsedData.filter(post => post.acf.food_group === 'meatsandalternatives')
 
-    this.state.foods = {
-      breads: breads,
-      vegies: vegies,
-      fruits: fruits,
-      dairy: dairy,
-      meatsandalternatives: meatsandalternatives
-    }
+      this.setState({foods: {
+        breads: breads,
+        vegies: vegies,
+        fruits: fruits,
+        dairy: dairy,
+        meatsandalternatives: meatsandalternatives
+      }})
   }
 
-  componentWillMount() {
-    const getPosts = sessionStorage.getItem('posts')
-
-    if(!getPosts) {
-      RequestManager.get(WP_POSTS).then(payload => {
-        sessionStorage.setItem('posts', JSON.stringify(payload))
-      })
-
-      this.filterPosts()
-    }
-
-    if(getPosts) {
-      this.filterPosts()
-    }
-  }
 
   openModal(item) {
     this.setState({open: true, modalData: [item]})
@@ -87,11 +98,11 @@ export default class Lunchbox extends Component {
         <Tabs>
            <TabList>
             <Tab className={this.state.breads ? 'complete' : ''}><span>Breads & Cereals</span></Tab>
-            <Tab><span className={this.state.vegies ? 'complete' : ''}>Veges & Salads</span></Tab>
-            <Tab><span className={this.state.fruits ? 'complete' : ''} >Fruits</span></Tab>
-            <Tab><span className={this.state.meats ? 'complete' : ''}>Meats & Alternatives</span></Tab>
-            <Tab><span className={this.state.dairy ? 'complete' : ''}>Dairy</span></Tab>
-            <Tab><span className={this.state.water ? 'complete' : ''}>Water</span></Tab>
+            <Tab className={this.state.vegies ? 'complete' : ''}><span>Veges & Salads</span></Tab>
+            <Tab className={this.state.fruits ? 'complete' : ''}><span>Fruits</span></Tab>
+            <Tab className={this.state.meats ? 'complete' : ''}><span>Meats & Alternatives</span></Tab>
+            <Tab className={this.state.dairy ? 'complete' : ''}><span>Dairy</span></Tab>
+            <Tab className={this.state.water ? 'complete' : ''}><span>Water</span></Tab>
            </TabList>
            <TabPanel>
             <div>
@@ -102,12 +113,7 @@ export default class Lunchbox extends Component {
             {
               this.state.foods.breads && this.state.foods.breads.map(item => {
                 return (
-                  <div key={item.id} className="s-grid-cell">
-                    <div key={item.id} onClick={this.openModal.bind(this, item)}>
-                      <img src={item.acf.food_image} />
-                      <h2>{item.title.rendered}</h2>
-                    </div>
-                  </div>
+                  <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                 )
               })
             }
@@ -120,14 +126,9 @@ export default class Lunchbox extends Component {
              </div>
              <div className="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
              {
-               this.state.foods.vegies.map(item => {
+              this.state.foods.vegies.map(item => {
                  return (
-                   <div key={item.id} className="s-grid-cell">
-                     <div key={item.id} onClick={this.openModal.bind(this, item)}>
-                       <img src={item.acf.food_image} />
-                       <h2>{item.title.rendered}</h2>
-                     </div>
-                   </div>
+                    <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                  )
                })
              }
@@ -142,12 +143,7 @@ export default class Lunchbox extends Component {
              {
                this.state.foods.fruits.map(item => {
                  return (
-                   <div key={item.id} className="s-grid-cell">
-                     <div key={item.id} onClick={this.openModal.bind(this, item)}>
-                       <img src={item.acf.food_image} />
-                       <h2>{item.title.rendered}</h2>
-                     </div>
-                   </div>
+                   <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                  )
                })
              }
@@ -158,12 +154,7 @@ export default class Lunchbox extends Component {
              {
                this.state.foods.meatsandalternatives.map(item => {
                  return (
-                   <div key={item.id} className="s-grid-cell">
-                     <div key={item.id} onClick={this.openModal.bind(this, item)}>
-                       <img src={item.acf.food_image} />
-                       <h2>{item.title.rendered}</h2>
-                     </div>
-                   </div>
+                   <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                  )
                })
              }
@@ -174,12 +165,7 @@ export default class Lunchbox extends Component {
            {
              this.state.foods.dairy.map(item => {
                return (
-                 <div key={item.id} className="s-grid-cell">
-                   <div key={item.id} onClick={this.openModal.bind(this, item)}>
-                     <img src={item.acf.food_image} />
-                     <h2>{item.title.rendered}</h2>
-                   </div>
-                 </div>
+                 <FoodItem key={item.id} data={item} onClick={this.openModal.bind(this, item)}/>
                )
              })
            }
