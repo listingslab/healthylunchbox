@@ -6,7 +6,7 @@ import fetch from 'isomorphic-fetch'
 import App from './components/App'
 import Home from './components/Home'
 import Page from './components/Page'
-import Lunchbox from './components/Lunchbox'
+import Builder from './components/Builder'
 import NotFound from './components/NotFound'
 
 import RequestManager from './services/request-manager'
@@ -19,7 +19,7 @@ const Routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Home}></IndexRoute>
       <Route path="/pages/:slug" component={Page}></Route>
-      <Route path="/create-lunch-box" component={Lunchbox}></Route>
+      <Route path="/create-lunch-box" component={Builder}></Route>
       <Route path="*" component={NotFound}></Route>
     </Route>
   </Router>
