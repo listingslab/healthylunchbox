@@ -14,7 +14,7 @@ import { WP_PAGES, WP_POSTS } from './constants'
 
 import css from  './styles/style.styl';
 
-const Root = (
+const Routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}></IndexRoute>
@@ -25,4 +25,4 @@ const Root = (
   </Router>
 )
 
-render(Root, document.querySelector('#app'));
+render(Routes, document.querySelector('#app'));
