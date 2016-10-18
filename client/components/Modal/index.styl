@@ -1,0 +1,59 @@
+.info
+  margin: auto
+  max-width: 600px
+  text-align: center
+
+  h2
+    set-font-size(22px)
+    line-height: remify(24px)
+    @media (min-width: 1024px)
+      set-font-size(29px)
+      margin-bottom: remify(20px)
+
+  img
+    display: block
+    margin: auto
+    max-width: 100%
+
+  .close
+    background: url(images/icon_close.svg) no-repeat
+    cursor: pointer
+    height: 40px
+    opacity: 0.75
+    position: absolute
+    right: 15px
+    top: 15px
+    width: 36px
+
+    &:hover, &:focus
+      opacity: 1
+
+    b
+      display: block
+      text-indent: -999em
+
+  button
+    border: none
+    border-radius: 4px
+    color: $white
+    cursor: pointer
+    set-font-size(24px)
+    font-family: 'Baloo', sans-serif
+    line-height: remify(28px)
+    margin-bottom: remify(25px)
+    padding: 10px 20px
+
+    @media (min-width: 1024px)
+      set-font-size(38px)
+      line-height: remify(42px)
+      padding: 10px 100px
+
+    &.pack
+      background: $blue
+      &:hover, &:focus
+        background: lightness($blue, 40%)
+
+    &.unpack
+      background: $orange
+      &:hover, &:focus
+        background: lightness($orange, 40%)
