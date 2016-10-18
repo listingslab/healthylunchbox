@@ -15,8 +15,9 @@ const Routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}></IndexRoute>
-      <Route path="/pages/:slug" component={Page}></Route>
-      <Route path="/create-lunch-box" component={Builder}></Route>
+      <Route path=":slug" component={Page}></Route>
+      <Route path="/create/lunchbox" component={Builder}></Route>
+      <Route path=":year/:month/:name" Component={App}></Route>
       <Route path="*" component={NotFound}></Route>
     </Route>
   </Router>
