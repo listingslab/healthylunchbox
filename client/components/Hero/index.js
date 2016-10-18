@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Link } from 'react-router'
-import { WP_HERO } from '../../constants'
-import RequestManager from '../../services/request-manager'
+import Wordpress from '../../services/wordpress'
 import get from 'lodash.get'
 
 export default class Hero extends Component {
@@ -14,20 +13,9 @@ export default class Hero extends Component {
   }
 
   componentWillMount() {
-    const getHero = sessionStorage.getItem('hero')
-
-    if(!getHero) {
-      RequestManager.get(WP_HERO).then(payload => {
-        sessionStorage.setItem('hero', JSON.stringify(payload[0]))
-        this.setState({hero: payload[0]})
-      })
-    }
-
-    if(getHero) {
-      const hero = JSON.parse(getHero)
-      this.setState({hero: hero})
-    }
-
+    Wordpress.getHero().then(hero => {
+      this.setState({ hero })
+    })
   }
 
   render() {
