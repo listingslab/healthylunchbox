@@ -1,11 +1,11 @@
 .row.cards
-  border-color: #fff
+  border-color: $white
   border-style: solid
   border-width: 1px 0 1px 0
 
 .content-card
   box-sizing: border-box
-  border-left: 1px solid #fff
+  border-left: 1px solid $white
   float: left
   padding: 50px 20px
   text-align: center
@@ -15,11 +15,11 @@
 
   h3
     color: #0698d6
-    font-size: 26px
-    margin-bottom: 15px
+    set-font-size(26px)
+    margin-bottom: remify(15px)
 
   a
-    background: #fff
+    background: $white
     border-radius: 3px
     color: #0698d6
     display: inline-block
@@ -28,7 +28,7 @@
     text-decoration: none
     &:hover,&:focus
       background: #0698d6
-      color: #fff
+      color: $white
 
   img
     margin-bottom: 15px

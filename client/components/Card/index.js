@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Link } from 'react-router'
-import fetch from 'isomorphic-fetch'
 import get from 'lodash.get'
 
 export default class Card extends Component {
@@ -12,7 +11,7 @@ export default class Card extends Component {
     const description = get(props, 'description.rendered')
     const image =  get(props, 'acf.contentcard_image')
     const label = get(props, 'acf.contentcard_label')
-    const link = '/pages/' + get(props, 'acf.contentcard_link')
+    const link = get(props, 'acf.contentcard_link')
 
     return (
       <div className="content-card">
