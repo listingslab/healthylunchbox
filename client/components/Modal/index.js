@@ -10,9 +10,25 @@ export default class ModalWindow extends Component {
     const image = get(data, 'acf.food_image')
     const content = get(data, 'content.rendered')
     const currentItem = sessionStorage.getItem(group)
+    const customStyle = {
+      content: {
+        position                   : 'absolute',
+        top                        : '10px',
+        left                       : '10px',
+        right                      : '10px',
+        bottom                     : '10px',
+        border                     : '1px solid #ccc',
+        background                 : '#fff',
+        overflow                   : 'auto',
+        WebkitOverflowScrolling    : 'touch',
+        borderRadius               : '4px',
+        outline                    : 'none',
+        padding                    : '20px'
+      }
+    }
 
     return (
-      <Modal isOpen={this.props.open} onRequestClose={this.props.close}>
+      <Modal isOpen={this.props.open} onRequestClose={this.props.close} style={customStyle}>
         <div className="info">
         <span className="close" onClick={this.props.close}><b>Close Modal</b></span>
          <img src={image} />

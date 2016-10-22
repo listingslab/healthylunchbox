@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="66px" height="69px" viewBox="0 0 66 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_veg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.885652948,33.0345288 C-0.132455429,27.0499491 3.86107405,21.1654256 9.82623163,20.0113416 C9.82623163,20.0113416 11.9279498,19.3030336 15.3024795,19.3030336 C18.6770091,19.3030336 20.8529356,20.0224843 20.8529356,20.0224843 C26.7923774,21.2242583 30.7142766,27.043717 29.6136292,33.0157988 L20.0614061,84.8458925 C19.5613127,87.5593855 16.9135646,89.7591062 14.154004,89.7591062 L15.5376516,89.7591062 C12.7751769,89.7591062 10.1598725,87.5496543 9.69758181,84.8322468 L0.885652948,33.0345288 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="29.0714989" height="70.4560726" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_veg" transform="translate(-8.000000, -7.000000)">
+            <g id="Group-8" transform="translate(43.719541, 40.191870) rotate(-40.000000) translate(-43.719541, -40.191870) translate(28.719541, -4.808130)">
+                <g id="Group-7" transform="translate(4.788977, -0.000000)"></g>
+                <g id="Group-14" transform="translate(-0.000000, 0.000000)" stroke="#979797">
+                    <use id="Rectangle-12" mask="url(#mask-2)" stroke-width="6" xlink:href="#path-1"></use>
+                    <path d="M3.28386974,39.3140861 C3.28386974,39.3140861 7.43032296,37.2959956 13.668664,37.2194257" id="Path-16" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M4.7889767,46.3272806 C4.7889767,46.3272806 9.74309054,43.7525217 16.7614185,44.5503343" id="Path-16-Copy" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M6.56773948,54.5310699 C6.56773948,54.5310699 10.1347014,52.6772435 15.1878975,53.2516686" id="Path-16-Copy-2" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M14.4199568,20.2681853 C14.4199568,20.2681853 13.4621615,13.5121235 19.6878312,5.79091008" id="Path-17" stroke-width="2"></path>
+                    <path d="M6.77969107,21.233337 C6.77969107,21.233337 5.42276959,11.3244464 14.2427592,9.9475983e-14" id="Path-17" stroke-width="2" transform="translate(10.473663, 10.616668) scale(-1, 1) translate(-10.473663, -10.616668) "></path>
+                    <path d="M4.81349627,21.233337 C4.81349627,21.233337 3.85570092,12.5469718 13.912552,11.5818202" id="Path-17" stroke-width="2" transform="translate(9.350764, 16.407579) scale(-1, 1) translate(-9.350764, -16.407579) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
