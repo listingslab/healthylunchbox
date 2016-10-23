@@ -7,8 +7,6 @@ export default class ParentPage extends Component {
     const title = get(data, 'title.rendered')
     const description = get(data, 'content.rendered')
     const link = this.props.parent + '/' + data.slug
-
-    console.log(data)
     return (
       <div className="s-grid-cell">
         <h3>{title}</h3>
