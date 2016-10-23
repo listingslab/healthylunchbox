@@ -11,7 +11,8 @@ export default class ParentPageContent extends Component {
 
   renderRelatedPages() {
     const pages = JSON.parse(sessionStorage.getItem('pages'))
-    const relatedPages = pages.filter(page  => get(page, 'acf.parent_page') == 'inspiration')
+    const relatedItem = this.props.data.slug
+    const relatedPages = pages.filter(page  => get(page, 'acf.parent_page') == relatedItem)
     return relatedPages.map(item => <RelatedPages key={item.id} title={item.title} content={item.excerpt} parent={get(item, 'acf.parent_page')} page={item.slug}/>)
   }
 
