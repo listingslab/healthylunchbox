@@ -22,9 +22,8 @@ const Routes = (
       <IndexRoute component={Home}></IndexRoute>
       <Route path="/create/lunchbox" component={Builder}></Route>
       <Route path=":slug" component={ParentPage}></Route>
-      <Route path="/:slug/:slug" component={ChildPage}>
-        <Route path="/:post" component={Home}></Route>
-      </Route>
+      <Route path="/:slug/:slug" component={ChildPage}></Route>
+      <Route path="/:slug/:slug/:post" component={PostPage}></Route>
       <Route path="*" component={NotFound}></Route>
     </Route>
   </Router>
