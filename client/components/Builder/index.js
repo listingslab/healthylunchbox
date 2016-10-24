@@ -124,7 +124,7 @@ export default class Builder extends Component {
             <Tab className={this.state.breads ? 'breads complete' : 'breads'}><span className="icon icon_breads"></span> <b>Breads & Cereals</b></Tab>
             <Tab className={this.state.vegies ? 'vegies complete' : 'vegies'}><span className="icon icon_vegies"></span> <b>Vegies & Salads</b></Tab>
             <Tab className={this.state.fruits ? 'fruits complete' : 'fruits'}><span className="icon icon_fruits"></span> <b> Fruits</b></Tab>
-            <Tab className={this.state.meats ? 'meats complete' : 'meats'}><span className="icon icon_meats"></span> <b>Meats & Alternatives</b></Tab>
+            <Tab className={this.state.meatsandalternatives ? 'meats complete' : 'meats'}><span className="icon icon_meats"></span> <b>Meats & Alternatives</b></Tab>
             <Tab className={this.state.dairy ? 'dairy complete' : 'dairy'}><span className="icon icon_dairy"></span> <b>Dairy</b></Tab>
            </TabList>
 
