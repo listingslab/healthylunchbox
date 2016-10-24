@@ -123,18 +123,23 @@
       set-font-size(12px)
       margin-bottom: 20px
       text-align: center
+      div
+        &.hidden
+          display: none
       p
         display: block
         margin-bottom: 10px
-        &.hidden
-          display: none
+
       h2
         set-font-size(24px)
         text-align: center
         @media (min-width: 768px)
           set-font-size(42px)
 
-      span
+      button
+        background: transparent
         color: $blue
         display: inline-block
+        font-family: sans-serif
+        font-weight: normal
         padding: 10px 25px

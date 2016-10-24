@@ -127,12 +127,15 @@ export default class Builder extends Component {
             <Tab className={this.state.meats ? 'meats complete' : 'meats'}><span className="icon icon_meats"></span> <b>Meats & Alternatives</b></Tab>
             <Tab className={this.state.dairy ? 'dairy complete' : 'dairy'}><span className="icon icon_dairy"></span> <b>Dairy</b></Tab>
            </TabList>
+
            <TabPanel>
             <div>
               <h2>Breads & Cereals</h2>
-              <p className={this.state.hidden.breads ? 'hidden' : ''}>Eating grain (cereal) foods, mostly wholegrain, can help protect us against heart disease Type 2 diabetes and excessive weight gain and may help reduce risk of some cancers. Wholemeal or wholegrain varieties are preferable because they provide more dietary fibre, vitamins and minerals than refined grain (cereal) foods.</p>
-
-              <span onClick={this.handleClick.bind(this, 'breads')}>{this.state.hidden.breads ? 'Read more about this food group' : 'Hide info about this food group'}</span>
+              <p>Packed with dietary fibre, vitamins and minerals, wholegrain breads and cereals boost health and fight disease.</p>
+              <div className={this.state.hidden.breads ? 'hidden' : ''}>
+                <p>These foods are rich in carbohydrate which is the bodies preferred source of energy – perfect for kids to play and learn all day.</p>
+              </div>
+              <button onClick={this.handleClick.bind(this, 'breads')}>{this.state.hidden.breads ? 'Read more about this food group' : 'Hide info about this food group'}</button>
             </div>
             <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
             {
@@ -142,11 +145,16 @@ export default class Builder extends Component {
             }
             </div>
            </TabPanel>
+
            <TabPanel>
              <div>
-               <h2>Veges & Salads</h2>
-               <p className={this.state.hidden.vegies ? 'hidden' : ''}>Eating enough fruit and vegetables is essential to achieving this because they are low in energy and high in fibre, so they help to fill you up without providing too many kilojoules. Fruit and veg also contain vital vitamins and minerals, meaning they are one of the most important features of a healthy diet.</p>
-               <span onClick={this.handleClick.bind(this, 'vegies')}>{this.state.hidden.vegies ? 'Read more about this food group' : 'Hide info about this food group'}</span>
+               <h2>Vegies & Salads</h2>
+               <p>Eating vegies and salads helps maintain a healthy weight and can help to prevent cancer.</p>
+               <div className={this.state.hidden.vegies ? 'hidden' : ''}>
+                <p>Vegetables and salads are low in energy and high in fibre, so they help fill you up without providing too many kilojoules. Plus they’re packed full of vital vitamins and minerals, perfect for growing bodies</p> <p>Vegetables are one of the most important features of a healthy diet, however only 6% of adults in NSW are eating enough vegetables and so it’s not surprising that children are not eating enough either. There are heaps of exciting ways to pack vegies and salads in the lunch box. In 13 years of school children eat more than 2,500 school lunches. That’s 2,500 opportunities to east vegetables!</p>
+              </div>
+
+               <button onClick={this.handleClick.bind(this, 'vegies')}>{this.state.hidden.vegies ? 'Read more about this food group' : 'Hide info about this food group'}</button>
              </div>
 
              <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
@@ -157,11 +165,17 @@ export default class Builder extends Component {
              }
              </div>
            </TabPanel>
+
            <TabPanel>
              <div>
                <h2>Fruits</h2>
-               <p className={this.state.hidden.fruits ? 'hidden' : ''}>Eating enough fruit and vegetables is essential to achieving this because they are low in energy and high in fibre, so they help to fill you up without providing too many kilojoules. Fruit and veg also contain vital vitamins and minerals, meaning they are one of the most important features of a healthy diet.</p>
-               <span onClick={this.handleClick.bind(this, 'fruits')}>{this.state.hidden.fruits ? 'Read more about this food group' : 'Hide info about this food group'}</span>
+               <p>Eating fruit helps maintain a healthy weight and can help to prevent cancer.</p>
+               <div className={this.state.hidden.fruits ? 'hidden' : ''}>
+                <p>Fruit is low in energy and high in fibre, so it helps fill you up without providing too many kilojoules. Plus they’re packed full of vital vitamins and minerals.</p>
+                <p>Make fruit a snack in the lunch box every day.</p>
+              </div>
+
+              <button onClick={this.handleClick.bind(this, 'fruits')}>{this.state.hidden.fruits ? 'Read more about this food group' : 'Hide info about this food group'}</button>
              </div>
              <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
              {
@@ -171,11 +185,19 @@ export default class Builder extends Component {
              }
              </div>
            </TabPanel>
+
            <TabPanel>
              <div>
                <h2>Meats & Alternatives</h2>
-               <p className={this.state.hidden.meatsandalternatives ? 'hidden' : ''}>Eating a variety of foods from the group containing lean meats and poultry, fish, eggs, nuts and seeds, and legumes/beans provides many nutrients, including protein, iron, zinc and other minerals and vitamins, particularly those of the vitamin B group. Vitamin B12 is found mainly in animal-based products. Alternatives to animal foods include nuts, seeds, legumes, beans and tofu. For all Australians, these foods increase dietary variety and can provide a valuable, affordable source of protein and other nutrients found in meats. Lean red meat is high in iron and can be an important food, especially for some groups including infants, children, women (particularly when pregnant) and athletes. However regular consumption of larger quantities of red meat may be associated with increased risk of colorectal cancer. Cancer Council recommends eating no more than 700g (raw weight) of red meat per week. Processed meats such as salami, bacon, and ham are not part of this food group. They are classified as discretionary choices because they are high in saturated fat and/or salt. Consuming processed meat may be associated with an increased risk of colorectal cancer. Cutting down on red and processed meats will reduce your cancer risk.</p>
-               <span onClick={this.handleClick.bind(this, 'meatsandalternatives')}>{this.state.hidden.meatsandalternatives ? 'Read more about this food group' : 'Hide info about this food group'}</span>
+               <p>Lean meats and poultry, fish, eggs, nuts, seeds, legumes, beans and tofu are rich in protein, iron, zinc and vitamin B12.</p>
+
+               <div className={this.state.hidden.meatsandalternatives ? 'hidden' : ''}>
+                <p>Lean red meat is high in iron and is an important part of a balanced diet, but eating large quantities of red meat regularly can increase risk of bowel cancer. Cancer Council recommends eating no more than 700g (raw weight) of red meat per week per person.</p>
+                <p>Processed meats such as salami, bacon, and ham are not part of this food group. They are classified as discretionary choices because they are high in saturated fat and/or salt. Eating processed meat can increase risk of bowel and stomach cancer.</p>
+                <p>Cut down on red meat and limit or avoid processed meats to reduce your cancer risk.</p>
+               </div>
+
+               <button onClick={this.handleClick.bind(this, 'meatsandalternatives')}>{this.state.hidden.meatsandalternatives ? 'Read more about this food group' : 'Hide info about this food group'}</button>
              </div>
              <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
              {
@@ -185,11 +207,20 @@ export default class Builder extends Component {
              }
              </div>
            </TabPanel>
+
            <TabPanel>
            <div>
              <h2>Dairy</h2>
-             <p className={this.state.hidden.dairy ? 'hidden' : ''}>Milk, yoghurt and cheese are rich sources of calcium and other minerals, protein, and vitamins, including B12. Consumption of milk, yoghurt and cheese can protect us against heart disease and stroke, can reduce our risk of high blood pressure and some cancers, may reduce our risk of Type 2 diabetes and may contribute to stronger bones. The Department of Health recommends that the best choices for most people over the age of 2, are the reduced fat varieties, to reduce saturated fat and kilojoule content in the diet. However, this is a personal preference and the most important thing is that children are having calcium rich foods. For those who prefer to avoid dairy products, choose alternative products that have added calcium, such as calcium-enriched soy or rice drinks.</p>
-             <span onClick={this.handleClick.bind(this, 'dairy')}>{this.state.hidden.dairy ? 'Read more about this food group' : 'Hide info about this food group'}</span>
+
+             <p>Milk, yoghurt and cheese create stronger bones and help protect against cancer and chronic disease.</p>
+
+             <div className={this.state.hidden.dairy ? 'hidden' : ''}>
+              <p>Dairy foods are rich sources of calcium and other minerals, protein, and vitamins including B12.</p>
+              <p>The Department of Health recommends reduced-fat varieties for people aged 2 or more, but it’s a personal preference - the most important thing is that children are having calcium rich foods.</p>
+              <p>If you choose to avoid dairy products, choose alternative products that have added calcium, such as calcium-enriched soy or rice drinks.</p>
+             </div>
+             
+             <button onClick={this.handleClick.bind(this, 'dairy')}>{this.state.hidden.dairy ? 'Read more about this food group' : 'Hide info about this food group'}</button>
            </div>
            <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
            {
