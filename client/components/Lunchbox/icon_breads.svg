@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>icon_breads copy</title>
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_breads</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icon_breads-copy" stroke="#999999" stroke-width="3">
+        <g id="icon_breads" stroke="#979797" stroke-width="3" fill="#FFFFFF">
             <path d="M31.2940426,34.8424933 C26.8021948,27.6897155 23.7288252,15.3472432 45.9516513,9.38659506 C68.1744774,3.42594692 70.7750209,14.8703914 70.7750209,21.3078914 C70.7750209,27.7453914 77.7702028,47.8029652 77.7702028,47.8029652 C78.4767267,49.8933733 77.3323933,52.0986146 75.2069946,52.7306708 L46.0115255,61.4128897 C43.8893808,62.0439782 41.6280964,60.8522501 40.9399096,58.7397498 C40.9399096,58.7397498 35.7858905,41.9952711 31.2940426,34.8424933 Z" id="Path-8-Copy" transform="translate(53.038464, 34.650326) rotate(30.000000) translate(-53.038464, -34.650326) "></path>
             <path d="M5.19608704,48.2856466 C0.704239214,41.1328688 -2.36913035,28.7903965 19.8536957,22.8297484 C42.0765218,16.8691002 44.6770653,28.3135447 44.6770653,34.7510447 C44.6770653,41.1885447 51.6722472,61.2461185 51.6722472,61.2461185 C52.3787711,63.3365266 51.2344378,65.5417678 49.109039,66.1738241 L19.9135699,74.856043 C17.7914252,75.4871315 15.5301409,74.2954034 14.841954,72.1829031 C14.841954,72.1829031 9.68793487,55.4384243 5.19608704,48.2856466 Z" id="Path-8"></path>
         </g>
