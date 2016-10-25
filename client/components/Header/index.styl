@@ -1,8 +1,9 @@
 header
-  background: $white
-  min-height: 63px
+  background: $cream
   overflow: hidden
-  padding: 10px 0
+
+  .container
+    max-width: 768px
 
   h1
     set-font-size(24px)
@@ -11,5 +12,22 @@ header
 
 
 .logo
+  display: block
+  float: left
+  margin: 15px 12px
+
+nav
   float: right
-  max-width: 120px
+  margin: 21px 40px
+
+  a
+    set-font-size(16px)
+    color: $grey
+    display: inline-block
+    font-family: 'Baloo', sans-serif
+    padding-left: 48px
+    text-decoration: none
+
+    &:first-child
+      color: $blue
+      padding-left: 0
