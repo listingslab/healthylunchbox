@@ -119,7 +119,7 @@ export default class Builder extends Component {
             dairy={this.state.dairy} />
 
             <div className="learn">
-              <p>Practice packing a healthy lunch box that contains all the nutrients your child needs! Browse the food items in each of the following food groups and click to “pack” them.</p>
+              <p>Practice packing a healthy lunch box with your child that contains all the nutrients they need! Browse the food items in each of the following food groups and click to “pack” them.</p>
             </div>
 
       </div>
