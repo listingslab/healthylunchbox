@@ -29,7 +29,6 @@ export default class Lunchbox extends Component {
         </div>
 
         <img src={water} className="bottle" />
-
       </div>
     )
   }
