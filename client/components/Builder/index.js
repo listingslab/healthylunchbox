@@ -10,6 +10,9 @@ import Lunchbox from '../Lunchbox'
 import ModalWindow from '../Modal'
 import FoodItem from '../FoodItem'
 
+import up from './chevron_up.png'
+import down from './chevron_down.png'
+
 export default class Builder extends Component {
   constructor() {
     super()
@@ -142,7 +145,7 @@ export default class Builder extends Component {
                 <h3>What is a serve?</h3>
                 <p>1 slice bread, 1/2 medium roll or flat bread, 1/2 cup cooked rice, pasta or noodles, 3 (35g) crispbreads.</p>
               </div>
-              <button onClick={this.handleClick.bind(this, 'breads')}>{this.state.hidden.breads ? 'Read more about this food group' : 'Hide info about this food group'}</button>
+              <button onClick={this.handleClick.bind(this, 'breads')}>{this.state.hidden.breads ? 'Read more about this food group' : 'Hide info about this food group'} {this.state.hidden.breads ? <img className="icon icon-chevron-down" src={down} /> : <img className="icon icon-chevron-up" src={up} />}</button>
             </div>
             <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
             {
@@ -163,7 +166,7 @@ export default class Builder extends Component {
                 <p>75g or 1/2 cup of cooked veg or legumes or 1/2 medium potato or 1 cup salad</p>
               </div>
 
-               <button onClick={this.handleClick.bind(this, 'vegies')}>{this.state.hidden.vegies ? 'Read more about this food group' : 'Hide info about this food group'}</button>
+               <button onClick={this.handleClick.bind(this, 'vegies')}>{this.state.hidden.vegies ? 'Read more about this food group' : 'Hide info about this food group'} {this.state.hidden.vegies ? <img className="icon icon-chevron-down" src={down} /> : <img className="icon icon-chevron-up" src={up} />}</button>
              </div>
 
              <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
@@ -188,7 +191,7 @@ export default class Builder extends Component {
                 <p>1 medium piece, 2 small pieces, or 1 cup chopped</p>
               </div>
 
-              <button onClick={this.handleClick.bind(this, 'fruits')}>{this.state.hidden.fruits ? 'Read more about this food group' : 'Hide info about this food group'}</button>
+              <button onClick={this.handleClick.bind(this, 'fruits')}>{this.state.hidden.fruits ? 'Read more about this food group' : 'Hide info about this food group'} {this.state.hidden.fruits ? <img className="icon icon-chevron-down" src={down} /> : <img className="icon icon-chevron-up" src={up} />}</button>
              </div>
              <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
              {
@@ -213,7 +216,7 @@ export default class Builder extends Component {
                 <p>65g cooked meat, 2 eggs, 1 small can of tuna, 30g nuts, or 1 cup of legumes</p>
                </div>
 
-               <button onClick={this.handleClick.bind(this, 'meatsandalternatives')}>{this.state.hidden.meatsandalternatives ? 'Read more about this food group' : 'Hide info about this food group'}</button>
+               <button onClick={this.handleClick.bind(this, 'meatsandalternatives')}>{this.state.hidden.meatsandalternatives ? 'Read more about this food group' : 'Hide info about this food group'} {this.state.hidden.meatsandalternatives ? <img className="icon icon-chevron-down" src={down} /> : <img className="icon icon-chevron-up" src={up} />}</button>
              </div>
              <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
              {
@@ -240,7 +243,7 @@ export default class Builder extends Component {
 
              </div>
 
-             <button onClick={this.handleClick.bind(this, 'dairy')}>{this.state.hidden.dairy ? 'Read more about this food group' : 'Hide info about this food group'}</button>
+             <button onClick={this.handleClick.bind(this, 'dairy')}>{this.state.hidden.dairy ? 'Read more about this food group' : 'Hide info about this food group'} {this.state.hidden.dairy ? <img className="icon icon-chevron-down" src={down} /> : <img className="icon icon-chevron-up" src={up} />}</button>
            </div>
            <div className="s-grid-top s-grid-xs-12 s-grid-sm-6 s-grid-md-4">
            {
