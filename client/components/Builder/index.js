@@ -115,6 +115,10 @@ export default class Builder extends Component {
             meatsandalternatives={this.state.meatsandalternatives}
             dairy={this.state.dairy} />
 
+            <div className="learn">
+              <p>Practice packing a healthy lunch box that contains all the nutrients your child needs! Browse the food items in each of the following food groups and click to “pack” them.</p>
+            </div>
+
       </div>
 
       <div className="row">
