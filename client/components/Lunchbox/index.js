@@ -4,6 +4,7 @@ import meats from './icon_meats.svg'
 import fruit from './icon_fruit.svg'
 import dairy from './icon_dairy.svg'
 import breads from './icon_breads.svg'
+import water from './builder_water@2x.png'
 
 export default class Lunchbox extends Component {
   render() {
@@ -26,6 +27,9 @@ export default class Lunchbox extends Component {
             <img src={this.props.dairy ? this.props.dairy : dairy}/>
           </div>
         </div>
+
+        <img src={water} className="bottle" />
+
       </div>
     )
   }
