@@ -18,11 +18,11 @@ export default () => {
     return (
       <header>
         <div className="container">
-          <Link className="logo" to="https://marvelapp.com/14c832e/screen/16163973">
+          <a className="logo" href="https://marvelapp.com/14c832e/screen/16163973">
             <img src={logo} alt="Cancer Council NSW Healthy Lunch Box" />
-          </Link>
+          </a>
           <nav>
-            <Link to="/">Lunch Box Builder</Link>
+            <Link to="/create/lunchbox">Lunch Box Builder</Link>
             {nav}
           </nav>
         </div>
