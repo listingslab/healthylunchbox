@@ -2,7 +2,7 @@
   "name": "healthly-lunch-box",
   "version": "0.1.0",
   "private": true,
-  "author": "Ustwo",
+  "author": "ustwo",
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js --history-api-fallback",
     "build": "npm run clean && npm run build:webpack",

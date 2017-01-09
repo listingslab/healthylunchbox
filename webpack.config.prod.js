@@ -30,7 +30,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        presets: ['es2015-native-modules','es2015', 'react'],
+        presets: ['es2015', 'react'],
       },
     },
     {
@@ -39,7 +39,7 @@ module.exports = {
       loader: 'style-loader!css-loader!stylus-loader'
     },
     {
-      test: /\.(jpg|png)$/,
+      test: /\.(jpg|png|svg)$/,
       exclude: /node_modules/,
       loader: 'file',
     }

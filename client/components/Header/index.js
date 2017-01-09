@@ -9,9 +9,10 @@ const navItems = {
 };
 
 const nav = [];
-
+let i = 0;
 for (var item in navItems) {
-  nav.push(<a href={navItems[item]}>{item}</a>)
+  i++;
+  nav.push(<a key={i} href={navItems[item]}>{item}</a>)
 }
 
 export default () => {
