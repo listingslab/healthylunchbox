@@ -1,30 +1,71 @@
 <?php
 
-// Register Custom Post Types
-add_action('init', 'register_custom_posts_init');
+// Register Content Types
+add_action('init', 'register_content_types');
 
-function register_custom_posts_init() {
+function register_content_types() {
 
-    // Register Fish
-    $recipe_labels = array(
-        'name'               => 'Recipie',
-        'singular_name'      => 'Recipe',
-        'menu_name'          => 'Recipes'
+    $capabilities = array(
+      'publish_posts' => 'publish_content',
+      'edit_posts' => 'edit_content',
+      'edit_others_posts' => 'edit_others_content',
+      'delete_posts' => 'delete_content',
+      'delete_others_posts' => 'delete_others_content',
+      'read_private_posts' => 'read_private_content',
+      'edit_post' => 'edit_content',
+      'delete_post' => 'delete_content',
+      'read_post' => 'read_content'
     );
+
+    $recipe_labels = array(
+        'name'              => 'Recipie',
+        'singular_name'     => 'Recipe',
+        'menu_name'         => 'Recipes',
+        'add_new'           => 'Add Recipe',
+        'edit'              => 'Edit Recipe',
+    );
+
     $recipe_args = array(
+        'label'              => 'Recipes',
         'labels'             => $recipe_labels,
+        'show_in_menu'       => true,
         'public'             => true,
-        'capability_type'    => 'post',
         'has_archive'        => true,
         'show_in_rest'       => true,
-        'supports'           => array( 'title', 'thumbnail' )
+        'supports'           => array( 'title', 'thumbnail' ),
     );
+
     register_post_type('recipe', $recipe_args);
 
+    flush_rewrite_rules(false);
+
+    add_role('content_manager', 'Content Manager', array (
+      'publish_content' => true,
+      'edit_content' => true,
+      'edit_others_content' => true,
+      'delete_content' => true,
+      'delete_others_content' => true,
+      'read_private_content' => true,
+      'edit_content' => true,
+      'delete_content' => true,
+      'read_content' => true,
+      'read' => true,
+   )
+ );
 }
 
+if( !current_user_can('activate_plugins') ) {
+  function mytheme_admin_bar_render() {
+      global $wp_admin_bar;
+      $wp_admin_bar->remove_menu('edit-profile', 'user-actions');
+  }
+  add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 
-function add_capabilities() { 
- $role = get_role('subscriber');
- $role->add_cap( 'read' );
+  function stop_access_profile() {
+      remove_menu_page( 'index.php' ); //dashboard
+      remove_menu_page( 'profile.php' );
+      remove_submenu_page( 'users.php', 'profile.php' );
+  }
+  add_action( 'admin_init', 'stop_access_profile' );
+
 }
