@@ -1,24 +1,30 @@
-<?php 
+<?php
 
 // Register Custom Post Types
 add_action('init', 'register_custom_posts_init');
 
 function register_custom_posts_init() {
-    	
+
     // Register Fish
-    $fish_labels = array(
-        'name'               => 'Fish',
-        'singular_name'      => 'Fish',
-        'menu_name'          => 'Fish'
+    $recipe_labels = array(
+        'name'               => 'Recipie',
+        'singular_name'      => 'Recipe',
+        'menu_name'          => 'Recipes'
     );
-    $fish_args = array(
-        'labels'             => $fish_labels,
+    $recipe_args = array(
+        'labels'             => $recipe_labels,
         'public'             => true,
         'capability_type'    => 'post',
         'has_archive'        => true,
         'show_in_rest'       => true,
         'supports'           => array( 'title', 'thumbnail' )
     );
-    register_post_type('fish', $fish_args);
+    register_post_type('recipe', $recipe_args);
 
+}
+
+
+function add_capabilities() { 
+ $role = get_role('subscriber');
+ $role->add_cap( 'read' );
 }
