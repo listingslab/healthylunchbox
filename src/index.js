@@ -1,9 +1,8 @@
 /**
- * Created by Chris D on 17/12/2016.
+ * Created by Chris Dorward on 17/12/2016.
  */
 
 import 'babel-polyfill';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

@@ -24,7 +24,7 @@ const autoprefixer = require('autoprefixer');
 // Constants
 const APP = path.join(__dirname, 'src');
 const BUILD = path.join(__dirname, 'build');
-const STYLE = path.join(__dirname, 'src/styles/style.css');
+const STYLE = path.join(__dirname, 'src/style.css');
 const IMAGES = path.join(__dirname, 'src/images');
 const HTML = path.join(__dirname, 'src/html/index.html');
 const NODE_MODULES = path.join(__dirname, 'node_modules');
