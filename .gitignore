@@ -3,13 +3,13 @@
 # dependencies
 node_modules
 
-# testing
+# Test, and Coverage output
 coverage
 
 # production
-dist
 
 # misc
+npm-debug.log
 .DS_Store
 .env
-npm-debug.log
+.eslintcache
