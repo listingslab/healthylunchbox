@@ -14,15 +14,10 @@ body {
     margin: 0;
     color: #3497d3;
 }
- a {
- 	color: #3497d3;
- 	text-decoration: none;
- }
- p {
- 	font-family: verdana;
-  font-size: 12px;
- 	text-align: center;
- }
+a {
+	color: #3497d3;
+	text-decoration: none;
+}
 .flex-container {
     height: 100%;
     padding: 0;
@@ -43,9 +38,5 @@ body {
     width: 20px;
     height: 20px;
     margin: 10px;
-    line-height: 20px;
-    color: white;
-    font-weight: bold;
-    font-size: 2em;
     text-align: center;
 }

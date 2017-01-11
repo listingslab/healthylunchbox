@@ -1,4 +1,4 @@
-# Dive
+# Healthy Lunch Box
 
 ## Stack Overview
 A complete Webpack, lint & Browsersync environment which enables fast in-editor pre-testing of our React app against lint rules and enables multi-device testing while we develop and compile our app. In addition a Mocha, Chai & Enzyme setup for BDD testing.

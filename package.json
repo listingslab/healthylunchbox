@@ -21,23 +21,28 @@
     "url": "git+https://github.com/ustwo/healthy-lunch-box"
   },
   "author": "ustwo <open.source@ustwo.com>",
-  "contributors": [{
-    "name": "Ryan Callaghan",
-    "email": "me@ryancallaghan.com.au",
-    "url": "http://ryancallaghan.com.au/"
-  },{
-  	"name": "Chris Dorward",
-  	"email": "listingslab@gmail.com",
-  	"url": "https://ustwo.com/"
-  },{
-  	"name": "Hannah Nicdao",
-  	"email": "hannah@ustwo.com",
-  	"url": "https://ustwo.com/"
-  }],
+  "contributors": [
+    {
+      "name": "Ryan Callaghan",
+      "email": "me@ryancallaghan.com.au",
+      "url": "http://ryancallaghan.com.au/"
+    },
+    {
+      "name": "Chris Dorward",
+      "email": "listingslab@gmail.com",
+      "url": "https://ustwo.com/"
+    },
+    {
+      "name": "Hannah Nicdao",
+      "email": "hannah@ustwo.com",
+      "url": "https://ustwo.com/"
+    }
+  ],
   "license": "UNLICENSED",
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
     "react-rnd": "^4.2.0",

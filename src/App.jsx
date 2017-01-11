@@ -5,8 +5,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import verge from 'verge';
-import Window from './components/Window/Window';
+// https://react-bootstrap.github.io/getting-started.html
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class App extends React.Component {
@@ -14,34 +13,19 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
     };
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateDimensions);
-    this.updateDimensions();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateDimensions);
-  }
-
-  updateDimensions() {
-    // https://www.npmjs.com/package/verge
-    this.setState(verge.viewport());
-  }
-
-  handleThumbClick(selectedImage) {
-    this.setState({
-      image: selectedImage
-    })
   }
 
   render() {
     return (
-      <div onClick={this.handleThumbClick.bind('dslfj')}>
-        Trigger Action
+      <div>
+        Healthy Lunch Box
       </div>
     );
   }
