@@ -8,3 +8,6 @@ build/
 
 # coverage reports
 coverage/
+
+# wordpress cms & api
+api/

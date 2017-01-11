@@ -1,7 +1,7 @@
 {
-  "name": "dive",
-  "version": "1.0.0",
-  "description": "Adelaide Dive Sites",
+  "name": "healthy-lunch-box",
+  "version": "2.0.0",
+  "description": "Cancer Council of NSW",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -18,14 +18,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/listingslab/dive.git"
+    "url": "git+https://github.com/ustwo/healthy-lunch-box"
   },
-  "author": {
-    "name": "Chris Dorward",
-    "email": "listingslab@gmail.com",
-    "url": "http://listingslab.com"
-  },
-  "license": "ISC",
+  "author": "ustwo <open.source@ustwo.com>",
+  "contributors": [{
+    "name": "Ryan Callaghan",
+    "email": "me@ryancallaghan.com.au",
+    "url": "http://ryancallaghan.com.au/"
+  },{
+  	"name": "Chris Dorward",
+  	"email": "listingslab@gmail.com",
+  	"url": "https://ustwo.com/"
+  },{
+  	"name": "Hannah Nicdao",
+  	"email": "hannah@ustwo.com",
+  	"url": "https://ustwo.com/"
+  }],
+  "license": "UNLICENSED",
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "react": "^15.4.1",
