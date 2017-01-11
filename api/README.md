@@ -1,3 +1,4 @@
 # WordPress CMS & API for Healthy Lunch Box
 
-## Instructions
+## Overview
+WordPress is being used purely as a Content Management System.

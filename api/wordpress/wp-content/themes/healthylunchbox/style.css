@@ -7,22 +7,20 @@ Description: A single-page WordPress theme powered by WP REST API.
 Version: 1.0
 */
 
-tml, body {
+html, body {
     height: 100%;
 }
 body {
     margin: 0;
-    background-color: #24698b;
-    color: white;
-
+    color: #3497d3;
 }
  a {
- 	color: white;
+ 	color: #3497d3;
  	text-decoration: none;
  }
  p {
  	font-family: verdana;
-    font-size: 12px;
+  font-size: 12px;
  	text-align: center;
  }
 .flex-container {

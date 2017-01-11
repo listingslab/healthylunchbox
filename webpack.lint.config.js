@@ -25,7 +25,7 @@ const autoprefixer = require('autoprefixer');
 const APP = path.join(__dirname, 'src');
 const BUILD = path.join(__dirname, 'build');
 const STYLE = path.join(__dirname, 'src/styles/style.css');
-const ASSETS = path.join(__dirname, 'src/assets');
+const IMAGES = path.join(__dirname, 'src/images');
 const HTML = path.join(__dirname, 'src/html/index.html');
 const NODE_MODULES = path.join(__dirname, 'node_modules');
 const HOST = process.env.HOST || 'localhost';
@@ -127,15 +127,33 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
-      { from: ASSETS, to: BUILD }
+      { from: IMAGES, to: BUILD + '/images' }
     ],
       {
         ignore: [
           // Doesn't copy mac storage system files
-          '.DS_Store'
+          '.DS_Store',
+          'favicon.ico',
+          'icons/code.txt',
+          'psd/*'
         ]
       }
     ),
+
+    new CopyWebpackPlugin([
+      { from: IMAGES, to: BUILD }
+    ],
+      {
+        ignore: [
+          // Doesn't copy mac storage system files
+          '.DS_Store',
+          'logo.png',
+          'icons/*',
+          'psd/*'
+        ]
+      }
+    ),
+
     new HtmlWebpackPlugin({
       template: HTML,
       // JS placed at the bottom of the body element
