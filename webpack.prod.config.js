@@ -22,9 +22,9 @@ const autoprefixer = require('autoprefixer');
 // Constants
 const APP = path.join(__dirname, 'src');
 const BUILD = path.join(__dirname, 'build');
-const STYLE = path.join(__dirname, 'src/style.css');
+const STYLE = path.join(__dirname, 'src/styles/style.scss');
 const IMAGES = path.join(__dirname, 'src/images');
-const HTML = path.join(__dirname, 'src/template.html');
+const HTML = path.join(__dirname, 'src/html/index.html');
 const NODE_MODULES = path.join(__dirname, 'node_modules');
 
 const PACKAGE = Object.keys(
@@ -60,6 +60,11 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', 'css!postcss'),
         include: [APP, NODE_MODULES]
       },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'postcss'],
+        include: [APP, NODE_MODULES]
+      },
       // Process JSON data fixtures
       {
         test: /\.json$/,
@@ -91,33 +96,16 @@ module.exports = {
     // Clean build directory
     new CleanPlugin([BUILD]),
     new CopyWebpackPlugin([
-      { from: IMAGES, to: BUILD + '/images' }
-    ],
-      {
-        ignore: [
-          // Doesn't copy mac storage system files
-          '.DS_Store',
-          'favicon.ico',
-          'icons/code.txt',
-          'psd/*'
-        ]
-      }
-    ),
-
-    new CopyWebpackPlugin([
       { from: IMAGES, to: BUILD }
     ],
       {
         ignore: [
           // Doesn't copy mac storage system files
           '.DS_Store',
-          'logo.png',
-          'icons/*',
           'psd/*'
         ]
       }
     ),
-
     new HtmlWebpackPlugin({
       template: HTML,
       // JS placed at the bottom of the body element

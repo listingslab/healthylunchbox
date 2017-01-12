@@ -1,29 +1,29 @@
 # Healthy Lunch Box
 
 ## Stack Overview
-A complete Webpack, lint & Browsersync environment which enables fast in-editor pre-testing of our React app against lint rules and enables multi-device testing while we develop and compile our app. In addition a Mocha, Chai & Enzyme setup for BDD testing.
 
-## NPM Scripts
+A React frontend designed to consume a WordPress REST-API backend service.
 
-### start
+This is a complete Webpack, lint & Browsersync development environment which enables fast in-editor pre-testing of our React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
+
+### NPM Scripts
+
+#### npm start
 Runs webpack-dev-server with hot reload
 
-### build
+#### npm run build
 Creates production ready application into /build folder
 
-### lint
+#### npm run sync
 Runs the browsersync linting process
 
-### elint
-Runs the linting process
+#### npm run elint
+Run & Summarise the linting process
 
-### elintsummary
-Summarise the linting process
+#### npm run slint
+Run the style lint process
 
-### elinttable
-Summarise the linting process as a nice, easy to read table
-
-### profile
+#### npm run profile
 Profiles the webpack distribution bundle for analysis
 
 #### More Info

@@ -1,12 +1,13 @@
 /**
- * Created by Chris Dorward on 17/12/2016.
+ * Created by Chris Dorward on 12/1/2017.
  */
 
 import 'babel-polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import reducer from './reducers';
 import { App } from './App';
 

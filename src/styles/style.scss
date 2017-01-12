@@ -1,0 +1,14 @@
+/**
+ * Created by Chris D on 17/12/2016.
+ */
+
+@import 'variables.scss';
+
+html, body, #app {
+  min-height: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $hlb-heading-font;
+}

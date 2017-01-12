@@ -24,15 +24,15 @@ const autoprefixer = require('autoprefixer');
 // Constants
 const APP = path.join(__dirname, 'src');
 const BUILD = path.join(__dirname, 'build');
-const STYLE = path.join(__dirname, 'src/style.css');
+const STYLE = path.join(__dirname, 'src/styles/style.scss');
 const IMAGES = path.join(__dirname, 'src/images');
-const HTML = path.join(__dirname, 'src/template.html');
+const HTML = path.join(__dirname, 'src/html/index.html');
 const NODE_MODULES = path.join(__dirname, 'node_modules');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
 const PROXY = `http://${HOST}:${PORT}`;
 const LINT = path.join(__dirname, '.eslintrc.js');
-const STYLELINT = ['./src/styles/**/*.css', './src/styles.css'];
+const STYLELINT = ['./src/styles/**/*.scss', './src/**/**/*.scss'];
 
 module.exports = {
   // Paths and extensions
@@ -67,6 +67,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        loaders: ['style', 'css', 'postcss'],
+        include: [APP, NODE_MODULES]
+      },
+      {
+        test: /\.scss$/,
         loaders: ['style', 'css', 'postcss'],
         include: [APP, NODE_MODULES]
       },
@@ -127,33 +132,15 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
-      { from: IMAGES, to: BUILD + '/images' }
-    ],
-      {
-        ignore: [
-          // Doesn't copy mac storage system files
-          '.DS_Store',
-          'favicon.ico',
-          'icons/code.txt',
-          'psd/*'
-        ]
-      }
-    ),
-
-    new CopyWebpackPlugin([
       { from: IMAGES, to: BUILD }
     ],
       {
         ignore: [
           // Doesn't copy mac storage system files
-          '.DS_Store',
-          'logo.png',
-          'icons/*',
-          'psd/*'
+          '.DS_Store'
         ]
       }
     ),
-
     new HtmlWebpackPlugin({
       template: HTML,
       // JS placed at the bottom of the body element
