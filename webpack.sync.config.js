@@ -79,6 +79,10 @@ module.exports = {
         test: /\.json$/,
         loaders: ['json'],
         include: [APP, NODE_MODULES]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|ico|otf)$/,
+        loaders: ['file-loader']
       }
     ]
   },

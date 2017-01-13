@@ -1,0 +1,22 @@
+{
+  "name": "hlb_theme",
+  "description": "Custom WordPress functionality for the Cancer Council's Healthy Lunch Box Project.",
+  "main": "index.php",
+  "authors": [
+    "Chris Dorward <listingslab@gmails.com>",
+    "Hannah Nicdao <hannah@ustwo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ustwo/healthy-lunch-box",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
