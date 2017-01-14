@@ -1,4 +1,4 @@
-function _get_url_vars() {
+function get_url_vars() {
 	try {
 	    var vars = {};
 	    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -9,7 +9,7 @@ function _get_url_vars() {
 		concole.log ( '_get_url_vars\n\n'+err);
 	}
 }
-function _get_this_url (){
+function get_this_url (){
 	try {
 		this_url = window.location.href;
 		return this_url;

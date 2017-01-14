@@ -7,15 +7,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Healthy Lunch Box CMS</a>
+          <a class="navbar-brand" href="/">Healthy Lunch Box API</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/wp-admin/" target="_blank">WP Admin</a></li>
+            <li><a href="/wp-admin/" target="_blank">CMS</a></li>
           </ul>
+          <!--
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          </form>-->
         </div>
       </div>
     </nav>

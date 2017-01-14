@@ -1,19 +1,27 @@
 <?php
-
   /**
-   * Register the /wp-json/hlb-api/routes
+   * Register routes for  /wp-json/hlb-api/
    */
-
   add_action( 'rest_api_init', 'hlbapi_register_routes' );
   function hlbapi_register_routes() {
+    register_rest_route( 'hlbapi', '/hello', array(
+  		'methods'  => WP_REST_Server::READABLE,
+  		'callback' => 'hlbapi_hello',
+  	) );
+    register_rest_route( 'hlbapi', '/categories_tags', array(
+  		'methods'  => WP_REST_Server::READABLE,
+  		'callback' => 'hlbapi_categories_tags',
+  	) );
   	register_rest_route( 'hlbapi', '/recipies', array(
   		'methods'  => WP_REST_Server::READABLE,
   		'callback' => 'hlbapi_recipies',
   	) );
-    register_rest_route( 'hlbapi', '/recipie/(?P<id>\d+)', array(
+    register_rest_route( 'hlbapi', '/recipe/(?P<id>\d+)', array(
   		'methods'  => WP_REST_Server::READABLE,
-  		'callback' => 'hlbapi_recipie',
+  		'callback' => 'hlbapi_recipe',
   	) );
   }
-
-  include 'hlbapi_recipies.php';
+  include 'categories_tags.php';
+  include 'hello.php';
+  include 'recipe.php';
+  include 'recipies.php';

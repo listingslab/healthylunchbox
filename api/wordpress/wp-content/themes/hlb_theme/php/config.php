@@ -6,7 +6,9 @@
   // print_r ('<pre>');
   if (is_home() != 1){
     if (get_the_ID()){
-      wp_redirect (home_url() . '/wp-json/wp/v2/' . get_post_type() . 's/' . get_the_ID());
+
+
+      wp_redirect (home_url() . '?route=' . get_post_type() . '/' . get_the_ID());
     }
   }
   // print_r ('</pre>');
