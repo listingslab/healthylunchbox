@@ -10,11 +10,11 @@
 
 	function hide_permalink() {
     return '';
-}
-add_filter( 'get_sample_permalink_html', 'hide_permalink' );
+	}
+	add_filter( 'get_sample_permalink_html', 'hide_permalink' );
 
 
-	// remove the old box
+// remove the old box
 function remove_default_categories_box() {
     remove_meta_box('categorydiv', 'recipe', 'side');
 }

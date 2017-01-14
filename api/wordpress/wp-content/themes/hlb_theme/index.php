@@ -12,6 +12,7 @@
     <link href="<?php print get_template_directory_uri() . '/libs/bootstrap/dist/css/bootstrap.min.css'; ?>" rel="stylesheet">
     <link href="<?php print get_template_directory_uri() . '/css/dashboard.css'; ?>" rel="stylesheet">
     <link href="<?php print get_template_directory_uri() . '/style.css'; ?>" rel="stylesheet">
+
   </head>
 
   <body>
@@ -28,5 +29,8 @@
 
     <script src="<?php print get_template_directory_uri() . '/libs/jquery/dist/jquery.min.js'; ?>"></script>
     <script src="<?php print get_template_directory_uri() . '/libs/bootstrap/dist/js/bootstrap.min.js'; ?>"></script>
+    <script src="<?php print get_template_directory_uri() . '/js/functions.js'; ?>"></script>
+    <script src="<?php print get_template_directory_uri() . '/js/api.js'; ?>"></script>
+    <script src="<?php print get_template_directory_uri() . '/js/main.js'; ?>"></script>
   </body>
 </html>

@@ -70,5 +70,3 @@ if( !current_user_can('activate_plugins') ) {
   }
   add_action( 'admin_init', 'stop_access_profile' );
 }
-
-?>
