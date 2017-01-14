@@ -1,5 +1,7 @@
 <?php
 
+// http://www.wpbeginner.com/wp-tutorials/how-to-add-categories-to-a-custom-post-type-in-wordpress/
+
 // Register Content Types
 add_action('init', 'register_content_types');
 
@@ -33,6 +35,7 @@ function register_content_types() {
         'has_archive'        => true,
         'show_in_rest'       => true,
         'supports'           => array( 'title', 'thumbnail' ),
+        'taxonomies'		      => array('post_tag', 'category' )
     );
 
     register_post_type('recipe', $recipe_args);
