@@ -1,13 +1,12 @@
 {
   "name": "healthy-lunch-box",
   "version": "2.0.0",
-  "description": "Cancer Council of NSW",
+  "description": "Healthy Lunch Box by Cancer Council of NSW",
   "main": "index.js",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --inline",
     "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
-    "sync": "NODE_ENV=sync webpack-dev-server --config webpack.sync.config.js",
     "elint": "eslint . --ext .js --ext .jsx --cache --fix || true",
     "slint": "stylelint ./src/**/**/*.scss ./src/**/*.scss --syntax scss || true",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json"

@@ -37,7 +37,7 @@ export default class Explore extends Component {
   render() {
     return (
       <div>
-        <p>Type a username or repo full name and hit Go:</p>
+        <p>Type a username or repo full name and then hit Go:</p>
         <input size="45"
           // eslint-disable-next-line react/no-string-refs
           ref="input"
