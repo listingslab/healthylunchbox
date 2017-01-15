@@ -45,6 +45,15 @@ class App extends Component {
     const { children, inputValue } = this.props;
     return (
       <div>
+
+      </div>
+    );
+  }
+
+  render_bak() {
+    const { children, inputValue } = this.props;
+    return (
+      <div>
         <Explore value={inputValue}
           onChange={this.handleChange} />
         <hr />
