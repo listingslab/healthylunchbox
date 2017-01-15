@@ -8,7 +8,7 @@
     "start": "NODE_ENV=development webpack-dev-server --inline",
     "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
     "sync": "NODE_ENV=sync webpack-dev-server --config webpack.sync.config.js",
-    "elint": "eslint . --ext .js --ext .jsx --cache || true",
+    "elint": "eslint . --ext .js --ext .jsx --cache --fix || true",
     "slint": "stylelint ./src/**/**/*.scss ./src/**/*.scss --syntax scss || true",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json"
   },
@@ -38,12 +38,21 @@
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "bootstrap": "^3.3.7",
+    "humps": "^2.0.0",
+    "lodash": "^4.17.4",
+    "normalizr": "^3.1.0",
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
-    "react-rnd": "^4.2.0",
-    "redux": "^3.6.0"
+    "react-router": "^2.6.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.6.0",
+    "redux-devtools": "^3.3.2",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.2.0",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",

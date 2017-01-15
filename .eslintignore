@@ -6,8 +6,5 @@ app/public/js/*.js
 # ignore build files
 build/
 
-# coverage reports
-coverage/
-
 # wordpress cms & api
 api/
