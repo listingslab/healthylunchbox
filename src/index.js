@@ -1,3 +1,9 @@
+/**
+ * Created by Chris Dorward on 15/01/2017
+ * Application entrypoint
+ */
+// eslint-disable-next-line no-unused-vars
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { browserHistory } from 'react-router';
