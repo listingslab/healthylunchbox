@@ -1,8 +1,3 @@
-/**
- * Created by Chris Dorward on 16/01/2017
- * container/App
- */
-
 import React, { Component, PropTypes } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -11,6 +6,10 @@ import Header from '../components/Header';
 
 class App extends Component {
   static propTypes = {
+    // Injected by React Redux
+    errorMessage: PropTypes.string,
+    resetErrorMessage: PropTypes.func.isRequired,
+    // Injected by React Router
     children: PropTypes.node
   }
 
@@ -47,4 +46,6 @@ const mapStateToProps = (state, ownProps) => ({
   inputValue: ownProps.location.pathname.substring(1)
 });
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {
+
+})(App);
