@@ -1,4 +1,3 @@
-<?php
  /**
   * Created by Chris Dorward on 14/01/2017
   * Calls the api with the route
