@@ -1,20 +1,30 @@
 /**
- * Created by Chris Dorward on 15/01/2017
+ * Created by Chris Dorward on 16/01/2017
  * Application entrypoint
  */
-// eslint-disable-next-line no-unused-vars
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
+
 import React from 'react';
 import { render } from 'react-dom';
-import { browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import Root from './containers/Root';
-import configureStore from './store/configureStore';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
+import reducer from './reducers';
+import App from './containers/App';
 
-const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store);
+const middleware = [thunk];
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
+}
+
+const store = createStore(
+  reducer,
+  applyMiddleware(...middleware)
+);
 
 render(
-  <Root store={store} history={history} />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

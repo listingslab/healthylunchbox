@@ -16,12 +16,14 @@ module.exports = {
   },
   "rules": {
     "strict": 0,
+    "react/forbid-prop-types": 0,
     "react/jsx-indent": 0,
     "react/jsx-first-prop-new-line": 0,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-no-bind": 0,
     "react/jsx-filename-extension": 0,
     "object-property-newline": 0,
+    "no-nested-ternary": 0,
     "no-console": 0,
     "no-prototype-builtins": 0,
     "comma-dangle": [

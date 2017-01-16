@@ -1,64 +1,96 @@
+/**
+ * Created by Chris Dorward on 16/01/2017
+ * App
+ */
+
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
-import Header from '../components/Header';
-import { resetErrorMessage } from '../actions';
+import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions';
+import Picker from '../components/Picker';
+import Posts from '../components/Posts';
 
 class App extends Component {
   static propTypes = {
-    // Injected by React Redux
-    errorMessage: PropTypes.string,
-    resetErrorMessage: PropTypes.func.isRequired,
-    // Injected by React Router
-    children: PropTypes.node
+    selectedReddit: PropTypes.string.isRequired,
+    posts: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    lastUpdated: PropTypes.number,
+    dispatch: PropTypes.func.isRequired
   }
 
-  handleDismissClick = (e) => {
-    this.props.resetErrorMessage();
-    e.preventDefault();
+  componentDidMount() {
+    const { dispatch, selectedReddit } = this.props;
+    dispatch(fetchPostsIfNeeded(selectedReddit));
   }
 
-  handleChange = (nextValue) => {
-    browserHistory.push(`/${nextValue}`);
-  }
-
-  renderErrorMessage() {
-    const { errorMessage } = this.props;
-    if (!errorMessage) {
-      return null;
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedReddit !== this.props.selectedReddit) {
+      const { dispatch, selectedReddit } = nextProps;
+      dispatch(fetchPostsIfNeeded(selectedReddit));
     }
+  }
 
-    return (
-      <p style={{ backgroundColor: '#e99', padding: 10 }}>
-        <b>{errorMessage}</b>
-        {' '}
-        (<button href="#"
-          onClick={this.handleDismissClick}>
-          Dismiss
-        </button>)
-      </p>
-    );
+  handleChange = (nextReddit) => {
+    this.props.dispatch(selectReddit(nextReddit));
+  }
+
+  handleRefreshClick = (e) => {
+    e.preventDefault();
+    const { dispatch, selectedReddit } = this.props;
+    dispatch(invalidateReddit(selectedReddit));
+    dispatch(fetchPostsIfNeeded(selectedReddit));
   }
 
   render() {
-    const { children } = this.props;
+    const { selectedReddit, posts, isFetching, lastUpdated } = this.props;
+    const isEmpty = posts.length === 0;
     return (
       <div>
-        <Header />
-        <div className="container">
-          {this.renderErrorMessage()}
-          {children}
-        </div>
+        <Picker value={selectedReddit}
+          onChange={this.handleChange}
+          options={['reactjs', 'frontend']} />
+        <p>
+          {lastUpdated &&
+            <span>
+              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+              {' '}
+            </span>
+          }
+          {!isFetching &&
+            <button href="#"
+              onClick={this.handleRefreshClick}>
+              Refresh
+            </button>
+          }
+        </p>
+        {isEmpty
+          ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
+          : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+              <Posts posts={posts} />
+            </div>
+        }
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  errorMessage: state.errorMessage,
-  inputValue: ownProps.location.pathname.substring(1)
-});
+const mapStateToProps = (state) => {
+  const { selectedReddit, postsByReddit } = state;
+  const {
+    isFetching,
+    lastUpdated,
+    items: posts
+  } = postsByReddit[selectedReddit] || {
+    isFetching: true,
+    items: []
+  };
 
-export default connect(mapStateToProps, {
-  resetErrorMessage
-})(App);
+  return {
+    selectedReddit,
+    posts,
+    isFetching,
+    lastUpdated
+  };
+};
+
+export default connect(mapStateToProps)(App);

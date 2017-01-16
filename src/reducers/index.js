@@ -1,61 +1,70 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * Reducer
+ * Redux Reducers
  */
-import { routerReducer as routing } from 'react-router-redux';
+
 import { combineReducers } from 'redux';
-import merge from 'lodash/merge';
-import * as ActionTypes from '../actions';
-import paginate from './paginate';
+import {
+  SELECT_REDDIT, INVALIDATE_REDDIT,
+  REQUEST_POSTS, RECEIVE_POSTS
+} from '../actions';
 
-
-// Updates an entity cache in response to any action with response.entities.
-const entities = (state = { users: {}, repos: {} }, action) => {
-  if (action.response && action.response.entities) {
-    return merge({}, state, action.response.entities);
+const selectedReddit = (state = 'reactjs', action) => {
+  switch (action.type) {
+  case SELECT_REDDIT:
+    return action.reddit;
+  default:
+    return state;
   }
-
-  return state;
 };
 
-// Updates error message to notify about the failed fetches.
-const errorMessage = (state = null, action) => {
-  const { type, error } = action;
-
-  if (type === ActionTypes.RESET_ERROR_MESSAGE) {
-    return null;
-  } else if (error) {
-    return action.error;
+const posts = (state = {
+  isFetching: false,
+  didInvalidate: false,
+  items: []
+}, action) => {
+  switch (action.type) {
+  case INVALIDATE_REDDIT:
+    return {
+      ...state,
+      didInvalidate: true
+    };
+  case REQUEST_POSTS:
+    return {
+      ...state,
+      isFetching: true,
+      didInvalidate: false
+    };
+  case RECEIVE_POSTS:
+    return {
+      ...state,
+      isFetching: false,
+      didInvalidate: false,
+      items: action.posts,
+      lastUpdated: action.receivedAt
+    };
+  default:
+    return state;
   }
-
-  return state;
 };
 
-// Updates the pagination data for different actions.
-const pagination = combineReducers({
-  starredByUser: paginate({
-    mapActionToKey: action => action.login,
-    types: [
-      ActionTypes.STARRED_REQUEST,
-      ActionTypes.STARRED_SUCCESS,
-      ActionTypes.STARRED_FAILURE
-    ]
-  }),
-  stargazersByRepo: paginate({
-    mapActionToKey: action => action.fullName,
-    types: [
-      ActionTypes.STARGAZERS_REQUEST,
-      ActionTypes.STARGAZERS_SUCCESS,
-      ActionTypes.STARGAZERS_FAILURE
-    ]
-  })
-});
+const postsByReddit = (state = { }, action) => {
+  switch (action.type) {
+  case INVALIDATE_REDDIT:
+  case RECEIVE_POSTS:
+  case REQUEST_POSTS:
+    return {
+      ...state,
+      [action.reddit]: posts(state[action.reddit], action)
+    };
+  default:
+    return state;
+  }
+};
 
 const rootReducer = combineReducers({
-  entities,
-  pagination,
-  errorMessage,
-  routing
+  postsByReddit,
+  selectedReddit
 });
 
 export default rootReducer;
