@@ -1,7 +1,5 @@
 <?php
 
-// http://www.wpbeginner.com/wp-tutorials/how-to-add-categories-to-a-custom-post-type-in-wordpress/
-
 // Register Content Types
 add_action('init', 'register_content_types');
 
@@ -40,33 +38,4 @@ function register_content_types() {
 
     register_post_type('recipe', $recipe_args);
 
-    flush_rewrite_rules(false);
-
-    add_role('content_manager', 'Content Manager', array (
-      'publish_content' => true,
-      'edit_content' => true,
-      'edit_others_content' => true,
-      'delete_content' => true,
-      'delete_others_content' => true,
-      'read_private_content' => true,
-      'edit_content' => true,
-      'delete_content' => true,
-      'read_content' => true,
-      'read' => true,
-   )
- );
-}
-
-if( !current_user_can('activate_plugins') ) {
-  function mytheme_admin_bar_render() {
-      global $wp_admin_bar;
-      $wp_admin_bar->remove_menu('edit-profile', 'user-actions');
-  }
-  add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
-  function stop_access_profile() {
-      remove_menu_page( 'index.php' ); //dashboard
-      remove_menu_page( 'profile.php' );
-      remove_submenu_page( 'users.php', 'profile.php' );
-  }
-  add_action( 'admin_init', 'stop_access_profile' );
 }

@@ -136,9 +136,13 @@ module.exports = {
       compress: {
         warnings: false
       }
-    })
+    }),
     // Error: vendor.450f275….js:16 Uncaught TypeError: Cannot read property 'shape' of undefined
     // Error: manifest.798b47f….js:1 Uncaught TypeError: Cannot read property 'call' of undefined
     // new webpack.optimize.OccurrenceOrderPlugin()
+
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    })
   ]
 };

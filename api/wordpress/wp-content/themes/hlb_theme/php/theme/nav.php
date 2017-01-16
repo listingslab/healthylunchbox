@@ -13,7 +13,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 
-            <li><a href="http://localhost:8080/">Frontend</a></li>
+
             <li><a href="/wp-admin/">WordPress CMS</a></li>
 
             <li class="dropdown">
@@ -23,6 +23,8 @@
                 <li><a href="/wp-admin/edit-tags.php?taxonomy=category">Category</a></li>
               </ul>
             </li>
+
+            <li><a href="http://localhost:8080/">Frontend</a></li>
 
           </ul>
           <!--

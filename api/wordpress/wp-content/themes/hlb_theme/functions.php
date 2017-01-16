@@ -3,28 +3,30 @@
 	add_theme_support( 'recipe-thumbnails' );
 
 	// Register the content types
-	include 'php/content_types/register_content_types.php';
+	include 'php/functions/content_types/register_content_types.php';
 
 	// Register the /wp-json/hlb-api/routes
-	include 'php/rest_routes/register_routes.php';
+	include 'php/functions/rest_routes/register_routes.php';
 
-	function hide_permalink() {
-    return '';
+	// Register the /wp-json/hlb-api/routes
+	include 'php/functions/hide_permalink.php';
+
+	// Clean up the editor screen
+	// include 'php/.php';
+
+
+
+	// remove the old box
+	function remove_default_categories_box() {
+	    remove_meta_box('categorydiv', 'recipe', 'side');
 	}
-	add_filter( 'get_sample_permalink_html', 'hide_permalink' );
+	add_action( 'admin_head', 'remove_default_categories_box' );
 
-
-// remove the old box
-function remove_default_categories_box() {
-    remove_meta_box('categorydiv', 'recipe', 'side');
-}
-add_action( 'admin_head', 'remove_default_categories_box' );
-
-// add the new box
-function add_custom_categories_box() {
-    add_meta_box('customcategorydiv', 'Categories', 'custom_recipe_categories_meta_box', 'recipe', 'side', 'low', array( 'taxonomy' => 'category' ));
-}
-add_action('admin_menu', 'add_custom_categories_box');
+	// add the new box
+	function add_custom_categories_box() {
+	    add_meta_box('customcategorydiv', 'Categories', 'custom_recipe_categories_meta_box', 'recipe', 'side', 'low', array( 'taxonomy' => 'category' ));
+	}
+	add_action('admin_menu', 'add_custom_categories_box');
 
 /**
  * Display CUSTOM recipe categories form fields.
