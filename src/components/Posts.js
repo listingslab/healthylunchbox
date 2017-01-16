@@ -14,8 +14,7 @@ const Posts = ({ posts }) => (
 );
 
 Posts.propTypes = {
-  posts: PropTypes.shape({
-  }).isRequired
+  posts: PropTypes.array.isRequired
 };
 
 export default Posts;
