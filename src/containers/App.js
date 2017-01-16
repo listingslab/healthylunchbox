@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Explore from '../components/Explore';
+import Header from '../components/Header';
 import { resetErrorMessage } from '../actions';
 
 class App extends Component {
@@ -45,20 +46,14 @@ class App extends Component {
     const { children, inputValue } = this.props;
     return (
       <div>
-
-      </div>
-    );
-  }
-
-  render_bak() {
-    const { children, inputValue } = this.props;
-    return (
-      <div>
-        <Explore value={inputValue}
-          onChange={this.handleChange} />
-        <hr />
-        {this.renderErrorMessage()}
-        {children}
+        <Header />
+        <div className="container">
+          <Explore value={inputValue}
+            onChange={this.handleChange} />
+          <hr />
+          {this.renderErrorMessage()}
+          {children}
+        </div>
       </div>
     );
   }
