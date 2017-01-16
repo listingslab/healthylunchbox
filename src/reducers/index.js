@@ -1,3 +1,7 @@
+/**
+ * Created by Chris Dorward on 16/01/2017
+ * Reducer
+ */
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import merge from 'lodash/merge';

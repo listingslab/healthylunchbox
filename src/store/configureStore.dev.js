@@ -1,3 +1,8 @@
+/**
+ * Created by Chris Dorward on 15/01/2017
+ * Configure redux store
+ */
+
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
