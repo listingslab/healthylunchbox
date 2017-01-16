@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Lunch Box CMS</title>
     <link rel="icon" href="<?php print $templatePath; ?>/favicon.ico" />
-<?php //include 'php/icons.php'; ?>
-<?php //include 'php/IE9.php'; ?>
+<?php include 'php/icons.php'; ?>
+<?php include 'php/IE9.php'; ?>
     <link href="<?php print get_template_directory_uri() . '/libs/bootstrap/dist/css/bootstrap.min.css'; ?>" rel="stylesheet">
     <link href="<?php print get_template_directory_uri() . '/css/dashboard.css'; ?>" rel="stylesheet">
     <link href="<?php print get_template_directory_uri() . '/style.css'; ?>" rel="stylesheet">

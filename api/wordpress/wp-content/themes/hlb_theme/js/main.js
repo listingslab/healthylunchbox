@@ -1,3 +1,7 @@
+ /**
+  * Created by Chris Dorward on 14/01/2017
+  * Main entry point for jQuery app
+  */
 $(document).ready(function () {
 	try {
 		config = {};

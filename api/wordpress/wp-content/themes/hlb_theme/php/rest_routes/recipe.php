@@ -1,7 +1,9 @@
 <?php
-/**
- * Return a single recipie from the ID
- */
+ /**
+  * Created by Chris Dorward on 14/01/2017
+  * Return a single recipie from the ID
+  */
+
 function hlbapi_recipe( WP_REST_Request $request ) {
   $id = $request['id'];
   $response = new stdClass();
@@ -11,8 +13,8 @@ function hlbapi_recipe( WP_REST_Request $request ) {
     $response->status = "not found";
     return $response;
   }else{
-    // $recipie->act = get_fields($id);
-    // $response->data = $recipie;
+    $recipie->act = get_fields($id);
+    $response->data = $recipie;
     return $response;
   }
 }

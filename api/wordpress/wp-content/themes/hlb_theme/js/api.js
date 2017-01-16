@@ -1,6 +1,12 @@
+<?php
+ /**
+  * Created by Chris Dorward on 14/01/2017
+  * Calls the api with the route
+  */
+
 function call_api (route){
   var url = config.api_base + route;
-  $( "#endpoint" ).html ('<a href="' + url + '" target="_blank">' + url + '</a>');
+  $( "#endpoint" ).html ('<a href="' + url + '">' + url + '</a>');
   $( "#response" ).html ('');
   $.ajax({
       url: url,

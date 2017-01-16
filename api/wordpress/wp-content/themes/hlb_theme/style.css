@@ -6,3 +6,15 @@ Author URI: https://ustwo.com
 Description: Custom WordPress functionality for the Cancer Council's Healthy Lunch Box Project.
 Version: 1.0.1
 */
+
+.navbar-inverse {
+  background-color: #3497d3;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fed300;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fed300;
+}
