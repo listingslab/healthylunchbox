@@ -22,7 +22,7 @@ module.exports = {
     "react/jsx-no-bind": 0,
     "react/jsx-filename-extension": 0,
     "object-property-newline": 0,
-    "no-console": "warn",
+    "no-console": 0,
     "no-prototype-builtins": 0,
     "comma-dangle": [
       "warn",

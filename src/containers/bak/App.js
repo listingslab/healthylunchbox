@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import Explore from '../components/Explore';
 import Header from '../components/Header';
 import { resetErrorMessage } from '../actions';
 
@@ -9,6 +10,7 @@ class App extends Component {
     // Injected by React Redux
     errorMessage: PropTypes.string,
     resetErrorMessage: PropTypes.func.isRequired,
+    inputValue: PropTypes.string.isRequired,
     // Injected by React Router
     children: PropTypes.node
   }
@@ -41,11 +43,14 @@ class App extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, inputValue } = this.props;
     return (
       <div>
         <Header />
         <div className="container">
+          <Explore value={inputValue}
+            onChange={this.handleChange} />
+          <hr />
           {this.renderErrorMessage()}
           {children}
         </div>

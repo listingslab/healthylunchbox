@@ -4,16 +4,25 @@
  */
 
 import React from 'react';
-import { Route } from 'react-router';
-import App from './containers/App';
-import UserPage from './containers/UserPage';
-import RepoPage from './containers/RepoPage';
+import { Router, IndexRoute, Route, Link, browserHistory } from 'react-router'
 
-const routes = <Route path="/" component={App}>
-  <Route path="/:login/:name"
-    component={RepoPage} />
-  <Route path="/:login"
-    component={UserPage} />
-</Route>;
+import App from './containers/App';
+import TipsPage from './containers/TipsPage';
+import TipPage from './containers/TipPage';
+import HomePage from './containers/HomePage';
+import NotFound from './containers/NotFound';
+
+const routes = (
+  <Router>
+    <Route path="/" component={App}>
+      <IndexRoute component={HomePage} />
+      <Route path="/tips" component={TipsPage} />
+      <Route path="/tip">
+        <Route path="/tip/:tipId" component={TipPage} />
+      </Route>
+      <Route path="*" component={NotFound} />
+    </Route>
+  </Router>
+);
 
 export default routes;
