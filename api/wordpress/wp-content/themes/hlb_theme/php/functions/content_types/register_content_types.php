@@ -20,7 +20,7 @@ function register_content_types() {
     $recipe_labels = array(
         'name'              => 'Recipie',
         'singular_name'     => 'Recipe',
-        'menu_name'         => 'Recipes',
+        'menu_name'         => 'Recipes OLD',
         'add_new'           => 'Add Recipe',
         'edit'              => 'Edit Recipe',
     );
@@ -36,6 +36,6 @@ function register_content_types() {
         'taxonomies'		      => array('post_tag', 'category' )
     );
 
-    register_post_type('recipe', $recipe_args);
+    register_post_type('recipe_old', $recipe_args);
 
 }
