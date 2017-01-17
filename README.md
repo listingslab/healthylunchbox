@@ -2,7 +2,8 @@
 
 ## Stack Overview
 
-A React frontend designed to consume a WordPress REST-API backend service.
+A React frontend designed to consume a WordPress REST-API backend service found here:
+[healthylunchbox.com.au](http://api.healthylunchbox.com.au/).
 
 This is a complete Webpack, lint & Browsersync development environment which enables fast in-editor pre-testing of our React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
 
