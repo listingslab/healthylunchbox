@@ -20,8 +20,15 @@
   		'methods'  => WP_REST_Server::READABLE,
   		'callback' => 'hlbapi_recipe',
   	) );
+
+    register_rest_route( 'hlbapi', '/tips', array(
+  		'methods'  => WP_REST_Server::READABLE,
+  		'callback' => 'hlbapi_tips',
+  	) );
+
   }
   include 'categories.php';
   include 'hello.php';
   include 'recipe.php';
   include 'recipies.php';
+  include 'tips.php';

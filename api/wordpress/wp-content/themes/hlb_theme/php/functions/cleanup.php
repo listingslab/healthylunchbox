@@ -4,7 +4,7 @@
 	function hide_permalink() {
     return '';
 	}
-	add_filter( 'get_sample_permalink_html', 'hide_permalink' );
+	// add_filter( 'get_sample_permalink_html', 'hide_permalink' );
 
 
 	// remove the default categories box

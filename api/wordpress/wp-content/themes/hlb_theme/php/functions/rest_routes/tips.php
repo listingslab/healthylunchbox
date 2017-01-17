@@ -1,28 +1,27 @@
 <?php
 /**
- * Route to check the API is working
+ * Route to return all tips
  */
 
-function hlbapi_recipies( WP_REST_Request $request ) {
+function hlbapi_tips( WP_REST_Request $request ) {
   $response = new stdClass();
-  $response->description = "List all recipies";
+  $response->description = "List all tips";
   $response->status = "ok";
   $total = 0;
-  $args = array('numberposts' => -1,'post_type' => 'recipe');
-  $recipies = get_posts($args);
+  $args = array('numberposts' => -1,'post_type' => 'tip');
+  $content_items = get_posts($args);
   $data = Array ();
-  foreach($recipies as $item){
+  foreach($content_items as $item){
     $total ++;
     $act_fields = get_fields($item->ID);
     $itemObj = new stdClass();
     $itemObj->ID = $item->ID;
     $itemObj->title = $item->post_title;
-    $itemObj->short_description = $act_fields['short_description'];
-    $itemObj->imageID = $act_fields['image']['id'];
+    // $itemObj->short_description = $act_fields['short_description'];
+    //$itemObj->imageID = $act_fields['image']['id'];
     $itemObj->thumbnail = $act_fields['image']['sizes']['thumbnail'];
-    // $itemObj->tags = [];
     $itemObj->categories = [];
-    $categories = wp_get_object_terms( $item->ID,  'recipe_categories' );
+    $categories = wp_get_object_terms( $item->ID,  'tip' );
     // $tags = wp_get_post_tags( $item->ID );
     foreach($categories as $category){
       $categoryObj = new stdClass();
