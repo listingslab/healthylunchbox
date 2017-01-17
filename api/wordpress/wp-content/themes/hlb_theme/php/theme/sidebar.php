@@ -6,11 +6,14 @@
 ?>
 
   <div class="col-sm-3 col-md-2 sidebar">
-    <h3 class="sub-header">API Calls</h3>
-    <ul id="call_endpoints" class="nav nav-sidebar">
-      <li><a href="?route=hello">hello</a></li>
-      <li><a href="?route=tips">tips</a></li>
-      <li><a href="?route=recipies">recipies</a></li>
-      <li><a href="?route=recipe/497">recipe/497<br /><small>(Banana Bread)</small></a></li>
-    </ul>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">API News</h3>
+      </div>
+      <div class="panel-body">
+        Please bookmark
+        <a href="http://api.healthylunchbox.com.au">this address</a>
+        . It is our development server and is the source of truth for the project's content.
+      </div>
+    </div>
   </div>

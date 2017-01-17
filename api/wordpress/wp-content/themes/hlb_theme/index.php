@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthy Lunch Box CMS</title>
+    <title>CMS Healthy Lunch Box</title>
     <link rel="icon" href="<?php print $templatePath; ?>/favicon.ico" />
 <?php include 'php/theme/icons.php'; ?>
 <?php include 'php/theme/IE9.php'; ?>
