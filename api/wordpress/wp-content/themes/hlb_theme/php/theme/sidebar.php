@@ -12,6 +12,5 @@
       <li><a href="?route=tips">tips</a></li>
       <li><a href="?route=recipies">recipies</a></li>
       <li><a href="?route=recipe/497">recipe/497<br /><small>(Banana Bread)</small></a></li>
-
     </ul>
   </div>
