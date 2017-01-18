@@ -2,3 +2,23 @@
  * Created by Chris Dorward on 15/01/2017
  * Styles entrypoint
  */
+
+body {
+  /*padding-top: 50px;
+  padding-bottom: 20px;*/
+}
+
+.navbar-nav > li > a, .navbar-brand {
+  padding-top: 5px !important;
+  padding-bottom: 0 !important;
+  height: 70px;
+}
+
+.pushtop {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.navbar {
+  min-height: 70px !important;
+}

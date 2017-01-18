@@ -9,6 +9,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import App from './containers/App';
 import Home from './containers/Home';
 import Tips from './containers/Tips';
+import Recipies from './containers/Recipies';
 import NotFound from './containers/NotFound';
 
 const routes = (
@@ -16,9 +17,9 @@ const routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/tips" component={Tips} />
+      <Route path="/recipies" component={Recipies} />
       <Route path="*" component={NotFound} />
     </Route>
-
   </Router>
 );
 

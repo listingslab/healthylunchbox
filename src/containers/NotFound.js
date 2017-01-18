@@ -8,39 +8,15 @@ import { connect } from 'react-redux';
 
 class NotFound extends Component {
   static propTypes = {
-    selectedReddit: PropTypes.string.isRequired,
-    posts: PropTypes.array.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    lastUpdated: PropTypes.number,
-    dispatch: PropTypes.func.isRequired
   }
 
   render() {
     return (
-      <div>
-        <h3>Not Found</h3>
-      </div>
+      <div>Not Found</div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  const { selectedReddit, postsByReddit } = state;
-  const {
-    isFetching,
-    lastUpdated,
-    items: posts
-  } = postsByReddit[selectedReddit] || {
-    isFetching: true,
-    items: []
-  };
-
-  return {
-    selectedReddit,
-    posts,
-    isFetching,
-    lastUpdated
-  };
-};
+const mapStateToProps = () => {};
 
 export default connect(mapStateToProps)(NotFound);

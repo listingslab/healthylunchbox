@@ -1,22 +1,22 @@
 /**
- * Created by Chris Dorward on 16/01/2017
- * container/Home
+ * Created by Chris Dorward on 18/01/2017
+ * container/About
  */
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-class Home extends Component {
+class About extends Component {
   static propTypes = {
   }
 
   render() {
     return (
-      <div>Home</div>
+      <div>About</div>
     );
   }
 }
 
 const mapStateToProps = () => {};
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(About);

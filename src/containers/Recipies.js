@@ -6,16 +6,17 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-class Tips extends Component {
-  static propTypes = {}
+class Recipies extends Component {
+  static propTypes = {
+  }
 
   render() {
     return (
-      <div>Tips</div>
+      <div>Recipies</div>
     );
   }
 }
 
 const mapStateToProps = () => {};
 
-export default connect(mapStateToProps)(Tips);
+export default connect(mapStateToProps)(Recipies);

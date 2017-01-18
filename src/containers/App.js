@@ -8,15 +8,16 @@ import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Header from '../components/Header';
+import Jumbotron from '../components/Jumbotron';
 
 class App extends Component {
   static propTypes = {
-    children: PropTypes.node
+    location: PropTypes.any,
+    children: PropTypes.any
   }
 
   componentWillMount() {
-    console.log('call API with /hello');
-    // loadData(this.props);
+    // console.log('call API with /hello');
   }
 
   handleChange = (nextValue) => {
@@ -24,6 +25,46 @@ class App extends Component {
   }
 
   render() {
+    let jumbotronTitle = 'Title Not Found';
+    const pathName = this.props.location.pathname;
+    if (pathName === '/recipies') {
+      jumbotronTitle = '';
+    } else if (pathName === '/tips') {
+      jumbotronTitle = '';
+    } else if (pathName === '/') {
+      jumbotronTitle = 'Lunchbox Builder';
+    } else if (pathName === '/featured') {
+      jumbotronTitle = 'Featured';
+    } else if (pathName === '/featured') {
+      jumbotronTitle = 'Featured';
+    }
+
+    switch (this.props.location.pathname) {
+
+    case '/':
+      jumbotronTitle = 'Home';
+      break;
+
+    case '/recipies':
+      jumbotronTitle = 'Recipies & Ideas';
+      break;
+
+    case '/tips':
+      jumbotronTitle = 'Tips';
+      break;
+
+    case '/about':
+      jumbotronTitle = 'About';
+      break;
+
+    case '/featured':
+      jumbotronTitle = 'About';
+      break;
+
+    default:
+      jumbotronTitle = 'No Title Found';
+    }
+
     const { children } = this.props;
     const showit = false;
     return (
@@ -35,6 +76,7 @@ class App extends Component {
           </Modal.Header>
         </Modal>
         <div className="container">
+          <Jumbotron jumbotronTitle={jumbotronTitle} />
           {children}
         </div>
       </div>
@@ -42,9 +84,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  errorMessage: state.errorMessage,
-  inputValue: ownProps.location.pathname.substring(1)
-});
+const mapStateToProps = () => ({});
 
 export default connect(mapStateToProps, {})(App);

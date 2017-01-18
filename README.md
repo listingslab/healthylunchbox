@@ -22,7 +22,8 @@ Run & Summarise the linting process
 Run the style lint process
 
 #### More Info
-Using Atom editor? Install IDE linting. It's proper helpful
+Using Atom editor?
+Install IDE linting. It's proper helpful
 
 ```apm install linter-eslint```
 &
