@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import CategoryTile from '../components/CategoryTile';
 
 class Tips extends Component {
   static propTypes = {}
@@ -13,13 +14,7 @@ class Tips extends Component {
   render() {
     return (
       <div className="template-tips">
-        <div className="category-list">
-          <h3>Select a Tip category</h3>
-          <ul>
-            <li><Link to="/tips/food-safety">Food safety</Link></li>
-            <li><Link to="/tips/freezing-tips">Freezing tips</Link></li>
-          </ul>
-        </div>
+        
 
             <p><strong>List of the tip categories.</strong></p>
             <p>This list will be a series of category tiles showing the tips categories.

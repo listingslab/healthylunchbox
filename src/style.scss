@@ -7,14 +7,28 @@
   clear: both;
 }
 
+.category-tile-link {
+  color: #333;
+
+}
+
+.category-tile-link:hover {
+  color: #999;
+  text-decoration: none;
+}
+
 .tile-category {
   // border: 1px solid black;
 }
 
 .tile-category img {
   float: left;
-  height: 65px;
-  width: 65px;
+  height: 100px;
+  width: 100px;
+}
+
+.category-tile {
+  min-height: 200px;
 }
 
 .cc_logo {
@@ -45,6 +59,6 @@
 }
 
 .template-builder {
-  border: 1px solid black;
-  min-height: 400px;
+  // border: 1px solid black;
+  min-height: 200px;
 }

@@ -15,29 +15,41 @@ class Home extends Component {
   render() {
     return (
       <div className="template-home">
-        <Jumbotron />
+        <div className="container">
+          <Jumbotron />
+        </div>
 
         <div className="container">
           <div className="row">
               <CategoryTile
-                title="Featured 1"
-                image="/img/default_category_image.png"
-                desc="Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui."
-                link="/featured/1"
+                title="Banana cake"
+                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
+                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
+                link="/recipe/497"
               />
 
               <CategoryTile
-                title="Featured 2"
+                title="Cancer Council News"
                 image="/img/default_category_image.png"
-                desc="Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui."
-                link="/featured/2"
+                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
+                link="/about"
               />
+
+              <CategoryTile
+                title="Prepare the night before"
+                image="http://api.healthylunchbox.com.au/wp-content/uploads/preparing-school-lunch-250x250.jpg"
+                desc="In this tip, we'll discover the basics of food safety starting with
+                preparing the night before"
+                link="/tip/123"
+              />
+
+              <CategoryTile
+                title="Second Featured Recipe"
+                image="/img/default_category_image.png"
+                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
+                link="/recipe/497"
+              />
+
           </div>
         </div>
       </div>
