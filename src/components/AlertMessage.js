@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 18/01/2017
- * container/App
+ * components/AlertMessage
  */
 
  /*

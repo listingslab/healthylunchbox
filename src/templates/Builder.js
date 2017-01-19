@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 18/01/2017
- * container/Builder
+ * templates/Builder
  */
 
 import React, { Component } from 'react';
@@ -13,7 +13,7 @@ class Builder extends Component {
   render() {
     return (
       <div className="template-builder">
-        
+
       </div>
     );
   }

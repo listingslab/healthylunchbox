@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * container/NotFound
+ * templates/NotFound
  */
 
 import React, { Component } from 'react';
@@ -13,7 +13,7 @@ class NotFound extends Component {
   render() {
     return (
       <div className="template-notfound">
-        <h3>Perhaps a search would help?</h3>
+        <h3>Perhaps searching would help?</h3>
         <form name="search">
           <input type="text" name="searchterm" />
           <input type="submit" value="Search" />

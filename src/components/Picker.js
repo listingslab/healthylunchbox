@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * Picker
+ * components/Picker
  */
 
 import React, { PropTypes } from 'react';

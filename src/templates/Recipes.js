@@ -1,19 +1,19 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * container/Recipies
+ * templates/Recipes
  */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-class Recipies extends Component {
+class Recipes extends Component {
   static propTypes = {
   }
 
   render() {
     return (
-      <div className="template-recipies">
+      <div className="template-recipes">
         <ul>
           <li>
             <p>A list of the recipe categories.</p>
@@ -28,8 +28,8 @@ class Recipies extends Component {
         <div className="category-list">
           <h3>Select a Category</h3>
           <ul>
-            <li><Link to="/recipies/baking-cakes">Baking cakes</Link></li>
-            <li><Link to="/recipies/sandwich-fillings">Sandwich fillings</Link></li>
+            <li><Link to="/recipes/baking-cakes">Baking cakes</Link></li>
+            <li><Link to="/recipes/sandwich-fillings">Sandwich fillings</Link></li>
           </ul>
         </div>
       </div>
@@ -37,4 +37,4 @@ class Recipies extends Component {
   }
 }
 
-export default connect()(Recipies);
+export default connect()(Recipes);

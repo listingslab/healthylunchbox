@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * container/Home
+ * templates/Home
  */
 
 import React, { Component } from 'react';

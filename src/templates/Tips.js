@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * container/Tips
+ * templates/Tips
  */
 
 import React, { Component } from 'react';

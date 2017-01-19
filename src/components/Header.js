@@ -1,10 +1,10 @@
 /**
  * Created by Chris Dorward on 15/01/2017
- * Header
+ * components/Header
  */
 
-import React, { PropTypes } from 'react';
-import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import React from 'react';
+import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 function Header() {
@@ -34,11 +34,7 @@ function Header() {
               <Link to="/about">About</Link>
             </li>
           </ul>
-          <Nav>
-            <NavDropdown eventKey={3} title="More" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>Featured</MenuItem>
-            </NavDropdown>
-          </Nav>
+
       </Navbar.Collapse>
     </Navbar>
   );
@@ -50,5 +46,9 @@ Header.propTypes = {
 export default Header;
 
 /*
-
+<Nav>
+  <NavDropdown eventKey={3} title="More" id="basic-nav-dropdown">
+      <MenuItem eventKey={3.1}>Featured</MenuItem>
+  </NavDropdown>
+</Nav>
 */

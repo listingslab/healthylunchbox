@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * Posts
+ * components/Posts
  */
 
 import React, { PropTypes } from 'react';

@@ -8,6 +8,7 @@ import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import PageTitle from '../components/PageTitle';
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
       break;
 
     case '/recipies':
-      pageTitle = 'Recipies & Ideas';
+      pageTitle = 'Recipes & Ideas';
       break;
 
     case '/tips':
@@ -65,6 +66,8 @@ class App extends Component {
           <PageTitle pageTitle={pageTitle} />
           {children}
         </div>
+
+        <Footer />
 
         <Modal show={showit}>
           <Modal.Header closeButton>
