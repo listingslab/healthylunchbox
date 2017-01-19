@@ -3,6 +3,20 @@
  * Styles entrypoint
  */
 
+.clear-tile {
+  clear: both;
+}
+
+.tile-category {
+  // border: 1px solid black;
+}
+
+.tile-category img {
+  float: left;
+  height: 65px;
+  width: 65px;
+}
+
 .cc_logo {
   margin-top: -12px;
 }
