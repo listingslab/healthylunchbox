@@ -7,15 +7,21 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
-import Home from './containers/Home';
+import About from './containers/About';
+import Builder from './containers/Builder';
+import Home from './templates/Home';
+import NotFound from './containers/NotFound';
 import Tips from './containers/Tips';
 import Recipies from './containers/Recipies';
-import NotFound from './containers/NotFound';
+import Featured from './containers/Featured';
 
 const routes = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
+      <Route path="/builder" component={Builder} />
+      <Route path="/featured" component={Featured} />
+      <Route path="/about" component={About} />
       <Route path="/tips" component={Tips} />
       <Route path="/recipies" component={Recipies} />
       <Route path="*" component={NotFound} />

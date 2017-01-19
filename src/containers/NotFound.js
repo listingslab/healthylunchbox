@@ -17,6 +17,4 @@ class NotFound extends Component {
   }
 }
 
-const mapStateToProps = () => {};
-
-export default connect(mapStateToProps)(NotFound);
+export default connect()(NotFound);

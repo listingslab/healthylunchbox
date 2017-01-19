@@ -16,6 +16,4 @@ class Tips extends Component {
   }
 }
 
-const mapStateToProps = () => {};
-
-export default connect(mapStateToProps)(Tips);
+export default connect()(Tips);

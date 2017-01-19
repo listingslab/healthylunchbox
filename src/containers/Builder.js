@@ -17,6 +17,4 @@ class Builder extends Component {
   }
 }
 
-const mapStateToProps = () => {};
-
-export default connect(mapStateToProps)(Builder);
+export default connect()(Builder);

@@ -17,6 +17,4 @@ class Recipies extends Component {
   }
 }
 
-const mapStateToProps = () => {};
-
-export default connect(mapStateToProps)(Recipies);
+export default connect()(Recipies);

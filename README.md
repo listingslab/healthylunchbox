@@ -1,6 +1,6 @@
 # Healthy Lunch Box
 
-## Stack Overview
+## Tech Stack Overview
 
 A React frontend designed to consume a WordPress REST-API backend service found here:
 [healthylunchbox.com.au](http://api.healthylunchbox.com.au/).
@@ -28,3 +28,6 @@ Install IDE linting. It's proper helpful
 ```apm install linter-eslint```
 &
 ```apm install linter-stylelint```
+
+
+## Bootstrap

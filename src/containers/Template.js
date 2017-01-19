@@ -17,6 +17,4 @@ class Template extends Component {
   }
 }
 
-const mapStateToProps = () => {};
-
-export default connect(mapStateToProps)(Template);
+export default connect()(Template);

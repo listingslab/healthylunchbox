@@ -9,14 +9,13 @@ import { Link } from 'react-router';
 function Jumbotron(props) {
   console.log(props);
   return (
-    <div className="jumbotron">
+
       <div className="container">
-        <h1>{ props.jumbotronTitle }</h1>
-        <p>This is a template for a simple marketing or informational website.
-        It includes a large callout called a jumbotron and three supporting pieces of content.
-        Use it as a starting point to create something more unique.</p>
-      <p><Link to="/featured" className="btn btn-warning btn-lg" role="button">View Featured &raquo;</Link></p>
-      </div>
+        <h2>{ props.jumbotronTitle }</h2>
+        <p>Eating enough fruit and veg everyday will give your kids the energy
+          and nutrients they need to learn and play, and can help protect them
+          against diseases including some forms of cancer.</p>
+        
     </div>
   );
 }
