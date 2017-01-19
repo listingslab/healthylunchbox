@@ -11,8 +11,8 @@ function Footer() {
       <div className="container">
         <hr />
         &copy; Cancer Council NSW 2017
-        <p><a target="_blank" rel="noopener noreferrer" href="http://api.healthylunchbox.com.au/wp-admin">WordPress CMS</a></p>
-        <small>Vs 2.0.3</small>
+        <br /><small><a target="_blank" rel="noopener noreferrer" href="http://api.healthylunchbox.com.au/wp-admin">WordPress CMS</a>
+        &nbsp;vs2.0.4</small>
       </div>
     </div>
   );

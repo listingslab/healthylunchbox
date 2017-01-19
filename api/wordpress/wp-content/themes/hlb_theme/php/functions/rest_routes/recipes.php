@@ -1,9 +1,9 @@
 <?php
 /**
- * Route to check the API is working
+ * Show Recipes
  */
 
-function hlbapi_recipies( WP_REST_Request $request ) {
+function hlbapi_recipes( WP_REST_Request $request ) {
   $response = new stdClass();
   $response->description = "List all recipies";
   $response->status = "ok";

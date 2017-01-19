@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
@@ -29,6 +29,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.5.1 - 2017-1-17 =
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
 
 = 1.5.0 - 2017-1-10 =
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
@@ -81,6 +87,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.1 - 2017-1-17 =
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
 
 = 1.5.0 - 2017-1-10 =
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.

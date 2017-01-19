@@ -4,12 +4,18 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router';
 
 function Jumbotron(props) {
   console.log(props);
   return (
       <div className="template-jumbotron">
-        jumbotron
+        <div className="jumbotron">
+          <h2>Lunchbox builder hero box</h2>
+          <p className="lead">This is where we put a big advert for the builder and
+          including it's value proposition</p>
+        <p><Link className="btn btn-lg btn-success" to='/builder'>Try Lunchbox Builder</Link></p>
+        </div>
       </div>
   );
 }

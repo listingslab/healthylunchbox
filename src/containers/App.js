@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import PageTitle from '../components/PageTitle';
+// import PageTitle from '../components/PageTitle';
 
 class App extends Component {
   static propTypes = {
@@ -26,36 +26,6 @@ class App extends Component {
   }
 
   render() {
-    let pageTitle = 'Page not found';
-    switch (this.props.location.pathname) {
-    case '/':
-      pageTitle = 'Home';
-      break;
-
-    case '/builder':
-      pageTitle = 'Builder';
-      break;
-
-    case '/recipies':
-      pageTitle = 'Recipes & Ideas';
-      break;
-
-    case '/tips':
-      pageTitle = 'Tips';
-      break;
-
-    case '/about':
-      pageTitle = 'About';
-      break;
-
-    case '/featured':
-      pageTitle = 'Featured Content';
-      break;
-
-    default:
-      pageTitle = 'Page not found :(';
-    }
-
     const { children } = this.props;
     const showit = false;
     return (
@@ -63,7 +33,7 @@ class App extends Component {
         <Header />
 
         <div className="container">
-          <PageTitle pageTitle={pageTitle} />
+
           {children}
         </div>
 
@@ -82,3 +52,39 @@ class App extends Component {
 const mapStateToProps = () => ({});
 
 export default connect(mapStateToProps, {})(App);
+
+/*
+<PageTitle pageTitle={pageTitle} />
+
+let pageTitle = 'Page not found';
+switch (this.props.location.pathname) {
+case '/':
+  pageTitle = 'Home';
+  break;
+
+case '/builder':
+  pageTitle = 'Builder';
+  break;
+
+case '/recipes':
+  pageTitle = 'Recipes & Ideas';
+  break;
+
+case '/tips':
+  pageTitle = 'Tips';
+  break;
+
+case '/about':
+  pageTitle = 'About';
+  break;
+
+case '/featured':
+  pageTitle = 'Featured Content';
+  break;
+
+default:
+  pageTitle = 'Page not found :(';
+}
+
+
+*/

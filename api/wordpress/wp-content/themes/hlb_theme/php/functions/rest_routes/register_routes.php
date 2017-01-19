@@ -8,13 +8,17 @@
   		'methods'  => WP_REST_Server::READABLE,
   		'callback' => 'hlbapi_hello',
   	) );
+    register_rest_route( 'hlbapi', '/navigation', array(
+  		'methods'  => WP_REST_Server::READABLE,
+  		'callback' => 'hlbapi_navigation',
+  	) );
     register_rest_route( 'hlbapi', '/categories', array(
   		'methods'  => WP_REST_Server::READABLE,
   		'callback' => 'hlbapi_categories',
   	) );
-  	register_rest_route( 'hlbapi', '/recipies', array(
+  	register_rest_route( 'hlbapi', '/recipes', array(
   		'methods'  => WP_REST_Server::READABLE,
-  		'callback' => 'hlbapi_recipies',
+  		'callback' => 'hlbapi_recipes',
   	) );
     register_rest_route( 'hlbapi', '/recipe/(?P<id>\d+)', array(
   		'methods'  => WP_REST_Server::READABLE,
@@ -30,5 +34,6 @@
   include 'categories.php';
   include 'hello.php';
   include 'recipe.php';
-  include 'recipies.php';
+  include 'recipes.php';
   include 'tips.php';
+  include 'navigation.php';

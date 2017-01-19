@@ -5,6 +5,8 @@ add_action('init', 'register_content_types');
 
 function register_content_types() {
 
+    /*
+
     $capabilities = array(
       'publish_posts' => 'publish_content',
       'edit_posts' => 'edit_content',
@@ -36,6 +38,6 @@ function register_content_types() {
         'taxonomies'		      => array('post_tag', 'category' )
     );
 
-    register_post_type('recipe_old', $recipe_args);
+    register_post_type('recipe_old', $recipe_args);*/
 
 }

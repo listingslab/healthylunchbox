@@ -14,24 +14,23 @@ class Recipes extends Component {
   render() {
     return (
       <div className="template-recipes">
-        <ul>
-          <li>
-            <p>A list of the recipe categories.</p>
-            <p>This list will be a series of tiles. It should show 10-20 category tiles
-            comfortably. The tiles should have a title,
-            content, image and look good square or as a rectangle.</p>
-
-            <p>Should have 2 break points; two columns wide on a big screen
-            and 1 column wide on an iphone or tablet in portrait mode</p>
-          </li>
-        </ul>
         <div className="category-list">
-          <h3>Select a Category</h3>
+          <h3>Select a Recipe category</h3>
           <ul>
             <li><Link to="/recipes/baking-cakes">Baking cakes</Link></li>
             <li><Link to="/recipes/sandwich-fillings">Sandwich fillings</Link></li>
           </ul>
         </div>
+
+        <p><strong>List of the recipe categories.</strong></p>
+
+        <p>This list will be a series of category tiles showing the recipe categories.
+          It should comfortably show 10-20 category tiles comfortably.</p>
+
+          <p>Should have 2 break points; two columns wide on a big screen
+          and 1 column wide on an iphone or tablet in portrait mode</p>
+
+
       </div>
     );
   }
