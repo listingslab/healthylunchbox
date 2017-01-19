@@ -7,7 +7,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 function CategoryTile(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="tile-category">
       <div className="col-md-6">

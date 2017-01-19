@@ -13,12 +13,16 @@ import Footer from '../components/Footer';
 
 class App extends Component {
   static propTypes = {
-    location: PropTypes.any,
     children: PropTypes.any
   }
 
   componentWillMount() {
-    // console.log('call API with /hello');
+    this.checkAPI('hello');
+  }
+
+  checkAPI(route) {
+    this.apiPath = 'http://api.healthylunchbox.com.au/wp-json/hlbapi/';
+    console.log(`Connect to, ${this.apiPath}${route}!`);
   }
 
   handleChange = (nextValue) => {
