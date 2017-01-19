@@ -3,6 +3,14 @@
 ## Bootstrap
 https://github.com/ustwo/healthy-lunch-box/tree/feature/phase2/src/bootstrap-sass
 
+## rsync for uploading to the AWS
+
+```rsync -avz /Users/listingslab/node/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/```
+
+```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/```
+
+
+
 ## Tech Stack Overview
 
 A React frontend designed to consume a WordPress REST-API backend service found here:

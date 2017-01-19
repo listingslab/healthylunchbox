@@ -8,7 +8,6 @@ import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 function Header() {
-  const marginTop = '-7px';
   return (
     <Navbar>
       <Navbar.Header>
