@@ -7,12 +7,12 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
-import About from './containers/About';
-import Builder from './containers/Builder';
+import About from './templates/About';
+import Builder from './templates/Builder';
 import Home from './templates/Home';
-import NotFound from './containers/NotFound';
-import Tips from './containers/Tips';
-import Recipies from './containers/Recipies';
+import NotFound from './templates/NotFound';
+import Tips from './templates/Tips';
+import Recipies from './templates/Recipies';
 import Featured from './containers/Featured';
 
 const routes = (

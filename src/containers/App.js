@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   render() {
-    let pageTitle = 'Page Not Found';
+    let pageTitle = 'Page not found';
     switch (this.props.location.pathname) {
     case '/':
       pageTitle = 'Home';
@@ -52,7 +52,7 @@ class App extends Component {
       break;
 
     default:
-      pageTitle = 'No Title Found';
+      pageTitle = 'Page not found :(';
     }
 
     const { children } = this.props;

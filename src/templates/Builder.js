@@ -3,7 +3,7 @@
  * container/Builder
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Builder extends Component {
@@ -12,7 +12,9 @@ class Builder extends Component {
 
   render() {
     return (
-      <div>Builder</div>
+      <div className="template-builder">
+        
+      </div>
     );
   }
 }

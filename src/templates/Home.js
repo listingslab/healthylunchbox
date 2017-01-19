@@ -3,9 +3,8 @@
  * container/Home
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 
 class Home extends Component {
   static propTypes = {
@@ -13,11 +12,14 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home">
-        <h2>Homepage contains</h2>
+      <div className="template-home">
         <ul>
-          <li>Jumbotron Hero Lunchbox Header</li>
-          <li>Surfaced featured content</li>
+          <li>Hero (Jumbotron) Lunchbox Header</li>
+          <li>
+            <p>4 (could be more or less) surfaced featured content</p>
+            <p>Should have 2 break points; two columns wide on a big screen
+            and 1 column wide on an iphone or tablet in portrait mode</p>
+          </li>
         </ul>
       </div>
     );

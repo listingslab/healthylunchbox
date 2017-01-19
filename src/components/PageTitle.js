@@ -7,7 +7,7 @@ import React, { PropTypes } from 'react';
 
 function PageTitle(props) {
   return (
-    <div className="page-title">
+    <div className="template-pagetitle">
         <h1>{ props.pageTitle }</h1>
     </div>
   );
