@@ -1,5 +1,8 @@
 # Healthy Lunch Box
 
+## Bootstrap
+https://github.com/ustwo/healthy-lunch-box/tree/feature/phase2/src/bootstrap-sass
+
 ## Tech Stack Overview
 
 A React frontend designed to consume a WordPress REST-API backend service found here:
@@ -28,6 +31,3 @@ Install IDE linting. It's proper helpful
 ```apm install linter-eslint```
 &
 ```apm install linter-stylelint```
-
-
-## Bootstrap
