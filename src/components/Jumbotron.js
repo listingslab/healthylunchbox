@@ -6,15 +6,15 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-function Jumbotron() {
+function Jumbotron(props) {
+  //console.log(props);
+  const pageTitle = props.page.posts.description || 'no title';
   // Jumbotron(props) console.log(props);
   return (
-      <div className="template-jumbotron container">
-        <div className="jumbotron">
-          <h2>Lunchbox builder hero box</h2>
-          <p className="lead">This is where we put a big advert for the builder and include its value proposition</p>
-        <p><Link className="btn btn-lg btn-success" to="/builder">Hide</Link></p>
-        </div>
+      <div className="template-jumbotron jumbotron">
+          <h2>{ pageTitle }</h2>
+          <a  rel='noopener noreferrer' href="http://api.healthylunchbox.com.au/wp-admin/post-new.php?post_type=recipe" target="_blank" className="btn btn-danger">
+            Add a recipe</a>
       </div>
   );
 }

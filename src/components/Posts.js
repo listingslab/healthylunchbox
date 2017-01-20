@@ -5,7 +5,7 @@
 import React from 'react';
 
 function Posts(props) {
-  console.log(props.posts);
+  console.log(props);
   return (
     <div className="template-posts">
       <div className="container">

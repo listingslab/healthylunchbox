@@ -5,17 +5,18 @@
 import React, { PropTypes } from 'react';
 
 const Picker = ({ value, onChange, options }) => (
-  <span>
-    <h3>{value}</h3>
-    <select onChange={e => onChange(e.target.value)}
-      value={value}>
+  <div className="container">
+    <p>{value}&nbsp;
+      <select onChange={e => onChange(e.target.value)}
+        value={value}>
       {options.map(option =>
         <option value={option} key={option}>
           {option}
         </option>)
       }
     </select>
-  </span>
+  </p>
+</div>
 );
 
 Picker.propTypes = {
