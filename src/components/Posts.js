@@ -2,14 +2,30 @@
  * Created by Chris Dorward on 16/01/2017
  * components/Posts
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const Posts = ({ posts }) => (
-  <ul>
-    {posts.map((post, i) =>
-      <li key={i}>{post.title}</li>
-    )}
-  </ul>
+function Posts(props) {
+  console.log(props.posts);
+  return (
+    <div className="template-posts">
+      <div className="container">
+        Show posts in props
+      </div>
+    </div>
+  );
+}
+
+export default Posts;
+
+/*
+const Posts = (posts) => (
+  const returnedjson = JSON.stringify(posts);
+  return (
+    <div>
+      yay got json... {returnedjson}
+    </div>
+  );
+
 );
 
 Posts.propTypes = {
@@ -17,3 +33,4 @@ Posts.propTypes = {
 };
 
 export default Posts;
+*/

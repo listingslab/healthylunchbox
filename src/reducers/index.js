@@ -9,14 +9,14 @@
 
 import { combineReducers } from 'redux';
 import {
-  SELECT_REDDIT, INVALIDATE_REDDIT,
+  SELECT_HLB, INVALIDATE_HLB,
   REQUEST_POSTS, RECEIVE_POSTS
 } from '../actions';
 
-const selectedReddit = (state = 'recipes', action) => {
+const selectedHLB = (state = 'recipes', action) => {
   switch (action.type) {
-  case SELECT_REDDIT:
-    return action.reddit;
+  case SELECT_HLB:
+    return action.hlb;
   default:
     return state;
   }
@@ -29,7 +29,7 @@ state = {
   items: []
 }, action) => {
   switch (action.type) {
-  case INVALIDATE_REDDIT:
+  case INVALIDATE_HLB:
     return {
       ...state,
       didInvalidate: true
@@ -53,14 +53,14 @@ state = {
   }
 };
 
-const postsByReddit = (state = { }, action) => {
+const postsByHLB = (state = { }, action) => {
   switch (action.type) {
-  case INVALIDATE_REDDIT:
+  case INVALIDATE_HLB:
   case RECEIVE_POSTS:
   case REQUEST_POSTS:
     return {
       ...state,
-      [action.reddit]: posts(state[action.reddit], action)
+      [action.hlb]: posts(state[action.hlb], action)
     };
   default:
     return state;
@@ -68,8 +68,8 @@ const postsByReddit = (state = { }, action) => {
 };
 
 const rootReducer = combineReducers({
-  postsByReddit,
-  selectedReddit
+  postsByHLB,
+  selectedHLB
 });
 
 export default rootReducer;

@@ -5,7 +5,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions';
+import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Header from '../components/Header';
 import Jumbotron from '../components/Jumbotron';
 import Footer from '../components/Footer';
@@ -14,46 +14,46 @@ import Posts from '../components/Posts';
 
 class App extends Component {
   static propTypes = {
-    selectedReddit: PropTypes.string.isRequired,
-    posts: PropTypes.array.isRequired,
+    selectedHLB: PropTypes.string.isRequired,
+    posts: PropTypes.any.isRequired,
     isFetching: PropTypes.bool.isRequired,
     lastUpdated: PropTypes.number,
     dispatch: PropTypes.func.isRequired
   }
 
   componentDidMount() {
-    const { dispatch, selectedReddit } = this.props;
-    // console.log('selectedReddit > ' + selectedReddit);
-    dispatch(fetchPostsIfNeeded(selectedReddit));
+    const { dispatch, selectedHLB } = this.props;
+    // console.log('selectedHLB > ' + selectedHLB);
+    dispatch(fetchPostsIfNeeded(selectedHLB));
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedReddit !== this.props.selectedReddit) {
-      const { dispatch, selectedReddit } = nextProps;
-      dispatch(fetchPostsIfNeeded(selectedReddit));
+    if (nextProps.selectedHLB !== this.props.selectedHLB) {
+      const { dispatch, selectedHLB } = nextProps;
+      dispatch(fetchPostsIfNeeded(selectedHLB));
     }
   }
 
-  handleChange = (nextReddit) => {
-    this.props.dispatch(selectReddit(nextReddit));
+  handleChange = (nextHLB) => {
+    this.props.dispatch(selectHLB(nextHLB));
   }
 
   handleRefreshClick = (e) => {
     e.preventDefault();
-    const { dispatch, selectedReddit } = this.props;
-    dispatch(invalidateReddit(selectedReddit));
-    dispatch(fetchPostsIfNeeded(selectedReddit));
+    const { dispatch, selectedHLB } = this.props;
+    dispatch(invalidateHLB(selectedHLB));
+    dispatch(fetchPostsIfNeeded(selectedHLB));
   }
 
   render() {
-    const { selectedReddit, posts, isFetching, lastUpdated } = this.props;
+    const { selectedHLB, posts, isFetching, lastUpdated } = this.props;
     const isEmpty = posts.length === 0;
     return (
       <div>
         <Header />
-        <Jumbotron />
+
         <div className="container">
-        <Picker value={selectedReddit}
+        <Picker value={selectedHLB}
           onChange={this.handleChange}
           options={['recipes', 'tips', 'hello']} />
         <p>
@@ -74,6 +74,7 @@ class App extends Component {
           ? (isFetching ? <p>Loading...</p> : <h4>Empty.</h4>)
           : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
               <Posts posts={posts} />
+              <textarea rows="20" cols="100" defaultValue={JSON.stringify(posts)} />
             </div>
         }
         </div>
@@ -84,18 +85,18 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { selectedReddit, postsByReddit } = state;
+  const { selectedHLB, postsByHLB } = state;
   const {
     isFetching,
     lastUpdated,
     items: posts
-  } = postsByReddit[selectedReddit] || {
+  } = postsByHLB[selectedHLB] || {
     isFetching: true,
     items: []
   };
 
   return {
-    selectedReddit,
+    selectedHLB,
     posts,
     isFetching,
     lastUpdated
@@ -103,3 +104,8 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(App);
+
+
+/*
+<Jumbotron />
+*/

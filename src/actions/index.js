@@ -9,44 +9,43 @@
 
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
-export const SELECT_REDDIT = 'SELECT_REDDIT';
-export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
+export const SELECT_HLB = 'SELECT_HLB';
+export const INVALIDATE_HLB = 'INVALIDATE_HLB';
 
-export const selectReddit = reddit => ({
-  type: SELECT_REDDIT,
-  reddit
+export const selectHLB = hlb => ({
+  type: SELECT_HLB,
+  hlb
 });
 
-export const invalidateReddit = reddit => ({
-  type: INVALIDATE_REDDIT,
-  reddit
+export const invalidateHLB = hlb => ({
+  type: INVALIDATE_HLB,
+  hlb
 });
 
-export const requestPosts = reddit => ({
+export const requestPosts = hlb => ({
   type: REQUEST_POSTS,
-  reddit
+  hlb
 });
 
-export const receivePosts = (reddit, json) => ({
+export const receivePosts = (hlb, json) => ({
   type: RECEIVE_POSTS,
-  reddit,
-  posts: [],
+  hlb,
+  posts: json,
   receivedAt: Date.now()
 });
 
-const fetchPosts = reddit => (dispatch) => {
-  dispatch(requestPosts(reddit));
+const fetchPosts = hlb => (dispatch) => {
+  dispatch(requestPosts(hlb));
   const baseurl = 'http://api.healthylunchbox.com.au/wp-json/hlbapi/';
-  const url = baseurl + reddit;
-  console.log(`fetch > ${url}`);
+  const url = baseurl + hlb;
+  // console.log(`fetch > ${url}`);
   return fetch(url)
-  // return fetch(`https://www.reddit.com/r/${reddit}.json`)
     .then(response => response.json())
-    .then(json => dispatch(receivePosts(reddit, json)));
+    .then(posts => dispatch(receivePosts(hlb, posts)));
 };
 
-const shouldFetchPosts = (state, reddit) => {
-  const posts = state.postsByReddit[reddit];
+const shouldFetchPosts = (state, hlb) => {
+  const posts = state.postsByHLB[hlb];
   if (!posts) {
     return true;
   }
@@ -57,8 +56,8 @@ const shouldFetchPosts = (state, reddit) => {
 };
 
 // eslint-disable-next-line consistent-return
-export const fetchPostsIfNeeded = reddit => (dispatch, getState) => {
-  if (shouldFetchPosts(getState(), reddit)) {
-    return dispatch(fetchPosts(reddit));
+export const fetchPostsIfNeeded = hlb => (dispatch, getState) => {
+  if (shouldFetchPosts(getState(), hlb)) {
+    return dispatch(fetchPosts(hlb));
   }
 };
