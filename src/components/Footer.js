@@ -12,7 +12,7 @@ function Footer() {
         <hr />
         &copy; Cancer Council NSW 2017
         <br /><small><a target="_blank" rel="noopener noreferrer" href="http://api.healthylunchbox.com.au/wp-admin">WordPress CMS</a>
-        &nbsp;vs2.0.6</small>
+        &nbsp;vs2.0.7</small>
       </div>
     </div>
   );
