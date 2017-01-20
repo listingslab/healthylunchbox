@@ -6,13 +6,14 @@
  * Actions describe the fact that something happened, but don't specify how the
  * application's state changes in response. This is the job of reducers.
  */
+
 import { combineReducers } from 'redux';
 import {
   SELECT_REDDIT, INVALIDATE_REDDIT,
   REQUEST_POSTS, RECEIVE_POSTS
 } from '../actions';
 
-const selectedReddit = (state = 'reactjs', action) => {
+const selectedReddit = (state = 'recipes', action) => {
   switch (action.type) {
   case SELECT_REDDIT:
     return action.reddit;
@@ -21,7 +22,8 @@ const selectedReddit = (state = 'reactjs', action) => {
   }
 };
 
-const posts = (state = {
+const posts = (
+state = {
   isFetching: false,
   didInvalidate: false,
   items: []

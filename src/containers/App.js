@@ -7,6 +7,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions';
 import Header from '../components/Header';
+import Jumbotron from '../components/Jumbotron';
+import Footer from '../components/Footer';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
@@ -21,6 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch, selectedReddit } = this.props;
+    // console.log('selectedReddit > ' + selectedReddit);
     dispatch(fetchPostsIfNeeded(selectedReddit));
   }
 
@@ -48,9 +51,11 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Jumbotron />
+        <div className="container">
         <Picker value={selectedReddit}
           onChange={this.handleChange}
-          options={['reactjs', 'frontend']} />
+          options={['recipes', 'tips', 'hello']} />
         <p>
           {lastUpdated &&
             <span>
@@ -66,11 +71,13 @@ class App extends Component {
           }
         </p>
         {isEmpty
-          ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
+          ? (isFetching ? <p>Loading...</p> : <h4>Empty.</h4>)
           : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
               <Posts posts={posts} />
             </div>
         }
+        </div>
+        <Footer />
       </div>
     );
   }
