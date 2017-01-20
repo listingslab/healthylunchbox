@@ -13,14 +13,19 @@ class NotFound extends Component {
   render() {
     return (
       <div className="template-notfound">
-        <h3>Perhaps searching would help?</h3>
-        <form name="search">
-          <input type="text" name="searchterm" />
-          <input type="submit" value="Search" />
-        </form>
+        <h2>Route Not Found :(</h2>
       </div>
     );
   }
 }
 
 export default connect()(NotFound);
+
+/*
+<h3>Perhaps searching would help?</h3>
+<form name="search">
+  <input type="text" name="searchterm" />
+  <input type="submit" value="Search" />
+</form>
+
+*/

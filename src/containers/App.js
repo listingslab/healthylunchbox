@@ -9,7 +9,7 @@ import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Header from '../components/Header';
 // import Jumbotron from '../components/Jumbotron';
 import Footer from '../components/Footer';
-import Recipes from '../templates/Recipes';
+// import Recipes from '../templates/Recipes';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
@@ -19,6 +19,7 @@ class App extends Component {
     posts: PropTypes.any.isRequired,
     isFetching: PropTypes.bool.isRequired,
     lastUpdated: PropTypes.number,
+    children: PropTypes.any,
     dispatch: PropTypes.func.isRequired
   }
 
@@ -48,9 +49,15 @@ class App extends Component {
   render() {
     const { selectedHLB, posts, isFetching, lastUpdated } = this.props;
     const isEmpty = posts.length === 0;
+    const { children } = this.props;
     return (
       <div className="template-app">
         <Header />
+        <div className="container">
+          {children}
+        </div>
+        <Footer />
+        <hr />
         <div className="template-picker">
           <Picker value={selectedHLB}
             onChange={this.handleChange}
@@ -78,8 +85,7 @@ class App extends Component {
               </div>
           }
         </div>
-        
-        <Footer />
+
       </div>
     );
   }

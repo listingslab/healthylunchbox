@@ -39,7 +39,6 @@ class App extends Component {
         <Header />
 
         <div className="container">
-
           {children}
         </div>
 

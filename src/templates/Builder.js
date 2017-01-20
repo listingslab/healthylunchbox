@@ -13,7 +13,7 @@ class Builder extends Component {
   render() {
     return (
       <div className="template-builder">
-
+        <img className="img-responsive" src="/img/lunchbox.png" alt="lunchbox" />
       </div>
     );
   }

@@ -7,8 +7,12 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 function CategoryTile(props) {
+  const title = 'Category Tile Title';
+  const thumbnail = '/img/default_category_image.png';
+  const shortDescription = 'Category tile short description';
   // console.log(props);
-  const editurl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${props.post.ID}&action=edit`;
+  // const editurl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${id}&action=edit`;
+  const editurl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=0&action=edit';
   return (
     <div className="tile-category">
       <div className="col-md-6">
@@ -19,9 +23,9 @@ function CategoryTile(props) {
           className="category-tile-link"
         >
         <div className="well category-tile">
-        <img className="pull-right" alt={props.post.title} src={props.post.thumbnail} />
-        <h3>{props.post.title}</h3>
-        <p>{props.post.short_description}</p>
+        <img className="pull-right" alt={title} src={thumbnail} />
+        <h3>{title}</h3>
+        <p>{shortDescription}</p>
       </div>
       </a>
       </div>

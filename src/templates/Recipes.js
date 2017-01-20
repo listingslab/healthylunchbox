@@ -3,44 +3,67 @@
  * templates/Recipes
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import CategoryTile from '../components/CategoryTile';
-import Jumbotron from '../components/Jumbotron';
 
 class Recipes extends Component {
   static propTypes = {
-    status: PropTypes.string,
-    posts: PropTypes.any
   }
 
   render() {
-    if (this.props.posts.status !== 'ok') {
-      return (<div className="template-error">
-          <div className="container">
-            <Link to="/help">API status not OK</Link>
-          </div>
-        </div>);
-    }
-    const data = this.props.posts.data;
-    const tiles = [];
-    for (let i = 0; i < data.length; i += 1) {
-      tiles.push(<div
-        className="tile-category"
-        key={i}>
-        <CategoryTile post={data[i]} />
-      </div>);
-    }
-
-    return (<div className="template-recipes">
+    return (
+      <div className="template-recipes">
         <div className="container">
-          <Jumbotron page={this.props} />
-          </div>
+        <h3>List of recipe categories.</h3>
+        <p>This list will be a series of category tiles showing the recipe categories.
+          It should show 10-20 category tiles comfortably.</p>
+      </div>
+
           <div className="container">
-            {tiles}
+            <div className="row">
+              <CategoryTile
+                title="Banana cake"
+                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
+                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
+                link="/recipe/497"
+              />
+              <CategoryTile
+                title="Cancer Council News"
+                image="/img/default_category_image.png"
+                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
+                link="/about"
+              />
+              <CategoryTile
+                title="Prepare the night before"
+                image="http://api.healthylunchbox.com.au/wp-content/uploads/preparing-school-lunch-250x250.jpg"
+                desc="In this tip, we'll discover the basics of food safety starting with
+                preparing the night before"
+                link="/tip/123"
+              />
+              <CategoryTile
+                title="Second Featured Recipe"
+                image="/img/default_category_image.png"
+                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
+                link="/recipe/497"
+              />
+              <CategoryTile
+                title="Banana cake"
+                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
+                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
+                link="/recipe/497"
+              />
+              <CategoryTile
+                title="Cancer Council News"
+                image="/img/default_category_image.png"
+                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
+                link="/about"
+              />
+            </div>
           </div>
-      </div>);
+      </div>
+    );
   }
 }
 

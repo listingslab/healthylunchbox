@@ -7,15 +7,15 @@ import React from 'react';
 import { Link } from 'react-router';
 
 function Jumbotron(props) {
-  //console.log(props);
-  const pageTitle = props.page.posts.description || 'no title';
-  // Jumbotron(props) console.log(props);
+  console.log(props);
   return (
-      <div className="template-jumbotron jumbotron">
-          <h2>{ pageTitle }</h2>
-          <a  rel='noopener noreferrer' href="http://api.healthylunchbox.com.au/wp-admin/post-new.php?post_type=recipe" target="_blank" className="btn btn-danger">
-            Add a recipe</a>
-      </div>
+    <div className="template-jumbotron jumbotron">
+    <div className="container">
+      <h1>Use the lunchbox builder</h1>
+      <p>It&apos;s fun for the whole family and can be used in the kitchen on your ipad.</p>
+      <p><Link className="btn btn-primary btn-lg" to="/builder" role="button">Use it, use it &raquo;</Link></p>
+    </div>
+  </div>
   );
 }
 
