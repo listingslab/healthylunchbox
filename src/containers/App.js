@@ -1,94 +1,92 @@
-/**
- * Created by Chris Dorward on 16/01/2017
- * container/App
- */
-
-import React, { Component, PropTypes } from 'react';
-import { Modal } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-// import PageTitle from '../components/PageTitle';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions'
+import Picker from '../components/Picker'
+import Posts from '../components/Posts'
 
 class App extends Component {
   static propTypes = {
-    children: PropTypes.any
+    selectedReddit: PropTypes.string.isRequired,
+    posts: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    lastUpdated: PropTypes.number,
+    dispatch: PropTypes.func.isRequired
   }
 
-  componentWillMount() {
-    this.checkAPI('hello');
+  componentDidMount() {
+    const { dispatch, selectedReddit } = this.props
+    dispatch(fetchPostsIfNeeded(selectedReddit))
   }
 
-  checkAPI(route) {
-    this.apiPath = 'http://api.healthylunchbox.com.au/wp-json/hlbapi/';
-    console.log(`Connect to, ${this.apiPath}${route}!`);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedReddit !== this.props.selectedReddit) {
+      const { dispatch, selectedReddit } = nextProps
+      dispatch(fetchPostsIfNeeded(selectedReddit))
+    }
   }
 
-  handleChange = (nextValue) => {
-    browserHistory.push(`/${nextValue}`);
+  handleChange = nextReddit => {
+    this.props.dispatch(selectReddit(nextReddit))
+  }
+
+  handleRefreshClick = e => {
+    e.preventDefault()
+
+    const { dispatch, selectedReddit } = this.props
+    dispatch(invalidateReddit(selectedReddit))
+    dispatch(fetchPostsIfNeeded(selectedReddit))
   }
 
   render() {
-    const { children } = this.props;
-    const showit = false;
+    const { selectedReddit, posts, isFetching, lastUpdated } = this.props
+    const isEmpty = posts.length === 0
     return (
       <div>
-        <Header />
-
-        <div className="container">
-
-          {children}
-        </div>
-
-        <Footer />
-
-        <Modal show={showit}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-        </Modal>
+        <Picker value={selectedReddit}
+                onChange={this.handleChange}
+                options={[ 'reactjs', 'frontend' ]} />
+        <p>
+          {lastUpdated &&
+            <span>
+              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+              {' '}
+            </span>
+          }
+          {!isFetching &&
+            <a href="#"
+               onClick={this.handleRefreshClick}>
+              Refresh
+            </a>
+          }
+        </p>
+        {isEmpty
+          ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
+          : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+              <Posts posts={posts} />
+            </div>
+        }
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => {
+  const { selectedReddit, postsByReddit } = state
+  const {
+    isFetching,
+    lastUpdated,
+    items: posts
+  } = postsByReddit[selectedReddit] || {
+    isFetching: true,
+    items: []
+  }
 
-export default connect(mapStateToProps, {})(App);
-
-/*
-<PageTitle pageTitle={pageTitle} />
-
-let pageTitle = 'Page not found';
-switch (this.props.location.pathname) {
-case '/':
-  pageTitle = 'Home';
-  break;
-
-case '/builder':
-  pageTitle = 'Builder';
-  break;
-
-case '/recipes':
-  pageTitle = 'Recipes & Ideas';
-  break;
-
-case '/tips':
-  pageTitle = 'Tips';
-  break;
-
-case '/about':
-  pageTitle = 'About';
-  break;
-
-case '/featured':
-  pageTitle = 'Featured Content';
-  break;
-
-default:
-  pageTitle = 'Page not found :(';
+  return {
+    selectedReddit,
+    posts,
+    isFetching,
+    lastUpdated
+  }
 }
 
-
-*/
+export default connect(mapStateToProps)(App)

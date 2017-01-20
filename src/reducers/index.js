@@ -1,24 +1,17 @@
-/**
- * Created by Chris Dorward on 16/01/2017
- * Redux Reducers
- */
-
-import { combineReducers } from 'redux';
-import { routerReducer as routing } from 'react-router-redux';
-
+import { combineReducers } from 'redux'
 import {
   SELECT_REDDIT, INVALIDATE_REDDIT,
   REQUEST_POSTS, RECEIVE_POSTS
-} from '../actions';
+} from '../actions'
 
 const selectedReddit = (state = 'reactjs', action) => {
   switch (action.type) {
-  case SELECT_REDDIT:
-    return action.reddit;
-  default:
-    return state;
+    case SELECT_REDDIT:
+      return action.reddit
+    default:
+      return state
   }
-};
+}
 
 const posts = (state = {
   isFetching: false,
@@ -26,48 +19,47 @@ const posts = (state = {
   items: []
 }, action) => {
   switch (action.type) {
-  case INVALIDATE_REDDIT:
-    return {
-      ...state,
-      didInvalidate: true
-    };
-  case REQUEST_POSTS:
-    return {
-      ...state,
-      isFetching: true,
-      didInvalidate: false
-    };
-  case RECEIVE_POSTS:
-    return {
-      ...state,
-      isFetching: false,
-      didInvalidate: false,
-      items: action.posts,
-      lastUpdated: action.receivedAt
-    };
-  default:
-    return state;
+    case INVALIDATE_REDDIT:
+      return {
+        ...state,
+        didInvalidate: true
+      }
+    case REQUEST_POSTS:
+      return {
+        ...state,
+        isFetching: true,
+        didInvalidate: false
+      }
+    case RECEIVE_POSTS:
+      return {
+        ...state,
+        isFetching: false,
+        didInvalidate: false,
+        items: action.posts,
+        lastUpdated: action.receivedAt
+      }
+    default:
+      return state
   }
-};
+}
 
 const postsByReddit = (state = { }, action) => {
   switch (action.type) {
-  case INVALIDATE_REDDIT:
-  case RECEIVE_POSTS:
-  case REQUEST_POSTS:
-    return {
-      ...state,
-      [action.reddit]: posts(state[action.reddit], action)
-    };
-  default:
-    return state;
+    case INVALIDATE_REDDIT:
+    case RECEIVE_POSTS:
+    case REQUEST_POSTS:
+      return {
+        ...state,
+        [action.reddit]: posts(state[action.reddit], action)
+      }
+    default:
+      return state
   }
-};
+}
 
 const rootReducer = combineReducers({
   postsByReddit,
-  selectedReddit,
-  routing
-});
+  selectedReddit
+})
 
-export default rootReducer;
+export default rootReducer

@@ -1,31 +1,25 @@
-/**
- * Created by Chris Dorward on 16/01/2017
- * Application entrypoint
- */
+import React from 'react'
+import { render } from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import createLogger from 'redux-logger'
+import reducer from './reducers'
+import App from './containers/App'
 
-import React from 'react';
-import { render } from 'react-dom';
-import { browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
-import 'bootstrap/dist/css/bootstrap.css';
-import reducer from './reducers';
-import Root from './containers/Root';
-
-const middleware = [thunk];
+const middleware = [ thunk ]
 if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
+  middleware.push(createLogger())
 }
 
 const store = createStore(
   reducer,
   applyMiddleware(...middleware)
-);
-const history = syncHistoryWithStore(browserHistory, store);
+)
 
 render(
-  <Root store={store} history={history} />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
-);
+)
