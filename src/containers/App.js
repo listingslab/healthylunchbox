@@ -11,7 +11,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Recipes from '../templates/Recipes';
 import Picker from '../components/Picker';
-// import Posts from '../components/Posts';
+import Posts from '../components/Posts';
 
 class App extends Component {
   static propTypes = {
@@ -46,22 +46,40 @@ class App extends Component {
   }
 
   render() {
-    const { posts, isFetching } = this.props;
+    const { selectedHLB, posts, isFetching, lastUpdated } = this.props;
     const isEmpty = posts.length === 0;
     return (
       <div className="template-app">
-        <div className="container">
-            <Header />
-        </div>
-        <div className="container">  
+        <Header />
+        <div className="template-picker">
+          <Picker value={selectedHLB}
+            onChange={this.handleChange}
+            options={['recipes', 'tips']} />
+
+            {lastUpdated &&
+              <div className="container">
+                Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+                {' '}
+              </div>
+            }
+            {!isFetching &&
+              <div className="container">
+              <button href="#"
+                onClick={this.handleRefreshClick}>
+                Refresh
+              </button>
+            </div>
+            }
+
           {isEmpty
-            ? (isFetching ? <p>Loading...</p> : <h4>Empty.</h4>)
+            ? (isFetching ? <div className="container"><p>Loading...</p></div> : <div className="container"><p>Empty.</p></div>)
             : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-                <Recipes posts={posts} />
+                <Posts posts={posts} />
               </div>
           }
-          <Footer />
         </div>
+        <Recipes posts={posts} />
+        <Footer />
       </div>
     );
   }
@@ -91,25 +109,4 @@ export default connect(mapStateToProps)(App);
 
 /*
 <Jumbotron />
-<Posts posts={posts} />
-<textarea rows="20" cols="100" defaultValue={JSON.stringify(posts)} />
-
-<Picker value={selectedHLB}
-  onChange={this.handleChange}
-  options={['recipes', 'tips']} />
-<p>
-  {lastUpdated &&
-    <span className="">
-      Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-      {' '}
-    </span>
-  }
-  {!isFetching &&
-    <button className="" href="#"
-      onClick={this.handleRefreshClick}>
-      Refresh
-    </button>
-  }
-</p>
-
 */

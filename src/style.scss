@@ -3,11 +3,8 @@
  * Styles entrypoint
  */
 
-.clear-tile {
-  clear: both;
-}
-
-.tile-category {
+.template-picker {
+  margin-bottom: 20px;
 }
 
 .category-tile-link {
@@ -43,21 +40,6 @@
 
 .template-footer {
   text-align: center;
-}
-
-.template-home {
-}
-
-.template-notfound {
-}
-
-.template-about {
-}
-
-.template-recipes {
-}
-
-.template-tips {
 }
 
 .template-builder {

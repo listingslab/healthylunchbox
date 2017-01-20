@@ -8,16 +8,22 @@ import { Link } from 'react-router';
 
 function CategoryTile(props) {
   // console.log(props);
+  const editurl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${props.post.ID}&action=edit`;
   return (
     <div className="tile-category">
       <div className="col-md-6">
-        <Link to={props.post.link} className="category-tile-link" role="button">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={editurl}
+          className="category-tile-link"
+        >
         <div className="well category-tile">
         <img className="pull-right" alt={props.post.title} src={props.post.thumbnail} />
         <h3>{props.post.title}</h3>
         <p>{props.post.short_description}</p>
       </div>
-      </Link>
+      </a>
       </div>
     </div>
   );

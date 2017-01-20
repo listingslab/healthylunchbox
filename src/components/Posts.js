@@ -7,11 +7,7 @@ import React from 'react';
 function Posts(props) {
   console.log(props);
   return (
-    <div className="template-posts">
-      <div className="container">
-        Show posts in props
-      </div>
-    </div>
+    <div className="template-posts" />
   );
 }
 

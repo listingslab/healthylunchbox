@@ -2,6 +2,7 @@
  * Created by Chris Dorward on 16/01/2017
  * index.js Application entrypoint
  */
+// global.jQuery = require('jquery');
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -9,7 +10,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.css';
-import createLogger from 'redux-logger';
+// import createLogger from 'redux-logger';
 import reducer from './reducers';
 import App from './containers/App';
 
