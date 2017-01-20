@@ -78,7 +78,7 @@ class App extends Component {
               </div>
           }
         </div>
-        
+        <Recipes posts={posts} />
         <Footer />
       </div>
     );

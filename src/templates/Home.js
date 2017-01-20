@@ -15,7 +15,9 @@ class Home extends Component {
   render() {
     return (
       <div className="template-home">
-        
+        <div className="container">
+          <Jumbotron />
+        </div>
 
         <div className="container">
           <div className="row">
