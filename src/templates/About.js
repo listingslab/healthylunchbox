@@ -13,7 +13,8 @@ class About extends Component {
   render() {
     return (
       <div className="template-about">
-        <div className="col-md-6">
+        <div className="row">
+          <div className="col-md-6">
           <h3>About</h3>
           <p>Eating enough fruit and veg everyday will give your kids the energy and
           nutrients they need to learn and play, and can help protect them against
@@ -31,7 +32,9 @@ class About extends Component {
         </ul>
 
     </div>
-    <div className="col-md-12 text-center">
+  </div>
+    <div className="row">
+    <div className="col-md-12 text-center template-about-links">
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -39,6 +42,7 @@ class About extends Component {
       >
         <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
       </a>
+    </div>
     </div>
       </div>
     );

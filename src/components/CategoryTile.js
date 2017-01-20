@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 
 function CategoryTile(props) {
   const title = 'Category Tile Title';
-  const thumbnail = '/img/default_category_image.png';
+  const thumbnail = '/img/daffs/blue.png';
   const shortDescription = 'Category tile short description';
   // console.log(props);
   // const editurl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${id}&action=edit`;
@@ -16,10 +16,10 @@ function CategoryTile(props) {
   return (
     <div className="tile-category">
       <div className="col-md-6">
-        <a
+        <Link
           target="_blank"
           rel="noopener noreferrer"
-          href={editurl}
+          to={editurl}
           className="category-tile-link"
         >
         <div className="well category-tile">
@@ -27,7 +27,7 @@ function CategoryTile(props) {
         <h3>{title}</h3>
         <p>{shortDescription}</p>
       </div>
-      </a>
+    </Link>
       </div>
     </div>
   );
