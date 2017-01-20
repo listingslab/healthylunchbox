@@ -35,16 +35,14 @@ module.exports = {
   // Paths and extensions
   entry: {
     app: APP,
-    style: STYLE,
-    vendor: PACKAGE
+    style: STYLE
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
   },
   output: {
     path: BUILD,
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[chunkhash].js',
+    filename: '[name].js',
     publicPath: '/'
   },
   module: {
