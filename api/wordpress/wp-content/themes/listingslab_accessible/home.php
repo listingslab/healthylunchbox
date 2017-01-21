@@ -16,7 +16,8 @@ get_header(); ?>
 		<ul class="post-list">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li <?php post_class(); ?>>
-					<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+					<!--<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
+					<?php echo esc_html( get_the_date() ); ?></time>-->
 					<?php the_title(
 						sprintf(
 							'<a href="%1$s">',

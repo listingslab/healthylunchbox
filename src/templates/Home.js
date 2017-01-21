@@ -16,9 +16,6 @@ class Home extends Component {
     return (
       <div className="template-home">
         <div className="container">
-          <div className="alert alert-warning" role="alert">
-            <strong>Warning!</strong> Best check yo self.
-          </div>
           <Jumbotron />
           <div className="row">
             <FeaturedTile
@@ -49,3 +46,9 @@ class Home extends Component {
 }
 
 export default connect()(Home);
+
+/*
+<div className="alert alert-warning" role="alert">
+  <strong>Warning!</strong> Best check yo self.
+</div>
+*/

@@ -9,10 +9,9 @@ function Footer() {
   return (
     <div className="template-footer">
       <div className="container">
-        <hr />
-        &copy; Cancer Council NSW 2017
-        <br /><small><a target="_self" rel="noopener noreferrer" href="http://api.healthylunchbox.com.au">Manage Content</a>
-        &nbsp;vs2.0.7</small>
+        <small>&copy; Cancer Council NSW 2017
+        <br /><a target="_self" rel="noopener noreferrer" href="http://api.healthylunchbox.com.au">Manage Content</a>
+        &nbsp;vs2.0.8</small>
       </div>
     </div>
   );

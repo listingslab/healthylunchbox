@@ -24,7 +24,6 @@ function Header() {
             <li><Link to="/tips">Tips</Link></li>
             <li><Link to="/about">About</Link></li>
           </ul>
-
       </Navbar.Collapse>
     </Navbar>
   );

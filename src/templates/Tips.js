@@ -20,10 +20,7 @@ class Tips extends Component {
             <h2>Tip categories</h2>
           </div>
 
-          <div className="alert alert-info" role="alert">
-            <strong>Heads up!</strong> This list will be a series of category tiles
-              showing the recipe categories. It should show 10-20 category tiles comfortably.
-          </div>
+
       </div>
           <div className="container">
             <div className="row">
@@ -63,3 +60,9 @@ class Tips extends Component {
 }
 
 export default connect()(Tips);
+/*
+<div className="alert alert-info" role="alert">
+  <strong>Heads up!</strong> This list will be a series of category tiles
+    showing the recipe categories. It should show 10-20 category tiles comfortably.
+</div>
+*/

@@ -12,22 +12,19 @@
 		<?php get_sidebar();
 		if ( has_nav_menu( 'footer' ) ) { ?>
 			<footer>
-				<?php wp_nav_menu(
-					array(
-						'theme_location' => 'footer',
-						'depth'          => 1,
-						'fallback_cb'    => false,
-						'container'      => false,
-						'items_wrap'     => '<nav role="navigation"><ul id="%1$s" class="%2$s">%3$s</ul></nav>'
-					)
-				); ?>
+				<small>&copy; Cancer Council NSW 2017</small>
+					<a
+						href="https://www.w3.org/WAI/WCAG2AAA-Conformance"
+						target="_blank"
+						title="AAA Conformance to Web Content Accessibility Guidelines"
+					>
+						<img
+							src="<?php print get_template_directory_uri() . '/images/logos/wcag2AAA.gif' ?>"
+							alt="AAA Conformance to Web Content Accessibility Guidelines"
+						/>
+					</a>
 			</footer>
 		<?php }
 		wp_footer(); ?>
-		<div class="fontend-btn" style="text-align:center;">
-			<a href="http://beta.healthylunchbox.com.au/" >
-				React Frontend
-			</a>
-		</div>
 	</body>
 </html>

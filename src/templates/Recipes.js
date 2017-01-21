@@ -21,10 +21,7 @@ class Recipes extends Component {
             <h2>Recipe categories</h2>
           </div>
 
-          <div className="alert alert-info" role="alert">
-            <strong>Heads up!</strong> This list will be a series of category tiles
-              showing the recipe categories. It should show 10-20 category tiles comfortably
-          </div>
+
       </div>
 
           <div className="container">
@@ -57,8 +54,64 @@ class Recipes extends Component {
                 shortDescription=""
                 link="/"
               />
-
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category One"
+                thumbnail="/img/daffs/yellow.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category Two"
+                thumbnail="/img/daffs/green.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category Three"
+                thumbnail="/img/daffs/orange.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category Four"
+                thumbnail="/img/daffs/blue.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category One"
+                thumbnail="/img/daffs/yellow.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category Two"
+                thumbnail="/img/daffs/green.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category Three"
+                thumbnail="/img/daffs/orange.png"
+                shortDescription=""
+                link="/"
+              />
+              <CategoryTile
+                categoryType="recipe"
+                title="Recipe Category Four"
+                thumbnail="/img/daffs/blue.png"
+                shortDescription=""
+                link="/"
+              />
             </div>
+
           </div>
       </div>
     );
@@ -66,3 +119,9 @@ class Recipes extends Component {
 }
 
 export default connect()(Recipes);
+/*
+<div className="alert alert-info" role="alert">
+  <strong>Heads up!</strong> This list will be a series of category tiles
+    showing the recipe categories. It should show 10-20 category tiles comfortably
+</div>
+*/
