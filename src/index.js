@@ -2,17 +2,15 @@
  * Created by Chris Dorward on 16/01/2017
  * index.js Application entrypoint
  */
-// global.jQuery = require('jquery');
-
+// eslint-disable-next-line no-unused-vars
+import $ from 'jquery';
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { browserHistory } from 'react-router';
 // import { syncHistoryWithStore } from 'react-router-redux';
-// import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.css';
-// import createLogger from 'redux-logger';
 import reducer from './reducers';
 import Root from './containers/Root';
 

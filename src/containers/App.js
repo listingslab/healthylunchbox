@@ -7,9 +7,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Header from '../components/Header';
-// import Jumbotron from '../components/Jumbotron';
 import Footer from '../components/Footer';
-// import Recipes from '../templates/Recipes';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
@@ -26,7 +24,6 @@ class App extends Component {
   componentDidMount() {
     const { dispatch, selectedHLB } = this.props;
     dispatch(fetchPostsIfNeeded(selectedHLB));
-
   }
 
   componentWillReceiveProps(nextProps) {
