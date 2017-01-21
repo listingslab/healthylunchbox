@@ -43,16 +43,11 @@ class App extends Component {
     dispatch(fetchPostsIfNeeded(selectedHLB));
   }
 
-  handleLunchboxClick = (e) => {
-    console.log('yay! click event on the lunchbox');
-    console.log(e);
-  }
-
   render() {
     const { children } = this.props;
     return (
       <div className="template-app">
-        <TheLunchbox eventthing={this.handleLunchboxClick} />
+        <TheLunchbox />
         <Header />
         <div className="container">
           {children}

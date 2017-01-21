@@ -22,6 +22,7 @@ const autoprefixer = require('autoprefixer');
 // Constants
 const APP = path.join(__dirname, 'src');
 const BUILD = path.join(__dirname, 'build');
+const DOCS = path.join(__dirname, 'docs/react-motion-demos');
 const STYLE = path.join(__dirname, 'src/style.scss');
 const IMAGES = path.join(__dirname, 'public/images');
 const HTML = path.join(__dirname, 'public/index.html');
@@ -101,11 +102,14 @@ module.exports = {
       { from: IMAGES, to: BUILD }
     ],
       {
-        ignore: [
-          // Doesn't copy mac storage system files
-          '.DS_Store',
-          'psd/*'
-        ]
+        ignore: ['.DS_Store', 'psd/*']
+      }
+    ),
+    new CopyWebpackPlugin([
+      { from: DOCS, to: `${BUILD}/react-motion` }
+    ],
+      {
+        ignore: ['.DS_Store']
       }
     ),
     new HtmlWebpackPlugin({

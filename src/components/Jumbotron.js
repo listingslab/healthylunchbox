@@ -13,7 +13,24 @@ function Jumbotron() {
     <div className="container">
       <h1>Use the lunchbox builder</h1>
       <p>It&apos;s fun for the whole family and can be used in the kitchen on your ipad.</p>
-      <p><Link className="btn btn-primary btn-lg" to="/builder" role="button">Use it, use it &raquo;</Link></p>
+      <p>
+
+        <a
+          className="btn btn-default btn-lg"
+          href="http://localhost/react-motion"
+          role="button">
+          Animation Demo &raquo;
+        </a>
+
+        &nbsp;
+
+        <Link
+          className="btn btn-primary btn-lg"
+          to="/builder"
+          role="button">
+          Use it, use it &raquo;
+        </Link>
+      </p>
     </div>
   </div>
   );

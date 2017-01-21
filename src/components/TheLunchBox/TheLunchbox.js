@@ -5,27 +5,20 @@
 
  import React, { Component, PropTypes } from 'react';
  import { connect } from 'react-redux';
- import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../../actions';
+ // import BackgroundImage from '../BackgroundImage';
 
  import './TheLunchbox.scss';
 
  class TheLunchbox extends Component {
 
    static propTypes = {
-     selectedHLB: PropTypes.string.isRequired,
-     posts: PropTypes.any.isRequired,
-     isFetching: PropTypes.bool.isRequired,
-     lastUpdated: PropTypes.number,
-     children: PropTypes.any,
-     dispatch: PropTypes.func.isRequired
+     testVar: PropTypes.string
    }
 
    componentDidMount() {
-     console.log('TheLunchbox componentDidMount()');
-     console.log(this.props.eventthing);
-   }
-
-   componentWillReceiveProps(nextProps) {
+    // console.log(this.props);
+     const testVar = 'ok';
+     console.log(`TheLunchbox componentDidMount() ${testVar}`);
    }
 
    handleClick = () => {
@@ -33,41 +26,24 @@
    }
 
    render() {
+     console.log('LUNCHBOX RENDER');
      return (
-       <div
-         className="lunchbox"
-         onClick={this.handleClick}
-        >
-         The Lunchbox.
+       <div className="lunchbox">
+         <button
+           className="btn btn-secondary"
+           onClick={this.handleClick}
+          >
+          Open The Lunchbox.
+        </button>
        </div>
      );
    }
  }
 
- const mapStateToProps = (state) => {
-   const { selectedHLB, postsByHLB } = state;
-   const {
-     isFetching,
-     lastUpdated,
-     items: posts
-   } = postsByHLB[selectedHLB] || {
-     isFetching: true,
-     items: []
-   };
-
-   return {
-     selectedHLB,
-     posts,
-     isFetching,
-     lastUpdated
-   };
- };
-
- export default connect(mapStateToProps)(TheLunchbox);
+ export default connect()(TheLunchbox);
 
 /*
-<div className="lunchbox container">The Lunchbox </div>
-<div className="container lunchbox">
+
   <div className="centered text-center">
       <img
         className="img-responsive"
@@ -75,10 +51,5 @@
         alt="The Lunchbox"
       />
   </div>
-</div>
-<div className="lunchbox well container-table">
-  <div className="row vertical-center-row">
-    <div className="text-center col-md-4 col-md-offset-4">TEXT</div>
-  </div>
-</div>
+
 */
