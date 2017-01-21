@@ -34,28 +34,28 @@ class Recipes extends Component {
                 title="Recipe Category One"
                 thumbnail="/img/daffs/yellow.png"
                 shortDescription=""
-                link="/recipe/497"
+                link="/"
               />
               <CategoryTile
                 categoryType="recipe"
                 title="Recipe Category Two"
                 thumbnail="/img/daffs/green.png"
                 shortDescription=""
-                link="/category-recipie-two"
+                link="/"
               />
               <CategoryTile
                 categoryType="recipe"
                 title="Recipe Category Three"
                 thumbnail="/img/daffs/orange.png"
                 shortDescription=""
-                link="/category-recipie-three"
+                link="/"
               />
               <CategoryTile
                 categoryType="recipe"
                 title="Recipe Category Four"
                 thumbnail="/img/daffs/blue.png"
                 shortDescription=""
-                link="/category-recipie-four"
+                link="/"
               />
 
             </div>

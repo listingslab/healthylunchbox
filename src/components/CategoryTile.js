@@ -54,11 +54,9 @@ function CategoryTile(props) {
           <Link
             to={link}
             className="btn btn-primary"
-            >View &raquo;</Link>
+            >Category &raquo;</Link>
           &nbsp;
           <Link
-            target="_blank"
-            rel="noopener noreferrer"
             to={editurl}
             className="btn btn-default"
         >Edit</Link>

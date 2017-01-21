@@ -32,28 +32,28 @@ class Tips extends Component {
                 title="Tip Category One"
                 thumbnail="/img/daffs/yellow.png"
                 shortDescription="Tip category short description"
-                link="/category-tip-one/"
+                link="/"
               />
               <CategoryTile
                 categoryType="recipe"
                 title="Tip Category Two"
                 thumbnail="/img/daffs/green.png"
                 shortDescription="Tip category short description"
-                link="/category-tip-two/"
+                link="/"
               />
               <CategoryTile
                 categoryType="recipe"
                 title="Tip Category Three"
                 thumbnail="/img/daffs/orange.png"
                 shortDescription="Tip category short description"
-                link="/category-tip-three/"
+                link="/"
               />
               <CategoryTile
                 categoryType="recipe"
                 title="Tip Category Four"
                 thumbnail="/img/daffs/blue.png"
                 shortDescription="Tip category short description"
-                link="/category-tip-four"
+                link="/"
               />
           </div>
         </div>

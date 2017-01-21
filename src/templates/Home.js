@@ -22,9 +22,9 @@ class Home extends Component {
           <Jumbotron />
           <div className="row">
             <FeaturedTile
-              featuredType="Recipe"
+              featuredType="Recipes"
               title="Easy fried rice"
-              link="/easy-fried-rice"
+              link="/"
               catLink="/recipes"
               thumbnail="/img/daffs/green.png"
               id="543"
@@ -32,10 +32,10 @@ class Home extends Component {
               props={this.props} />
 
             <FeaturedTile
-              featuredType="Tip"
+              featuredType="Tips"
               catLink="/tips"
               title="Things you didn't know you could freeze"
-              link="/freezing"
+              link="/"
               thumbnail="/img/daffs/orange.png"
               id="501"
               shortDescription="Redacted from the content of the featured item which must be added to the api"

@@ -40,30 +40,22 @@ function FeaturedTile(props) {
     <div className="tile-category">
       <div className="col-md-6">
         <div className="well">
-        <h3>Featured {featuredType}</h3>
         <h4>{title}</h4>
-
         <p>{shortDescription}</p>
-
         <Link
           to={link}
           className="btn btn-primary"
         >Item &raquo;</Link>
         &nbsp;
-
         <Link
           to={catLink}
           className="btn btn-primary"
-        >Category &raquo;</Link>
+        >{featuredType} &raquo;</Link>
         &nbsp;
-
         <Link
-          target="_blank"
-          rel="noopener noreferrer"
           to={editurl}
           className="btn btn-default"
         >Edit</Link>
-
       </div>
       </div>
     </div>

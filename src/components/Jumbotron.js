@@ -6,8 +6,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-function Jumbotron(props) {
-  console.log(props);
+function Jumbotron() {
+  // console.log(props);
   return (
     <div className="template-jumbotron jumbotron">
     <div className="container">
