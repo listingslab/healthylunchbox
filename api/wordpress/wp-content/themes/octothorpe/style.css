@@ -20,26 +20,26 @@
 html {}
 
 body {
-	font-family: 'PT Sans', serif;
-	font-size: 1.2rem;
-	line-height: 1.8;
-	overflow-wrap: break-word;
-	padding: 3rem 6%;
-	word-wrap: break-word;
+  font-family: 'Arial', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+  padding: 3rem 6%;
+  word-wrap: break-word;
 }
 
 header {}
 
 footer {
-	text-align: center;
+  text-align: center;
 }
 
 article {}
 
 article::after {
-	clear: both;
-	content: "";
-	display: block;
+  clear: both;
+  content: "";
+  display: block;
 }
 
 section {}
@@ -64,7 +64,7 @@ hr {
 
 h1 {
 	clear: both;
-	font-family: 'PT Sans', serif;
+	font-family: 'Baloo', serif;
 	font-size: 4rem;
 	font-weight: 400;
 	line-height: 1;
@@ -73,7 +73,7 @@ h1 {
 
 h2 {
 	clear: both;
-	font-family: 'PT Sans', serif;
+	font-family: 'Baloo', serif;
 	font-size: 3rem;
 	font-weight: 400;
 	line-height: 1;
@@ -82,7 +82,7 @@ h2 {
 
 h3 {
 	clear: both;
-	font-family: 'PT Sans', serif;
+	font-family: 'Baloo', serif;
 	font-size: 2.7rem;
 	font-weight: 400;
 	line-height: 1;
@@ -91,27 +91,24 @@ h3 {
 
 h4 {
 	clear: both;
-	font-family: 'PT Sans', serif;
+	font-family: 'Baloo', serif;
 	font-size: 2.4rem;
-	font-weight: 400;
 	line-height: 1;
 	margin: 0 0 2rem 0;
 }
 
 h5 {
 	clear: both;
-	font-family: 'PT Sans', serif;
+	font-family: 'Baloo', serif;
 	font-size: 2.1rem;
-	font-weight: 400;
 	line-height: 1;
 	margin: 0 0 2rem 0;
 }
 
 h6 {
 	clear: both;
-	font-family: 'PT Sans', serif;
+	font-family: 'Baloo', serif;
 	font-size: 1.8rem;
-	font-weight: 400;
 	line-height: 1;
 	margin: 0 0 2rem 0;
 }
@@ -120,16 +117,18 @@ p {
 	margin: 0 0 2rem 0;
 }
 
-a {}
+a {
+	color:red;
+}
 
 a:link {
 	color: #0000ee;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 a:visited {
 	color: #551a8b;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 address {

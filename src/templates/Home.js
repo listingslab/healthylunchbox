@@ -16,20 +16,27 @@ class Home extends Component {
     return (
       <div className="template-home">
         <div className="container">
+          <div className="alert alert-warning" role="alert">
+            <strong>Warning!</strong> Best check yo self.
+          </div>
           <Jumbotron />
           <div className="row">
             <FeaturedTile
               featuredType="Recipe"
               title="Easy fried rice"
-              thumbnail="http://api.healthylunchbox.com.au/wp-content/uploads/Easy-fried-rice-1.jpg"
+              link="/easy-fried-rice"
+              catLink="/recipes"
+              thumbnail="/img/daffs/green.png"
               id="543"
               shortDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
               props={this.props} />
 
             <FeaturedTile
               featuredType="Tip"
+              catLink="/tips"
               title="Things you didn't know you could freeze"
-              thumbnail="http://api.healthylunchbox.com.au/wp-content/uploads/things-you-can-freeze-250x250.jpg"
+              link="/freezing"
+              thumbnail="/img/daffs/orange.png"
               id="501"
               shortDescription="Redacted from the content of the featured item which must be added to the api"
               props={this.props} />

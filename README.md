@@ -9,6 +9,8 @@ https://github.com/ustwo/healthy-lunch-box/tree/feature/phase2/src/bootstrap-sas
 
 ```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/```
 
+```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/wp-content/themes/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/wp-content/themes/```
+
 
 
 ## Tech Stack Overview

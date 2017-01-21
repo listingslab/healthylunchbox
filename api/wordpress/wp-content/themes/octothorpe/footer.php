@@ -8,6 +8,7 @@
 ?>
 
 		</div>
+
 		<?php get_sidebar();
 		if ( has_nav_menu( 'footer' ) ) { ?>
 			<footer>
@@ -23,5 +24,10 @@
 			</footer>
 		<?php }
 		wp_footer(); ?>
+		<div class="fontend-btn" style="text-align:center;">
+			<a href="http://beta.healthylunchbox.com.au/" >
+				React Frontend
+			</a>
+		</div>
 	</body>
 </html>

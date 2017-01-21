@@ -15,51 +15,48 @@ class Tips extends Component {
     return (
       <div className="template-recipes">
         <div className="container">
-        <h3>List of tip categories.</h3>
-        <p>This list will be a series of category tiles showing the recipe categories.
-          It should show 10-20 category tiles comfortably.</p>
+
+          <div className="container">
+            <h2>Tip categories</h2>
+          </div>
+
+          <div className="alert alert-info" role="alert">
+            <strong>Heads up!</strong> This list will be a series of category tiles
+              showing the recipe categories. It should show 10-20 category tiles comfortably.
+          </div>
       </div>
           <div className="container">
             <div className="row">
               <CategoryTile
-                title="Banana cake"
-                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
-                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
-                link="/recipe/497"
+                categoryType="recipe"
+                title="Tip Category One"
+                thumbnail="/img/daffs/yellow.png"
+                shortDescription="Tip category short description"
+                link="/category-tip-one/"
               />
               <CategoryTile
-                title="Cancer Council News"
-                image="/img/default_category_image.png"
-                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
-                link="/about"
+                categoryType="recipe"
+                title="Tip Category Two"
+                thumbnail="/img/daffs/green.png"
+                shortDescription="Tip category short description"
+                link="/category-tip-two/"
               />
               <CategoryTile
-                title="Prepare the night before"
-                image="http://api.healthylunchbox.com.au/wp-content/uploads/preparing-school-lunch-250x250.jpg"
-                desc="In this tip, we'll discover the basics of food safety starting with
-                preparing the night before"
-                link="/tip/123"
+                categoryType="recipe"
+                title="Tip Category Three"
+                thumbnail="/img/daffs/orange.png"
+                shortDescription="Tip category short description"
+                link="/category-tip-three/"
               />
               <CategoryTile
-                title="Second Featured Recipe"
-                image="/img/default_category_image.png"
-                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
-                link="/recipe/497"
+                categoryType="recipe"
+                title="Tip Category Four"
+                thumbnail="/img/daffs/blue.png"
+                shortDescription="Tip category short description"
+                link="/category-tip-four"
               />
-              <CategoryTile
-                title="Banana cake"
-                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
-                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
-                link="/recipe/497"
-              />
-              <CategoryTile
-                title="Cancer Council News"
-                image="/img/default_category_image.png"
-                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
-                link="/about"
-              />
-            </div>
           </div>
+        </div>
       </div>
     );
   }

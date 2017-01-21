@@ -26,6 +26,7 @@ class App extends Component {
   componentDidMount() {
     const { dispatch, selectedHLB } = this.props;
     dispatch(fetchPostsIfNeeded(selectedHLB));
+
   }
 
   componentWillReceiveProps(nextProps) {

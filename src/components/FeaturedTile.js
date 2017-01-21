@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 
 function FeaturedTile(props) {
   // console.log('________________FeaturedTile(props)');
-  console.log(props);
+  // console.log(props);
   // console.log('________________End FeaturedTile(props)');
 
   let featuredType = 'Feature Type';
@@ -16,13 +16,19 @@ function FeaturedTile(props) {
     featuredType = props.featuredType;
   }
 
+  let link = '/';
+  if (props.link !== undefined) {
+    link = props.link;
+  }
   let title = 'Featured Tile Title';
   if (props.title !== undefined) {
     title = props.title;
   }
-  let thumbnail = '/daffs/.png';
-  if (props.thumbnail !== undefined) {
-    thumbnail = props.thumbnail;
+  let catLink = link;
+  if (props.catLink !== undefined) {
+    if (props.catLink !== '') {
+      catLink = props.catLink;
+    }
   }
   let shortDescription = 'Featured tile short description';
   if (props.shortDescription !== undefined) {
@@ -34,18 +40,30 @@ function FeaturedTile(props) {
     <div className="tile-category">
       <div className="col-md-6">
         <div className="well">
-<img className="pull-right" alt={title} src={thumbnail} />
         <h3>Featured {featuredType}</h3>
         <h4>{title}</h4>
 
         <p>{shortDescription}</p>
-          <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            to={editurl}
-            className="template-tile-link btn btn-success"
-          >Edit
-        </Link>
+
+        <Link
+          to={link}
+          className="btn btn-primary"
+        >Item &raquo;</Link>
+        &nbsp;
+
+        <Link
+          to={catLink}
+          className="btn btn-primary"
+        >Category &raquo;</Link>
+        &nbsp;
+
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          to={editurl}
+          className="btn btn-default"
+        >Edit</Link>
+
       </div>
       </div>
     </div>
@@ -54,8 +72,9 @@ function FeaturedTile(props) {
 
 FeaturedTile.propTypes = {
   id: PropTypes.string,
+  featuredType: PropTypes.string,
   title: PropTypes.string,
-  thumbnail: PropTypes.string,
+  catLink: PropTypes.string,
   shortDescription: PropTypes.string,
   link: PropTypes.string
 };

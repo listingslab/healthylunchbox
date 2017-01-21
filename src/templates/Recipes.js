@@ -16,50 +16,48 @@ class Recipes extends Component {
     return (
       <div className="template-recipes">
         <div className="container">
-        <h3>List of recipe categories.</h3>
-        <p>This list will be a series of category tiles showing the recipe categories.
-          It should show 10-20 category tiles comfortably.</p>
+
+          <div className="container">
+            <h2>Recipe categories</h2>
+          </div>
+
+          <div className="alert alert-info" role="alert">
+            <strong>Heads up!</strong> This list will be a series of category tiles
+              showing the recipe categories. It should show 10-20 category tiles comfortably
+          </div>
       </div>
 
           <div className="container">
             <div className="row">
               <CategoryTile
-                title="Banana cake"
-                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
-                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
+                categoryType="recipe"
+                title="Recipe Category One"
+                thumbnail="/img/daffs/yellow.png"
+                shortDescription=""
                 link="/recipe/497"
               />
               <CategoryTile
-                title="Cancer Council News"
-                image="/img/default_category_image.png"
-                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
-                link="/about"
+                categoryType="recipe"
+                title="Recipe Category Two"
+                thumbnail="/img/daffs/green.png"
+                shortDescription=""
+                link="/category-recipie-two"
               />
               <CategoryTile
-                title="Prepare the night before"
-                image="http://api.healthylunchbox.com.au/wp-content/uploads/preparing-school-lunch-250x250.jpg"
-                desc="In this tip, we'll discover the basics of food safety starting with
-                preparing the night before"
-                link="/tip/123"
+                categoryType="recipe"
+                title="Recipe Category Three"
+                thumbnail="/img/daffs/orange.png"
+                shortDescription=""
+                link="/category-recipie-three"
               />
               <CategoryTile
-                title="Second Featured Recipe"
-                image="/img/default_category_image.png"
-                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
-                link="/recipe/497"
+                categoryType="recipe"
+                title="Recipe Category Four"
+                thumbnail="/img/daffs/blue.png"
+                shortDescription=""
+                link="/category-recipie-four"
               />
-              <CategoryTile
-                title="Banana cake"
-                image="http://api.healthylunchbox.com.au/wp-content/uploads/Banana-bread-250x250.jpg"
-                desc="This banana cake is an easy way to quickly put something delicious in a lunchbox "
-                link="/recipe/497"
-              />
-              <CategoryTile
-                title="Cancer Council News"
-                image="/img/default_category_image.png"
-                desc="Cancer Council is pleasedd to announce... Cancer Council is pleasedd to announce..."
-                link="/about"
-              />
+
             </div>
           </div>
       </div>

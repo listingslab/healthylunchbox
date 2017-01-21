@@ -13,26 +13,16 @@ function Header() {
       <Navbar.Header>
         <Navbar.Brand>
           <Link to="/">
-            <img className="cc_logo" alt="Cancer Council NSW Logo" src="/img/daffodil.png" height="45" />
+            <img className="cc_logo" alt="Cancer Council NSW Logo" src="/img/daffs/blue.png" height="45" />
           </Link>
         </Navbar.Brand>
          <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
         <ul className="nav navbar-nav">
-            <li>
-              <Link to="/builder">Builder</Link>
-            </li>
-
-            <li>
-              <Link to="/recipes">Recipes &amp; Ideas</Link>
-            </li>
-            <li>
-              <Link to="/tips">Tips</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
+            <li><Link to="/recipes">Recipes &amp; Ideas</Link></li>
+            <li><Link to="/tips">Tips</Link></li>
+            <li><Link to="/about">About</Link></li>
           </ul>
 
       </Navbar.Collapse>
@@ -46,6 +36,7 @@ Header.propTypes = {
 export default Header;
 
 /*
+<li><Link to="/builder">Builder</Link></li>
 <Nav>
   <NavDropdown eventKey={3} title="More" id="basic-nav-dropdown">
       <MenuItem eventKey={3.1}>Featured</MenuItem>
