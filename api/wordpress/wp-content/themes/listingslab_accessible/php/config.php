@@ -3,6 +3,8 @@
   $imagePath = get_template_directory_uri() . '/img';
   $apiPath = '/wp-json/hlb-api/';
 
+
+
   // If this is a content item, redirect it to the JSON output
 /*
   if (is_home() != 1){

@@ -6,6 +6,11 @@
  * @subpackage Functions
  */
 
+// instattiate listingslab
+include 'php/config.php';
+// Register the /wp-json/hlb-api/routes
+include 'php/functions/rest_routes/register_routes.php';
+
 add_action( 'widgets_init', function() {
 	register_sidebar(
 		array(
