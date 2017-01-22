@@ -1,12 +1,12 @@
 /**
  * Created by Chris Dorward on 18/01/2017
- * components/CategoriesHeader
+ * components/SingleHeader
  */
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-function CategoriesHeader(props) {
+function SingleHeader(props) {
   // console.log(props);
   const defaults = {
     header: 'Categories Header',
@@ -21,9 +21,7 @@ function CategoriesHeader(props) {
     <div className="template-jumbotron jumbotron">
     <div className="container">
       <h2>
-        <Link
-          to={props.url || defaults.url}
-        >{props.header || defaults.header}</Link>
+        {props.header || defaults.header}
       </h2>
       <p>{props.shortDescription || defaults.shortDescription}</p>
     </div>
@@ -31,10 +29,10 @@ function CategoriesHeader(props) {
   );
 }
 
-CategoriesHeader.propTypes = {
+SingleHeader.propTypes = {
   url: PropTypes.string.isRequired,
   header: PropTypes.string.isRequired,
   shortDescription: PropTypes.string.isRequired
 };
 
-export default CategoriesHeader;
+export default SingleHeader;

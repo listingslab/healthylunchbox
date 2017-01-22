@@ -12,17 +12,16 @@ class CategoriesPage extends Component {
   static propTypes = {}
 
   render() {
+    const pathName = this.props.location.pathname;
+    console.log(this.props);
     return (
       <div className="template-">
         <CategoriesHeader
-          header="Categories Page"
-          shortDescription="This page is a list of categories of a particular content type.
-          Such as recipes or tips."
-          linkType="none"
-          linkText="?"
-          target="_self"
+          header={pathName}
+          shortDescription="This page is a list of categories of a particular content type."
+          url="/categories"
+          linkType="internal"
           url_accessible="http://api.healthylunchbox.com.au/an-australian-success-story-the-hpv-vaccine/"
-          url="/accessible"
         />
         <CategoryTile
           categoryType="recipe"

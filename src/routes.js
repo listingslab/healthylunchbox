@@ -21,13 +21,12 @@ const routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/accessible" component={Accessible} />
+      <Route path="/categories" component={CategoriesPage} />
       <Route path="/builder" component={Builder} />
       <Route path="/about" component={About} />
       <Route path="/tips" component={CategoriesPage} />
-      <Route path="/users/:userId" component={Single} />
       <Route path="/recipes" component={CategoriesPage} />
       <Route path="/item" component={Single} />
-      <Route path="/item/:postID" component={Single} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

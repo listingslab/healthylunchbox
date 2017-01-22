@@ -7,24 +7,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import Jumbotron from '../components/Jumbotron';
+import SingleHeader from '../components/SingleHeader';
 
 class Single extends Component {
   static propTypes = {
   }
 
   render() {
+    const pathName = this.props.location.pathname;
     return (
-      <div className="template-single">
-        <div className="container">
-          <Jumbotron
-            header="Title"
-            shortDescription="Short Description"
-            linkType="accessible"
-            linkText="?"
-            target="_self"
+      <div className="template-single container">
+          <SingleHeader
+            header="Single item"
+            shortDescription="This page is a template for shoing a single item of content."
+            url="/back"
+            linkType="internal"
             url_accessible="http://api.healthylunchbox.com.au/an-australian-success-story-the-hpv-vaccine/"
-            url="/accessible"
           />
 
         <div className="template-breadcrumb container">
@@ -32,14 +30,11 @@ class Single extends Component {
             to="/"
           >Home</Link> |
           <Link
-            to="/recipes"
-          > Categories</Link> |
+            to="/item"
+          > Item</Link> |
           <Link
             to="/tags"
-          > tags</Link> |
-          <Link
-            to="/search"
-          > search</Link>
+          > tags</Link>
         </div>
 
         <div className="container">
@@ -75,7 +70,6 @@ class Single extends Component {
               Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. </p>
         </div>
 
-        </div>
       </div>
     );
   }

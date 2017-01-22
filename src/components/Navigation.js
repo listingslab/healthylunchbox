@@ -10,9 +10,9 @@ import NavigationData from './NavigationData';
 import './Navigation.scss';
 
 function onNavItemClick(itemData) {
-  console.log('\n________________________\nonNavItemClick');
+  // console.log('\n________________________\nonNavItemClick');
   if (itemData.to !== '' || itemData.route !== '') {
-    console.log(`If there is a 'route' or 'to' attribute, send user to ->\n${itemData.to}`);
+    // console.log(`If there is a 'route' or 'to' attribute, send user to ->\n${itemData.to}`);
     browserHistory.push(itemData.to);
   }
 }
