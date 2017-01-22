@@ -11,7 +11,7 @@ function Footer() {
       <div className="container">
         <small>&copy; Cancer Council NSW 2017
         <br /><a target="_self" rel="noopener noreferrer" href="http://api.healthylunchbox.com.au">Manage Content</a>
-        &nbsp;vs2.0.8</small>
+        &nbsp;vs2.1</small>
       </div>
     </div>
   );

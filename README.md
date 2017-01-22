@@ -1,7 +1,10 @@
 # Healthy Lunch Box
 
-## Developer instructions
+## Developer
+You'll need to be invited to collaborate on this private GitHub repo. Ask Petch or Hooch
 
+cd to your working directory (ours is ~/node)
+https://github.com/ustwo/healthy-lunch-box.git
 
 ## Bootstrap
 https://github.com/ustwo/healthy-lunch-box/tree/feature/phase2/src/bootstrap-sass
