@@ -40,7 +40,6 @@ function Navigation(props) {
 
     ]
   };
-  //         onClick={navitemClickHandler}
 
   for (let i = 0; i < navData.dataArr.length; i += 1) {
     const itemData = navData.dataArr[i];
@@ -50,6 +49,7 @@ function Navigation(props) {
       <NavItem
         eventKey={1}
         key={navKey}
+        data={itemData}
         className={className}
         onClick={function onClickHandler(e) {
           console.log('navigationClickHandler\n________________________');
@@ -62,21 +62,12 @@ function Navigation(props) {
     );
   }
 
-/*
-  // array of navbar items
-  for (let i = 0; navData.dataArr.length; i += 1) {
-    navbarItems.push({});
-  }
-  console.log(navbarItems);
-
-  */
-
   return (
     <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
           <Link to="/">
-            <img className="cc_logo" alt="Cancer Council NSW Logo" src="/img/daffs/blue.png" height="45" />
+            <img className="cc_logo" alt="Cancer Council NSW Logo" src="/img/daffs/yellow.png" height="45" />
           </Link>
         </Navbar.Brand>
          <Navbar.Toggle />
@@ -92,44 +83,3 @@ Navigation.propTypes = {
 };
 
 export default Navigation;
-
-/*
-<li><Link to="/builder">Builder</Link></li>
-<ul className="nav navbar-nav">
-    <li><Link to="/recipes">Recipes &amp; Ideas</Link></li>
-    <li><Link to="/tips">Tips</Link></li>
-    <li><Link to="/about">About</Link></li>
-  </ul>
-<Nav>
-  <NavDropdown eventKey={3} title="More" id="basic-nav-dropdown">
-      <MenuItem eventKey={3.1}>Featured</MenuItem>
-  </NavDropdown>
-</Nav>
-
-/*
-,
-{
-  text: 'default',
-  btnType: 'default'
-},
-{
-  text: 'primary',
-  btnType: 'primary'
-},
-{
-  text: 'success',
-  btnType: 'success'
-},
-{
-  text: 'info',
-  btnType: 'info'
-},
-{
-  text: 'warning',
-  btnType: 'warning'
-},
-{
-  text: 'danger',
-  btnType: 'danger'
-}
-*/

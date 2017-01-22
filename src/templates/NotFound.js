@@ -21,7 +21,7 @@ class NotFound extends Component {
             className="btn btn-warning btn-lg"
             to="/"
             role="button">
-            Back to homepage? &raquo;
+            &laquo; Back to sqaure one?
           </Link>
         </p>
       </div>

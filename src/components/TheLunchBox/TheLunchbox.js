@@ -17,20 +17,20 @@
 
    componentDidMount() {
     // console.log(this.props);
-     const testVar = 'ok';
-     console.log(`TheLunchbox componentDidMount() ${testVar}`);
+    // const testVar = 'ok';
+    // console.log(`TheLunchbox componentDidMount() ${testVar}`);
    }
 
    handleClick = () => {
-     console.log('click event');
+     console.log('Lunchbox Button Was Clicked. We should do something about that');
    }
 
    render() {
-     console.log('LUNCHBOX RENDER');
+     // console.log('LUNCHBOX RENDER');
      return (
        <div className="lunchbox">
          <button
-           className="btn btn-info"
+           className="btn btn-success"
            onClick={this.handleClick}
           >
           Open The Lunchbox.
