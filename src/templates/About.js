@@ -44,6 +44,12 @@ class About extends Component {
       </a>
     </div>
     </div>
+    <ul class="react-motion-nav">
+        <li><a href="/react-motion/demo0-simple-transition">Simple transition</a></li>
+        <li><a href="/react-motion/demo3-todomvc-list-transition">Todomvc list transition</a></li>
+        <li><a href="/react-motion/demo4-photo-gallery">Photo gallery</a></li>
+        <li><a href="/react-motion/demo8-draggable-list">Draggable list</a></li>
+      </ul>
       </div>
     );
   }

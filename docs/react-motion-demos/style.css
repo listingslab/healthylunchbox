@@ -7,13 +7,11 @@
 }
 
 .react-motion-nav li {
-  display: inline;
   border: 1px solid #eee;
   background: #ccc;
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
-  width: 100px;
 }
 
 .react-motion-nav a {
