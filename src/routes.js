@@ -7,26 +7,27 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
-import CategoryPage from './templates/CategoryPage';
 import Accessible from './templates/Accessible';
+import CategoryPage from './templates/CategoryPage';
 import CategoriesPage from './templates/CategoriesPage';
 import About from './templates/About';
 import Builder from './templates/Builder';
 import Home from './templates/Home';
 import NotFound from './templates/NotFound';
-import Single from './templates/Single';
+import Item from './templates/Item';
 
 const routes = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/accessible" component={Accessible} />
+      <Route path="/category" component={CategoryPage} />
       <Route path="/categories" component={CategoriesPage} />
+      <Route path="/accessible" component={Accessible} />
       <Route path="/builder" component={Builder} />
       <Route path="/about" component={About} />
       <Route path="/tips" component={CategoriesPage} />
       <Route path="/recipes" component={CategoriesPage} />
-      <Route path="/item" component={Single} />
+      <Route path="/item" component={Item} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

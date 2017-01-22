@@ -15,15 +15,13 @@ function CategoriesHeader(props) {
     linkType: 'internal',
     target: '_self',
     linkText: 'Cilck me',
-    shortDescription: 'none'
+    shortDescription: ''
   };
   return (
     <div className="template-jumbotron jumbotron">
     <div className="container">
       <h2>
-        <Link
-          to={props.url || defaults.url}
-        >{props.header || defaults.header}</Link>
+        {props.header || defaults.header}
       </h2>
       <p>{props.shortDescription || defaults.shortDescription}</p>
     </div>

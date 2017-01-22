@@ -45,6 +45,7 @@ function FeaturedTile(props) {
           title="View this content"
           className="featured-tile-link"
         >{title}</Link></h4>
+      <p>{shortDescription || ''}</p>
       </div>
       </div>
     </div>

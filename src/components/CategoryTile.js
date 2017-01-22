@@ -13,8 +13,12 @@ function CategoryTile(props) {
   return (
       <div className="col-md-6">
         <div className="well">
-          <h4>{props.title || 'No title found in props'}</h4>
-          <p>{props.shortDescription || ''}</p>
+          <h4>
+            <Link
+            to={props.url || '/no-url-found-in-props'}
+          >{props.title || 'No title found in props'}</Link>
+      </h4>
+        <p>{props.shortDescription || ''}</p>
         </div>
     </div>
   );

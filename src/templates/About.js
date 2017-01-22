@@ -5,18 +5,29 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ContextualMenu from '../components/ContextualMenu';
+import CategoriesHeader from '../components/CategoriesHeader';
 
 class About extends Component {
   static propTypes = {
   }
 
   render() {
+    const pathName = this.props.location.pathname;
+    const title = 'About';
     return (
       <div className="template-about">
 
-        <div className="container">
-          <h2>About</h2>
-        </div>
+        <ContextualMenu
+          categories="cats"
+          back=""
+        />
+
+        <CategoriesHeader
+          header={title}
+          shortDescription=""
+          url="/about"
+        />
 
         <div className="col-md-4">
             <p>Eating enough fruit and veg everyday will give your kids the energy and

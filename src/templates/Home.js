@@ -26,21 +26,18 @@ class Home extends Component {
           <div className="row">
             <FeaturedTile
               postId="543"
-              featuredType="Recipes"
               title="Featured Recipe"
               link="/item"
               linkType="internal"
-              catLink="recipes/"
-              shortDescription=""
+              shortDescription="Links to featured recipe"
               props={this.props} />
+
             <FeaturedTile
               postId="590"
-              featuredType="Tips"
               title="Featured Tip"
               link="/item"
               linkType="internal"
-              catLink="tips/"
-              shortDescription=""
+              shortDescription="Links to featured tip"
               props={this.props} />
           </div>
         </div>

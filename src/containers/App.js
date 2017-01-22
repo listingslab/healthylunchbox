@@ -5,8 +5,9 @@
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link, browserHistory } from 'react-router';
 import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation/Navigation';
 import TheLunchbox from '../components/TheLunchbox/TheLunchbox';
 import Footer from '../components/Footer';
 
@@ -49,9 +50,11 @@ class App extends Component {
       <div className="template-app">
         <TheLunchbox />
         <Navigation />
+
         <div className="container">
           {children}
         </div>
+        
         <Footer />
       </div>
     );

@@ -7,40 +7,39 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import CategoryTile from '../components/CategoryTile';
+import CategoriesHeader from '../components/CategoriesHeader';
 
 class CategoryPage extends Component {
   static propTypes = {}
 
   render() {
     return (
-      <div className="template-recipes">
         <div className="container">
 
-          <div className="container">
-            <h2>Category Page</h2>
-          </div>
+          <CategoriesHeader
+            header="Single Category Page"
+            shortDescription="This page is a list items in a category."
+            url="/recipes"
+            linkType="internal"
+            url_accessible="http://api.healthylunchbox.com.au/an-australian-success-story-the-hpv-vaccine/"
+          />
 
-
-      </div>
-          <div className="container">
-            <div className="row">
+          <div className="row">
               <CategoryTile
                 categoryType="recipe"
-                title="Category one"
-                thumbnail="/img/daffs/green.png"
+                title="Item one"
                 shortDescription="Item short description"
-                link="/"
+                url="/item"
               />
+
               <CategoryTile
                 categoryType="recipe"
-                title="Category two"
-                thumbnail="/img/daffs/green.png"
+                title="Item two"
                 shortDescription="Item short description"
-                link="/"
+                url="/item"
               />
           </div>
         </div>
-      </div>
     );
   }
 }
