@@ -7,53 +7,16 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 function CategoryTile(props) {
-  let categoryType = 'Category Type';
-  if (props.categoryType !== undefined) {
-    categoryType = props.categoryType;
-  }
-
-  let title = 'Category Titile';
-  if (props.title !== undefined) {
-    title = props.title;
-  }
-  let thumbnail = '/img/daffs/green.png';
-  if (categoryType === 'recipe') {
-    thumbnail = '/img/daffs/orange.png';
-  }
-
-  if (props.thumbnail !== undefined) {
-    if (props.thumbnail !== '') {
-      thumbnail = props.thumbnail;
-    }
-  }
-
-  let link = 'Category tile short description';
-  if (props.link !== undefined) {
-    link = props.link;
-  }
-
   // console.log(props);
   // const editurl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${id}&action=edit`;
   const editurl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=0&action=edit';
+  console.log(props)
+
   return (
       <div className="col-md-6">
         <div className="well">
-
-          <h4>{title}</h4>
-          <Link
-            to={editurl}
-            title="Edit this content"
-            className="btn btn-default"
-          >
-          <span className="glyphicon glyphicon-pencil"></span></Link>
-            <Link
-              to={link}
-              title="View this content"
-              className="btn btn-default"
-            >
-            <span className="glyphicon glyphicon-hand-right"></span>
-            </Link>
-
+          <h4>{props.title || 'No title found in props'}</h4>
+          <p>{props.shortDescription || ''}</p>
         </div>
     </div>
   );

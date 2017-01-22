@@ -13,41 +13,44 @@ class About extends Component {
   render() {
     return (
       <div className="template-about">
+
         <div className="container">
           <h2>About</h2>
         </div>
 
-        <div className="row">
-          <div className="col-md-1"></div>
-          <div className="col-md-3">
-              <p>Eating enough fruit and veg everyday will give your kids the energy and
-              nutrients they need to learn and play, and can help protect them against
-              diseases including some forms of cancer. This popular 25-minute session
-              is run by Cancer Council NSW.</p>
-          </div>
-          <div className="col-md-1"></div>
-        <div className="col-md-3">
-            <ul>
-              <li>New and exciting ideas for healthy lunch boxes your kids will love</li>
-              <li>A show bag including a great healthy lunch box kit and planner</li>
-              <li>Simple ways to get the whole family eating fruit and veg – if <em>you</em> eat
-                healthy your kids are more likely to, too!</li>
-            </ul>
-          </div>
-          <div className="col-md-2"></div>
+        <div className="col-md-4">
+            <p>Eating enough fruit and veg everyday will give your kids the energy and
+            nutrients they need to learn and play, and can help protect them against
+            diseases including some forms of cancer. This popular 25-minute session
+            is run by Cancer Council NSW.</p>
         </div>
-    <div className="row">
-    <div className="col-md-12 text-center template-about-links">
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
-      >
-        <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
-      </a>
+
+        <div className="col-md-4">
+          <ul>
+            <li>New and exciting ideas for healthy lunch boxes your kids will love</li>
+            <li>A show bag including a great healthy lunch box kit and planner</li>
+            <li>Simple ways to get the whole family eating fruit and veg – if <em>you</em> eat
+              healthy your kids are more likely to, too!</li>
+          </ul>
+        </div>
+
+        <div className="col-md-4">
+          <ul>
+            <li>New and exciting ideas for healthy lunch boxes your kids will love</li>
+            <li>A show bag including a great healthy lunch box kit and planner</li>
+          </ul>
+        </div>
+
+        <div className="col-md-12 text-center template-about-links">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
+          >
+            <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
+          </a>
+        </div>
     </div>
-    </div>
-      </div>
     );
   }
 }

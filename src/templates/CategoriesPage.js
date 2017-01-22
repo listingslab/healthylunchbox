@@ -6,41 +6,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CategoryTile from '../components/CategoryTile';
+import CategoriesHeader from '../components/CategoriesHeader';
 
 class CategoriesPage extends Component {
   static propTypes = {}
 
   render() {
     return (
-      <div className="template-recipes">
-        <div className="container">
-
-          <div className="container">
-            <h2>Categories Page</h2>
-            <p>Categories can have their own descriptions, which would be shown
-              here at the top of the categories page.</p>
-          </div>
-
-
-      </div>
-          <div className="container">
-            <div className="row">
-              <CategoryTile
-                categoryType="recipe"
-                title="Category one"
-                thumbnail="/img/daffs/green.png"
-                shortDescription="Item short description"
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Cat two"
-                thumbnail="/img/daffs/green.png"
-                shortDescription="Item short description"
-                link="/"
-              />
-          </div>
-        </div>
+      <div className="template-">
+        <CategoriesHeader
+          header="Categories Page"
+          shortDescription="This page is a list of categories of a particular content type.
+          Such as recipes or tips."
+          linkType="none"
+          linkText="?"
+          target="_self"
+          url_accessible="http://api.healthylunchbox.com.au/an-australian-success-story-the-hpv-vaccine/"
+          url="/accessible"
+        />
+        <CategoryTile
+          categoryType="recipe"
+          title="First"
+          link="/"
+          />
+        <CategoryTile
+          title="Cat two"
+          categoryType="recipe"
+          link="/"
+        />
+        <CategoryTile
+          title="Three"
+          categoryType="tip"
+          link="/"
+        />
+        <CategoryTile
+          title="Fourx"
+          categoryType="tip"
+          link="/"
+        />
       </div>
     );
   }
