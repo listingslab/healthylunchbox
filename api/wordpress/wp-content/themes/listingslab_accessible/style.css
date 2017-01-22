@@ -26,6 +26,23 @@ body {
   word-wrap: break-word;
 }
 
+a {
+  font-family: 'Baloo', serif;
+  text-decoration: none;
+  color: #222;
+}
+
+/*
+green = 70b04a
+yellow = fed300
+blue = 3497d3
+orange = f5a239
+*/
+
+a:hover {
+  color: #70b04a;
+}
+
 footer {
   text-align: center;
 }

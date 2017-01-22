@@ -49,17 +49,21 @@ function CategoryTile(props) {
       <div className="col-md-6">
         <div className="well">
           <img className="pull-right" alt={title} src={thumbnail} />
-          <h3>{title}</h3>
-          <p>{shortDescription}</p>
-          <Link
-            to={link}
-            className="btn btn-primary"
-            >Category &raquo;</Link>
-          &nbsp;
+          <h4>{title}</h4>
           <Link
             to={editurl}
+            title="Edit this content"
             className="btn btn-default"
-        >Edit</Link>
+          >
+          <span className="glyphicon glyphicon-pencil"></span></Link>
+            <Link
+              to={link}
+              title="View this content"
+              className="btn btn-primary"
+            >
+            <span className="glyphicon glyphicon-hand-right"></span>
+            </Link>
+
         </div>
     </div>
   );

@@ -6,59 +6,39 @@
 import React from 'react';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-
+import NavigationData from './NavigationData';
 import './Navigation.scss';
 
-function Navigation(props) {
+function onNavItemClick(itemData) {
+  console.log('\n________________________\nonNavItemClick');
+  if (itemData.to !== '' || itemData.route !== '') {
+    console.log(`If there is a 'route' or 'to' attribute, send user to ->\n${itemData.to}`);
+    browserHistory.push(itemData.to);
+  }
+}
+
+function Navigation() {
   const items = [];
   // button types: default, primary, success, info, warning, danger, link
-  //
   const navData = {
     meta: '',
-    dataArr: [
-      {
-        text: 'Recipes & ideas',
-        accessible: 'http://api.healthylunchbox.com.au/home/recipes/',
-        url: 'thisUrl coming soon',
-        to: '/recipes',
-        btnType: 'danger'
-      },
-      {
-        text: 'Tips',
-        accessible: 'http://api.healthylunchbox.com.au/home/tips/',
-        url: '/tips',
-        to: '/tips',
-        btnType: 'info'
-      },
-      {
-        text: 'About',
-        accessible: 'http://api.healthylunchbox.com.au/home/about/',
-        url: '/about',
-        to: '/about',
-        btnType: 'warning'
-      }
-
-    ]
+    dataArr: NavigationData
   };
 
   for (let i = 0; i < navData.dataArr.length; i += 1) {
     const itemData = navData.dataArr[i];
     const navKey = `navitem_${i}`;
     const className = `btn btn-${itemData.btnType} navitem-btn navitem-btn-${itemData.btnType}`;
+    const boundNavItemClick = onNavItemClick.bind(this, itemData);
     items.push(
-      <NavItem
-        eventKey={1}
+      <Link
         key={navKey}
         data={itemData}
         className={className}
-        onClick={function onClickHandler(e) {
-          console.log('navigationClickHandler\n________________________');
-          browserHistory.push('/some/path');
-          console.log(e);
-        }
-      }>
+        onClick={boundNavItemClick}
+      >
       {itemData.text}
-      </NavItem>
+    </Link>
     );
   }
 
@@ -83,3 +63,11 @@ Navigation.propTypes = {
 };
 
 export default Navigation;
+
+/*
+function onClickHandler(e) {
+  console.log('navigationClickHandler\n________________________');
+  browserHistory.push('/some/path');
+  console.log(e);
+}
+*/

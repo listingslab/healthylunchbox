@@ -16,28 +16,23 @@ class Home extends Component {
     return (
       <div className="template-home">
         <div className="container">
-          <Jumbotron />
+          <Jumbotron
+            header="healthylunchbox.com.au"
+            shortDescription="This popular 25-minute session is run by Cancer Council NSW."
+            url="/builder"
+            url_accessible=""
+            linkText="Go build a lunchbox"
+          />
           <div className="row">
             <FeaturedTile
+              postId="543"
               featuredType="Recipes"
-              title="Easy fried rice"
-              link="/"
-              catLink="/recipes"
-              thumbnail="/img/daffs/green.png"
-              id="543"
-              shortDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              title="Featured Content"
+              link="/recipe/1234"
+              linkType="internal"
+              catLink="/recipes/"
+              shortDescription=""
               props={this.props} />
-
-            <FeaturedTile
-              featuredType="Tips"
-              catLink="/tips"
-              title="Things you didn't know you could freeze"
-              link="/"
-              thumbnail="/img/daffs/orange.png"
-              id="501"
-              shortDescription="Redacted from the content of the featured item which must be added to the api"
-              props={this.props} />
-
           </div>
         </div>
       </div>

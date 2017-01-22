@@ -43,19 +43,19 @@ function FeaturedTile(props) {
         <h4>{title}</h4>
         <p>{shortDescription}</p>
         <Link
-          to={link}
-          className="btn btn-primary"
-        >Item &raquo;</Link>
-        &nbsp;
-        <Link
-          to={catLink}
-          className="btn btn-primary"
-        >{featuredType} &raquo;</Link>
-        &nbsp;
-        <Link
           to={editurl}
+          title="Edit this content"
           className="btn btn-default"
-        >Edit</Link>
+        >
+        <span className="glyphicon glyphicon-pencil"></span></Link>
+        &nbsp;
+        <Link
+          to={link}
+          title="View this content"
+          className="btn btn-primary"
+        >
+        <span className="glyphicon glyphicon-hand-right"></span>
+        </Link>
       </div>
       </div>
     </div>
@@ -73,5 +73,4 @@ FeaturedTile.propTypes = {
 
 export default FeaturedTile;
 /*
-
 */

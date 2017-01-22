@@ -33,7 +33,7 @@
            className="btn btn-success"
            onClick={this.handleClick}
           >
-          Open The Lunchbox.
+          Toggle The Lunchbox.
         </button>
        </div>
      );

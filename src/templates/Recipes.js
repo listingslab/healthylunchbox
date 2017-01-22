@@ -47,69 +47,7 @@ class Recipes extends Component {
                 shortDescription=""
                 link="/"
               />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Four"
-                thumbnail="/img/daffs/blue.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category One"
-                thumbnail="/img/daffs/yellow.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Two"
-                thumbnail="/img/daffs/green.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Three"
-                thumbnail="/img/daffs/orange.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Four"
-                thumbnail="/img/daffs/blue.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category One"
-                thumbnail="/img/daffs/yellow.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Two"
-                thumbnail="/img/daffs/green.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Three"
-                thumbnail="/img/daffs/orange.png"
-                shortDescription=""
-                link="/"
-              />
-              <CategoryTile
-                categoryType="recipe"
-                title="Recipe Category Four"
-                thumbnail="/img/daffs/blue.png"
-                shortDescription=""
-                link="/"
-              />
+              
             </div>
 
           </div>
