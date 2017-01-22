@@ -17,9 +17,9 @@ function Jumbotron() {
 
         <a
           className="btn btn-default btn-lg"
-          href="http://localhost/react-motion"
+          href="http://beta.healthylunchbox.com.au/react-motion"
           role="button">
-          Animation Demo &raquo;
+          React Motion &raquo;
         </a>
 
         &nbsp;

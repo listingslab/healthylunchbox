@@ -6,7 +6,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
-import Header from '../components/Header';
+import Navigation from '../components/Navigation';
 import TheLunchbox from '../components/TheLunchbox/TheLunchbox';
 import Footer from '../components/Footer';
 
@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className="template-app">
         <TheLunchbox />
-        <Header />
+        <Navigation />
         <div className="container">
           {children}
         </div>

@@ -1,0 +1,39 @@
+/**
+ * Created by Chris Dorward on 21/01/2017
+ * coponents/Navigation.scss
+ */
+.navitem-btn {
+  margin: 8px;
+}
+
+.navitem-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.navitem-btn-default a {
+  color: black;
+}
+
+.link-active {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    // border: 10px solid purple;
+    // top: -400px;
+  }
+}
+
+@media (max-width: 980px) {
+  .navigation {
+    // top: -1px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navigation {
+    // top: -652px;
+  }
+}

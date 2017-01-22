@@ -30,7 +30,7 @@
      return (
        <div className="lunchbox">
          <button
-           className="btn btn-secondary"
+           className="btn btn-info"
            onClick={this.handleClick}
           >
           Open The Lunchbox.
