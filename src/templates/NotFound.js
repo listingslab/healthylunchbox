@@ -5,6 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link, browserHistory } from 'react-router';
 
 class NotFound extends Component {
   static propTypes = {
@@ -12,9 +13,19 @@ class NotFound extends Component {
 
   render() {
     return (
-      <div className="template-notfound">
-        <h2>Route Not Found :(</h2>
+      <div className="template-jumbotron jumbotron">
+      <div className="container">
+        <h2>Stuff not Found :(</h2>
+        <p>
+          <Link
+            className="btn btn-warning btn-lg"
+            to="/"
+            role="button">
+            Back to homepage? &raquo;
+          </Link>
+        </p>
       </div>
+    </div>
     );
   }
 }

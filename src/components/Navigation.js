@@ -9,13 +9,8 @@ import { Link, browserHistory } from 'react-router';
 
 import './Navigation.scss';
 
-function Navigation() {
+function Navigation(props) {
   const items = [];
-  const navitemClickHandler = function onClickHandler(e) {
-    console.log('navigationClickHandler\n________________________');
-    browserHistory.push('/some/path');
-    // console.log(e);
-  };
   // button types: default, primary, success, info, warning, danger, link
   //
   const navData = {
@@ -26,11 +21,27 @@ function Navigation() {
         accessible: 'http://api.healthylunchbox.com.au/home/recipes/',
         url: 'thisUrl coming soon',
         to: '/recipes',
-        btnType: 'default'
+        btnType: 'danger'
+      },
+      {
+        text: 'Tips',
+        accessible: 'http://api.healthylunchbox.com.au/home/tips/',
+        url: '/tips',
+        to: '/tips',
+        btnType: 'info'
+      },
+      {
+        text: 'About',
+        accessible: 'http://api.healthylunchbox.com.au/home/about/',
+        url: '/about',
+        to: '/about',
+        btnType: 'warning'
       }
 
     ]
   };
+  //         onClick={navitemClickHandler}
+
   for (let i = 0; i < navData.dataArr.length; i += 1) {
     const itemData = navData.dataArr[i];
     const navKey = `navitem_${i}`;
@@ -39,10 +50,13 @@ function Navigation() {
       <NavItem
         eventKey={1}
         key={navKey}
-        to={itemData.to}
         className={className}
-        onClick={navitemClickHandler}
-      >
+        onClick={function onClickHandler(e) {
+          console.log('navigationClickHandler\n________________________');
+          browserHistory.push('/some/path');
+          console.log(e);
+        }
+      }>
       {itemData.text}
       </NavItem>
     );

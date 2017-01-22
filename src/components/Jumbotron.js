@@ -15,15 +15,6 @@ function Jumbotron() {
       <p>It&apos;s fun for the whole family and can be used in the kitchen on your ipad.</p>
       <p>
 
-        <a
-          className="btn btn-default btn-lg"
-          href="http://beta.healthylunchbox.com.au/react-motion"
-          role="button">
-          React Motion &raquo;
-        </a>
-
-        &nbsp;
-
         <Link
           className="btn btn-primary btn-lg"
           to="/builder"
