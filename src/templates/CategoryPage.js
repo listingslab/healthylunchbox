@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import CategoryTile from '../components/CategoryTile';
 import CategoriesHeader from '../components/CategoriesHeader';
+import ContextualMenu from '../components/ContextualMenu';
 
 class CategoryPage extends Component {
   static propTypes = {}
@@ -15,7 +16,10 @@ class CategoryPage extends Component {
   render() {
     return (
         <div className="container">
-
+          <ContextualMenu
+            categories="c"
+            back=""
+          />
           <CategoriesHeader
             header="Single Category Page"
             shortDescription="This page is a list items in a category."

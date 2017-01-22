@@ -16,6 +16,7 @@ class Home extends Component {
     return (
       <div className="template-home">
         <div className="container">
+
           <Jumbotron
             header="healthylunchbox.com.au"
             shortDescription="This popular 25-minute session is run by Cancer Council NSW."

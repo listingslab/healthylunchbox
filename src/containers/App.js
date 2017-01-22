@@ -10,6 +10,7 @@ import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Navigation from '../components/Navigation/Navigation';
 import TheLunchbox from '../components/TheLunchbox/TheLunchbox';
 import Footer from '../components/Footer';
+import ToggleThing from '../components/ToggleThing';
 
 class App extends Component {
   static propTypes = {
@@ -48,13 +49,11 @@ class App extends Component {
     const { children } = this.props;
     return (
       <div className="template-app">
-        <TheLunchbox />
         <Navigation />
-
+        <ToggleThing />
         <div className="container">
           {children}
         </div>
-        
         <Footer />
       </div>
     );

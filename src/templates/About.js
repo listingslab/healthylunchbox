@@ -3,29 +3,28 @@
  * templates/About
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ContextualMenu from '../components/ContextualMenu';
 import CategoriesHeader from '../components/CategoriesHeader';
 
 class About extends Component {
   static propTypes = {
+    location: PropTypes.any
   }
 
   render() {
-    const pathName = this.props.location.pathname;
+    // const pathName = this.props.location.pathname;
     const title = 'About';
     return (
-      <div className="template-about">
-
+      <div className="template-about container">
         <ContextualMenu
           categories="cats"
           back=""
         />
-
         <CategoriesHeader
           header={title}
-          shortDescription=""
+          shortDescription="Eating enough fruit and veg everyday will give your kids the energy and nutrients they need to learn and play, "
           url="/about"
         />
 

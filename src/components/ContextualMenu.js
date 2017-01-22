@@ -8,24 +8,17 @@ import { Link } from 'react-router';
 
 function ContextualMenu(props) {
   // console.log(props);
+  // http://getbootstrap.com/components/
   return (
     <div className="template-context-menu">
       <Link
         to="/back"
         className="btn btn-default"
-      >Back</Link>&nbsp;
+      ><span className="glyphicon glyphicon-arrow-left"></span></Link>&nbsp;
       <Link
-        to="/this-category"
+        to="/refresh"
         className="btn btn-default"
-      >Others in this category</Link>
-      <Link
-        to="/this-category"
-        className="btn btn-default"
-      >Next in this category</Link>
-      <Link
-        to="/accessible"
-        className="btn btn-default"
-      >Accessible Version</Link>
+      ><span className="glyphicon glyphicon-refresh"></span></Link>&nbsp;
     </div>
   );
 }
