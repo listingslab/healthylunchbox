@@ -5,8 +5,8 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Jumbotron from '../components/Jumbotron';
-import FeaturedTile from '../components/FeaturedTile';
+import Jumbotron from '../../components/Jumbotron';
+import FeaturedTile from '../../components/FeaturedTile';
 
 class Home extends Component {
   static propTypes = {

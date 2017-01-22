@@ -1,24 +1,24 @@
 /**
  * Created by Chris Dorward on 15/01/2017
- * components/TheLunchbox
+ * components/Lunchbox
  */
 
  import React, { Component, PropTypes } from 'react';
  import { connect } from 'react-redux';
  // import BackgroundImage from '../BackgroundImage';
 
- import './TheLunchbox.scss';
+ import './Lunchbox.scss';
 
- class TheLunchbox extends Component {
+ class Lunchbox extends Component {
 
    static propTypes = {
      testVar: PropTypes.string
    }
 
    componentDidMount() {
-    // console.log(this.props);
+    console.log(this.props);
     // const testVar = 'ok';
-    // console.log(`TheLunchbox componentDidMount() ${testVar}`);
+    // console.log(`Lunchbox componentDidMount() ${testVar}`);
    }
 
    handleClick = () => {
@@ -29,27 +29,22 @@
      // console.log('LUNCHBOX RENDER');
      return (
        <div className="lunchbox">
-         <button
-           className="btn btn-success"
-           onClick={this.handleClick}
-          >
-          Toggle The Lunchbox.
-        </button>
+         <div className="centered text-center">
+             <img
+               className="img-responsive lunchbox-wide-image"
+               src="/img/lunchbox.png"
+               alt="The Lunchbox"
+             />
+         </div>
        </div>
      );
    }
  }
 
- export default connect()(TheLunchbox);
+ export default connect()(Lunchbox);
 
 /*
 
-  <div className="centered text-center">
-      <img
-        className="img-responsive"
-        src="/img/lunchbox.png"
-        alt="The Lunchbox"
-      />
-  </div>
+
 
 */

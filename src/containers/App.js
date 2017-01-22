@@ -8,9 +8,7 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Navigation from '../components/Navigation/Navigation';
-import TheLunchbox from '../components/TheLunchbox/TheLunchbox';
 import Footer from '../components/Footer';
-import ToggleThing from '../components/ToggleThing';
 
 class App extends Component {
   static propTypes = {
@@ -50,7 +48,6 @@ class App extends Component {
     return (
       <div className="template-app">
         <Navigation />
-        <ToggleThing />
         <div className="container">
           {children}
         </div>

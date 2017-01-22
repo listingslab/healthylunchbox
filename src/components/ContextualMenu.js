@@ -12,11 +12,11 @@ function ContextualMenu(props) {
   return (
     <div className="template-context-menu">
       <Link
-        to="/back"
+        to="/"
         className="btn btn-default"
       ><span className="glyphicon glyphicon-arrow-left"></span></Link>&nbsp;
       <Link
-        to="/refresh"
+        to="/"
         className="btn btn-default"
       ><span className="glyphicon glyphicon-refresh"></span></Link>&nbsp;
     </div>

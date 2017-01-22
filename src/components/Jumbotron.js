@@ -22,17 +22,20 @@ function Jumbotron(props) {
     <div className="container">
       <h2>{props.header || defaults.header}</h2>
       <p>{props.shortDescription || defaults.shortDescription}</p>
-      <p>
-        <Link
-          className="btn btn-default btn-lg"
-          to={props.url || defaults.url}
-          role="button">
-          {props.linkText || defaults.linkText}
-        </Link>
-      </p>
     </div>
   </div>
   );
 }
 
 export default Jumbotron;
+
+/*
+<p>
+  <Link
+    className="btn btn-default btn-lg"
+    to={props.url || defaults.url}
+    role="button">
+    {props.linkText || defaults.linkText}
+  </Link>
+</p>
+*/

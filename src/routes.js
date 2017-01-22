@@ -12,7 +12,7 @@ import CategoryPage from './templates/CategoryPage';
 import CategoriesPage from './templates/CategoriesPage';
 import About from './templates/About';
 import Builder from './templates/Builder';
-import Home from './templates/Home';
+import Home from './templates/Home/Home';
 import NotFound from './templates/NotFound';
 import Item from './templates/Item';
 

@@ -1,4 +1,8 @@
-// NavigationData - replace real data here
+/**
+ * Created by Chris Dorward on 16/01/2017
+ * templates/Home
+ * NavigationData - replace real data here
+ */
 const NavigationData = [
   {
     text: 'Recipes & ideas',
