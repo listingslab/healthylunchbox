@@ -17,9 +17,6 @@ function Jumbotron(props) {
     linkText: 'CLICK ME',
     shortDescription: 'lorem ispum'
   };
-  if (props === undefined) {
-    console.log(`use default\n${defaults}`);
-  }
   return (
     <div className="template-jumbotron jumbotron">
     <div className="container">
@@ -27,8 +24,7 @@ function Jumbotron(props) {
       <p>{props.shortDescription || defaults.shortDescription}</p>
       <p>
         <Link
-          className="btn btn-success btn-lg"
-          target={props.target || defaults.target}
+          className="btn btn-default btn-lg"
           to={props.url || defaults.url}
           role="button">
           {props.linkText || defaults.linkText}

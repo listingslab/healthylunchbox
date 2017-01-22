@@ -20,17 +20,26 @@ class Home extends Component {
             header="healthylunchbox.com.au"
             shortDescription="This popular 25-minute session is run by Cancer Council NSW."
             url="/builder"
-            url_accessible=""
-            linkText="Go build a lunchbox"
+            url_accessible="http://api.healthylunchbox.com.au/home/accessible/"
+            linkText="Go. build a lunchbox"
           />
           <div className="row">
             <FeaturedTile
               postId="543"
               featuredType="Recipes"
-              title="Featured Content"
-              link="/recipe/1234"
+              title="Featured Recipe"
+              link="/item"
               linkType="internal"
-              catLink="/recipes/"
+              catLink="recipes/"
+              shortDescription=""
+              props={this.props} />
+            <FeaturedTile
+              postId="590"
+              featuredType="Tips"
+              title="Featured Tip"
+              link="/item"
+              linkType="internal"
+              catLink="tips/"
               shortDescription=""
               props={this.props} />
           </div>

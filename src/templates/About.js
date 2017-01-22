@@ -25,14 +25,8 @@ class About extends Component {
               diseases including some forms of cancer. This popular 25-minute session
               is run by Cancer Council NSW.</p>
           </div>
-          <div className="col-md-3"><a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
-          >
-            <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
-          </a></div>
-        <div className="col-md-4">
+          <div className="col-md-1"></div>
+        <div className="col-md-3">
             <ul>
               <li>New and exciting ideas for healthy lunch boxes your kids will love</li>
               <li>A show bag including a great healthy lunch box kit and planner</li>
@@ -40,21 +34,31 @@ class About extends Component {
                 healthy your kids are more likely to, too!</li>
             </ul>
           </div>
+          <div className="col-md-2"></div>
         </div>
     <div className="row">
     <div className="col-md-12 text-center template-about-links">
-
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
+      >
+        <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
+      </a>
     </div>
     </div>
-    <ul className="react-motion-nav">
-        <li><a href="/react-motion/demo0-simple-transition">Simple transition</a></li>
-        <li><a href="/react-motion/demo3-todomvc-list-transition">Todomvc list transition</a></li>
-        <li><a href="/react-motion/demo4-photo-gallery">Photo gallery</a></li>
-        <li><a href="/react-motion/demo8-draggable-list">Draggable list</a></li>
-      </ul>
       </div>
     );
   }
 }
 
 export default connect()(About);
+
+/*
+<ul className="react-motion-nav">
+    <li><a href="/react-motion/demo0-simple-transition">Simple transition</a></li>
+    <li><a href="/react-motion/demo3-todomvc-list-transition">Todomvc list transition</a></li>
+    <li><a href="/react-motion/demo4-photo-gallery">Photo gallery</a></li>
+    <li><a href="/react-motion/demo8-draggable-list">Draggable list</a></li>
+  </ul>
+*/

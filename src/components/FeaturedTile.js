@@ -40,20 +40,19 @@ function FeaturedTile(props) {
     <div className="tile-category">
       <div className="col-md-6">
         <div className="well">
-        <h4>{title}</h4>
-        <p>{shortDescription}</p>
-        <Link
-          to={editurl}
-          title="Edit this content"
-          className="btn btn-default"
-        >
-        <span className="glyphicon glyphicon-pencil"></span></Link>
+        <h4><Link
+          to={link}
+          title="View this content"
+          className="featured-tile-link"
+        >{title}</Link></h4>
+
         &nbsp;
         <Link
           to={link}
           title="View this content"
-          className="btn btn-primary"
+          className="btn btn-default"
         >
+
         <span className="glyphicon glyphicon-hand-right"></span>
         </Link>
       </div>
@@ -73,4 +72,12 @@ FeaturedTile.propTypes = {
 
 export default FeaturedTile;
 /*
+<Link
+  to={editurl}
+  title="Edit this content"
+  className="btn btn-default"
+>
+
+<span className="glyphicon glyphicon-pencil"></span>
+</Link>
 */

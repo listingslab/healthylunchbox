@@ -27,19 +27,9 @@ function CategoryTile(props) {
     }
   }
 
-  let shortDescription = 'Category tile short description';
-  if (props.shortDescription !== undefined) {
-    shortDescription = props.shortDescription;
-  }
-
   let link = 'Category tile short description';
   if (props.link !== undefined) {
     link = props.link;
-  }
-
-  let id = '0';
-  if (props.id !== undefined) {
-    id = props.id;
   }
 
   // console.log(props);
@@ -48,7 +38,7 @@ function CategoryTile(props) {
   return (
       <div className="col-md-6">
         <div className="well">
-          <img className="pull-right" alt={title} src={thumbnail} />
+
           <h4>{title}</h4>
           <Link
             to={editurl}
@@ -59,7 +49,7 @@ function CategoryTile(props) {
             <Link
               to={link}
               title="View this content"
-              className="btn btn-primary"
+              className="btn btn-default"
             >
             <span className="glyphicon glyphicon-hand-right"></span>
             </Link>
@@ -78,3 +68,7 @@ CategoryTile.propTypes = {
 };
 
 export default CategoryTile;
+
+/*
+<img className="pull-right" alt={title} src={thumbnail} />
+*/

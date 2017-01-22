@@ -1,14 +1,13 @@
 /**
- * Created by Chris Dorward on 16/01/2017
- * templates/CategoryPage
+ * Created by Chris Dorward on 22/01/2017
+ * templates/CategoriesPage
  */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import CategoryTile from '../components/CategoryTile';
 
-class CategoryPage extends Component {
+class CategoriesPage extends Component {
   static propTypes = {}
 
   render() {
@@ -17,7 +16,9 @@ class CategoryPage extends Component {
         <div className="container">
 
           <div className="container">
-            <h2>Category Page</h2>
+            <h2>Categories Page</h2>
+            <p>Categories can have their own descriptions, which would be shown
+              here at the top of the categories page.</p>
           </div>
 
 
@@ -33,7 +34,7 @@ class CategoryPage extends Component {
               />
               <CategoryTile
                 categoryType="recipe"
-                title="Category two"
+                title="Cat two"
                 thumbnail="/img/daffs/green.png"
                 shortDescription="Item short description"
                 link="/"
@@ -45,4 +46,4 @@ class CategoryPage extends Component {
   }
 }
 
-export default connect()(CategoryPage);
+export default connect()(CategoriesPage);
