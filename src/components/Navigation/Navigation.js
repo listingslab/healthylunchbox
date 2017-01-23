@@ -1,9 +1,14 @@
+/**
+ * Created by Chris Dorward on 22/01/2017
+ * components/Navigation/Navigation
+ */
+
 import React from 'react';
 import { Motion, spring } from 'react-motion';
 import { Navbar } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-import NavigationData from '../../testData/NavigationData';
 import Lunchbox from '../Lunchbox/Lunchbox';
+import NavigationData from '../../testData/NavigationData';
 
 import './Navigation.scss';
 

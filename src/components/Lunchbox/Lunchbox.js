@@ -16,7 +16,7 @@
    }
 
    componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     // const testVar = 'ok';
     // console.log(`Lunchbox componentDidMount() ${testVar}`);
    }
