@@ -16,6 +16,7 @@ module.exports = {
   },
   "rules": {
     "strict": 0,
+    "react/prop-types": 0,
     "react/no-unused-prop-types": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-indent": 0,

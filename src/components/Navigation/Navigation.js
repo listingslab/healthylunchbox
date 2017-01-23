@@ -13,8 +13,9 @@ import NavigationData from '../../testData/NavigationData';
 import './Navigation.scss';
 
 const Navigation = React.createClass({
+
   getInitialState() {
-    return {open: false};
+    return { open: false };
   },
 
   onNavItemClick(itemData) {
@@ -64,7 +65,6 @@ const Navigation = React.createClass({
       );
     }
 
-
     return (
       <div className="navigation">
         <Navbar>
@@ -77,12 +77,6 @@ const Navigation = React.createClass({
              <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <button
-              className="btn btn-default navitem-btn"
-              onMouseDown={this.handleMouseDown}
-              onTouchStart={this.handleTouchStart}>
-              Lunchbox
-            </button>
             {items}
           </Navbar.Collapse>
         </Navbar>
@@ -105,9 +99,10 @@ const Navigation = React.createClass({
 export default Navigation;
 
 /*
-function onClickHandler(e) {
-  console.log('navigationClickHandler\n________________________');
-  browserHistory.push('/some/path');
-  console.log(e);
-}
+<button
+  className="btn btn-default navitem-btn"
+  onMouseDown={this.handleMouseDown}
+  onTouchStart={this.handleTouchStart}>
+  Lunchbox
+</button>
 */

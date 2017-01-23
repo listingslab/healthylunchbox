@@ -13,6 +13,7 @@ import CategoriesPage from './templates/CategoriesPage';
 import About from './templates/About';
 import Builder from './templates/Builder';
 import Home from './templates/Home/Home';
+import RecipeItem from './templates/RecipeItem/RecipeItem';
 import NotFound from './templates/NotFound';
 import Item from './templates/Item';
 
@@ -25,8 +26,13 @@ const routes = (
       <Route path="/accessible" component={Accessible} />
       <Route path="/builder" component={Builder} />
       <Route path="/about" component={About} />
+
       <Route path="/tips" component={CategoriesPage} />
+      <Route path="/tip" component={Item} />
+
       <Route path="/recipes" component={CategoriesPage} />
+      <Route path="/recipe" component={RecipeItem} />
+
       <Route path="/item" component={Item} />
       <Route path="*" component={NotFound} />
     </Route>

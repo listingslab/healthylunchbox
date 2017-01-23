@@ -4,41 +4,37 @@
  */
 
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 import './Hero.scss';
 
 function Hero(props) {
-  // console.log(props);
-  const defaults = {
-    header: 'Jumbotron Header',
-    url: '/some/jumbotron/path',
-    url_accessible: 'http://api.healthylunchbox.com.au/home/about/',
-    target: '_self',
-    linkText: 'CLICK ME',
-    shortDescription: 'lorem ispum'
-  };
-
   return (
     <div className="hero jumbotron">
-    <div className="container">
-      <h2>{props.header || defaults.header}</h2>
-      <p>{props.shortDescription || defaults.shortDescription}</p>
+      <h2>{props.header || 'Default Hero Header'}</h2>
+      <p>{ props.shortDescription || 'lorem ispum' }</p>
         <Link
           className="btn btn-success btn-lg"
-          to={props.url || defaults.url}
+          to={props.link || '/'}
           role="button"
         >
-          {props.linkText || defaults.linkText}
+          { props.linkText || 'Click here' }
         </Link>
     </div>
-  </div>
   );
 }
 
 export default Hero;
 
 /*
+
+  to={{
+    pathname: '/item',
+    query: {
+      itemID: '123'
+    }
+  }}
+  
   <Link
     className="btn btn-default btn-lg"
     to={props.url || defaults.url}

@@ -5,26 +5,55 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import FeaturedTile from '../../components/FeaturedTile';
+import FeaturedTile from '../../components/FeaturedTile/FeaturedTile';
 import Hero from '../../components/Hero/Hero';
 
-import HomeData from '../../testData/HomeData';
+import HomeData from './HomeData';
 import './Home.scss';
 
 class Home extends Component {
   static propTypes = {
   }
 
+  onFeaturedClick(itemData) {
+    console.log('\n________________________\nonNavItemClick');
+    console.log(this.props);
+  }
+
   render() {
-    console.log(HomeData);
-    return (
-      <div className="home">
-        <Hero
-          header="Homepage Hero"
-          shortDescription="Short description for Homepage Hero"
-          url="/recipes"
-          linkText="Call to action"
+    const featured = [];
+    // button types: default, primary, success, info, warning, danger, link
+    console.log(HomeData.data.featured.length);
+    for (let i = 0; i < HomeData.data.featured.length; i += 1) {
+      const itemData = HomeData.data.featured[i];
+      const className = `featured-btn-${itemData.btnType}`;
+      const navKey = `featured_${i}`;
+      featured.push(
+        <FeaturedTile
+          key={navKey}
+          header={itemData.header}
+          link={itemData.link}
+          btnType={itemData.btnType}
+          shortDescription={itemData.shortDescription}
+          className={className}
+          itemData={itemData}
         />
+      );
+    }
+    // const boundClick = this.onFeaturedClick.bind(this, itemData);
+    return (
+      <div className="home container">
+
+          <Hero
+            header={HomeData.data.hero.header || 'header'}
+            shortDescription={HomeData.data.hero.shortDescription || 'shortDescription'}
+            link={HomeData.data.hero.link || '/'}
+            linkText={HomeData.data.hero.linkText || 'linkText'}
+          />
+
+          <div className="row">
+            {featured}
+          </div>
       </div>
     );
   }
