@@ -8,7 +8,7 @@ import { Motion, spring } from 'react-motion';
 import { Navbar } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 import Lunchbox from '../Lunchbox/Lunchbox';
-import NavigationData from '../../testData/NavigationData';
+import NavigationData from './NavigationData';
 
 import './Navigation.scss';
 

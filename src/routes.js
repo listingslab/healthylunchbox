@@ -14,6 +14,7 @@ import About from './templates/About';
 import Builder from './templates/Builder';
 import Home from './templates/Home/Home';
 import RecipeItem from './templates/RecipeItem/RecipeItem';
+import TipItem from './templates/TipItem/TipItem';
 import NotFound from './templates/NotFound';
 import Item from './templates/Item';
 
@@ -23,17 +24,15 @@ const routes = (
       <IndexRoute component={Home} />
       <Route path="/category" component={CategoryPage} />
       <Route path="/categories" component={CategoriesPage} />
-      <Route path="/accessible" component={Accessible} />
-      <Route path="/builder" component={Builder} />
-      <Route path="/about" component={About} />
-
-      <Route path="/tips" component={CategoriesPage} />
-      <Route path="/tip" component={Item} />
 
       <Route path="/recipes" component={CategoriesPage} />
       <Route path="/recipe" component={RecipeItem} />
 
-      <Route path="/item" component={Item} />
+      <Route path="/tips" component={CategoriesPage} />
+      <Route path="/tip" component={TipItem} />
+
+      <Route path="/about" component={About} />
+
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
