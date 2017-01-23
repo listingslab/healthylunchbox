@@ -15,8 +15,8 @@ const HomeData = {
     featured: [
       {
         id: 123,
-        header: 'Recipe 123',
-        shortDescription: 'This is a featured recipe',
+        header: 'Hummingbird muffins',
+        shortDescription: 'So called because they\'ll make your child\'s heart race like a hummingbird?',
         link: '/recipe?ID=123',
         btnType: 'recipe'
       },

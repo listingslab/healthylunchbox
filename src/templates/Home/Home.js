@@ -23,7 +23,6 @@ class Home extends Component {
   render() {
     const featured = [];
     // button types: default, primary, success, info, warning, danger, link
-    console.log(HomeData.data.featured.length);
     for (let i = 0; i < HomeData.data.featured.length; i += 1) {
       const itemData = HomeData.data.featured[i];
       const className = `featured-btn-${itemData.btnType}`;

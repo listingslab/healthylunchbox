@@ -5,27 +5,21 @@
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import ContextualMenu from '../components/ContextualMenu';
-import CategoriesHeader from '../components/CategoriesHeader';
+import SingleHeader from '../../components/SingleHeader/SingleHeader';
 
 class About extends Component {
   static propTypes = {
     location: PropTypes.any
   }
-
   render() {
     // const pathName = this.props.location.pathname;
-    const title = 'About';
     return (
       <div className="template-about container">
-        <ContextualMenu
-          categories="cats"
-          back=""
-        />
-        <CategoriesHeader
-          header={title}
-          shortDescription="Eating enough fruit and veg everyday will give your kids the energy and nutrients they need to learn and play, "
-          url="/about"
+        <SingleHeader
+          ID="510"
+          itemType="about"
+          header="About"
+          shortDescription="Lorem Ipsum"
         />
 
         <div className="col-md-4">

@@ -10,10 +10,10 @@ import App from './containers/App';
 import Accessible from './templates/Accessible';
 import CategoryPage from './templates/CategoryPage';
 import CategoriesPage from './templates/CategoriesPage';
-import About from './templates/About';
+import About from './templates/About/About';
 import Builder from './templates/Builder';
 import Home from './templates/Home/Home';
-import RecipeItem from './templates/RecipeItem/RecipeItem';
+import ItemRecipe from './templates/ItemRecipe/ItemRecipe';
 import TipItem from './templates/TipItem/TipItem';
 import NotFound from './templates/NotFound';
 import Item from './templates/Item';
@@ -26,7 +26,7 @@ const routes = (
       <Route path="/categories" component={CategoriesPage} />
 
       <Route path="/recipes" component={CategoriesPage} />
-      <Route path="/recipe" component={RecipeItem} />
+      <Route path="/recipe" component={ItemRecipe} />
 
       <Route path="/tips" component={CategoriesPage} />
       <Route path="/tip" component={TipItem} />

@@ -51,7 +51,7 @@ const Navigation = React.createClass({
     for (let i = 0; i < navData.dataArr.length; i += 1) {
       const itemData = navData.dataArr[i];
       const navKey = `navitem_${i}`;
-      const className = `btn btn-${itemData.btnType} navitem-btn navitem-btn-${itemData.btnType}`;
+      const className = `btn btn-default navitem-btn navitem-btn-${itemData.colour}`;
       const boundClick = this.onNavItemClick.bind(this, itemData);
       items.push(
         <Link

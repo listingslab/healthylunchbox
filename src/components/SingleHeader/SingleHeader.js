@@ -4,7 +4,6 @@
  */
 
 import React, { PropTypes } from 'react';
-
 import './SingleHeader.scss';
 
 function SingleHeader(props) {

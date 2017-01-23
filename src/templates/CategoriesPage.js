@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CategoryTile from '../components/CategoryTile';
 import CategoriesHeader from '../components/CategoriesHeader';
-import ContextualMenu from '../components/ContextualMenu';
 
 class CategoriesPage extends Component {
   static propTypes = {}
@@ -24,11 +23,6 @@ class CategoriesPage extends Component {
 
     return (
       <div className="container">
-        <ContextualMenu
-          categories="c"
-          back=""
-        />
-
         <CategoriesHeader
           header={title}
           shortDescription="This page is a list of categories of the content type."

@@ -14,7 +14,7 @@ function Hero(props) {
       <h2>{props.header || 'Default Hero Header'}</h2>
       <p>{ props.shortDescription || 'lorem ispum' }</p>
         <Link
-          className="btn btn-success btn-lg"
+          className="btn btn-danger btn-lg"
           to={props.link || '/'}
           role="button"
         >
@@ -34,7 +34,7 @@ export default Hero;
       itemID: '123'
     }
   }}
-  
+
   <Link
     className="btn btn-default btn-lg"
     to={props.url || defaults.url}
