@@ -6,18 +6,13 @@
 
 function hlbapi_categories( WP_REST_Request $request ) {
   $response = new stdClass();
-  $response->description = "Returns all categories";
+  $response->description = "Returns all categories for a specific taxonomy";
+  $response->taxonomy = $request['taxonomy'];
   $response->status = "ok";
-  $response->data = array();
-  $recipe_categories = get_terms( array(
-    'taxonomy' => 'recipe_categories',
+  $categories = get_terms( array(
+    'taxonomy' => $request['taxonomy'],
     'hide_empty' => false,
   ));
-  $response->recipe_categories = $recipe_categories;
-  $tip_categories = get_terms( array(
-    'taxonomy' => 'tip_categories',
-    'hide_empty' => false,
-  ));
-  $response->tip_categories = $tip_categories;
+  $response->data = $categories;
   return $response;
 }
