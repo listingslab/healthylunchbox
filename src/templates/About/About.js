@@ -19,7 +19,8 @@ class About extends Component {
           ID="510"
           itemType="about"
           header="About"
-          shortDescription="Lorem Ipsum"
+          shortDescription="Eating enough fruit and veg everyday will give your
+          kids the energy and nutrients they need to learn and play"
         />
 
         <div className="col-md-4">

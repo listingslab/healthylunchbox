@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FeaturedTile from '../../components/FeaturedTile/FeaturedTile';
 import Hero from '../../components/Hero/Hero';
-
 import HomeData from './HomeData';
 import './Home.scss';
 

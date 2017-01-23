@@ -7,8 +7,6 @@
  * You send them to the store using store.dispatch().
  */
 
-// http://api.healthylunchbox.com.au/wp-json/wp/v2/taxonomies
-
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_HLB = 'SELECT_HLB';

@@ -12,9 +12,9 @@ function SingleHeader(props) {
     <div className={className}>
     <div className="container">
       <h2>
-        {props.header || 'header'}
+        {props.header || ''}
       </h2>
-      <p>{props.shortDescription || 'shortDescription'}</p>
+      <p>{props.shortDescription || ''}</p>
     </div>
   </div>
   );

@@ -9,7 +9,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import App from './containers/App';
 import Accessible from './templates/Accessible';
 import CategoryPage from './templates/CategoryPage';
-import CategoriesPage from './templates/CategoriesPage';
+import Categories from './templates/Categories/Categories';
 import About from './templates/About/About';
 import Builder from './templates/Builder';
 import Home from './templates/Home/Home';
@@ -23,16 +23,12 @@ const routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/category" component={CategoryPage} />
-      <Route path="/categories" component={CategoriesPage} />
-
-      <Route path="/recipes" component={CategoriesPage} />
+      <Route path="/categories" component={Categories} />
+      <Route path="/recipes" component={Categories} />
       <Route path="/recipe" component={ItemRecipe} />
-
-      <Route path="/tips" component={CategoriesPage} />
+      <Route path="/tips" component={Categories} />
       <Route path="/tip" component={TipItem} />
-
       <Route path="/about" component={About} />
-
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
