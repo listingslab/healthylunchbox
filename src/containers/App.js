@@ -7,6 +7,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Navigation from '../components/Navigation/Navigation';
+import Loader from '../components/Loader/Loader';
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import Footer from '../components/Footer';
 
 class App extends Component {
@@ -22,8 +24,8 @@ class App extends Component {
   componentDidMount() {
     // console.log('__________________\n');
     // console.log(this.props.selectedHLB);
-    const { dispatch, selectedHLB } = this.props;
-    dispatch(fetchPostsIfNeeded(selectedHLB));
+    const { dispatch } = this.props;
+    dispatch(fetchPostsIfNeeded('hello'));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,11 +48,32 @@ class App extends Component {
 
   render() {
     const { children } = this.props;
+    let status = 418;
+    if (this.props.posts.data !== undefined) {
+      status = this.props.posts.data.status;
+    }
+    const title = `API Error ${status}`;
+    let message = '';
+    if (this.props.posts.message !== undefined) {
+      message = this.props.posts.message;
+    }
+    let content = <div />;
+    if (this.props.isFetching) {
+      content = <Loader />;
+    } else if (status === 404 || status === 500) {
+      content = (<ErrorMessage
+        errorType="danger"
+        errorTitle={title}
+        errorMessage={message}
+      />);
+    } else {
+      content = children;
+    }
     return (
       <div className="template-app">
         <Navigation />
         <div className="container">
-          {children}
+          {content}
         </div>
         <Footer />
       </div>

@@ -8,26 +8,22 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/"> <img width="25" height="25" src="<?php print $imagePath; ?>/logo.png" /></a>
-          <a class="navbar-brand" href="/">HLB API</a>
+          <a class="navbar-brand" href="/wp-admin/">HLB CMS</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 
-            <li><a href="/wp-admin/">CMS</a></li>
 
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Test API <span class="caret"></span></a>
               <ul class="dropdown-menu">
 
                 <li><a href="?route=hello">/hello</a></li>
-                <li><a href="?route=navigation">/navigation</a></li>
-                <li><a href="?route=tips">/tips</a></li>
-                <li><a href="?route=recipes">/recipes</a></li>
+                <li><a href="?route=home">/home</a></li>
 
               </ul>
             </li>
 
-            <li><a href="http://beta.healthylunchbox.com.au" target="_blank">React Frontend</a></li>
 
           <!--
 

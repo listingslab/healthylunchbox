@@ -10,21 +10,14 @@
   		'callback' => 'hlbapi_hello',
   	) );
 
-    register_rest_route( 'hlbapi', '/categories/(?P<taxonomy>[a-zA-Z0-9-]+)', array(
-  		'methods'  => WP_REST_Server::READABLE,
-  		'callback' => 'hlbapi_categories',
-  	) );
-
-    register_rest_route( 'hlbapi', '/recipe/(?P<id>\d+)', array(
-  		'methods'  => WP_REST_Server::READABLE,
-  		'callback' => 'hlbapi_recipe',
-  	) );
+    register_rest_route( 'hlbapi', '/home', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_home',
+    ) );
 
   }
   include 'routes/hello.php';
-  include 'routes/categories.php';
-  include 'routes/recipe.php';
-
+  include 'routes/home.php';
 
   /*
   Geekiest joke ever - our http response code from successful API calls
@@ -35,4 +28,15 @@
   implemented by actual HTTP servers. The RFC specifies this code should be returned
   by teapots requested to brew coffee. This HTTP status is used as an Easter
   egg in some websites, including Google.com.
+
+
+  register_rest_route( 'hlbapi', '/categories/(?P<taxonomy>[a-zA-Z0-9-]+)', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'hlbapi_categories',
+  ) );
+
+  register_rest_route( 'hlbapi', '/recipe/(?P<id>\d+)', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'hlbapi_recipe',
+  ) );
 */

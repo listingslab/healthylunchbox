@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 23/01/2017
- * components/Hero
+ * components/Hero/Hero
  */
 
 import React from 'react';
