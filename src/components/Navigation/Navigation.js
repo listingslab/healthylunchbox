@@ -99,6 +99,7 @@ const Navigation = React.createClass({
 export default Navigation;
 
 /*
+<span className="glyphicon glyphicon-pencil"></span>
 <button
   className="btn btn-default navitem-btn"
   onMouseDown={this.handleMouseDown}

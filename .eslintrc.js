@@ -20,6 +20,7 @@ module.exports = {
     "react/no-unused-prop-types": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-indent": 0,
+    "react/no-danger": 0,
     "react/jsx-first-prop-new-line": 0,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-no-bind": 0,
@@ -29,6 +30,7 @@ module.exports = {
     "no-nested-ternary": 0,
     "no-console": 0,
     "no-prototype-builtins": 0,
+    "class-methods-use-this": 0,
     "comma-dangle": [
       "warn",
       "never"

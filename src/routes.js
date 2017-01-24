@@ -7,27 +7,23 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
-import Accessible from './templates/Accessible';
-import CategoryPage from './templates/CategoryPage';
+import Category from './templates/Category/Category';
 import Categories from './templates/Categories/Categories';
 import About from './templates/About/About';
-import Builder from './templates/Builder';
 import Home from './templates/Home/Home';
-import ItemRecipe from './templates/ItemRecipe/ItemRecipe';
-import TipItem from './templates/TipItem/TipItem';
-import NotFound from './templates/NotFound';
-import Item from './templates/Item';
+import Item from './templates/Item/Item';
+import NotFound from './templates/NotFound//NotFound';
 
 const routes = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/category" component={CategoryPage} />
+      <Route path="/category" component={Category} />
       <Route path="/categories" component={Categories} />
       <Route path="/recipes" component={Categories} />
-      <Route path="/recipe" component={ItemRecipe} />
+      <Route path="/recipe" component={Item} />
       <Route path="/tips" component={Categories} />
-      <Route path="/tip" component={TipItem} />
+      <Route path="/tip" component={Item} />
       <Route path="/about" component={About} />
       <Route path="*" component={NotFound} />
     </Route>

@@ -1,12 +1,12 @@
 /**
  * Created by Chris Dorward on 18/01/2017
- * components/SingleHeader
+ * components/Header/Header
  */
 
 import React, { PropTypes } from 'react';
-import './SingleHeader.scss';
+import './Header.scss';
 
-function SingleHeader(props) {
+function Header(props) {
   const className = `single-header jumbotron single-header-${props.itemType}`;
   return (
     <div className={className}>
@@ -20,10 +20,10 @@ function SingleHeader(props) {
   );
 }
 
-SingleHeader.propTypes = {
+Header.propTypes = {
   header: PropTypes.string,
   itemType: PropTypes.string,
   shortDescription: PropTypes.string
 };
 
-export default SingleHeader;
+export default Header;
