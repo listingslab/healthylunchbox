@@ -13,7 +13,7 @@ import {
   REQUEST_POSTS, RECEIVE_POSTS
 } from '../actions';
 
-const selectedHLB = (state = 'recipes', action) => {
+const selectedHLB = (state = 'hello', action) => {
   switch (action.type) {
   case SELECT_HLB:
     return action.hlb;

@@ -19,7 +19,7 @@ const Navigation = React.createClass({
   },
 
   onNavItemClick(itemData) {
-    console.log('\n________________________\nonNavItemClick');
+    // console.log('\n________________________\nonNavItemClick');
     // console.log(itemData);
     if (itemData.to !== '' || itemData.route !== '') {
       // console.log(`If there is a 'route' or 'to' attribute, send user to ->\n${itemData.to}`);

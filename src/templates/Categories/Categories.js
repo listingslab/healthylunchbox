@@ -29,7 +29,7 @@ class Categories extends Component {
       itemType = 'tip';
       apiUrl = `${apiUrl}/categories/recipe_categories`;
     }
-    console.log(apiUrl);
+    // console.log(apiUrl);
     return (
       <div className="container">
         <SingleHeader

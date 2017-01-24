@@ -5,7 +5,6 @@
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Link, browserHistory } from 'react-router';
 import { selectHLB, fetchPostsIfNeeded, invalidateHLB } from '../actions';
 import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer';
@@ -21,6 +20,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // console.log('__________________\n');
+    // console.log(this.props.selectedHLB);
     const { dispatch, selectedHLB } = this.props;
     dispatch(fetchPostsIfNeeded(selectedHLB));
   }
