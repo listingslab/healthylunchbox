@@ -1,0 +1,31 @@
+/**
+ * Created by Chris Dorward on 21/01/2017
+ * templates/Home/Home.scss
+ */
+
+.home {
+}
+
+@media (max-width: 768px) {
+  .home {
+    // border: 1px solid red;
+  }
+}
+
+@media (max-width: 980px) {
+  .home {
+    // border: 1px solid purple;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home {
+    // border: 1px solid blue;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home {
+    // border: 1px solid cyan;
+  }
+}

@@ -1,0 +1,25 @@
+/**
+ * Created by Chris Dorward on 23/01/2017
+ * coponents/Hero/Hero
+ */
+
+.hero {
+  border: 2px solid #e39a3e;
+  background: #f5a239;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero {
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero {
+  }
+}

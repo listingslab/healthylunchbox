@@ -1,0 +1,33 @@
+/**
+ * Created by Chris Dorward on 21/01/2017
+ * coponents/TheLunchbox/TheLunchbox.scss
+ */
+
+.lunchbox {
+}
+
+.lunchbox-wide-image {
+}
+
+.lunchbox-overlay {
+  position: absolute;
+  top: 52px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media (max-width: 768px) {
+  .lunchbox {
+  }
+}
+
+@media (max-width: 980px) {
+  .lunchbox {
+  }
+}
+
+@media (max-width: 1200px) {
+  .lunchbox {
+  }
+}
