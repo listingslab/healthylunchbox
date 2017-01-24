@@ -3,57 +3,62 @@
  * templates/Home
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import FeaturedTile from '../../components/FeaturedTile/FeaturedTile';
+import { fetchPostsIfNeeded } from '../../actions';
+import Loader from '../../components/Loader/Loader';
 import Hero from '../../components/Hero/Hero';
-import HomeData from './HomeData';
+// import FeaturedTile from '../../components/FeaturedTile/FeaturedTile';
+import ContextualMenu from '../../components/ContextualMenu/ContextualMenu';
+
 import './Home.scss';
 
 class Home extends Component {
   static propTypes = {
+    posts: PropTypes.any.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    lastUpdated: PropTypes.number,
+    children: PropTypes.any,
+    dispatch: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchPostsIfNeeded('home'));
   }
 
   render() {
-    const show = false;
-    const featured = [];
-    // button types: default, primary, success, info, warning, danger, link
-    for (let i = 0; i < HomeData.data.featured.length; i += 1) {
-      const itemData = HomeData.data.featured[i];
-      const className = `featured-btn-${itemData.btnType}`;
-      const navKey = `featured_${i}`;
-      featured.push(
-        <FeaturedTile
-          key={navKey}
-          header={itemData.header}
-          link={itemData.link}
-          btnType={itemData.btnType}
-          shortDescription={itemData.shortDescription}
-          className={className}
-          itemData={itemData}
-        />
-      );
-    }
-
+    //console.log('rendering Home Page');
+    console.log(this.props.posts.data);
+    // const { children } = this.props;
     return (
       <div className="home container">
-
-          <Hero
-            header={HomeData.data.hero.header || 'header'}
-            shortDescription={HomeData.data.hero.shortDescription || 'shortDescription'}
-            link={HomeData.data.hero.link || '/'}
-            linkText={HomeData.data.hero.linkText || 'linkText'}
-          />
-
-          <div className="row">
-            {featured}
-          </div>
+        <Hero />
       </div>
     );
   }
 }
 
-export default connect()(Home);
+const mapStateToProps = (state) => {
+  const { selectedHLB, postsByHLB } = state;
+  const {
+    isFetching,
+    lastUpdated,
+    items: posts
+  } = postsByHLB[selectedHLB] || {
+    isFetching: true,
+    items: []
+  };
+
+  return {
+    selectedHLB,
+    posts,
+    isFetching,
+    lastUpdated
+  };
+};
+
+export default connect(mapStateToProps)(Home);
 
 /*
 */
