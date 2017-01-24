@@ -9,17 +9,24 @@ import { Link } from 'react-router';
 import './Hero.scss';
 
 function Hero(props) {
+  // console.log(props.hero);
   return (
     <div className="hero jumbotron">
-      <h2>{props.header || 'Default Hero Header'}</h2>
-      <p>{ props.shortDescription || 'lorem ispum' }</p>
-        <Link
-          className="btn btn-danger btn-lg"
-          to={props.link || '/'}
-          role="button"
-        >
-          { props.linkText || 'Click here' }
-        </Link>
+      <Link
+        className="btn btn-default pull-right"
+        href={props.editLink}
+        role="button"
+      ><span className="glyphicon glyphicon-pencil"></span></Link>
+
+    <h2>{ props.hero.hero_title || 'Default Hero Header'}</h2>
+    <p>{ props.hero.hero_subtitle || 'Default short description' }</p>
+      <Link
+        className="btn btn-danger btn-lg"
+        to={props.hero.hero_link_url || '/'}
+        role="button"
+      >
+        { props.hero.hero_link_text || 'Click here' }
+      </Link>
     </div>
   );
 }
