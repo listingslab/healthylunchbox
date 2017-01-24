@@ -9,16 +9,18 @@ import { Link } from 'react-router';
 function ContextualMenu(props) {
   // console.log(props);
   // http://getbootstrap.com/components/
+  const links = [];
+  if (props.editUrl) {
+    links.push(<Link
+      key={'edit'}
+      href={props.editUrl}
+      className="btn btn-default"
+    ><span className="glyphicon glyphicon-pencil"></span>&nbsp;{props.editText}</Link>);
+  }
+
   return (
     <div className="template-context-menu">
-      <Link
-        to="/"
-        className="btn btn-default"
-      ><span className="glyphicon glyphicon-arrow-left"></span></Link>&nbsp;
-      <Link
-        to="/"
-        className="btn btn-default"
-      ><span className="glyphicon glyphicon-refresh"></span></Link>&nbsp;
+      {links}
     </div>
   );
 }

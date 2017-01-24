@@ -9,6 +9,7 @@
           </button>
           <a class="navbar-brand" href="/"> <img width="25" height="25" src="<?php print $imagePath; ?>/logo.png" /></a>
           <a class="navbar-brand" href="/wp-admin/">HLB CMS</a>
+          <a class="navbar-brand" href="http://beta.healthylunchbox.com.au">beta.healthylunchbox.com.au</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -23,8 +24,6 @@
 
               </ul>
             </li>
-
-
           <!--
 
             <li class="dropdown">

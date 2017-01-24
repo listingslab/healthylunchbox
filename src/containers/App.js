@@ -22,10 +22,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log('__________________\n');
-    // console.log(this.props.selectedHLB);
     const { dispatch } = this.props;
-    dispatch(fetchPostsIfNeeded('hello'));
+    dispatch(fetchPostsIfNeeded('home'));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -104,32 +102,5 @@ export default connect(mapStateToProps)(App);
 
 
 /*
-<Jumbotron />
-<div className="template-picker">
-  <Picker value={selectedHLB}
-    onChange={this.handleChange}
-    options={['recipes', 'tips']} />
-
-    {lastUpdated &&
-      <div className="container">
-        Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-        {' '}
-      </div>
-    }
-    {!isFetching &&
-      <div className="container">
-      <button href="#"
-        onClick={this.handleRefreshClick}>
-        Refresh
-      </button>
-    </div>
-    }
-
-  {isEmpty
-    ? (isFetching ? <div className="container"><p>Loading...</p></div> : <div className="container"><p>Empty.</p></div>)
-    : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-        <Posts posts={posts} />
-      </div>
-  }
-</div>
+<Jumbotron /
 */

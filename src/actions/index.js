@@ -38,9 +38,10 @@ const fetchPosts = hlb => (dispatch) => {
   dispatch(requestPosts(hlb));
   const baseurl = 'http://api.healthylunchbox.com.au/wp-json/hlbapi/';
   const url = baseurl + hlb;
-  // console.log(`fetch > ${url}`);
+  console.log(`fetch > ${url}`);
   return fetch(url)
     .then(response => response.json())
+    // .then(console.log('finished fetch'))
     .then(posts => dispatch(receivePosts(hlb, posts)));
 };
 
