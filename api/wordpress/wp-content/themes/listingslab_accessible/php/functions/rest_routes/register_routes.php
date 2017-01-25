@@ -8,14 +8,20 @@
     register_rest_route( 'hlbapi', '/hello', array(
   		'methods'  => WP_REST_Server::READABLE,
   		'callback' => 'hlbapi_hello',
-  	) );
+  	));
 
     register_rest_route( 'hlbapi', '/home', array(
       'methods'  => WP_REST_Server::READABLE,
       'callback' => 'hlbapi_home',
-    ) );
+    ));
+
+    register_rest_route( 'hlbapi', '/content', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_content',
+    ));
 
   }
+  include 'routes/content.php';
   include 'routes/hello.php';
   include 'routes/home.php';
 

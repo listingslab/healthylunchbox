@@ -6,6 +6,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchPostsIfNeeded } from '../../actions';
+import Slider from 'react-slick';
 import Hero from '../../components/Hero/Hero';
 import FeaturedTile from '../../components/FeaturedTile/FeaturedTile';
 
@@ -32,7 +33,7 @@ class Home extends Component {
     for (let i = 0; i < featuredItemsArr.length; i += 1) {
       featuredItems.push(<FeaturedTile
         key={`featured_${i}`}
-        editLink={featuredItemsArr[i].editLink}
+        editLink={featuredItemsArr[i].edit_link}
         link="recipe"
         header={featuredItemsArr[i].post_title}
         shortDescription={featuredItemsArr[i].short_description}
@@ -40,12 +41,30 @@ class Home extends Component {
       />);
     }
 
+    const sliderSettings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
     return (
       <div className="home container">
         <Hero
-          editLink={this.props.posts.data.editLink}
+          editLink={this.props.posts.data.edit_link}
           hero={this.props.posts.data.hero}
         />
+<div className="row">
+        <Slider {...sliderSettings}>
+            <div><h3>1</h3></div>
+            <div><h3>2</h3></div>
+            <div><h3>3</h3></div>
+            <div><h3>4</h3></div>
+            <div><h3>5</h3></div>
+            <div><h3>6</h3></div>
+          </Slider>
+      </div>
         <div className="row">
           {featuredItems}
         </div>

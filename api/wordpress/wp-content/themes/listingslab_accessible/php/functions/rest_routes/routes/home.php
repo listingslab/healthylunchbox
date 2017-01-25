@@ -11,7 +11,7 @@ function hlbapi_home( WP_REST_Request $request ) {
   $response->data->code = 418;
   // Home page ID = 508
   $id = 508;
-  $response->data->editLink = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';
+  $response->data->edit_link = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';
   $home_page = new stdClass();
   $page = get_post($id);
   $hero = get_fields($id);
@@ -32,7 +32,7 @@ function hlbapi_home( WP_REST_Request $request ) {
   foreach ($all_featured as $post){
     $tempObj = new stdClass();
     $tempObj->ID = $post->ID;
-    $tempObj->editLink = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tempObj->ID.'&action=edit';
+    $tempObj->edit_link = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tempObj->ID.'&action=edit';
     $tempObj->post_title = $post->post_title;
     $act = get_fields($tempObj->ID);
     $tempObj->short_description = '';
