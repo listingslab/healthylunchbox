@@ -3,8 +3,6 @@
  * index.js Application entrypoint
  */
 
-// eslint-disable-next-line no-unused-vars
-import $ from 'jquery';
 import React from 'react';
 import { render } from 'react-dom';
 import { browserHistory } from 'react-router';

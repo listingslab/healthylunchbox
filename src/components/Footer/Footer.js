@@ -6,11 +6,11 @@
 import React from 'react';
 
 function Footer() {
-  console.log('FOOTER RENDER');
+  // console.log('FOOTER RENDER');
   return (
     <div className="template-footer">
       <div className="container">
-        <small>&copy; Cancer Council NSW 2017 vs2.4</small>
+        <small>&copy; Cancer Council NSW 2017 vs2.5</small>
       </div>
     </div>
   );

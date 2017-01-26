@@ -14,16 +14,14 @@ class Home extends Component {
   }
 
   renderBuyButton() {
-    // render the buy button with jQuery
     $('.homeshit').html(
       'ooh ra'
     );
     $('.homeshit').fadeOut();
   }
 
-
   render() {
-    console.log('HOME RENDER');
+    // console.log('HOME RENDER');
     const featuredItemsArr = [];
     const featuredItems = [];
     for (let i = 0; i < featuredItemsArr.length; i += 1) {
