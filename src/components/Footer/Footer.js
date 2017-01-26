@@ -1,6 +1,6 @@
 /**
  * Created by Chris Dorward on 15/01/2017
- * components/Footer
+ * components/Footer/Footer
  */
 
 import React from 'react';

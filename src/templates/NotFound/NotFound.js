@@ -1,11 +1,11 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * templates/NotFound
+ * templates/NotFound//NotFound
  */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 class NotFound extends Component {
   static propTypes = {
@@ -29,12 +29,3 @@ class NotFound extends Component {
 }
 
 export default connect()(NotFound);
-
-/*
-<h3>Perhaps searching would help?</h3>
-<form name="search">
-  <input type="text" name="searchterm" />
-  <input type="submit" value="Search" />
-</form>
-
-*/

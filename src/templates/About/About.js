@@ -1,21 +1,19 @@
 /**
  * Created by Chris Dorward on 18/01/2017
- * templates/About
+ * templates/About/About
  */
 
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import SingleHeader from '../../components/SingleHeader/SingleHeader';
+import Header from '../../components/Header/Header';
 
 class About extends Component {
   static propTypes = {
     location: PropTypes.any
   }
   render() {
-    // const pathName = this.props.location.pathname;
     return (
       <div className="template-about container">
-        <SingleHeader
+        <Header
           ID="510"
           itemType="about"
           header="About"
@@ -60,7 +58,7 @@ class About extends Component {
   }
 }
 
-export default connect()(About);
+export default About;
 
 /*
 <ul className="react-motion-nav">

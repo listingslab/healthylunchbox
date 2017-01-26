@@ -4,9 +4,6 @@
  */
 
  import React, { Component, PropTypes } from 'react';
- import { connect } from 'react-redux';
- // import BackgroundImage from '../BackgroundImage';
-
  import './Lunchbox.scss';
 
  class Lunchbox extends Component {
@@ -15,18 +12,11 @@
      testVar: PropTypes.string
    }
 
-   componentDidMount() {
-    // console.log(this.props);
-    // const testVar = 'ok';
-    // console.log(`Lunchbox componentDidMount() ${testVar}`);
-   }
-
    handleClick = () => {
      console.log('Lunchbox Button Was Clicked. We should do something about that');
    }
 
    render() {
-     // console.log('LUNCHBOX RENDER');
      return (
        <div className="lunchbox">
          <div className="centered text-center">
@@ -41,10 +31,4 @@
    }
  }
 
- export default connect()(Lunchbox);
-
-/*
-
-
-
-*/
+ export default Lunchbox;

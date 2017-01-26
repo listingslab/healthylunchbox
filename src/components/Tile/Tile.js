@@ -1,15 +1,14 @@
 /**
  * Created by Chris Dorward on 15/01/2017
- * components/FeaturedTile
+ * components/Tile/Tile
  */
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import './FeaturedTile.scss';
+import './Tile.scss';
 
 function FeaturedTile(props) {
-  // console.log('________________FeaturedTile(props)');
   const className = `well featured-tile featured-tile-${props.btnType}`;
   return (
     <div className="col-md-6">
@@ -32,24 +31,12 @@ function FeaturedTile(props) {
     </div>
   );
 }
-
+// tileTypes
 FeaturedTile.propTypes = {
-  id: PropTypes.string,
-  featuredType: PropTypes.string,
-  title: PropTypes.string,
-  catLink: PropTypes.string,
-  shortDescription: PropTypes.string,
-  link: PropTypes.string
+  tileType: PropTypes.string.isRequired
 };
 
 export default FeaturedTile;
-/*
-<Link
-  to={editurl}
-  title="Edit this content"
-  className="btn btn-default"
->
 
-<span className="glyphicon glyphicon-pencil"></span>
-</Link>
+/*
 */

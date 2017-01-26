@@ -1,21 +1,19 @@
 /**
  * Created by Chris Dorward on 16/01/2017
- * templates/CategoryPage
+ * templates/Category
  */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import CategoryTile from '../components/CategoryTile';
-import CategoriesHeader from '../components/CategoriesHeader';
+import Tile from '../../components/Tile/Tile';
+import Header from '../../components/Header/Header';
 
-class CategoryPage extends Component {
+class Category extends Component {
   static propTypes = {}
 
   render() {
     return (
         <div className="container">
-          <CategoriesHeader
+          <Header
             header="Single Category Page"
             shortDescription="This page is a list items in a category."
             url="/recipes"
@@ -24,16 +22,9 @@ class CategoryPage extends Component {
           />
 
           <div className="row">
-              <CategoryTile
+              <Tile
                 categoryType="recipe"
                 title="Item one"
-                shortDescription="Item short description"
-                url="/item"
-              />
-
-              <CategoryTile
-                categoryType="recipe"
-                title="Item two"
                 shortDescription="Item short description"
                 url="/item"
               />
@@ -43,4 +34,4 @@ class CategoryPage extends Component {
   }
 }
 
-export default connect()(CategoryPage);
+export default Category;

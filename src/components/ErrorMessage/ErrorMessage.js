@@ -3,9 +3,7 @@
  * components/ErrorMessage/ErrorMessage
  */
 
-import React from 'react';
-
-import './ErrorMessage.scss';
+import React, { PropTypes } from 'react';
 
 function ErrorMessage(props) {
   const className = `alert alert-${props.errorType}  container row`;
@@ -15,6 +13,12 @@ function ErrorMessage(props) {
     </div>
   );
 }
+
+ErrorMessage.propTypes = {
+  errorType: PropTypes.string.isRequired,
+  errorTitle: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired
+};
 
 export default ErrorMessage;
 
