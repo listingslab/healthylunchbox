@@ -6,6 +6,7 @@
 import React from 'react';
 
 function Footer() {
+  console.log('FOOTER RENDER');
   return (
     <div className="template-footer">
       <div className="container">

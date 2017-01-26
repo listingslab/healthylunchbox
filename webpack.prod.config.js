@@ -105,13 +105,6 @@ module.exports = {
         ignore: ['.DS_Store', 'psd/*']
       }
     ),
-    new CopyWebpackPlugin([
-      { from: DOCS, to: `${BUILD}/react-motion` }
-    ],
-      {
-        ignore: ['.DS_Store']
-      }
-    ),
     new HtmlWebpackPlugin({
       template: HTML,
       // JS placed at the bottom of the body element

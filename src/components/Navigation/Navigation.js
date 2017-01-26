@@ -4,7 +4,6 @@
  */
 
 import React from 'react';
-import { Motion, spring } from 'react-motion';
 import { Navbar } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 import Lunchbox from '../Lunchbox/Lunchbox';
@@ -80,17 +79,7 @@ const Navigation = React.createClass({
             {items}
           </Navbar.Collapse>
         </Navbar>
-        <Motion className="lunchbox" style={{ x: spring(this.state.open ? 0 : -1200) }}>
-          {({ x }) =>
-              <div className="lunchbox-overlay" style={{
-                zIndex: 10000,
-                WebkitTransform: `translate3d(${x}px, 0, 0)`,
-                transform: `translate3d(${x}px, 0, 0)`
-              }} >
-                <Lunchbox passThis="this is passed" />
-              </div>
-          }
-        </Motion>
+
       </div>
     );
   }
@@ -106,4 +95,17 @@ export default Navigation;
   onTouchStart={this.handleTouchStart}>
   Lunchbox
 </button>
+
+<Motion className="lunchbox" style={{ x: spring(this.state.open ? 0 : -1200) }}>
+  {({ x }) =>
+      <div className="lunchbox-overlay" style={{
+        zIndex: 10000,
+        WebkitTransform: `translate3d(${x}px, 0, 0)`,
+        transform: `translate3d(${x}px, 0, 0)`
+      }} >
+        <Lunchbox passThis="this is passed" />
+      </div>
+  }
+</Motion>
+
 */

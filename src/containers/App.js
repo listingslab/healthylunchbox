@@ -9,6 +9,7 @@ import Footer from '../components/Footer/Footer';
 
 class App extends Component {
   render() {
+    console.log('APP RENDER');
     const { children } = this.props;
     return (
       <div className="template-app">

@@ -4,7 +4,6 @@
  */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 class NotFound extends Component {
@@ -28,4 +27,4 @@ class NotFound extends Component {
   }
 }
 
-export default connect()(NotFound);
+export default NotFound;
