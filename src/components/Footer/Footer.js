@@ -9,7 +9,7 @@ function Footer() {
   return (
     <div className="template-footer">
       <div className="container">
-        <small>&copy; Cancer Council NSW 2017 vs2.3</small>
+        <small>&copy; Cancer Council NSW 2017 vs2.4</small>
       </div>
     </div>
   );
