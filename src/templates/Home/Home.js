@@ -6,7 +6,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchPostsIfNeeded } from '../../actions';
-import Slider from 'react-slick';
 import Hero from '../../components/Hero/Hero';
 import FeaturedTile from '../../components/FeaturedTile/FeaturedTile';
 
