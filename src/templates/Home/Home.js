@@ -9,7 +9,6 @@ import Tile from '../../components/Tile/Tile';
 
 class Home extends Component {
   render() {
-    console.log('HOME RENDER');
     const featuredItemsArr = [];
     const featuredItems = [];
     /*

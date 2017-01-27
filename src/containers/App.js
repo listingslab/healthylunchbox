@@ -15,32 +15,73 @@ class App extends Component {
   // cookie.remove('userId', { path: '/' });
   // cookie.load('userId')
 
+  componentWillMount() {
+    // console.log('doCookies');
+    this.returningUser = false;
+    let HLBcookieCode = cookie.load('HLBcookieCode');
+    if (HLBcookieCode === undefined) {
+      HLBcookieCode = this.makeCookieCode();
+      // console.log (HLBcookieCode);
+      cookie.save('HLBcookieCode', HLBcookieCode, { path: '/' });
+    }else{
+      this.returningUser = true;
+    }
+    this.HLBcookieCode = HLBcookieCode;
+  }
+
   componentDidMount() {
     this.hideMessage();
     this.fadeInMessage();
   }
 
-  fadeInMessage() {
-    $('#message').fadeIn();
+  makeRandomNumber(length) {
+    return Math.floor(Math.pow(10, length - 1) + Math.random() *
+    (Math.pow(10, length) - Math.pow(10, length - 1) - 1));
+  }
+
+  makeRandomStr(length) {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    for (let i = 0; i < length; i += 1) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  }
+
+  makeCookieCode() {
+    const cookieCode = `${this.makeRandomStr(3)}-${this.makeRandomNumber(3)}`
+    console.log(cookieCode);
+    return cookieCode;
   }
 
   hideMessage() {
     $('#message').hide();
   }
 
+  fadeInMessage() {
+    $('#message').fadeIn();
+  }
+
   render() {
-    // console.log('APP RENDER');
-    // cookies CMS postID="636"
     const { children } = this.props;
-    const cookieNumber = 'HLB12345678';
-    const message = `<p>Your cookie code is <strong>${cookieNumber}</strong></p>
+    const firstMessage = `<p>Your unique cookie code is <strong>${this.HLBcookieCode}</strong></p>
     <p>Please quote this as a reference if you have any problems of issues with this website.</p>
     <p>To find out about cookies and what they mean for you, click the orange button.</p>
     <p>If you wish to turn off these messages click the blue button</p>`;
+    const firstTitle = `Hello and welcome`;
+    const secondMessage = '';
+    const secondTitle = `Welcome back, ${this.HLBcookieCode}`;
+    let title = firstTitle;
+    let message = firstMessage;
+    if (this.returningUser){
+      title = secondTitle;
+      message = secondMessage;
+    }
     const messageType = 'info';
     const showDismiss = true;
     const showCookies = true;
-    const showSuppress = true;
+    const showDeleteCookies = true;
+    const showSuppress = false;
     return (
       <div className="template-app">
         <div id="message">
@@ -48,8 +89,9 @@ class App extends Component {
             type={messageType}
             showDismiss={showDismiss}
             showCookies={showCookies}
+            showDeleteCookies={showDeleteCookies}
             showSuppress={showSuppress}
-            title="Welcome"
+            title={title}
             message={message}
              />
         </div>

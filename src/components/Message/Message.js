@@ -5,6 +5,7 @@
 
 import React, { PropTypes } from 'react';
 import $ from 'jquery';
+import cookie from 'react-cookie';
 import { Link, browserHistory } from 'react-router';
 import './Message.scss';
 
@@ -17,6 +18,14 @@ function Message(props) {
   const showCookies = () => {
     // console.log('showCookies');
     browserHistory.push('/cookies');
+    $('#message').fadeOut();
+  };
+
+  const deleteCookies = () => {
+    const HLBcookieCode = cookie.load('HLBcookieCode');
+    if (HLBcookieCode !== undefined) {
+      cookie.remove('HLBcookieCode', { path: '/' });
+    }
     $('#message').fadeOut();
   };
 
@@ -43,8 +52,18 @@ function Message(props) {
       <span className="glyphicon glyphicon-info-sign" /></Link>);
   }
 
+  let cookiesDeleteBtn = '';
+  if (props.showDeleteCookies) {
+    cookiesDeleteBtn = (<Link
+      title="Delete cookies"
+      onClick={deleteCookies}
+      className="btn btn-info message-btn">
+      <span className="glyphicon glyphicon-remove-sign" /></Link>);
+  }
+
+
   let suppressBtn = '';
-  if (props.showCookies) {
+  if (props.showSuppress) {
     suppressBtn = (<button
       title="Suppress all messages"
       onClick={suppressMessages}
@@ -54,8 +73,8 @@ function Message(props) {
 
   const buttonsDiv = (
     <div className="message-buttons">
-
       {cookiesBtn}
+      {cookiesDeleteBtn}
       {suppressBtn}
       {dismissBtn}
     </div>
@@ -74,6 +93,7 @@ Message.propTypes = {
   type: PropTypes.string.isRequired,
   showDismiss: PropTypes.bool.isRequired,
   showCookies: PropTypes.bool.isRequired,
+  showDeleteCookies: PropTypes.bool.isRequired,
   showSuppress: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired
