@@ -4,36 +4,77 @@
  */
 
 import React, { PropTypes } from 'react';
+import $ from 'jquery';
+import { Link, browserHistory } from 'react-router';
 import './Message.scss';
 
 function Message(props) {
+  const dismissMessage = () => {
+    console.log('fadeOut #message');
+    $('#message').fadeOut();
+  };
+
+  const showCookies = () => {
+    // console.log('showCookies');
+    browserHistory.push('/cookies');
+    $('#message').fadeOut();
+  };
+
+  const suppressMessages = () => {
+    console.log('suppressMessages');
+  };
+
   const className = `alert alert-${props.type}`;
   const messageMarkup = { __html: props.message };
-  const buttons = (<div className="message-buttons">hello</div>);
-  const dismissBtn = (<button
-    >DISMISS</button>
-  );
+  let dismissBtn = '';
+  if (props.showDismiss) {
+    dismissBtn = (<button
+      title="Dismiss this message"
+      onClick={dismissMessage}
+      className="btn btn-success message-btn">
+      <span className="glyphicon glyphicon-ok-sign" /></button>);
+  }
+  let cookiesBtn = '';
+  if (props.showCookies) {
+    cookiesBtn = (<Link
+      title="What do cookies mean for you?"
+      onClick={showCookies}
+      className="btn btn-info message-btn">
+      <span className="glyphicon glyphicon-info-sign" /></Link>);
+  }
 
+  let suppressBtn = '';
+  if (props.showCookies) {
+    suppressBtn = (<button
+      title="Suppress all messages"
+      onClick={suppressMessages}
+      className="btn btn-info message-btn">
+      <span className="glyphicon glyphicon-remove-sign" /></button>);
+  }
+
+  const buttonsDiv = (
+    <div className="message-buttons">
+
+      {cookiesBtn}
+      {suppressBtn}
+      {dismissBtn}
+    </div>
+  );
 
   return (
     <div className={className} role="alert">
-      <h4>{props.title}</h4>
-      {buttons}
-      <div dangerouslySetInnerHTML={messageMarkup} />
-
-
-      // {props.showDismiss === true
-      //  {dismissBtn}
-      // <Button onClick={this.handleLogoutClick} />
-
-
+        {buttonsDiv}
+        <h4>{props.title}</h4>
+        <div dangerouslySetInnerHTML={messageMarkup} />
     </div>
   );
 }
 
 Message.propTypes = {
   type: PropTypes.string.isRequired,
-  showDismiss: PropTypes.bool,
+  showDismiss: PropTypes.bool.isRequired,
+  showCookies: PropTypes.bool.isRequired,
+  showSuppress: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired
 };

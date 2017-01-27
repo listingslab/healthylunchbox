@@ -33,7 +33,7 @@ function FeaturedTile(props) {
 }
 // tileTypes
 FeaturedTile.propTypes = {
-  tileType: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired
 };
 
 export default FeaturedTile;

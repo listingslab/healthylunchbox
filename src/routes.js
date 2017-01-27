@@ -25,6 +25,7 @@ const routes = (
       <Route path="/tips" component={Categories} />
       <Route path="/tip" component={Item} />
       <Route path="/about" component={About} />
+      <Route path="/cookies" component={Item} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
