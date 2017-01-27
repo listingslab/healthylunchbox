@@ -10,8 +10,11 @@ import { Link, browserHistory } from 'react-router';
 import './Message.scss';
 
 function Message(props) {
+  const reload = () => {
+    location.reload();
+  };
+
   const dismissMessage = () => {
-    console.log('fadeOut #message');
     $('#message').fadeOut();
   };
 
@@ -28,7 +31,8 @@ function Message(props) {
       cookie.remove('HLBcookieSuppress', { path: '/' });
     }
     $('#message').fadeOut();
-    $('#root').fadeOut();
+    $('#root').fadeOut(500);
+    setTimeout(reload, 500);
   };
 
   const suppressMessages = () => {

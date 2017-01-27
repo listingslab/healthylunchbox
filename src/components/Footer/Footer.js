@@ -10,24 +10,24 @@ import cookie from 'react-cookie';
 import './Footer.scss';
 
 function Footer() {
-  // console.log('FOOTER RENDER');
+  const reload = () => {
+    location.reload();
+  };
 
   const deleteCookies = () => {
     cookie.remove('HLBcookieCode', { path: '/' });
     cookie.remove('HLBcookieSuppress', { path: '/' });
-    $('#root').fadeOut();
+    $('#root').fadeOut(500);
+    setTimeout(reload, 500);
   };
 
-
   return (
-    <div className="template-footer">
+    <div className="footer text-center">
       <div className="container">
-        <small>&copy; Cancer Council NSW 2017 vs2.5</small><br />
-        <button
-          title="Suppress all messages"
+        <small>&copy; Cancer Council NSW 2017 vs2.5</small>
+        <div
           onClick={deleteCookies}
-          className="btn btn-default footer-btn">
-          <span className="glyphicon glyphicon-remove-sign" />Start over.</button>
+          className="btn">Start again.</div>
       </div>
     </div>
   );

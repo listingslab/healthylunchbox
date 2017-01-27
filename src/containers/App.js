@@ -57,15 +57,13 @@ class App extends Component {
   }
 
   fadeInMessage() {
-    $('#message').fadeIn();
+    $('#message').fadeIn(1500);
   }
 
   render() {
     const { children } = this.props;
     const firstMessage = `<p>Your unique cookie code is <strong>${this.HLBcookieCode}</strong></p>
-    <p>Please quote this as a reference if you have any problems of issues with this website.</p>
-    <p>To find out about cookies and what they mean for you, click the orange button.</p>
-    <p>If you wish to turn off these messages click the blue button</p>`;
+    <p>Please quote this as a reference if you have any problems of issues with this website.</p>`;
     const firstTitle = `Hello and welcome`;
     const secondMessage = '';
     const secondTitle = `Welcome back, ${this.HLBcookieCode}`;
@@ -75,7 +73,7 @@ class App extends Component {
       title = secondTitle;
       message = secondMessage;
     }
-    const messageType = 'info';
+    const messageType = 'warning';
     const showDismiss = true;
     const showCookies = false;
     const showDeleteCookies = true;
@@ -83,7 +81,7 @@ class App extends Component {
 
     this.showMessages = true;
     const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
-    if (HLBcookieSuppress === 'yes') {
+    if (HLBcookieSuppress === 'yes' || this.returningUser) {
       this.showMessages = false;
     }
 
@@ -91,9 +89,7 @@ class App extends Component {
       return (
         <div className="template-app">
           <Navigation />
-          <div className="container">
-            {children}
-          </div>
+          <div className="container">{children}</div>
           <Footer />
         </div>
       );
@@ -112,9 +108,7 @@ class App extends Component {
              />
         </div>
         <Navigation />
-        <div className="container">
-          {children}
-        </div>
+        <div className="container">{children}</div>
         <Footer />
       </div>
     );
@@ -122,3 +116,5 @@ class App extends Component {
 }
 
 export default App;
+
+//
