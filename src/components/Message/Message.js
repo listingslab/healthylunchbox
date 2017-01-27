@@ -25,12 +25,24 @@ function Message(props) {
     const HLBcookieCode = cookie.load('HLBcookieCode');
     if (HLBcookieCode !== undefined) {
       cookie.remove('HLBcookieCode', { path: '/' });
+      cookie.remove('HLBcookieSuppress', { path: '/' });
     }
     $('#message').fadeOut();
+    $('#root').fadeOut();
   };
 
   const suppressMessages = () => {
-    console.log('suppressMessages');
+    let HLBcookieSuppress = cookie.load('HLBcookieSuppress');
+    // console.log(`Current HLBcookieSuppress... ${HLBcookieSuppress}`);
+    if (HLBcookieSuppress === undefined) {
+      console.log(`Save HLBcookieSuppress... ${HLBcookieSuppress}`);
+      HLBcookieSuppress = 'yes';
+      const maxAge = 3600 * 24 * 365; // Will expire after 1 year (value is in number of sec.)
+      cookie.save('HLBcookieSuppress', HLBcookieSuppress, {
+        maxAge
+      });
+    }
+    $('#message').fadeOut();
   };
 
   const className = `alert alert-${props.type}`;
@@ -41,15 +53,15 @@ function Message(props) {
       title="Dismiss this message"
       onClick={dismissMessage}
       className="btn btn-success message-btn">
-      <span className="glyphicon glyphicon-ok-sign" /></button>);
+      <span className="glyphicon glyphicon-ok-sign" />Dismiss this message</button>);
   }
   let cookiesBtn = '';
   if (props.showCookies) {
     cookiesBtn = (<Link
       title="What do cookies mean for you?"
       onClick={showCookies}
-      className="btn btn-info message-btn">
-      <span className="glyphicon glyphicon-info-sign" /></Link>);
+      className="btn btn-default message-btn">
+      <span className="glyphicon glyphicon-info-sign" />What do cookies mean for you?</Link>);
   }
 
   let cookiesDeleteBtn = '';
@@ -57,8 +69,8 @@ function Message(props) {
     cookiesDeleteBtn = (<Link
       title="Delete cookies"
       onClick={deleteCookies}
-      className="btn btn-info message-btn">
-      <span className="glyphicon glyphicon-remove-sign" /></Link>);
+      className="btn btn-default message-btn">
+      <span className="glyphicon glyphicon-remove-sign" />Delete cookies and start over?</Link>);
   }
 
 
@@ -67,8 +79,8 @@ function Message(props) {
     suppressBtn = (<button
       title="Suppress all messages"
       onClick={suppressMessages}
-      className="btn btn-info message-btn">
-      <span className="glyphicon glyphicon-remove-sign" /></button>);
+      className="btn btn-default message-btn">
+      <span className="glyphicon glyphicon-remove-sign" />Suppress further messages.</button>);
   }
 
   const buttonsDiv = (
@@ -82,9 +94,9 @@ function Message(props) {
 
   return (
     <div className={className} role="alert">
-        {buttonsDiv}
-        <h4>{props.title}</h4>
+        <h5>{props.title}</h5>
         <div dangerouslySetInnerHTML={messageMarkup} />
+        {buttonsDiv}
     </div>
   );
 }

@@ -12,10 +12,16 @@
 }
 
 .message-buttons {
-  float: right;
+
 }
 
 .message-btn{
   // border:1px solid red;
   margin: 3px;
+  width: 100%;
+  text-align: left;
+
+   > span {
+     margin-right:10px
+   }
 }

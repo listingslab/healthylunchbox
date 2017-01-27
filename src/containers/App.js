@@ -11,19 +11,18 @@ import Footer from '../components/Footer/Footer';
 import Message from '../components/Message/Message';
 
 class App extends Component {
-  // cookie.save('userId', userId, { path: '/' });
-  // cookie.remove('userId', { path: '/' });
-  // cookie.load('userId')
 
   componentWillMount() {
-    // console.log('doCookies');
     this.returningUser = false;
     let HLBcookieCode = cookie.load('HLBcookieCode');
+    // console.log(`Current CookieCode... ${HLBcookieCode}`);
     if (HLBcookieCode === undefined) {
       HLBcookieCode = this.makeCookieCode();
-      // console.log (HLBcookieCode);
-      cookie.save('HLBcookieCode', HLBcookieCode, { path: '/' });
-    }else{
+      const maxAge = 3600 * 24 * 365; // Will expire after 1 year (value is in number of sec.)
+      cookie.save('HLBcookieCode', HLBcookieCode, {
+        maxAge
+      });
+    } else {
       this.returningUser = true;
     }
     this.HLBcookieCode = HLBcookieCode;
@@ -49,8 +48,7 @@ class App extends Component {
   }
 
   makeCookieCode() {
-    const cookieCode = `${this.makeRandomStr(3)}-${this.makeRandomNumber(3)}`
-    console.log(cookieCode);
+    const cookieCode = `${this.makeRandomStr(3)}-${this.makeRandomNumber(3)}`;
     return cookieCode;
   }
 
@@ -79,9 +77,27 @@ class App extends Component {
     }
     const messageType = 'info';
     const showDismiss = true;
-    const showCookies = true;
+    const showCookies = false;
     const showDeleteCookies = true;
-    const showSuppress = false;
+    const showSuppress = true;
+
+    this.showMessages = true;
+    const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
+    if (HLBcookieSuppress === 'yes') {
+      this.showMessages = false;
+    }
+
+    if (!this.showMessages) {
+      return (
+        <div className="template-app">
+          <Navigation />
+          <div className="container">
+            {children}
+          </div>
+          <Footer />
+        </div>
+      );
+    }
     return (
       <div className="template-app">
         <div id="message">
