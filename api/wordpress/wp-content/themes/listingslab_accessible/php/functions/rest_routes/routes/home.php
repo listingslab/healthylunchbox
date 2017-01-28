@@ -11,7 +11,7 @@ function hlbapi_home( WP_REST_Request $request ) {
   $response->data->code = 418;
   // Home page ID = 508
   $id = 508;
-  $response->data->edit_link = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';
+  $response->data->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';
   $home_page = new stdClass();
   $page = get_post($id);
   $hero = get_fields($id);

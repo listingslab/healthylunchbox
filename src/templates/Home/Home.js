@@ -14,31 +14,50 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoaded: false,
+      isLoaded: true,
       isFetching: false,
-      pageData: {
-        heroTitle:'This is the hero title'
+      apiRoute: 'http://api.healthylunchbox.com.au/wp-json/hlbapi/home',
+      cmsData: {
+        heroTitle: '',
+        heroSubTitle: '',
+        isLoggedIn: false
       }
     };
   }
 
   componentDidMount() {
-    const dismissMessage = () => {
-      this.setState({
-        isLoaded: true,
-        pageData: {
-
-        }
-      });
-    };
-    if (!this.state.isLoaded) {
-      console.log('Load the thing');
-      setTimeout(dismissMessage, 2000);
-    }
+    this.cmsCallback('JSONPayload');
+    // $.getJSON(this.state.apiRoute, this.cmsCallback.bind(this));
   }
 
+  cmsCallback() {
+    this.setState = {
+      isFetching: 'fslfigouhuo hgo ugou',
+      ljsff: 'lsjdfunfu'
+    };
+
+    console.log(this.state);
+
+    /*
+    this.setState = {
+      isLoaded: true,
+      isFetching: false,
+      apiRoute: 'http://api.healthylunchbox.com.au/wp-json/hlbapi/home',
+      cmsData: {
+        heroTitle: JSONPayload.data.hero.heroTitle,
+        heroSubTitle: JSONPayload.data.hero.heroSubTitle,
+        linkText: JSONPayload.data.hero.linkText,
+        linkUrl: JSONPayload.data.hero.linkUrl,
+        linkType: JSONPayload.data.hero.linkType,
+        isLoggedIn: false
+      }
+    };
+    */
+  };
+
+
   render() {
-    console.log('RENDER HOME');
+    console.log('HOME RENDER');
     const featuredItemsArr = [];
     const featuredItems = [];
     for (let i = 0; i < featuredItemsArr.length; i += 1) {
@@ -53,24 +72,30 @@ class Home extends Component {
     }
     if (!this.state.isLoaded) {
       const loader = (<Loader
-        text="Loading home page"
+        text="Loading Healthy Lunch Box"
         />);
       return loader;
     }
-    const showEdit = true;
-    const editUrl = true;
+    // If we've got some data....
+    let showEdit = false;
+    if (this.state.cmsData.isLoggedIn) {
+      showEdit = true;
+    }
+    const ID = 508;
+    const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${ID}&action=edit`;
     return (
       <div className="home container">
         <Hero
-          url={'/'}
-          colour="green"
-          title="Hero"
-          subTitle="daekhsf"
+          title={this.state.cmsData.heroTitle || 'Title'}
+          subTitle={this.state.cmsData.heroSubTitle || 'Sub title'}
+          linkUrl={this.state.cmsData.linkUrl || '/'}
+          linkType={this.state.cmsData.linkType || 'to'}
+          linkText={this.state.cmsData.linkText || 'Click here'}
           showEdit={showEdit}
           editUrl={editUrl}
-          linkText="nnn"
+          colour="daffodil"
         />
-      <div className="row">
+        <div className="row">
           {featuredItems}
         </div>
       </div>
