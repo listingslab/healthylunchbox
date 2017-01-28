@@ -19,9 +19,9 @@ export default class API {
   }
 
   getDataIfNeeded(apiRoute, callBack) {
-    console.log(`Do we need data for "${apiRoute}"`);
+    // console.log(`Do we need data for "${apiRoute}"`);
     if (!this.homeData) {
-      console.log('Yes. Yes we do. let us load it with jQuery');
+      // console.log('Yes. Yes we do. let us load it with jQuery');
       $.getJSON(`${this.apiBaseUrl}${apiRoute}`, callBack);
     }
   }

@@ -16,11 +16,17 @@ class Home extends Component {
       isLoaded: false,
       isFetching: false,
       cmsData: {
-        heroTitle: 'Sponge bob',
-        heroSubTitle: 'Square pants',
-        linkText: 'Poke my bum',
+        heroTitle: '',
+        heroSubTitle: '',
+        linkText: '',
+        linkUrl: '/healthy-lunch-box',
         linkType: 'to',
-        linkUrl: 'healthy-lunch-box'
+        featuredItems: [
+          {
+            ID: 0,
+            title: ''
+          }
+        ]
       }
     };
   }
@@ -42,31 +48,37 @@ class Home extends Component {
         heroSubTitle: cmsData.data.hero.heroSubTitle,
         linkText: cmsData.data.hero.linkText,
         linkUrl: cmsData.data.hero.linkUrl,
-        linkType: cmsData.data.hero.linkType
+        linkType: cmsData.data.hero.linkType,
+        featuredItems: cmsData.data.featured.items
       } });
   }
 
   render() {
-    // console.log('HOME RENDER');
-    const featuredItemsArr = [];
+    const showEdit = true;
     const featuredItems = [];
-    for (let i = 0; i < featuredItemsArr.length; i += 1) {
+    for (let i = 0; i < this.state.cmsData.featuredItems.length; i += 1) {
+      const item = this.state.cmsData.featuredItems[i];
       featuredItems.push(<Tile
-        key={`featured_${i}`}
-        editLink={''}
-        link={''}
-        header={this.state.heroTitle}
-        shortDescription={''}
-        btnType={''}
+        key={`featuredItem_${item.ID}`}
+        itemType={item.itemType || ''}
+        title={item.title || ''}
+        subTitle={item.subTitle || ''}
+        itemModified={item.itemModified || ''}
+        itemSlug={item.itemSlug || ''}
+        showEdit={showEdit}
+        editLink={item.editLink || ''}
       />);
     }
+    /*
+    }*/
+    // If we're loading show the loader
     if (!this.state.isLoaded) {
       const loader = (<Loader
         text="Loading Healthy Lunch Box"
         />);
       return loader;
     }
-    const showEdit = true;
+    // else show the data-driven home page
     const ID = 508;
     const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${ID}&action=edit`;
     return (

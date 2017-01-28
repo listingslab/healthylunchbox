@@ -4,51 +4,31 @@
  */
 
 .tile {
-  min-height: 125px;
+  height:150px;
+  border: 1px solid #ddd;
+  color: black;
+  font-family: 'Baloo';
 }
 
-.tile a {
+.tile-btn-white {
+  color: white;
+}
+
+.tile-btn-title {
   color: white;
   text-decoration: none;
 }
 
-.white-txt {
-  color: white;
-}
-
-.tile a {
-  color: black;
-}
-
-.tile-default {
-  background: #ddd;
-  border: 1px solid #eee;
+.tile-btn-title:hover {
   color: black;
 }
 
 .tile-tip {
-  background: #70b04a;
-  border: 1px solid #5a9239;
-  color: white;
+  background: #fed300;
+  color: black;
 }
 
 .tile-recipe {
-  background: #3497d3;
-  border: 1px solid #2b7fb2;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .tile {
-  }
-}
-
-@media (max-width: 980px) {
-  .tile {
-  }
-}
-
-@media (max-width: 1200px) {
-  .tile {
-  }
+  background: #f5a239;
+  color: black;
 }

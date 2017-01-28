@@ -32,16 +32,16 @@ function hlbapi_home( WP_REST_Request $request ) {
   foreach ($all_featured as $post){
     $tempObj = new stdClass();
     $tempObj->ID = $post->ID;
-    $tempObj->edit_link = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tempObj->ID.'&action=edit';
-    $tempObj->post_title = $post->post_title;
+    $tempObj->editLink = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tempObj->ID.'&action=edit';
+    $tempObj->title = $post->post_title;
     $act = get_fields($tempObj->ID);
-    $tempObj->short_description = '';
+    $tempObj->subTitle = '';
     if (isset($act['short_description'])){
-      $tempObj->short_description = $act['short_description'];
+      $tempObj->subTitle = $act['short_description'];
     }
-    $tempObj->post_type = $post->post_type;
-    $tempObj->post_name = $post->post_name;
-    $tempObj->post_modified = $post->post_modified;
+    $tempObj->itemType = $post->post_type;
+    $tempObj->itemSlug = $post->post_name;
+    $tempObj->itemModified = $post->post_modified;
     $i++;
     if ($i <= $featured->number){
       $featured->items[] = $tempObj;

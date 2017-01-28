@@ -6,15 +6,15 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-import Lunchbox from '../Lunchbox/Lunchbox';
 import NavigationData from './NavigationData';
 
 import './Navigation.scss';
 
 const Navigation = React.createClass({
-
   getInitialState() {
-    return { open: false };
+    return {
+      open: false
+    };
   },
 
   onNavItemClick(itemData) {
