@@ -2,6 +2,15 @@
  * Created by Chris Dorward on 27/01/2017
  * coponents/Footer/Footer.scss
  */
- .footer {
+
+.footer {
   color: #ddd;
+}
+
+.footer .start-again {
+  color: #ddd;
+}
+
+.footer .start-again:hover {
+  color: black;
 }

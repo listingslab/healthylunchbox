@@ -4,77 +4,50 @@
  */
 
 import React, { Component } from 'react';
-import $ from 'jquery';
 import Hero from '../../components/Hero/Hero';
 import Tile from '../../components/Tile/Tile';
 import Loader from '../../components/Loader/Loader';
+import API from '../../API';
 
 class Home extends Component {
-
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      isLoaded: true,
+      isLoaded: false,
       isFetching: false,
-      apiRoute: 'http://api.healthylunchbox.com.au/wp-json/hlbapi/home',
-      cmsData: {}
+      cmsData: {
+        heroTitle: 'Sponge bob',
+        heroSubTitle: 'Square pants',
+        linkText: 'Poke my bum',
+        linkType: 'to',
+        linkUrl: 'healthy-lunch-box'
+      }
     };
   }
 
-  componentWillMount() {
-    // console.log('componentWillMount');
-    // this.state.cmsData.heroTitle = 'componentWillMount';
-    // this.state.cmsData.heroSubTitle = 'componentWillMount';
-    // console.log(this.state);
-    this.setHero();
-    // this.cmsCallback('JSONPayload');
-    // $.getJSON(this.state.apiRoute, this.cmsCallback.bind(this));
-  }
-
-  setHero() {
-    this.state.cmsData.heroTitle = 'Title';
-    this.state.cmsData.heroSubTitle = 'Sub title';
-    this.state.cmsData.linkText = 'Click ere';
-    this.state.cmsData.linkUrl = '/to';
-    this.state.cmsData.linkType = 'to';
-    console.log(this.state);
-    // this.cmsCallback('JSONPayload');
-    // $.getJSON(this.state.apiRoute, this.cmsCallback.bind(this));
+  componentDidMount() {
+    const api = new API('yesPlease');
+    api.getDataIfNeeded('home', this.apiCallback.bind(this));
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate');
+    // console.log('componentDidUpdate');
   }
 
-  cmsCallback() {
-    this.setState = {
-      isFetching: 'fslfigouhuo hgo ugou',
-      cmsData: {
-        heroTitle: 'lsjdfunfu'
-      }
-    };
-    console.log(this.state);
-
-    /*
-    this.setState = {
+  apiCallback(cmsData) {
+    this.setState({
       isLoaded: true,
-      isFetching: false,
-      apiRoute: 'http://api.healthylunchbox.com.au/wp-json/hlbapi/home',
       cmsData: {
-        heroTitle: JSONPayload.data.hero.heroTitle,
-        heroSubTitle: JSONPayload.data.hero.heroSubTitle,
-        linkText: JSONPayload.data.hero.linkText,
-        linkUrl: JSONPayload.data.hero.linkUrl,
-        linkType: JSONPayload.data.hero.linkType,
-        isLoggedIn: false
-      }
-    };
-    */
-  };
-
+        heroTitle: cmsData.data.hero.heroTitle,
+        heroSubTitle: cmsData.data.hero.heroSubTitle,
+        linkText: cmsData.data.hero.linkText,
+        linkUrl: cmsData.data.hero.linkUrl,
+        linkType: cmsData.data.hero.linkType
+      } });
+  }
 
   render() {
-    console.log('HOME RENDER');
+    // console.log('HOME RENDER');
     const featuredItemsArr = [];
     const featuredItems = [];
     for (let i = 0; i < featuredItemsArr.length; i += 1) {
@@ -93,11 +66,7 @@ class Home extends Component {
         />);
       return loader;
     }
-    // If we've got some data....
-    let showEdit = false;
-    if (this.state.cmsData.isLoggedIn) {
-      showEdit = true;
-    }
+    const showEdit = true;
     const ID = 508;
     const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${ID}&action=edit`;
     return (
