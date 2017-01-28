@@ -57,6 +57,8 @@ class Home extends Component {
         />);
       return loader;
     }
+    const showEdit = true;
+    const editUrl = true;
     return (
       <div className="home container">
         <Hero
@@ -64,6 +66,8 @@ class Home extends Component {
           colour="green"
           title="Hero"
           subTitle="daekhsf"
+          showEdit={showEdit}
+          editUrl={editUrl}
           linkText="nnn"
         />
       <div className="row">

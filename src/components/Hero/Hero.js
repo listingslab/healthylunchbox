@@ -9,15 +9,17 @@ import { Link } from 'react-router';
 import './Hero.scss';
 
 function Hero(props) {
-  const className = `hero jumbotron hero-${props.colour}`
+  const className = `hero jumbotron hero-${props.colour}`;
+  let editBtn = null;
+  if (props.showEdit){
+    editBtn = <Link className="btn btn-default pull-right"
+      href={props.editUrl || ''}
+      role="button"
+    ><span className="glyphicon glyphicon-pencil" /></Link>;
+  }
   return (
     <div className={className}>
-      <Link
-        className="btn btn-default pull-right"
-        href={props.editLink}
-        role="button"
-      ><span className="glyphicon glyphicon-pencil" /></Link>
-
+      {editBtn}
     <h2>{ props.title|| 'Default Hero Header'}</h2>
     <p>{ props.subTitle || 'Default short description' }</p>
       <Link
@@ -33,7 +35,9 @@ function Hero(props) {
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
-  colour: PropTypes.string.isRequired
+  colour: PropTypes.string.isRequired,
+  showEdit: PropTypes.bool.isRequired,
+  editUrl: PropTypes.string
 };
 
 export default Hero;
