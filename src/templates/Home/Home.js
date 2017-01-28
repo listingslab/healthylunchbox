@@ -12,30 +12,47 @@ import Loader from '../../components/Loader/Loader';
 class Home extends Component {
 
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       isLoaded: true,
       isFetching: false,
       apiRoute: 'http://api.healthylunchbox.com.au/wp-json/hlbapi/home',
-      cmsData: {
-        heroTitle: '',
-        heroSubTitle: '',
-        isLoggedIn: false
-      }
+      cmsData: {}
     };
   }
 
-  componentDidMount() {
-    this.cmsCallback('JSONPayload');
+  componentWillMount() {
+    // console.log('componentWillMount');
+    // this.state.cmsData.heroTitle = 'componentWillMount';
+    // this.state.cmsData.heroSubTitle = 'componentWillMount';
+    // console.log(this.state);
+    this.setHero();
+    // this.cmsCallback('JSONPayload');
     // $.getJSON(this.state.apiRoute, this.cmsCallback.bind(this));
+  }
+
+  setHero() {
+    this.state.cmsData.heroTitle = 'Title';
+    this.state.cmsData.heroSubTitle = 'Sub title';
+    this.state.cmsData.linkText = 'Click ere';
+    this.state.cmsData.linkUrl = '/to';
+    this.state.cmsData.linkType = 'to';
+    console.log(this.state);
+    // this.cmsCallback('JSONPayload');
+    // $.getJSON(this.state.apiRoute, this.cmsCallback.bind(this));
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
   }
 
   cmsCallback() {
     this.setState = {
       isFetching: 'fslfigouhuo hgo ugou',
-      ljsff: 'lsjdfunfu'
+      cmsData: {
+        heroTitle: 'lsjdfunfu'
+      }
     };
-
     console.log(this.state);
 
     /*
