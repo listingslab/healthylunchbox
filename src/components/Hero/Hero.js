@@ -3,33 +3,38 @@
  * components/Hero/Hero
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import './Hero.scss';
 
 function Hero(props) {
-  // console.log(props.hero);
+  const className = `hero jumbotron hero-${props.colour}`
   return (
-    <div className="hero jumbotron">
+    <div className={className}>
       <Link
         className="btn btn-default pull-right"
         href={props.editLink}
         role="button"
-      ><span className="glyphicon glyphicon-pencil"></span></Link>
+      ><span className="glyphicon glyphicon-pencil" /></Link>
 
-    <h2>{ props.hero.hero_title || 'Default Hero Header'}</h2>
-    <p>{ props.hero.hero_subtitle || 'Default short description' }</p>
+    <h2>{ props.title|| 'Default Hero Header'}</h2>
+    <p>{ props.subTitle || 'Default short description' }</p>
       <Link
-        className="btn btn-danger btn-lg"
-        to={props.hero.hero_link_url || '/'}
+        className="btn btn-default btn-lg"
+        to={props.url || '/'}
         role="button"
       >
-        { props.hero.hero_link_text || 'Click here' }
+        { props.linkText || 'Click here' }
       </Link>
     </div>
   );
 }
+
+Hero.propTypes = {
+  title: PropTypes.string.isRequired,
+  colour: PropTypes.string.isRequired
+};
 
 export default Hero;
 

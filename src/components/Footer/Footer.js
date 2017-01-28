@@ -5,6 +5,7 @@
 
 import React from 'react';
 import $ from 'jquery';
+import { Link } from 'react-router';
 import cookie from 'react-cookie';
 
 import './Footer.scss';
@@ -24,10 +25,10 @@ function Footer() {
   return (
     <div className="footer text-center">
       <div className="container">
-        <small>&copy; Cancer Council NSW 2017 vs2.5</small>
-        <div
+        <small>&copy; Cancer Council NSW 2017 vs2.6</small>
+        <Link
           onClick={deleteCookies}
-          className="btn">Start again.</div>
+          className="btn">Start again.</Link>
       </div>
     </div>
   );

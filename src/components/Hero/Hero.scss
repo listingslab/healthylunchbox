@@ -4,22 +4,24 @@
  */
 
 .hero {
-  border: 2px solid #e39a3e;
-  background: #f5a239;
+  border: 2px solid black;
+  color: black;
+}
+
+.hero-blue {
+  background: blue;
+  border: 1px solid darkblue;
   color: white;
 }
 
-@media (max-width: 768px) {
-  .hero {
-  }
+.hero-green {
+  background: green;
+  border: 1px solid darkgreen;
+  color: white;
 }
 
-@media (max-width: 980px) {
-  .hero {
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero {
-  }
+.hero-orange {
+  background: orange;
+  border: 1px solid darkorange;
+  color: white;
 }
