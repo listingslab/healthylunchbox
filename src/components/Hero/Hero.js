@@ -12,24 +12,23 @@ function Hero(props) {
   const className = `hero jumbotron hero-${props.colour}`;
   let editBtn = null;
   if (props.showEdit) {
-    editBtn = (<Link className="btn btn-danger pull-right"
+    editBtn = (<div className="pull-right"><Link className="btn btn-link hero-edit-btn"
       href={props.editUrl || ''}
       role="button"
-    ><span className="glyphicon glyphicon-pencil" /></Link>
+    ><span className="glyphicon glyphicon-pencil" />&nbsp;Edit</Link></div>
     );
   }
-
   return (
     <div className={className}>
-      {editBtn}
+    {editBtn}
     <h2>{ props.title || 'Default Hero Header'}</h2>
     <p>{ props.subTitle || 'Default short description' }</p>
       <Link
-        className="btn btn-success btn-lg"
+        className="btn btn-info"
         to={props.linkUrl || '/'}
         role="button"
       >
-        { props.linkText || 'Click me' }
+      <span className="glyphicon glyphicon-star" />&nbsp;{ props.linkText || 'Click me' }
       </Link>
     </div>
   );

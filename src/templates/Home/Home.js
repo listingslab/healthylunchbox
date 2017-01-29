@@ -60,17 +60,15 @@ class Home extends Component {
       const item = this.state.cmsData.featuredItems[i];
       featuredItems.push(<Tile
         key={`featuredItem_${item.ID}`}
-        itemType={item.itemType || ''}
         title={item.title || ''}
+        itemType={item.itemType || ''}
         subTitle={item.subTitle || ''}
         itemModified={item.itemModified || ''}
         itemSlug={item.itemSlug || ''}
         showEdit={showEdit}
-        editLink={item.editLink || ''}
+        editUrl={item.editLink || ''}
       />);
     }
-    /*
-    }*/
     // If we're loading show the loader
     if (!this.state.isLoaded) {
       const loader = (<Loader
@@ -91,7 +89,7 @@ class Home extends Component {
           linkText={this.state.cmsData.linkText || 'Click here'}
           showEdit={showEdit}
           editUrl={editUrl}
-          colour="daffodil"
+          colour="blue"
         />
         <div className="row">
           {featuredItems}

@@ -7,23 +7,25 @@ import React, { PropTypes } from 'react';
 import './Header.scss';
 
 function Header(props) {
-  const className = `single-header jumbotron single-header-${props.itemType}`;
+  const className = `single-header jumbotron header header-${props.itemTypes}`;
   return (
     <div className={className}>
     <div className="container">
-      <h2>
-        {props.header || ''}
-      </h2>
-      <p>{props.shortDescription || ''}</p>
+      <h3>
+        {props.title || ''}
+      </h3>
+      <p>{props.catID || ''}: {props.subTitle || ''}
+      </p>
     </div>
   </div>
   );
 }
 
 Header.propTypes = {
-  header: PropTypes.string,
-  itemType: PropTypes.string,
-  shortDescription: PropTypes.string
+  catID: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
+  itemTypes: PropTypes.string
 };
 
 export default Header;

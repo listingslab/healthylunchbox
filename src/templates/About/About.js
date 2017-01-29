@@ -15,9 +15,9 @@ class About extends Component {
       <div className="template-about container">
         <Header
           ID="510"
-          itemType="about"
-          header="About"
-          shortDescription="Eating enough fruit and veg everyday will give your
+          itemTypes="about"
+          title="About"
+          subTitle="Eating enough fruit and veg everyday will give your
           kids the energy and nutrients they need to learn and play"
         />
 

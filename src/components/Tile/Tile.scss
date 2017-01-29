@@ -4,31 +4,62 @@
  */
 
 .tile {
-  height:150px;
+  height: 150px;
   border: 1px solid #ddd;
   color: black;
+}
+
+.tile-full-width {
+  width: 100%;
+  text-align: left;
   font-family: 'Baloo';
 }
 
-.tile-btn-white {
-  color: white;
+.tile-sub-title {
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
-.tile-btn-title {
+.tile-btn-edit {
   color: white;
   text-decoration: none;
 }
 
-.tile-btn-title:hover {
-  color: black;
+.tile-btn-edit:hover {
+  color: #222;
+  text-decoration: none;
 }
 
 .tile-tip {
   background: #fed300;
+  border: 1px solid #d1ae02;
+}
+
+.tile-title-btn-tip {
+  background: #fce15f;
+  border: 1px solid #d9b91a;
+  color: black;
+}
+
+.tile-title-btn-tip:hover {
+  background: #ffe97c;
+  border: 1px solid #d9b91a;
+  color: black;
+}
+
+.tile-title-btn-recipe {
+  background: #f4ba70;
+  border: 1px solid #b17529;
+  color: black;
+}
+
+.tile-title-btn-recipe:hover {
+  background: #f6d09f;
+  border: 1px solid #b17529;
   color: black;
 }
 
 .tile-recipe {
   background: #f5a239;
-  color: black;
+  border: 1px solid #d88e31;
 }

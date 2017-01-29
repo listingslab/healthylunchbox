@@ -10,24 +10,26 @@ import './Tile.scss';
 
 function FeaturedTile(props) {
   const className = `well featured-tile tile tile-${props.itemType}`;
+  const classNameBtn = `btn btn-default tile-full-width tile-title-btn-${props.itemType}`;
   return (
     <div className="col-md-6">
       <div className={className}>
-        <Link
-          className="btn btn-danger tile-btn-white pull-right"
-          href={props.editLink}
-          role="button"
-        ><span className="glyphicon glyphicon-pencil"></span></Link>
 
         <Link
-          to={props.link || '/'}
-          title="View item"
-          className="featured-tile-link"
-        >
-      <h4 className="tile-btn-title">{props.title || ''}</h4>
-      </Link>
+          className={classNameBtn}
+          to={props.editUrl}
+          role="button"
+        ><span className="glyphicon glyphicon-hand-right" />&nbsp;&nbsp;{props.title || ''}</Link>
+
+
+      <div className="tile-sub-title">
+        <Link
+          className="btn btn-link tile-btn-edit pull-right"
+          title="Edit content"
+          href={props.editUrl}
+        ><span className="glyphicon glyphicon-pencil" />&nbsp;Edit</Link>
       <p>{props.subTitle || ''}</p>
-      <p><small>Modified <strong>{props.itemModified || 'A long time ago'}</strong></small></p>
+      </div>
 
       </div>
     </div>
@@ -36,10 +38,14 @@ function FeaturedTile(props) {
 // tileTypes
 FeaturedTile.propTypes = {
   title: PropTypes.string.isRequired,
-  itemModified: PropTypes.string.isRequired
+  subTitle: PropTypes.string.isRequired,
+  editUrl: PropTypes.string,
+  itemType: PropTypes.string
+  // itemModified: PropTypes.string.isRequired
 };
 
 export default FeaturedTile;
 
 /*
+<p><small>Modified <strong>{props.itemModified || 'A long time ago'}</strong></small></p>
 */
