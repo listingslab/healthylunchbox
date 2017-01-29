@@ -67,7 +67,7 @@ const Navigation = React.createClass({
     return (
       <div className="navigation">
         <Navbar>
-          <Navbar.Header>
+          <Navbar.Header className="navigation-bar">
             <Navbar.Brand>
               <Link to="/">
                 <img className="cc_logo" alt="Cancer Council NSW Logo" src="/img/daffs/yellow.png" height="45" />

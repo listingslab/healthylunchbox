@@ -10,7 +10,7 @@ import './Tile.scss';
 
 function FeaturedTile(props) {
   const className = `well featured-tile tile tile-${props.itemType}`;
-  const classNameBtn = `btn btn-default tile-full-width tile-title-btn-${props.itemType}`;
+  const classNameBtn = `btn btn-default tile-full-width tile-title-btn tile-title-btn-${props.itemType}`;
   return (
     <div className="col-md-6">
       <div className={className}>

@@ -10,7 +10,7 @@ const NavigationData = [
     accessible: 'http://api.healthylunchbox.com.au/home/recipes/',
     url: 'thisUrl coming soon',
     to: '/recipes',
-    colour: 'blue'
+    colour: 'orange'
   },
   {
     text: 'Tips',
@@ -18,7 +18,7 @@ const NavigationData = [
     accessible: 'http://api.healthylunchbox.com.au/home/tips/',
     url: '/tips',
     to: '/tips',
-    colour: 'green'
+    colour: 'yellow'
   },
   {
     text: 'About',
@@ -26,7 +26,7 @@ const NavigationData = [
     accessible: 'http://api.healthylunchbox.com.au/home/about/',
     url: '/about',
     to: '/about',
-    colour: 'orange'
+    colour: 'green'
   }
 ];
 export default NavigationData;

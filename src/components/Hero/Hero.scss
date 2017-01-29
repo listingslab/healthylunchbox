@@ -3,9 +3,15 @@
  * coponents/Hero/Hero
  */
 
+@import '../../vars.scss';
+
 .hero {
   border: 2px solid black;
-  color: black;
+  color: $hlb-text;
+}
+
+.hero h2 {
+  font-family: 'Baloo';
 }
 
 .hero-blue {
@@ -14,10 +20,23 @@
   color: white;
 }
 
+.hero-btn {
+  width: 100%;
+  text-align: left;
+  font-family: 'Baloo';
+}
+
 .hero-edit-btn {
   color: white;
 }
 
-.hero h2 {
-  font-family: 'Baloo';
+.hero-btn-blue {
+  background: $hlb-blue-lighten-50;
+  border: none;
+  color: white;
+}
+
+.hero-btn-blue:hover {
+  background: $hlb-blue-darken-50;
+  color: white;
 }

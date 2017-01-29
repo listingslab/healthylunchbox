@@ -10,6 +10,7 @@ import './Hero.scss';
 
 function Hero(props) {
   const className = `hero jumbotron hero-${props.colour}`;
+  const classNameBtn = `btn btn-default hero-btn hero-btn-${props.colour}`;
   let editBtn = null;
   if (props.showEdit) {
     editBtn = (<div className="pull-right"><Link className="btn btn-link hero-edit-btn"
@@ -24,11 +25,10 @@ function Hero(props) {
     <h2>{ props.title || 'Default Hero Header'}</h2>
     <p>{ props.subTitle || 'Default short description' }</p>
       <Link
-        className="btn btn-info"
+        className={classNameBtn}
         to={props.linkUrl || '/'}
         role="button"
-      >
-      <span className="glyphicon glyphicon-star" />&nbsp;{ props.linkText || 'Click me' }
+      ><span className="glyphicon glyphicon-star" />&nbsp;{ props.linkText || 'Click me' }
       </Link>
     </div>
   );

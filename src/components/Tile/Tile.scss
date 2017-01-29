@@ -5,7 +5,7 @@
 
 .tile {
   height: 150px;
-  border: 1px solid #ddd;
+  border: none;
   color: black;
 }
 
@@ -32,34 +32,32 @@
 
 .tile-tip {
   background: #fed300;
-  border: 1px solid #d1ae02;
+}
+
+.tile-title-btn {
+  border: none;
 }
 
 .tile-title-btn-tip {
   background: #fce15f;
-  border: 1px solid #d9b91a;
   color: black;
 }
 
 .tile-title-btn-tip:hover {
   background: #ffe97c;
-  border: 1px solid #d9b91a;
   color: black;
 }
 
 .tile-title-btn-recipe {
   background: #f4ba70;
-  border: 1px solid #b17529;
   color: black;
 }
 
 .tile-title-btn-recipe:hover {
   background: #f6d09f;
-  border: 1px solid #b17529;
   color: black;
 }
 
 .tile-recipe {
   background: #f5a239;
-  border: 1px solid #d88e31;
 }

@@ -3,16 +3,16 @@
  * coponents/Navigation.scss
  */
 
-.navigation {
-  // border: 1px solid green;
-}
+@import '../../vars.scss';
 
 .navitem-btn {
   margin: 8px;
+  font-family: 'Baloo';
+  border: none;
 }
 
-.navitem-btn-blue {
-  background: #3497d3;
+.navitem-btn:hover {
+  background: black;
   color: white;
 }
 
@@ -21,9 +21,14 @@
   color: white;
 }
 
+.navitem-btn-yellow {
+  background: $hlb-yellow;
+  color: black;
+}
+
 .navitem-btn-orange {
   background: #f5a239;
-  color: white;
+  color: black;
 }
 
 .navitem-btn a {
