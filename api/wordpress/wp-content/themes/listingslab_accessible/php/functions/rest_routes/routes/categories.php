@@ -8,19 +8,35 @@
 function hlbapi_categories( WP_REST_Request $request ) {
 
   $response = new stdClass();
-  $response->code = "get_categories";
-  $response->message = "get categories for specified taxonomy";
+  $response->status = "get_categories";
+  $response->message = "Returns categories & title for specified taxonomy";
 
   $response->data = new stdClass();
   $response->data->code = 418;
-  if (isset ($_REQUEST['taxonomy'])){
-    $response->data->taxonomy = $_REQUEST['taxonomy'];
+  $taxonomy = $request['taxonomy'];
+
+  if (isset ($taxonomy) ) {
+    $response->data->taxonomy = $taxonomy;
     $categories = get_terms( array(
-      'taxonomy' => $response->data->taxonomy,
+      'taxonomy' => $taxonomy,
       'hide_empty' => false,
     ));
+    if (!isset($categories->errors)) {
 
+    } else {
+      $response->data->taxonomy = $taxonomy;
+      $response->data->error = 'Taxonomy not found';
+      $response->data->code = 404;
+    }
+  } else {
+    $response->data->error = 'Taxonomy must be specified in URL eg: /categories/catname';
+    $response->data->code = 204;
+  }
+  return $response;
 
+  /*
+  if (isset ($_REQUEST['taxonomy'])){
+    $response->data->taxonomy = $_REQUEST['taxonomy'];
     if (!isset($categories->errors)) {
       $response->data->categories = array ();
       for ($i = 0; $i < count($categories); $i++){
@@ -39,10 +55,11 @@ function hlbapi_categories( WP_REST_Request $request ) {
       }
     }
   }else{
-    $response->data->taxonomy = 'none';
+    $response->data->taxonomy = 'Taxonomy not found';
   }
+  */
 
-  return $response;
+
 
 
 ////////////////////////////////////////

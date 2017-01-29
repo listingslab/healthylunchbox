@@ -8,7 +8,7 @@ function hlbapi_home( WP_REST_Request $request ) {
   $response->code = "home";
   $response->message = "Home page content";
   $response->data = new stdClass();
-  $response->data->code = 418;
+  $response->data->status = 418;
   // Home page ID = 508
   $id = 508;
   $response->data->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';

@@ -10,7 +10,7 @@ function hlbapi_content( WP_REST_Request $request ) {
   $response->message = "get ALL the content";
 
   $response->data = new stdClass();
-  $response->data->code = 418;
+  $response->data->status = 418;
 
   // first get all the categories
   // taxonomies we want are recipes & tips

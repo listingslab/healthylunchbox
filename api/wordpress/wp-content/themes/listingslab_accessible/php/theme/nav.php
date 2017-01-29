@@ -22,7 +22,7 @@
                 <li><a href="?route=hello">/hello</a></li>
                 <li><a href="?route=home">/home</a></li>
                 <li><a href="?route=content">/content</a></li>
-                <li><a href="?route=categories/?taxonomy=recipes">/categories</a></li>
+                <li><a href="?route=categories">/categories</a></li>
 
               </ul>
             </li>

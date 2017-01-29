@@ -3,14 +3,16 @@
  * coponents/Footer/Footer.scss
  */
 
+@import '../../vars.scss';
+
 .footer {
-  color: #70b04a;
+  color: $hlb-grey-light
 }
 
 .footer .start-again {
-  color: #70b04a;
+  color: $hlb-grey-light
 }
 
 .footer .start-again:hover {
-  color: #669948;
+  color: $hlb-grey-dark;
 }
