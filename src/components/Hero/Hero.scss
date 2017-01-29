@@ -6,17 +6,24 @@
 @import '../../vars.scss';
 
 .hero {
+  background: $hlb-blue;
   border: 2px solid black;
-  color: $hlb-text;
+  border: none;
+  color: white;
 }
 
 .hero h2 {
   font-family: 'Baloo';
 }
 
-.hero-blue {
-  background: #3497d3;
-  border: 2px solid #3785b4;
+.hero-btn-blue {
+  background: $hlb-blue-dark;
+  border: none;
+  color: white;
+}
+
+.hero-btn-blue:hover {
+  background: $hlb-blue-light;
   color: white;
 }
 
@@ -27,16 +34,5 @@
 }
 
 .hero-edit-btn {
-  color: white;
-}
-
-.hero-btn-blue {
-  background: $hlb-blue-lighten-50;
-  border: none;
-  color: white;
-}
-
-.hero-btn-blue:hover {
-  background: $hlb-blue-darken-50;
   color: white;
 }

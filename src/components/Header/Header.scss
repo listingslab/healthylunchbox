@@ -3,21 +3,13 @@
  * coponents/SingleHeader/SingleHeader.scss
  */
 
+@import '../../vars.scss';
+
 .header {
-  border: 1px solid #ddd;
+  color: black;
 }
 
 .header h3 {
-  color: white;
+  color: black;
   font-family: 'Baloo';
-}
-
-.header-recipe {
-  background: #f5a239;
-  color: black;
-}
-
-.header-about {
-  background: #70b04a;
-  color: black;
 }

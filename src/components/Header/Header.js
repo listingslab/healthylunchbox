@@ -7,7 +7,7 @@ import React, { PropTypes } from 'react';
 import './Header.scss';
 
 function Header(props) {
-  const className = `single-header jumbotron header header-${props.itemTypes}`;
+  const className = `header header-${props.itemTypes}`;
   return (
     <div className={className}>
     <div className="container">
