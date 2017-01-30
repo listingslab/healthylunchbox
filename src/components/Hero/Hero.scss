@@ -7,9 +7,8 @@
 
 .hero {
   background: $hlb-blue;
-  border: 2px solid black;
   border: none;
-  color: white;
+  color: $hlb-white;
 }
 
 .hero h2 {
@@ -17,14 +16,14 @@
 }
 
 .hero-btn-blue {
-  background: $hlb-blue-dark;
+  background: $hlb-blue;
   border: none;
-  color: white;
+  color: $hlb-white;
 }
 
 .hero-btn-blue:hover {
-  background: $hlb-blue-light;
-  color: white;
+  background: $hlb-white;
+  color: $hlb-black;
 }
 
 .hero-btn {
@@ -33,6 +32,11 @@
   font-family: 'Baloo';
 }
 
-.hero-edit-btn {
-  color: white;
+.edit-btn {
+  color: $hlb-white;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  color: $hlb-black;
 }

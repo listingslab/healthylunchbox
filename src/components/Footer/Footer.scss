@@ -6,11 +6,12 @@
 @import '../../vars.scss';
 
 .footer {
-  color: $hlb-grey-light
+  color: $hlb-grey-light;
+  margin-top: 50px;
 }
 
 .footer .start-again {
-  color: $hlb-grey-light
+  color: $hlb-grey-light;
 }
 
 .footer .start-again:hover {

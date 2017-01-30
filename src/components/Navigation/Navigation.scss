@@ -12,32 +12,24 @@
 }
 
 .navitem-btn:hover {
-  background: black;
-  color: white;
+  background: $hlb-white;
+  color: $hlb-black;
 }
 
 .navitem-btn-green {
-  background: #70b04a;
-  color: white;
+  background: $hlb-green;
+  color: $hlb-white;
 }
 
 .navitem-btn-yellow {
   background: $hlb-yellow;
-  color: black;
+  color: $hlb-white;
 }
 
 .navitem-btn-orange {
-  background: #f5a239;
-  color: black;
+  background: $hlb-orange;
+  color: $hlb-white;
 }
-
-.navitem-btn a {
-  color: white;
-  text-decoration: none;
-  height: 100%;
-}
-
-
 
 .navitem-btn-default a {
   color: black;

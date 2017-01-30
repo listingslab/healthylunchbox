@@ -1,9 +1,7 @@
 <?php
-
 /**
  * Route to get categories
  */
-
 
 function hlbapi_categories( WP_REST_Request $request ) {
 
@@ -22,7 +20,35 @@ function hlbapi_categories( WP_REST_Request $request ) {
       'hide_empty' => false,
     ));
     if (!isset($categories->errors)) {
-
+      $special = get_fields(649);
+      if ($response->data->taxonomy == 'recipes'){
+        $response->data->itemType = 'recipe';
+        $response->data->pageTitle = $special['recipe_categories_page_title'];
+        $response->data->pageSubTitle = $special['recipe_categories_page_subtitle'];
+      } else if ($response->data->taxonomy == 'tips'){
+        $response->data->itemType = 'tip';
+        $response->data->pageTitle = $special['tip_categories_page_title'];
+        $response->data->pageSubTitle = $special['tip_categories_page_subtitle'];
+      }
+      $response->data->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=649&action=edit';
+      $response->data->addUrl = 'http://api.healthylunchbox.com.au/wp-admin/edit-tags.php?taxonomy=' . $response->data->taxonomy;
+      $response->data->categories = array ();
+      for ($i = 0; $i < count($categories); $i++){
+        $category = new stdClass();
+        $category->catID = $categories[$i]->term_id;
+        $category->title = htmlspecialchars_decode($categories[$i]->name);
+        $response->data->categories[] = $category;
+        $category->subTitle = htmlspecialchars_decode($categories[$i]->description);
+        $category->slug = $categories[$i]->slug;
+        $category->taxonomy = $categories[$i]->taxonomy;
+        $category->itemType = $response->data->taxonomy;
+        $category->linkUrl = '/category?catID=' . $categories[$i]->term_id;
+        $category->linkText = 'View category';
+        $category->linkType = 'to';
+        $category->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/term.php?taxonomy=';
+        $category->editUrl = $category->editUrl . $category->taxonomy;
+        $category->editUrl = $category->editUrl . '&tag_ID=' . $category->catID;
+      }
     } else {
       $response->data->taxonomy = $taxonomy;
       $response->data->error = 'Taxonomy not found';
@@ -33,34 +59,6 @@ function hlbapi_categories( WP_REST_Request $request ) {
     $response->data->code = 204;
   }
   return $response;
-
-  /*
-  if (isset ($_REQUEST['taxonomy'])){
-    $response->data->taxonomy = $_REQUEST['taxonomy'];
-    if (!isset($categories->errors)) {
-      $response->data->categories = array ();
-      for ($i = 0; $i < count($categories); $i++){
-        $category = new stdClass();
-        $category->catID = $categories[$i]->term_id;
-        $category->title = $categories[$i]->name;
-        $category->subTitle = $categories[$i]->description;
-        $category->slug = $categories[$i]->slug;
-        $category->taxonomy = $categories[$i]->taxonomy;
-        $category->itemType = $response->data->taxonomy;
-        $category->linkUrl = '/category?catID=' . $categories[$i]->term_id;
-        $category->linkText = 'View category';
-        $category->linkType = 'to';
-        $category->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/term.php?taxonomy=' . $category->taxonomy . '&tag_ID=' . $category->catID;
-        $response->data->categories[] = $category;
-      }
-    }
-  }else{
-    $response->data->taxonomy = 'Taxonomy not found';
-  }
-  */
-
-
-
 
 ////////////////////////////////////////
 /*

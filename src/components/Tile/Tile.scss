@@ -2,62 +2,62 @@
  * Created by Chris Dorward on 21/01/2017
  * coponents/Tile/Tile.scss
  */
+@import '../../vars.scss';
 
 .tile {
   height: 150px;
   border: none;
-  color: black;
+  color: $hlb-white;
 }
 
-.tile-full-width {
+.tile-recipe {
+  background: $hlb-orange;
+}
+
+.tile-tip {
+  background: $hlb-yellow;
+}
+
+.tile-title-btn:hover {
+  background: $hlb-white;
+  color: $hlb-black;
+}
+
+.tile-title-btn-recipe {
+  background: $hlb-orange;
+  color: $hlb-white;
+}
+
+.tile-title-btn-tip {
+  background: $hlb-yellow;
+  color: $hlb-white;
+}
+
+.edit-btn {
+  color: $hlb-white;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  color: $hlb-black;
+  text-decoration: none;
+}
+
+.tile-title-btn {
+  border: none;
   width: 100%;
   text-align: left;
   font-family: 'Baloo';
 }
 
+.tile-btn-edit:hover {
+  color: $hlb-black;
+  text-decoration: none;
+}
+
+
+
 .tile-sub-title {
   margin-left: 5px;
   margin-top: 10px;
-}
-
-.tile-btn-edit {
-  color: white;
-  text-decoration: none;
-}
-
-.tile-btn-edit:hover {
-  color: #222;
-  text-decoration: none;
-}
-
-.tile-tip {
-  background: #fed300;
-}
-
-.tile-title-btn {
-  border: none;
-}
-
-.tile-title-btn-tip {
-  background: #fce15f;
-  color: black;
-}
-
-.tile-title-btn-tip:hover {
-  background: #ffe97c;
-  color: black;
-}
-
-.tile-title-btn-recipe {
-  background: #f4ba70;
-  color: black;
-}
-
-.tile-title-btn-recipe:hover {
-  background: #f6d09f;
-  color: black;
-}
-
-.tile-recipe {
-  background: #f5a239;
 }

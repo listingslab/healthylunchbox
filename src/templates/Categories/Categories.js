@@ -1,9 +1,10 @@
+/* global showEdit */
 /**
  * Created by Chris Dorward on 23/01/2017
  * templates/Categories/Categories
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Header from '../../components/Header/Header';
 import Tile from '../../components/Tile/Tile';
 import Loader from '../../components/Loader/Loader';
@@ -11,49 +12,85 @@ import API from '../../API';
 import './Categories.scss';
 
 class Categories extends Component {
-  static propTypes = {}
+  static propTypes = {
+    location: PropTypes.any
+  }
 
   constructor(props) {
     super(props);
+    let taxonomy = '';
+    if (this.props.location.pathname === '/recipes') {
+      taxonomy = 'recipes';
+    }
+    if (this.props.location.pathname === '/tips') {
+      taxonomy = 'tips';
+    }
     this.state = {
       isLoaded: false,
       isFetching: false,
+      taxonomy,
       cmsData: {}
     };
   }
 
   componentDidMount() {
-    const api = new API('categories');
-    api.getDataIfNeeded('categories/?taxonomy=recipes', this.apiCallback.bind(this));
+    const api = new API(this.state.taxonomy);
+    api.getDataIfNeeded(`categories/${this.state.taxonomy}`, this.apiCallback.bind(this));
   }
 
   apiCallback(cmsData) {
-    console.log(cmsData);
     this.setState({
       isLoaded: true,
-      cmsData: {}
+      cmsData
     });
   }
 
   render() {
-    const showType = 'tip';
-    const catID = 123;
-    const title = 'Default categories page title';
-    let subTitle = 'A list of categories to choose from.';
-    let itemTypes = '';
-    if (showType === 'recipe') {
-      itemTypes = 'recipe';
-    } else {
-      itemTypes = 'tip';
+    // If we're loading show the loader
+    const loaderText = `Loading ${this.state.taxonomy}`;
+    const notFoundText = `No categories found in "${this.state.taxonomy}"`;
+    if (!this.state.isLoaded) {
+      const loader = (<Loader
+        text={loaderText}
+        />);
+      return loader;
     }
+    let categoryList = [];
+    if (this.state.cmsData.data.categories.length === 0) {
+      categoryList.push(
+        <div
+          key="category"
+          className="text-center"
+        >{notFoundText}</div>
+      );
+    } else {
+      const categories = this.state.cmsData.data.categories;
+      for (let i = 0; i < categories.length; i += 1) {
+        const key = `category_${i}`;
+        categoryList.push(
+          <Tile
+            key={key}
+            title={categories[i].title}
+            subTitle={categories[i].subTitle}
+            itemType={this.state.cmsData.data.itemType}
+            editUrl={categories[i].editUrl}
+          >{notFoundText}</Tile>
+        );
+      }
+    }
+
     return (
       <div className="container categories">
         <Header
-          catID={catID}
-          title={title}
-          subTitle={subTitle}
-          itemTypes={itemTypes}
+          pageTitle={this.state.cmsData.data.pageTitle}
+          pageSubTitle={this.state.cmsData.data.pageSubTitle}
+          itemTypes={this.state.cmsData.data.taxonomy}
+          editUrl={this.state.cmsData.data.editUrl}
+          addUrl={this.state.cmsData.data.addUrl}
         />
+        <div className="row">
+          {categoryList}
+        </div>
       </div>
     );
   }

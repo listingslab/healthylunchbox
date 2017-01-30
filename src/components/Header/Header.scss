@@ -6,10 +6,31 @@
 @import '../../vars.scss';
 
 .header {
-  color: black;
+  border: none;
+  color: $hlb-grey-dark;
+}
+
+.header-recipes {
+  background: $hlb-orange;
+  color: white;
+}
+
+.header-tips {
+  background: $hlb-yellow;
+  color: white;
 }
 
 .header h3 {
-  color: black;
+  color: white;
   font-family: 'Baloo';
+}
+
+.edit-btn {
+  color: $hlb-white;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  color: $hlb-black;
+  text-decoration: none;
 }

@@ -1,3 +1,4 @@
+/* global showEdit */
 /**
  * Created by Chris Dorward on 23/01/2017
  * components/Hero/Hero
@@ -12,8 +13,8 @@ function Hero(props) {
   const className = `hero jumbotron hero-${props.colour}`;
   const classNameBtn = `btn btn-default hero-btn hero-btn-${props.colour}`;
   let editBtn = null;
-  if (props.showEdit) {
-    editBtn = (<div className="pull-right"><Link className="btn btn-link hero-edit-btn"
+  if (showEdit) {
+    editBtn = (<div className="pull-right"><Link className="btn btn-link edit-btn"
       href={props.editUrl || ''}
       role="button"
     ><span className="glyphicon glyphicon-pencil" />&nbsp;Edit</Link></div>

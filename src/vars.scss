@@ -5,16 +5,20 @@
 
 $hlb-text: #333;
 
+$hlb-black: #000;
+$hlb-white: #fff;
+
 $hlb-grey-light: #d1d1d0;
 $hlb-grey-dark: #b0afaa;
 
 $hlb-yellow: #fed300;
-$hlb-yellow-darken-50: darken($hlb-yellow, 50%);
-$hlb-yellow-lighten-50: lighten($hlb-yellow, 50%);
+$hlb-yellow-light: #ffe35a;
+
+$hlb-orange: #f5a239;
+$hlb-orange-light: #faba69;
 
 $hlb-blue: #3497d3;
-$hlb-blue-dark: #1B7EBA;
-$hlb-blue-light: #4EB1ED;
+$hlb-blue-dark: #1b7eba;
+$hlb-blue-light: #4eb1ed;
 
 $hlb-green: #70b04a;
-$hlb-orange: #f5a239;

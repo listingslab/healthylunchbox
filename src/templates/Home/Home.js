@@ -54,7 +54,6 @@ class Home extends Component {
   }
 
   render() {
-    const showEdit = true;
     const featuredItems = [];
     for (let i = 0; i < this.state.cmsData.featuredItems.length; i += 1) {
       const item = this.state.cmsData.featuredItems[i];
