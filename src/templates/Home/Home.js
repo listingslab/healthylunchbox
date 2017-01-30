@@ -1,3 +1,4 @@
+/* global editor */
 /**
  * Created by Chris Dorward on 16/01/2017
  * templates/Home/Home
@@ -57,14 +58,16 @@ class Home extends Component {
     const featuredItems = [];
     for (let i = 0; i < this.state.cmsData.featuredItems.length; i += 1) {
       const item = this.state.cmsData.featuredItems[i];
+      const route = `/item?id=${this.state.cmsData.featuredItems[i].ID}`;
       featuredItems.push(<Tile
         key={`featuredItem_${item.ID}`}
         title={item.title || ''}
+        route={route}
         itemType={item.itemType || ''}
         subTitle={item.subTitle || ''}
         itemModified={item.itemModified || ''}
         itemSlug={item.itemSlug || ''}
-        showEdit={showEdit}
+        showEdit={editor}
         editUrl={item.editLink || ''}
       />);
     }
@@ -86,7 +89,7 @@ class Home extends Component {
           linkUrl={this.state.cmsData.linkUrl || '/'}
           linkType={this.state.cmsData.linkType || 'to'}
           linkText={this.state.cmsData.linkText || 'Click here'}
-          showEdit={showEdit}
+          showEdit={editor}
           editUrl={editUrl}
           colour="blue"
         />

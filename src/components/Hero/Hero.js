@@ -1,4 +1,4 @@
-/* global showEdit */
+/* global editor */
 /**
  * Created by Chris Dorward on 23/01/2017
  * components/Hero/Hero
@@ -13,7 +13,7 @@ function Hero(props) {
   const className = `hero jumbotron hero-${props.colour}`;
   const classNameBtn = `btn btn-default hero-btn hero-btn-${props.colour}`;
   let editBtn = null;
-  if (showEdit) {
+  if (editor) {
     editBtn = (<div className="pull-right"><Link className="btn btn-link edit-btn"
       href={props.editUrl || ''}
       role="button"

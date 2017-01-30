@@ -18,16 +18,11 @@ class Categories extends Component {
 
   constructor(props) {
     super(props);
-    let taxonomy = '';
-    if (this.props.location.pathname === '/recipes') {
-      taxonomy = 'recipes';
-    }
-    if (this.props.location.pathname === '/tips') {
-      taxonomy = 'tips';
-    }
+    const taxonomy = this.getTaxonomy();
+    const route = this.props.location.pathname;
     this.state = {
       isLoaded: false,
-      isFetching: false,
+      route,
       taxonomy,
       cmsData: {}
     };
@@ -38,9 +33,21 @@ class Categories extends Component {
     api.getDataIfNeeded(`categories/${this.state.taxonomy}`, this.apiCallback.bind(this));
   }
 
+  getTaxonomy() {
+    let taxonomy = '';
+    if (this.props.location.pathname === '/recipes') {
+      taxonomy = 'recipes';
+    }
+    if (this.props.location.pathname === '/tips') {
+      taxonomy = 'tips';
+    }
+    return taxonomy;
+  }
+
   apiCallback(cmsData) {
     this.setState({
       isLoaded: true,
+      route: this.props.location.pathname,
       cmsData
     });
   }
@@ -67,6 +74,7 @@ class Categories extends Component {
       const categories = this.state.cmsData.data.categories;
       for (let i = 0; i < categories.length; i += 1) {
         const key = `category_${i}`;
+        const route = `category?taxonomy=${this.state.cmsData.data.itemType}&term_id=${categories[i].catID}`;
         categoryList.push(
           <Tile
             key={key}
@@ -74,11 +82,12 @@ class Categories extends Component {
             subTitle={categories[i].subTitle}
             itemType={this.state.cmsData.data.itemType}
             editUrl={categories[i].editUrl}
+            route={route}
           >{notFoundText}</Tile>
         );
       }
     }
-
+    const showAdd = true;
     return (
       <div className="container categories">
         <Header
@@ -87,6 +96,7 @@ class Categories extends Component {
           itemTypes={this.state.cmsData.data.taxonomy}
           editUrl={this.state.cmsData.data.editUrl}
           addUrl={this.state.cmsData.data.addUrl}
+          showAdd={showAdd}
         />
         <div className="row">
           {categoryList}

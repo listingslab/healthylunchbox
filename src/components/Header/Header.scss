@@ -10,6 +10,11 @@
   color: $hlb-grey-dark;
 }
 
+.header-about {
+  background: $hlb-green;
+  color: white;
+}
+
 .header-recipes {
   background: $hlb-orange;
   color: white;
@@ -26,6 +31,7 @@
 }
 
 .edit-btn {
+  float: right;
   color: $hlb-white;
   text-decoration: none;
 }

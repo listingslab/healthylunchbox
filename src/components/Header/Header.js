@@ -1,4 +1,4 @@
-/* global showEdit */
+/* global editor */
 /**
  * Created by Chris Dorward on 18/01/2017
  * components/Header/Header
@@ -10,25 +10,27 @@ import './Header.scss';
 
 function Header(props) {
   const className = `jumbotron header header-${props.itemTypes}`;
-  let editBtn = null;
-  if (showEdit) {
-    editBtn = (<div className="pull-right">
-      <Link className="btn btn-link edit-btn"
-        href={props.editUrl || ''}
-        role="button"
-      ><span className="glyphicon glyphicon-pencil" />&nbsp;Edit</Link>
 
-      <Link className="btn btn-link edit-btn"
-        href={props.addUrl || ''}
-        role="button"
-      ><span className="glyphicon glyphicon-plus" />&nbsp;Add</Link>
-    </div>
-    );
+  let editLink = null;
+  if (editor) {
+    editLink = (<Link className="btn btn-link edit-btn"
+      href={props.editUrl || ''}
+      role="button"
+    ><span className="glyphicon glyphicon-pencil" />&nbsp;Edit</Link>);
+  }
+
+  let addLink = null;
+  if (props.showAdd && editor) {
+    addLink = (<Link className="btn btn-link edit-btn"
+      href={props.addUrl || ''}
+      role="button"
+    ><span className="glyphicon glyphicon-plus" />&nbsp;Add</Link>);
   }
 
   return (
     <div className={className}>
-    {editBtn}
+    {editLink}
+    {addLink}
     <div className="container">
       <h3>
         {props.pageTitle || ''}
@@ -44,7 +46,8 @@ Header.propTypes = {
   pageTitle: PropTypes.string.isRequired,
   pageSubTitle: PropTypes.string.isRequired,
   editUrl: PropTypes.string.isRequired,
-  addUrl: PropTypes.string.isRequired,
+  addUrl: PropTypes.string,
+  showAdd: PropTypes.bool,
   itemTypes: PropTypes.string
 };
 
