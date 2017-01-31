@@ -9,6 +9,14 @@
  * @since 1.0
  */
 
+ // instatiate listingslab
+ include 'php/config.php';
+
+ // Register the /wp-json/hlb-api/routes
+ include 'php/functions/rest_routes/register_routes.php';
+
+
+
 /**
  * Twenty Seventeen only works in WordPress 4.7 or later.
  */

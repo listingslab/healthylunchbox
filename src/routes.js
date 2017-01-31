@@ -23,12 +23,10 @@ const routes = (
       <Route path="/category" component={Category} />
       <Route path="/categories" component={Categories} />
       <Route path="/recipes" component={Recipes} />
-      <Route path="/tips" component={Categories} />
-      <Route path="/tip" component={Item} />
+      <Route path="/tips" component={Recipes} />
       <Route path="/item" component={Item} />
       <Route path="/about" component={About} />
       <Route path="/healthy-lunch-box" component={HealthyLunchbox} />
-      <Route path="/cookies" component={Item} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

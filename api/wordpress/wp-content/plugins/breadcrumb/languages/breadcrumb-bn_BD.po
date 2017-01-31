@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: breadcrumb\n"
+"POT-Creation-Date: 2016-03-03 19:51+0600\n"
+"PO-Revision-Date: 2016-03-03 19:56+0600\n"
+"Last-Translator: \n"
+"Language-Team: pickplugins\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../includes\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class-breadcrumb.php:107 class-breadcrumb.php:115 class-breadcrumb.php:125
+#: class-breadcrumb.php:148 class-breadcrumb.php:171 class-breadcrumb.php:283
+#: class-breadcrumb.php:313 class-breadcrumb.php:341 class-breadcrumb.php:344
+#: class-breadcrumb.php:355 class-breadcrumb.php:371 class-breadcrumb.php:394
+#: class-breadcrumb.php:406 class-breadcrumb.php:419 class-breadcrumb.php:432
+#: menu/settings.php:189
+msgid "Home"
+msgstr "হোম"
+
+#: class-breadcrumb.php:377 class-breadcrumb.php:381
+msgid "Search:"
+msgstr "সার্চঃ "
+
+#: class-settings.php:26
+msgid "Breadcrumb"
+msgstr ""
+
+#: menu/settings.php:84
+msgid "Changes Saved."
+msgstr "পরিবর্তন সম্পন্ন"
+
+#: menu/settings.php:97
+msgid " Settings"
+msgstr "সেটিংস"
+
+#: menu/settings.php:108
+msgid "Options"
+msgstr "অপশন"
+
+#: menu/settings.php:109
+msgid "Style"
+msgstr "স্টাইল"
+
+#: menu/settings.php:110
+msgid "Short-Codes"
+msgstr ""
+
+#: menu/settings.php:111
+msgid "Help & Upgrade"
+msgstr "সাহায্য ও আপগ্রেড"
+
+#: menu/settings.php:118
+msgid "Breadcrumb front Text"
+msgstr ""
+
+#: menu/settings.php:119
+msgid "Keep empty to hide."
+msgstr ""
+
+#: menu/settings.php:127
+msgid "Breadcrumb Separator."
+msgstr ""
+
+#: menu/settings.php:128
+msgid "Link Separator, ex: &raquo;"
+msgstr ""
+
+#: menu/settings.php:133
+msgid "Breadcrumb font size."
+msgstr ""
+
+#: menu/settings.php:134
+msgid "ex: 14px"
+msgstr ""
+
+#: menu/settings.php:140
+msgid "Breadcrumb Title max word/Character count"
+msgstr ""
+
+#: menu/settings.php:145
+msgid "Word"
+msgstr "শব্দ"
+
+#: menu/settings.php:146
+msgid "Character"
+msgstr "অক্ষর"
+
+#: menu/settings.php:153
+msgid "Ending Character"
+msgstr ""
+
+#: menu/settings.php:162
+msgid "Display/hide \"Home\" on breadcrumb"
+msgstr ""
+
+#: menu/settings.php:177
+msgid "Hide breadcrumb on these pages"
+msgstr ""
+
+#: menu/settings.php:199
+msgid "Front Page"
+msgstr ""
+
+#: menu/settings.php:209
+msgid "Blog Front Page"
+msgstr ""
+
+#: menu/settings.php:215
+msgid "Hide on page by ID"
+msgstr ""
+
+#: menu/settings.php:216
+msgid "Page id, comma separate"
+msgstr ""
+
+#: menu/settings.php:226
+msgid "Breadcrumb Themes"
+msgstr ""
+
+#: menu/settings.php:259
+msgid "Breadcrumb Text Color"
+msgstr ""
+
+#: menu/settings.php:265
+msgid "Breadcrumb Separator Color."
+msgstr ""
+
+#: menu/settings.php:271
+msgid "Breadcrumb Background Color."
+msgstr ""
+
+#: menu/settings.php:288
+msgid "Short-code for php file."
+msgstr ""
+
+#: menu/settings.php:289
+msgid "Short-code inside .php files for themes."
+msgstr ""
+
+#: menu/settings.php:297
+msgid "Short-code for content"
+msgstr ""
+
+#: menu/settings.php:298
+msgid "Short-code inside content anywhere inside content."
+msgstr ""
+
+#: menu/settings.php:310
+msgid "Need Help ?"
+msgstr "সাহায্য দরকার ?"
+
+#: menu/settings.php:321
+msgid "Upgrade"
+msgstr ""
+
+#: menu/settings.php:359
+msgid "Submit Reviews."
+msgstr ""
+
+#: menu/settings.php:360
+msgid ""
+"We are working hard to build some awesome plugins for you and spend thousand "
+"hour for plugins. we wish your three(3) minute by submitting five star "
+"reviews at wordpress.org. if you have any issue please submit at forum."
+msgstr ""
+
+#: menu/settings.php:371
+msgid "Please Share"
+msgstr ""
+
+#: menu/settings.php:372
+msgid "If you like this plugin please share with your social share network."
+msgstr ""
+
+#: menu/settings.php:399
+msgid "Save Changes"
+msgstr ""
