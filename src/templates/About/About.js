@@ -1,29 +1,20 @@
+/* global editor */
+/* global cms */
 /**
  * Created by Chris Dorward on 18/01/2017
  * templates/About/About
  */
 
 import React, { Component, PropTypes } from 'react';
-import Header from '../../components/Header/Header';
 
 class About extends Component {
   static propTypes = {
-    location: PropTypes.any
+    input: PropTypes.string
   }
+
   render() {
-    const showAdd = false;
     return (
       <div className="template-about container">
-        <Header
-          ID="510"
-          itemTypes="about"
-          pageTitle="About"
-          editUrl="http://api.healthylunchbox.com.au/wp-admin/post.php?post=510&action=edit"
-          pageSubTitle="Eating enough fruit and veg everyday will give your
-          kids the energy and nutrients they need to learn and play"
-          showAdd={showAdd}
-        />
-
         <div className="col-md-4">
             <p>Eating enough fruit and veg everyday will give your kids the energy and
             nutrients they need to learn and play, and can help protect them against

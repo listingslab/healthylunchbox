@@ -10,6 +10,8 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import API from '../API';
 
+import './App.scss';
+
 class App extends Component {
 
   static propTypes = {
