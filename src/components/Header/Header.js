@@ -23,11 +23,11 @@ function Header(props) {
   return (
     <div className={className}>
       <div className="logo pull-left">
-      <Link
-        to="/"
-        ><img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
-      </Link>
-    </div>
+        <Link
+          to="/"
+          ><img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
+        </Link>
+      </div>
 
       <div className="nav pull-right">
         {navigation}

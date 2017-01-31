@@ -7,6 +7,7 @@
 import React, { Component, PropTypes } from 'react';
 import Loader from '../components/Loader/Loader';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import API from '../API';
 
 class App extends Component {
@@ -57,11 +58,15 @@ class App extends Component {
         </div>);
       return loader;
     }
-    console.log(cms.app.data.navigation);
+    const { children } = this.props;
     return (
-      <Header
-        navItems={cms.app.data.navigation}
-      />
+      <div>
+        <Header
+          navItems={cms.app.data.navigation}
+        />
+        {children}
+        <Footer />
+      </div>
     );
   }
 }
