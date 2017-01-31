@@ -6,8 +6,6 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import Header from '../../components/Header/Header';
-import Tile from '../../components/Tile/Tile';
 import Loader from '../../components/Loader/Loader';
 import EditLink from '../../components/EditLink/EditLink';
 import AddLink from '../../components/AddLink/AddLink';
@@ -17,7 +15,6 @@ import './Recipes.scss';
 
 class Recipes extends Component {
   static propTypes = {
-    location: PropTypes.any
   }
 
   constructor(props) {
@@ -81,7 +78,25 @@ class Recipes extends Component {
         break;
       }
     }
-    console.log(featured);
+    let unfeatured = [];
+    for (let i = 0; i < cms.Recipes.data.categories.length; i += 1) {
+      if (cms.Recipes.data.categories[i].slug !== 'featured-recipes') {
+        // unfeatured = cms.Recipes.data.categories[i];
+        const key = `category_${i}`;
+        unfeatured.push(
+            <CardCategory
+              key={key}
+              className="col-md-6"
+              itemType="recipeCategory"
+              displayType="unfeatured"
+              title={cms.Recipes.data.categories[i].title}
+              subTitle={cms.Recipes.data.categories[i].subTitle}
+              editUrl={cms.Recipes.data.categories[i].editUrl}
+              route={cms.Recipes.data.categories[i].route}
+            />
+        );
+      }
+    }
     return (
       <div className="container row categories">
         {editBtn}
@@ -90,12 +105,15 @@ class Recipes extends Component {
         <div className="container row featured">
           <CardCategory
             itemType="recipeCategory"
-            catType="featured"
+            displayType="featured"
             title={featured.title}
             subTitle={featured.subTitle}
             editUrl={featured.editUrl}
             route={featured.route}
           />
+        </div>
+        <div className="container row">
+          {unfeatured}
         </div>
       </div>
     );

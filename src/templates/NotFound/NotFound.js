@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class NotFound extends Component {
   static propTypes = {
@@ -13,13 +13,13 @@ class NotFound extends Component {
   render() {
     return (
       <div className="col-md-12 text-center">
-        <h2>Stuff not Found :(</h2>
+        <h2>Route not Found :(</h2>
         <p>
           <Link
             className="btn btn-warning btn-lg"
-            to="/"
-            role="button">
-            &laquo; Back to sqaure one?
+            onClick={browserHistory.goBack}
+            >
+            &laquo; Back ?
           </Link>
         </p>
       </div>
