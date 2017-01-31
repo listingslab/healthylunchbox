@@ -5,6 +5,13 @@
 
 @import '../../vars.scss';
 
+.navigation-navbar {
+  height: 100px;
+  padding-top: 35px;
+  border: none;
+  background: $hlb-background;
+}
+
 .navitem-btn {
   margin: 8px;
   font-family: 'Baloo';

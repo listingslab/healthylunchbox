@@ -9,6 +9,7 @@ function hlbapi_home( WP_REST_Request $request ) {
   $response->message = "Home page content";
   $response->data = new stdClass();
   $response->data->status = 418;
+  $response->data->navigation = get_registered_nav_menus();
   // Home page ID = 508
   $id = 508;
   $response->data->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';
@@ -16,7 +17,7 @@ function hlbapi_home( WP_REST_Request $request ) {
   $page = get_post($id);
   $hero = get_fields($id);
   $featured = new stdClass();
-  $featured->number = $hero['number_featured_items'];
+  $featured->number = 4;
   unset($hero['number_featured_items']);
   $response->data->hero = $hero;
   $featured->items = array ();

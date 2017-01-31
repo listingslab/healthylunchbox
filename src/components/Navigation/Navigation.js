@@ -66,7 +66,7 @@ const Navigation = React.createClass({
 
     return (
       <div className="navigation">
-        <Navbar>
+        <Navbar className="navigation-navbar">
           <Navbar.Header className="navigation-bar">
             <Navbar.Brand>
               <Link to="/">

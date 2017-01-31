@@ -1,4 +1,4 @@
-/* global showEdit */
+/* global editor */
 /**
  * Created by Chris Dorward on 23/01/2017
  * templates/Categories/Categories

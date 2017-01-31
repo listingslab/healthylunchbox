@@ -6,6 +6,16 @@
   add_action( 'rest_api_init', 'hlbapi_register_routes' );
   function hlbapi_register_routes() {
 
+    register_rest_route( 'hlbapi', '/init', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_init',
+    ));
+
+    register_rest_route( 'hlbapi', '/lunchbox', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_lunchbox',
+    ));
+
     register_rest_route( 'hlbapi', '/categories', array(
   		'methods'  => WP_REST_Server::READABLE,
   		'callback' => 'hlbapi_categories',
@@ -37,6 +47,8 @@
     ));
 
   }
+  include 'routes/init.php';
+  include 'routes/lunchbox.php';
   include 'routes/categories.php';
   include 'routes/category.php';
   include 'routes/content.php';

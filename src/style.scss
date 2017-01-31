@@ -5,8 +5,9 @@
 
 @import 'vars.scss';
 
-html, body {
+html, body, #root {
   font-family: 'Arial';
+  background: $hlb-background;
   color: $hlb-text;
 }
 
