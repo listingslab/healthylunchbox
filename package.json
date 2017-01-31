@@ -1,13 +1,13 @@
 {
   "name": "healthy-lunch-box",
-  "version": "2.3.0",
+  "version": "2.8.9",
   "description": "Healthy Lunch Box by Cancer Council of NSW",
   "main": "index.js",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --inline",
     "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
-    "elint": "eslint . --ext .js --ext .jsx --cache --fix || true",
+    "elint": "eslint . --ext .js --ext .jsx --cache || true",
     "slint": "stylelint ./src/**/**/*.scss ./src/**/*.scss --syntax scss || true",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json"
   },
@@ -37,19 +37,17 @@
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "bootstrap": "^3.3.7",
+    "es6-promise": "^4.0.5",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-transition-group": "^15.4.2",
     "react-bootstrap": "^0.30.7",
+    "react-cookie": "^1.0.4",
     "react-dom": "^15.4.2",
-    "react-motion": "^0.4.7",
-    "react-redux": "^5.0.2",
-    "react-router": "^2.6.1",
-    "react-router-redux": "^4.0.5",
-    "redux": "^3.6.0",
-    "redux-logger": "^2.7.4",
-    "redux-thunk": "^2.1.0"
+    "react-ga": "^2.1.2",
+    "react-router": "^2.6.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",

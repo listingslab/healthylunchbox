@@ -3,23 +3,31 @@
  * coponents/Hero/Hero
  */
 
+@import '../../vars.scss';
+
 .hero {
-  border: 2px solid #e39a3e;
-  background: #f5a239;
-  color: white;
+  background: $hlb-blue;
+  border: none;
+  color: $hlb-white;
 }
 
-@media (max-width: 768px) {
-  .hero {
-  }
+.hero h2 {
+  font-family: 'Baloo';
 }
 
-@media (max-width: 980px) {
-  .hero {
-  }
+.hero-btn-blue {
+  background: $hlb-blue;
+  border: none;
+  color: $hlb-white;
 }
 
-@media (max-width: 1200px) {
-  .hero {
-  }
+.hero-btn-blue:hover {
+  background: $hlb-white;
+  color: $hlb-black;
+}
+
+.hero-btn {
+  width: 100%;
+  text-align: left;
+  font-family: 'Baloo';
 }

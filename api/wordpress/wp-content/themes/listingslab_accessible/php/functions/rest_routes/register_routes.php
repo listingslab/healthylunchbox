@@ -2,8 +2,34 @@
   /**
    * Register routes for  /wp-json/hlb-api/
    */
+
   add_action( 'rest_api_init', 'hlbapi_register_routes' );
   function hlbapi_register_routes() {
+
+    register_rest_route( 'hlbapi', '/init', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_init',
+    ));
+
+    register_rest_route( 'hlbapi', '/lunchbox', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_lunchbox',
+    ));
+
+    register_rest_route( 'hlbapi', '/categories', array(
+  		'methods'  => WP_REST_Server::READABLE,
+  		'callback' => 'hlbapi_categories',
+  	));
+
+    register_rest_route( 'hlbapi', '/categories/(?P<taxonomy>[a-zA-Z0-9-]+)', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_categories',
+    ) );
+
+    register_rest_route( 'hlbapi', '/category/(?P<taxonomy>[a-zA-Z0-9-]+)/(?P<term_id>\d+)', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_category',
+    ) );
 
     register_rest_route( 'hlbapi', '/hello', array(
   		'methods'  => WP_REST_Server::READABLE,
@@ -21,9 +47,14 @@
     ));
 
   }
+  include 'routes/init.php';
+  include 'routes/lunchbox.php';
+  include 'routes/categories.php';
+  include 'routes/category.php';
   include 'routes/content.php';
   include 'routes/hello.php';
   include 'routes/home.php';
+
 
   /*
   Geekiest joke ever - our http response code from successful API calls

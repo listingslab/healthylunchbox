@@ -18,30 +18,14 @@ class Item extends Component {
   render() {
     return (
       <div className="recipe-item container">
-        <Header
-          ID={''}
-          itemType={''}
-          header={''}
-          shortDescription={''}
-        />
-
-        <div className="col-md-4">
-          <img className="img-responsive" src={''} alt={''} />
-        </div>
-
-        <div className="col-md-3">
-          <h3>Ingredients</h3>
-          <div dangerouslySetInnerHTML={this.createMarkup('')} />
-        </div>
-
-        <div className="col-md-5">
-          <h3>Method</h3>
-          <div dangerouslySetInnerHTML={this.createMarkup('')} />
-        </div>
-
+        item
       </div>
     );
   }
 }
 
 export default Item;
+
+/*
+<div dangerouslySetInnerHTML={this.createMarkup('')} />
+*/

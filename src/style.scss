@@ -3,38 +3,14 @@
  * Styles entrypoint
  */
 
-.template-picker {
-  margin-bottom: 20px;
-}
+@import 'vars.scss';
 
-.template-context-menu {
-  // border: 1px solid red;
-  margin-bottom: 15px;
-}
-
-.template-tile-link {
-  color: #333;
-}
-
-.template-tile-link:hover {
-  color: #999;
-  text-decoration: none;
-}
-
-.template-about-links {
-  margin: 25px;
-}
-
-.tile-category img {
-  float: left;
-  height: 75px;
-  width: 75px;
+html, body, #root {
+  font-family: 'Arial';
+  background: $hlb-background;
+  color: $hlb-text;
 }
 
 .cc_logo {
   margin-top: -12px;
-}
-
-.template-footer {
-  text-align: center;
 }

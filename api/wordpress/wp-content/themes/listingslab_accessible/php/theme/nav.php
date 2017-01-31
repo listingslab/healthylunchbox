@@ -22,6 +22,9 @@
                 <li><a href="?route=hello">/hello</a></li>
                 <li><a href="?route=home">/home</a></li>
                 <li><a href="?route=content">/content</a></li>
+                <li><a href="?route=categories">/categories</a></li>
+                <li><a href="?route=init">/init</a></li>
+                <li><a href="?route=lunchbox">/lunchbox</a></li>
 
               </ul>
             </li>

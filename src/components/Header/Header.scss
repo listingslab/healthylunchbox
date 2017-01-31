@@ -3,56 +3,29 @@
  * coponents/SingleHeader/SingleHeader.scss
  */
 
-.single-header a {
-  color: white;
-  text-decoration: none;
+@import '../../vars.scss';
+
+.header {
+  border: none;
+  color: $hlb-grey-dark;
 }
 
-.single-header a:hover {
-  color: #fed300;
-}
-
-.single-header-default {
-  background: #ddd;
-  border: 1px solid #eee;
-  color: black;
-}
-
-.single-header-yellow {
-  background: #fed300;
-  border: 1px solid #d7b50c;
-  color: black;
-}
-
-.single-header-about {
-  background: #f5a239;
-  border: 1px solid #d08a32;
+.header-about {
+  background: $hlb-green;
   color: white;
 }
 
-.single-header-tip {
-  background: #70b04a;
-  border: 1px solid #5a9239;
+.header-recipes {
+  background: $hlb-orange;
   color: white;
 }
 
-.single-header-recipe {
-  background: #3497d3;
-  border: 1px solid #2b7fb2;
+.header-tips {
+  background: $hlb-yellow;
   color: white;
 }
 
-@media (max-width: 768px) {
-  .single-header{
-  }
-}
-
-@media (max-width: 980px) {
-  .single-header {
-  }
-}
-
-@media (max-width: 1200px) {
-  .single-header {
-  }
+.header h3 {
+  color: white;
+  font-family: 'Baloo';
 }

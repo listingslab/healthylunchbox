@@ -4,18 +4,17 @@
  */
 
 import React from 'react';
-import { Motion, spring } from 'react-motion';
 import { Navbar } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-import Lunchbox from '../Lunchbox/Lunchbox';
 import NavigationData from './NavigationData';
 
 import './Navigation.scss';
 
 const Navigation = React.createClass({
-
   getInitialState() {
-    return { open: false };
+    return {
+      open: false
+    };
   },
 
   onNavItemClick(itemData) {
@@ -67,8 +66,8 @@ const Navigation = React.createClass({
 
     return (
       <div className="navigation">
-        <Navbar>
-          <Navbar.Header>
+        <Navbar className="navigation-navbar">
+          <Navbar.Header className="navigation-bar">
             <Navbar.Brand>
               <Link to="/">
                 <img className="cc_logo" alt="Cancer Council NSW Logo" src="/img/daffs/yellow.png" height="45" />
@@ -80,17 +79,7 @@ const Navigation = React.createClass({
             {items}
           </Navbar.Collapse>
         </Navbar>
-        <Motion className="lunchbox" style={{ x: spring(this.state.open ? 0 : -1200) }}>
-          {({ x }) =>
-              <div className="lunchbox-overlay" style={{
-                zIndex: 10000,
-                WebkitTransform: `translate3d(${x}px, 0, 0)`,
-                transform: `translate3d(${x}px, 0, 0)`
-              }} >
-                <Lunchbox passThis="this is passed" />
-              </div>
-          }
-        </Motion>
+
       </div>
     );
   }
@@ -106,4 +95,17 @@ export default Navigation;
   onTouchStart={this.handleTouchStart}>
   Lunchbox
 </button>
+
+<Motion className="lunchbox" style={{ x: spring(this.state.open ? 0 : -1200) }}>
+  {({ x }) =>
+      <div className="lunchbox-overlay" style={{
+        zIndex: 10000,
+        WebkitTransform: `translate3d(${x}px, 0, 0)`,
+        transform: `translate3d(${x}px, 0, 0)`
+      }} >
+        <Lunchbox passThis="this is passed" />
+      </div>
+  }
+</Motion>
+
 */

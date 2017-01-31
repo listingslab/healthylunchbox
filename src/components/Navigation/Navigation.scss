@@ -3,36 +3,45 @@
  * coponents/Navigation.scss
  */
 
-.navigation {
-  // border: 1px solid green;
+@import '../../vars.scss';
+
+.navigation-navbar {
+  height: 100px;
+  padding-top: 35px;
+  border: none;
+  background: $hlb-background;
 }
 
 .navitem-btn {
   margin: 8px;
+  font-family: 'Baloo';
+  border: none;
 }
 
-.navitem-btn-blue {
-  background: #3497d3;
-  color: white;
+.navitem-btn:hover {
+  background: $hlb-white;
+  color: $hlb-black;
 }
 
 .navitem-btn-green {
-  background: #70b04a;
-  color: white;
+  background: $hlb-green;
+  color: $hlb-white;
+}
+
+.navitem-btn-blue {
+  background: $hlb-blue;
+  color: $hlb-white;
+}
+
+.navitem-btn-yellow {
+  background: $hlb-yellow;
+  color: $hlb-white;
 }
 
 .navitem-btn-orange {
-  background: #f5a239;
-  color: white;
+  background: $hlb-orange;
+  color: $hlb-white;
 }
-
-.navitem-btn a {
-  color: white;
-  text-decoration: none;
-  height: 100%;
-}
-
-
 
 .navitem-btn-default a {
   color: black;

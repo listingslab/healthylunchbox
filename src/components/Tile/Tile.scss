@@ -2,53 +2,45 @@
  * Created by Chris Dorward on 21/01/2017
  * coponents/Tile/Tile.scss
  */
+@import '../../vars.scss';
 
 .tile {
-  min-height: 125px;
-}
-
-.tile a {
-  color: white;
-  text-decoration: none;
-}
-
-.white-txt {
-  color: white;
-}
-
-.tile a {
-  color: black;
-}
-
-.tile-default {
-  background: #ddd;
-  border: 1px solid #eee;
-  color: black;
-}
-
-.tile-tip {
-  background: #70b04a;
-  border: 1px solid #5a9239;
-  color: white;
+  height: 150px;
+  border: none;
+  color: $hlb-white;
 }
 
 .tile-recipe {
-  background: #3497d3;
-  border: 1px solid #2b7fb2;
-  color: white;
+  background: $hlb-orange;
 }
 
-@media (max-width: 768px) {
-  .tile {
-  }
+.tile-tip {
+  background: $hlb-yellow;
 }
 
-@media (max-width: 980px) {
-  .tile {
-  }
+.tile-title-btn:hover {
+  background: $hlb-white;
+  color: $hlb-black;
 }
 
-@media (max-width: 1200px) {
-  .tile {
-  }
+.tile-title-btn-recipe {
+  background: $hlb-orange;
+  color: $hlb-white;
+}
+
+.tile-title-btn-tip {
+  background: $hlb-yellow;
+  color: $hlb-white;
+}
+
+.tile-title-btn {
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Baloo';
+}
+
+.tile-sub-title {
+  margin-left: 5px;
+  margin-top: 10px;
 }

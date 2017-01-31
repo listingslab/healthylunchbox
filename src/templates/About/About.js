@@ -11,14 +11,17 @@ class About extends Component {
     location: PropTypes.any
   }
   render() {
+    const showAdd = false;
     return (
       <div className="template-about container">
         <Header
           ID="510"
-          itemType="about"
-          header="About"
-          shortDescription="Eating enough fruit and veg everyday will give your
+          itemTypes="about"
+          pageTitle="About"
+          editUrl="http://api.healthylunchbox.com.au/wp-admin/post.php?post=510&action=edit"
+          pageSubTitle="Eating enough fruit and veg everyday will give your
           kids the energy and nutrients they need to learn and play"
+          showAdd={showAdd}
         />
 
         <div className="col-md-4">
