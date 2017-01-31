@@ -49,8 +49,8 @@ class Recipes extends Component {
 
   render() {
     // If we're loading show the loader
-    const loaderText = `Loading ${this.state.taxonomy}`;
     if (!this.state.isLoaded) {
+      const loaderText = `Loading ${this.state.taxonomy}`;
       const loader = (
         <Loader
           text={loaderText}

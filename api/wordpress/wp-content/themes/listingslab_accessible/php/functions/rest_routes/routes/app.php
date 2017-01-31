@@ -3,7 +3,7 @@
  * Returns the initial content; navigation, home page content, featured content & taxonomies
  */
 
-function hlbapi_init( WP_REST_Request $request ) {
+function hlbapi_app( WP_REST_Request $request ) {
   // Initialise the response
   $response = new stdClass();
   $response->code = "init";
@@ -88,7 +88,7 @@ function hlbapi_init( WP_REST_Request $request ) {
 
   /////////// Recipe categories
 
-  
+
 
   return $response;
 }

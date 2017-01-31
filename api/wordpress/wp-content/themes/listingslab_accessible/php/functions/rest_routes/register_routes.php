@@ -6,9 +6,9 @@
   add_action( 'rest_api_init', 'hlbapi_register_routes' );
   function hlbapi_register_routes() {
 
-    register_rest_route( 'hlbapi', '/init', array(
+    register_rest_route( 'hlbapi', '/app', array(
       'methods'  => WP_REST_Server::READABLE,
-      'callback' => 'hlbapi_init',
+      'callback' => 'hlbapi_app',
     ));
 
     register_rest_route( 'hlbapi', '/lunchbox', array(
@@ -47,7 +47,7 @@
     ));
 
   }
-  include 'routes/init.php';
+  include 'routes/app.php';
   include 'routes/lunchbox.php';
   include 'routes/categories.php';
   include 'routes/category.php';

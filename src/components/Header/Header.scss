@@ -6,26 +6,24 @@
 @import '../../vars.scss';
 
 .header {
-  border: none;
-  color: $hlb-grey-dark;
-}
+  > .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-.header-about {
-  background: $hlb-green;
-  color: white;
-}
+  > .nav {
+    margin-top: 50px;
+    font-family: 'Baloo';
+    font-size: 20px;
 
-.header-recipes {
-  background: $hlb-orange;
-  color: white;
-}
+    > .nav-link {
+      margin-left: 20px;
+      color: $hlb-blue;
+      text-decoration: none;
+    }
 
-.header-tips {
-  background: $hlb-yellow;
-  color: white;
-}
-
-.header h3 {
-  color: white;
-  font-family: 'Baloo';
+    > .nav-link:hover {
+      color: $hlb-green;
+    }
+  }
 }
