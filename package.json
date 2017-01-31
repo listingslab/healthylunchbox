@@ -1,6 +1,6 @@
 {
   "name": "healthy-lunch-box",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "description": "Healthy Lunch Box by Cancer Council of NSW",
   "main": "index.js",
   "private": true,
@@ -47,7 +47,9 @@
     "react-cookie": "^1.0.4",
     "react-dom": "^15.4.2",
     "react-ga": "^2.1.2",
-    "react-router": "^2.6.1"
+    "react-router": "^2.6.1",
+    "react-slick": "^0.14.5",
+    "react-slick-carousel": "^0.14.9"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",

@@ -3,8 +3,14 @@
  * containers/App.scss
  */
 
-h1 {
-  font-family: 'Baloo'
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo';
+  margin: 0;
+}
+
+.container_xxx {
+  background: white;
+  border: 1px solid black;
 }
 
 .edit-btn {

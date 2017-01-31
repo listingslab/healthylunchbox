@@ -6,24 +6,38 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import EditLink from '../../components/EditLink/EditLink';
 
 class About extends Component {
   static propTypes = {
     input: PropTypes.string
   }
 
-  render() {
-    return (
-      <div className="template-about container">
+  makeMarkup(){
+    return { __html: cms.app.data.about.post.post_content };
+  }
 
-        <div className="col-md-12 text-center template-about-links">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
-          >
-            <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
-          </a>
+  render() {
+    let editBtn = null;
+    if (editor) {
+      editBtn = (
+        <EditLink
+          editUrl={cms.app.data.about.editUrl}
+        />
+      );
+    }
+    return (
+      <div className="container">
+        {editBtn}
+        <div dangerouslySetInnerHTML={this.makeMarkup()} />
+          <div className="text-center">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
+            >
+              <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
+            </a>
         </div>
     </div>
     );
@@ -31,12 +45,3 @@ class About extends Component {
 }
 
 export default About;
-
-/*
-<ul className="react-motion-nav">
-    <li><a href="/react-motion/demo0-simple-transition">Simple transition</a></li>
-    <li><a href="/react-motion/demo3-todomvc-list-transition">Todomvc list transition</a></li>
-    <li><a href="/react-motion/demo4-photo-gallery">Photo gallery</a></li>
-    <li><a href="/react-motion/demo8-draggable-list">Draggable list</a></li>
-  </ul>
-*/

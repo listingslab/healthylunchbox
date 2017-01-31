@@ -87,10 +87,24 @@ function hlbapi_app( WP_REST_Request $request ) {
 
   /////////// Recipe categories
   $response->data->navigation = $navArr;
+
+
   ///////// About page ID =
   $about_id = 510;
   $response->data->about = new stdClass();
   $response->data->about->post = get_post($about_id);
   $response->data->about->act = get_fields($about_id);
+  $response->data->about->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$about_id.'&action=edit';
+
+  ///////// Recipe page ID =
+  $recipe_id = 553;
+  $response->data->recipe = new stdClass();
+  $response->data->recipe->post = get_post($recipe_id);
+  $response->data->recipe->act = get_fields($recipe_id);
+  $response->data->recipe->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$recipe_id.'&action=edit';
+
+
+
+
   return $response;
 }

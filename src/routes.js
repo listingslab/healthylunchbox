@@ -15,6 +15,7 @@ import Home from './templates/Home/Home';
 import Item from './templates/Item/Item';
 import NotFound from './templates/NotFound//NotFound';
 import Recipes from './templates/Recipes/Recipes';
+import Snacks from './templates/Snacks/Snacks';
 
 const routes = (
   <Router>
@@ -24,6 +25,7 @@ const routes = (
       <Route path="/categories" component={Categories} />
       <Route path="/recipes" component={Recipes} />
       <Route path="/tips" component={Recipes} />
+      <Route path="/snacks" component={Snacks} />
       <Route path="/item" component={Item} />
       <Route path="/about" component={About} />
       <Route path="/healthy-lunch-box" component={HealthyLunchbox} />
