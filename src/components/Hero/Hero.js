@@ -6,6 +6,7 @@
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import EditLink from '../../components/EditLink/EditLink';
 
 import './Hero.scss';
 
@@ -14,11 +15,9 @@ function Hero(props) {
   const classNameBtn = `btn btn-default hero-btn hero-btn-${props.colour}`;
   let editBtn = null;
   if (editor) {
-    editBtn = (<div className="pull-right"><Link className="btn btn-link edit-btn"
-      href={props.editUrl || ''}
-      role="button"
-    ><span className="glyphicon glyphicon-pencil" />&nbsp;Edit</Link></div>
-    );
+    editBtn = (<EditLink
+      editUrl={props.editUrl || ''}
+    />);
   }
   return (
     <div className={className}>

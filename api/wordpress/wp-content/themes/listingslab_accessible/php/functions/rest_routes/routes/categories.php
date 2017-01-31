@@ -42,7 +42,7 @@ function hlbapi_categories( WP_REST_Request $request ) {
         $category->slug = $categories[$i]->slug;
         $category->taxonomy = $categories[$i]->taxonomy;
         $category->itemType = $response->data->taxonomy;
-        $category->linkUrl = '/category?catID=' . $categories[$i]->term_id;
+        $category->route = '/' . $response->data->taxonomy . '/' . $category->slug;
         $category->linkText = 'View category';
         $category->linkType = 'to';
         $category->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/term.php?taxonomy=';

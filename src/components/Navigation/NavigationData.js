@@ -10,23 +10,27 @@ const NavigationData = [
     accessible: 'http://api.healthylunchbox.com.au/home/recipes/',
     url: 'thisUrl coming soon',
     to: '/recipes',
-    colour: 'orange'
-  },
-  {
-    text: 'Tips',
-    navType: 'internal',
-    accessible: 'http://api.healthylunchbox.com.au/home/tips/',
-    url: '/tips',
-    to: '/tips',
-    colour: 'yellow'
-  },
-  {
-    text: 'About',
-    navType: 'internal',
-    accessible: 'http://api.healthylunchbox.com.au/home/about/',
-    url: '/about',
-    to: '/about',
-    colour: 'green'
+    colour: 'blue'
   }
 ];
 export default NavigationData;
+
+/*
+,
+{
+  text: 'Tips',
+  navType: 'internal',
+  accessible: 'http://api.healthylunchbox.com.au/home/tips/',
+  url: '/tips',
+  to: '/tips',
+  colour: 'yellow'
+},
+{
+  text: 'About',
+  navType: 'internal',
+  accessible: 'http://api.healthylunchbox.com.au/home/about/',
+  url: '/about',
+  to: '/about',
+  colour: 'green'
+}
+*/

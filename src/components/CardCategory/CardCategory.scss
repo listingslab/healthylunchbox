@@ -1,0 +1,79 @@
+/**
+ * Created by Chris Dorward on 31/01/2017
+ * coponents/CardCategory/CardCategory
+ */
+
+@import '../../vars.scss';
+
+.card-category {
+  background: white;
+  position: relative;
+
+  /* x-offset, bottom-offset, spread, size */
+  box-shadow: 0 8px 25px 2px #a8a094;
+
+  > .card-color-overlay {
+    position: absolute;
+    background: $hlb-blue-trans;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  > .card-center-overlay {
+    position: absolute;
+    background: $hlb-blue;
+    top: 25%;
+    bottom: 25%;
+    right: 25%;
+    left: 25%;
+
+    > .card-center-overlay-text {
+      position: absolute;
+      width: 90%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+
+      > h2 {
+        font-family: 'Baloo';
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+/* ==========  Non-Mobile First Method  ========== */
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+  .card-category {
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .card-category {
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .card-category {
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .card-category {
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  .card-category {
+  }
+}

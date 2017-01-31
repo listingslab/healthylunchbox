@@ -79,7 +79,7 @@ class Home extends Component {
       return loader;
     }
     // else show the data-driven home page
-    const ID = 508;
+    const ID = 672;
     const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${ID}&action=edit`;
     return (
       <div className="home container">
@@ -93,12 +93,15 @@ class Home extends Component {
           editUrl={editUrl}
           colour="blue"
         />
-        <div className="row">
-          {featuredItems}
-        </div>
       </div>
     );
   }
 }
 
 export default Home;
+
+/*
+<div className="row">
+  {featuredItems}
+</div>
+*/
