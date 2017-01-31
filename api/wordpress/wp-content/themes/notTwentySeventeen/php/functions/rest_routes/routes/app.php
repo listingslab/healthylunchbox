@@ -23,16 +23,15 @@ function hlbapi_app( WP_REST_Request $request ) {
     $navItem->url = htmlspecialchars_decode($json['items'][$i]['url']);
     $navArr[] = $navItem;
   }
-  $response->data->navigation = $navArr;
 
-  ///////// Home page & Hero Edit page ID = 508
-  $id = 672;
+  ///////// Home page & Hero Edit page ID = 672
+  $home_id = 672;
   $response->data->home_page = new stdClass();
   $response->data->home_page->hero = new stdClass();
-  $response->data->home_page->hero->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$id.'&action=edit';
-  $response->data->home_page->hero->data = get_fields($id);
+  $response->data->home_page->hero->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$home_id.'&action=edit';
+  $response->data->home_page->hero->data = get_fields($home_id);
 
-  //////// featured_recipes
+  //////// load featured_recipes
   $featured_recipes = array ();
   $args = array(
   	'posts_per_page'	=> 2,
@@ -59,7 +58,7 @@ function hlbapi_app( WP_REST_Request $request ) {
   }
   $response->data->home_page->featured_recipes = $featured_recipes;
 
-  //////// featured_tips
+  //////// Load featured_tips
   $featured_tips = array ();
   $args = array(
   	'posts_per_page'	=> 2,
@@ -87,8 +86,11 @@ function hlbapi_app( WP_REST_Request $request ) {
   $response->data->home_page->featured_tips = $featured_tips;
 
   /////////// Recipe categories
-
-
-
+  $response->data->navigation = $navArr;
+  ///////// About page ID =
+  $about_id = 510;
+  $response->data->about = new stdClass();
+  $response->data->about->post = get_post($about_id);
+  $response->data->about->act = get_fields($about_id);
   return $response;
 }

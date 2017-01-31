@@ -6,14 +6,14 @@
   add_action( 'rest_api_init', 'hlbapi_register_routes' );
   function hlbapi_register_routes() {
 
+    register_rest_route( 'hlbapi', '/hello', array(
+      'methods'  => WP_REST_Server::READABLE,
+      'callback' => 'hlbapi_hello',
+    ));
+
     register_rest_route( 'hlbapi', '/app', array(
       'methods'  => WP_REST_Server::READABLE,
       'callback' => 'hlbapi_app',
-    ));
-
-    register_rest_route( 'hlbapi', '/lunchbox', array(
-      'methods'  => WP_REST_Server::READABLE,
-      'callback' => 'hlbapi_lunchbox',
     ));
 
     register_rest_route( 'hlbapi', '/categories', array(
@@ -31,29 +31,11 @@
       'callback' => 'hlbapi_category',
     ) );
 
-    register_rest_route( 'hlbapi', '/hello', array(
-  		'methods'  => WP_REST_Server::READABLE,
-  		'callback' => 'hlbapi_hello',
-  	));
-
-    register_rest_route( 'hlbapi', '/home', array(
-      'methods'  => WP_REST_Server::READABLE,
-      'callback' => 'hlbapi_home',
-    ));
-
-    register_rest_route( 'hlbapi', '/content', array(
-      'methods'  => WP_REST_Server::READABLE,
-      'callback' => 'hlbapi_content',
-    ));
-
   }
   include 'routes/app.php';
-  include 'routes/lunchbox.php';
   include 'routes/categories.php';
   include 'routes/category.php';
-  include 'routes/content.php';
   include 'routes/hello.php';
-  include 'routes/home.php';
 
 
   /*
