@@ -2,10 +2,12 @@
  * Created by Chris Dorward on 31/01/2017
  * containers/App.scss
  */
+ @import '../vars.scss';
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Baloo';
   margin: 0;
+  color: $hlb-blue-dark;
 }
 
 .container_xxx {

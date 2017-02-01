@@ -8,11 +8,14 @@
 .tip {
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
 .tip-btn {
   width: 100%;
   text-align: left;
   height: 100px;
+
+  > h3 {
+    color: white;
+  }
 }

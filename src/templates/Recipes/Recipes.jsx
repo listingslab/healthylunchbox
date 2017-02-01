@@ -8,7 +8,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
-
 import './Recipes.scss';
 
 class Recipes extends Component {
@@ -44,7 +43,7 @@ class Recipes extends Component {
       categoriesArr.push(
         <div
           key={catKey}
-          className="recipe col-md-4"
+          className="recipe col-sm-12 col-md-6 col-lg-4"
         >
           <Link
             to={categories[i].route}
@@ -58,13 +57,13 @@ class Recipes extends Component {
     }
 
     return (
-      <div className="container categories">
+      <div className="container">
         {editBtn}
-        <div className="row raised-page" >
-          <h2>{title}</h2>
+        <div className="raised-page" >
+          <h1>{title}</h1>
           <div dangerouslySetInnerHTML={this.makeMarkup()} />
         </div>
-          <div className="row margin-top-25" >
+          <div className="margin-top-25" >
             {categoriesArr}
           </div>
       </div>

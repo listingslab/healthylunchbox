@@ -12,9 +12,8 @@ class HealthyLunchbox extends Component {
 
   render() {
     return (
-      <div className="col-md-12 text-center">
-        <h2>lunchbox builder</h2>
-        <p></p>
+      <div className="container raised-page">
+        <h1>Lunchbox builder</h1>
       </div>
     );
   }

@@ -45,7 +45,7 @@ class Tips extends Component {
       categoriesArr.push(
         <div
           key={catKey}
-          className="tip col-md-4"
+          className="tip col-sm-12 col-md-6 col-lg-4"
         >
           <Link
             to={categories[i].route}
@@ -58,18 +58,15 @@ class Tips extends Component {
       );
     }
     return (
-      <div className="container categories">
+      <div className="container">
         {editBtn}
-
-        <div className="container" >
-          <div className="row raised-page" >
-            <h2>{title}</h2>
+          <div className="raised-page" >
+            <h1>{title}</h1>
             <div dangerouslySetInnerHTML={this.makeMarkup()} />
           </div>
-          <div className="row margin-top-25" >
+          <div className="margin-top-25" >
             {categoriesArr}
           </div>
-        </div>
       </div>
     );
   }
