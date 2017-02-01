@@ -6,7 +6,7 @@
  */
 
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import './Header.scss';
 
 function Header() {
@@ -24,15 +24,26 @@ function Header() {
   }
   return (
     <div className={className}>
-      <div className="logo pull-left">
-        <Link
-          to="/"
-          ><img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
-        </Link>
+      <div className="row margin-bottom-25">
+        <div className="logo pull-left">
+          <Link
+            to="/"
+            ><img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
+          </Link>
+        </div>
+        <div className="nav pull-right">
+          {navigation}
+        </div>
       </div>
-
-      <div className="nav pull-right">
-        {navigation}
+      <div className="row margin-bottom-25">
+        <Link
+          className="btn btn-info pull-left"
+          onClick={browserHistory.goBack}
+        >Back</Link>
+        <Link
+          className="btn btn-info pull-left"
+          to="/"
+        >Up one level</Link>
       </div>
     </div>
   );

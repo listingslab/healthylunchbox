@@ -33,7 +33,7 @@ module.exports = {
   },
   output: {
     path: BUILD,
-    filename: '[name].js'
+    filename: '/[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']

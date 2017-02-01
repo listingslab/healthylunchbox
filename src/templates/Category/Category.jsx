@@ -6,6 +6,7 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
 
 class Category extends Component {
@@ -31,7 +32,6 @@ class Category extends Component {
 
   render() {
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
-    console.log(category);
 
     let editBtn = null;
     if (editor) {
@@ -41,12 +41,36 @@ class Category extends Component {
         />
       );
     }
+    const categoriesArr = [];
+    const categories = category.items;
+    for (let i = 0; i < categories.length; i += 1) {
+      // console.log();
+      const catKey = `cat_${i}`;
+      categoriesArr.push(
+        <div
+          key={catKey}
+          className="recipe col-sm-12 col-md-6 col-lg-4"
+        >
+          <Link
+            to={`item/${category.items[i].post_name}`}
+            className="btn btn-info recipe-btn"
+          >
+            <h3>{categories[i].post_title || ''}</h3>
+            <p>{categories[i].acf.short_description || ''}</p>
+          </Link>
+        </div>
+      );
+    }
     return (
       <div className="container">
         {editBtn}
-        <div className="raised-page" >
+        <div className="row raised-page" >
           <h1>{category.title}</h1>
           <p>{category.subTitle}</p>
+        </div>
+
+        <div className="margin-top-25">
+          {categoriesArr}
         </div>
       </div>
     );

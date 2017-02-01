@@ -5,6 +5,7 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import { Link, browserHistory } from 'react-router';
 import cookie from 'react-cookie';
 import $ from 'jquery';
 import Loader from '../components/Loader/Loader';
@@ -32,7 +33,6 @@ class App extends Component {
   componentDidMount() {
     this.returningUser = false;
     let HLBcookieCode = cookie.load('HLBcookieCode');
-
     if (HLBcookieCode === undefined) {
       HLBcookieCode = this.makeCookieCode();
       const maxAge = 3600 * 24 * 365; // Will expire after 1 year (value is in number of sec.)
@@ -43,7 +43,6 @@ class App extends Component {
       this.returningUser = true;
     }
     cms.HLBcookieCode = HLBcookieCode;
-
     if (cms.init === undefined) {
       const api = new API(this.state.endPoint);
       api.getDataIfNeeded(`${this.state.endPoint}`, this.apiCallback.bind(this));
@@ -94,11 +93,11 @@ class App extends Component {
 
   render() {
     const { children } = this.props;
-    const firstMessage = `<p>Your unique cookie code is <strong>${this.HLBcookieCode}</strong></p>
+    const firstMessage = `<p>Your unique cookie code is <strong>${cms.HLBcookieCode}</strong></p>
     <p>Please quote this as a reference if you have any problems of issues with this website.</p>`;
     const firstTitle = 'Hello and welcome';
     const secondMessage = '';
-    const secondTitle = `Welcome back, ${this.HLBcookieCode}`;
+    const secondTitle = `Welcome back, ${cms.HLBcookieCode}`;
     let title = firstTitle;
     let message = firstMessage;
     if (this.returningUser) {
@@ -110,10 +109,9 @@ class App extends Component {
     const showCookies = false;
     const showDeleteCookies = true;
     const showSuppress = true;
-
     this.showMessages = true;
     const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
-    if (HLBcookieSuppress === 'yes' || this.returningUser) {
+    if (HLBcookieSuppress === 'yes') {
       this.showMessages = false;
     }
     // If we're loading show the loader

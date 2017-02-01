@@ -8,7 +8,6 @@ import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
 import Category from './templates/Category/Category';
-import Categories from './templates/Categories/Categories';
 import HealthyLunchbox from './templates/HealthyLunchbox//HealthyLunchbox';
 import About from './templates/About/About';
 import Home from './templates/Home/Home';
