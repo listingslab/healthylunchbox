@@ -78,7 +78,7 @@ class Home extends Component {
           <h1>{cms.app.data.home_page.hero.data.heroTitle}</h1>
           <p>{cms.app.data.home_page.hero.data.heroSubTitle}</p>
           <Link
-            className="btn btn-danger"
+            className="btn btn-info"
             to={cms.app.data.home_page.hero.data.linkUrl}
           >
           {cms.app.data.home_page.hero.data.linkText}</Link>
@@ -87,31 +87,45 @@ class Home extends Component {
         <div className="container raised-page margin-top-25">
 
           <div className="container col-md-6 margin-top-25">
-            <h2>Featured recipes</h2>
+            <h3>Featured recipes</h3>
             <div className="container">
-              {featuredRecipes}
               <div className="row margin-top-10">
                 <Link
                   className=""
                   to="/recipes"
                 >Recipes page</Link>
               </div>
+              {featuredRecipes}
             </div>
           </div>
 
           <div className="container col-md-6 margin-top-25">
-            <h2>Featured tips</h2>
+            <h3>Featured tips</h3>
               <div className="container">
-                {featuredTips}
                 <div className="row margin-top-10">
                   <Link
                     className=""
                     to="/tips"
                   >Tips page</Link>
                 </div>
+                {featuredTips}
               </div>
           </div>
 
+        </div>
+
+        <div className="container raised-page margin-top-25">
+          <h3>Featured Category</h3>
+          <div className="container col-md-6">
+            <div className="container">
+              <div className="row margin-top-10">
+                <Link
+                  className="btn btn-success"
+                  to="/recipes/packed-lunches"
+                >Packed Lunches</Link>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
