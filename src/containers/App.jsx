@@ -129,7 +129,7 @@ class App extends Component {
       return (
         <div className="template-app">
           <Header />
-          <div className="container">{children}</div>
+          {children}
           <Footer />
         </div>
       );
@@ -148,7 +148,7 @@ class App extends Component {
              />
         </div>
         <Header />
-        <div className="container">{children}</div>
+        {children}
         <Footer />
       </div>
     );

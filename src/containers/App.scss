@@ -10,6 +10,16 @@ h1, h2, h3, h4, h5, h6 {
   color: $hlb-blue-dark;
 }
 
+.context-buttons {
+  margin: 5px;
+  font-family: 'Baloo';
+  font-size: 18px;
+}
+
+.context-buttons:hover {
+  text-decoration: none;
+}
+
 .container_xxx {
   background: white;
   border: 1px solid black;

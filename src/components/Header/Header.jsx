@@ -10,7 +10,7 @@ import { Link, browserHistory } from 'react-router';
 import './Header.scss';
 
 function Header() {
-  const className = 'header container';
+
   const navigation = [];
   const navItems = cms.app.data.navigation;
   for (let i = 0; i < navItems.length; i += 1) {
@@ -22,28 +22,32 @@ function Header() {
         >{navItems[i].title}</Link>
     );
   }
+  const className = 'header container';
   return (
     <div className={className}>
+
       <div className="row margin-bottom-25">
         <div className="logo pull-left">
           <Link
             to="/"
-            ><img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
+          >
+            <img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
           </Link>
         </div>
         <div className="nav pull-right">
           {navigation}
         </div>
-      </div>
-      <div className="row margin-bottom-25">
-        <Link
-          className="btn btn-info pull-left"
-          onClick={browserHistory.goBack}
-        >Back</Link>
-        <Link
-          className="btn btn-info pull-left"
-          to="/"
-        >Up one level</Link>
+          <div className="margin-bottom-25 pull-right">
+            <Link
+              className="context-buttons pull-left"
+              onClick={browserHistory.goBack}
+            >Back</Link>
+            <Link
+              className="context-buttons pull-left"
+              to="/"
+            >Up one level</Link>
+          </div>
+
       </div>
     </div>
   );

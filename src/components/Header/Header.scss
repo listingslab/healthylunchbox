@@ -6,24 +6,25 @@
 @import '../../vars.scss';
 
 .header {
-  > .logo {
-    margin-top: 25px;
-    margin-bottom: 25px;
-  }
+}
 
-  > .nav {
-    margin-top: 50px;
-    font-family: 'Baloo';
-    font-size: 20px;
+.nav-link {
+  margin-left: 20px;
+  color: $hlb-blue;
+  text-decoration: none;
+}
 
-    > .nav-link {
-      margin-left: 20px;
-      color: $hlb-blue;
-      text-decoration: none;
-    }
+.nav {
+  margin-top: 50px;
+  font-family: 'Baloo';
+  font-size: 20px;
+}
 
-    > .nav-link:hover {
-      color: $hlb-green;
-    }
-  }
+.logo {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.nav-link:hover {
+  color: $hlb-green;
 }
