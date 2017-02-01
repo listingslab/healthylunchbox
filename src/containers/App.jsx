@@ -104,7 +104,7 @@ class App extends Component {
       title = secondTitle;
       message = secondMessage;
     }
-    const messageType = 'warning';
+    const messageType = 'info';
     const showDismiss = true;
     const showCookies = false;
     const showDeleteCookies = true;

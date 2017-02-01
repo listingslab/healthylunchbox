@@ -29,6 +29,10 @@ function Header() {
       <div className="row margin-bottom-25">
         <div className="logo pull-left">
           <Link
+            className="context-buttons"
+            onClick={browserHistory.goBack}
+          ><span className="glyphicon glyphicon-arrow-left" />&nbsp;Back</Link>
+          <Link
             to="/"
           >
             <img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
@@ -38,14 +42,7 @@ function Header() {
           {navigation}
         </div>
           <div className="margin-bottom-25 pull-right">
-            <Link
-              className="context-buttons pull-left"
-              onClick={browserHistory.goBack}
-            >Back</Link>
-            <Link
-              className="context-buttons pull-left"
-              to="/"
-            >Up one level</Link>
+
           </div>
 
       </div>

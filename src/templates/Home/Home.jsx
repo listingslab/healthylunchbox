@@ -44,17 +44,76 @@ class Home extends Component {
         />
       );
     }
-    // console.log(cms.app.data.home_page.hero.data);
+
+    const featuredRecipes = [];
+    for (let i = 0; i < cms.app.data.home_page.featured_recipes.length; i += 1) {
+      const key = `recipe_${i}`;
+      featuredRecipes.push(
+        <div key={key} className="row margin-top-10">
+          <Link
+            className="btn btn-success"
+            to={`/recipe/${cms.app.data.home_page.featured_recipes[i].itemSlug}`}
+          >{cms.app.data.home_page.featured_recipes[i].title}</Link>
+        </div>
+      );
+    }
+
+    const featuredTips = [];
+    for (let i = 0; i < cms.app.data.home_page.featured_tips.length; i += 1) {
+      const key = `tip_${i}`;
+      featuredTips.push(
+        <div key={key} className="row margin-top-10">
+          <Link
+            className="btn btn-warning"
+            to={`/recipe/${cms.app.data.home_page.featured_tips[i].itemSlug}`}
+          >{cms.app.data.home_page.featured_tips[i].title}</Link>
+        </div>
+      );
+    }
+
     return (
-      <div className="home container raised-page">
-        {editBtn}
-        <h1>{cms.app.data.home_page.hero.data.heroTitle}</h1>
-        <p>{cms.app.data.home_page.hero.data.heroSubTitle}</p>
-        <Link
-          className="btn btn-success"
-          to={cms.app.data.home_page.hero.data.linkUrl}
-        >
-        {cms.app.data.home_page.hero.data.linkText}</Link>
+      <div className="home">
+        <div className="container raised-page">
+          {editBtn}
+          <h1>{cms.app.data.home_page.hero.data.heroTitle}</h1>
+          <p>{cms.app.data.home_page.hero.data.heroSubTitle}</p>
+          <Link
+            className="btn btn-danger"
+            to={cms.app.data.home_page.hero.data.linkUrl}
+          >
+          {cms.app.data.home_page.hero.data.linkText}</Link>
+        </div>
+
+        <div className="container raised-page margin-top-25">
+
+          <div className="container col-md-6 margin-top-25">
+            <h2>Featured recipes</h2>
+            <div className="container">
+              {featuredRecipes}
+              <div className="row margin-top-10">
+                <Link
+                  className=""
+                  to="/recipes"
+                >Recipes page</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="container col-md-6 margin-top-25">
+            <h2>Featured tips</h2>
+              <div className="container">
+                {featuredTips}
+                <div className="row margin-top-10">
+                  <Link
+                    className=""
+                    to="/tips"
+                  >Tips page</Link>
+                </div>
+              </div>
+          </div>
+
+        </div>
+
       </div>
     );
   }

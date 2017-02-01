@@ -2,7 +2,13 @@
  * Created by Chris Dorward on 31/01/2017
  * containers/App.scss
  */
- @import '../vars.scss';
+@import '../vars.scss';
+
+html, body, #root {
+  font-family: 'Arial';
+  background: $hlb-background;
+  color: $hlb-text;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Baloo';
@@ -10,10 +16,20 @@ h1, h2, h3, h4, h5, h6 {
   color: $hlb-blue-dark;
 }
 
+a, a:hover, a:visited, a:active a:link {
+  text-decoration: none;
+}
+
+.proximity-btns {
+  margin: 5px;
+}
+
 .context-buttons {
   margin: 5px;
+  margin-right: 50px;
   font-family: 'Baloo';
   font-size: 18px;
+  cursor: pointer;
 }
 
 .context-buttons:hover {
@@ -29,12 +45,20 @@ h1, h2, h3, h4, h5, h6 {
   margin: 5px;
 }
 
+.margin-top-10 {
+  margin-top: 10px;
+}
+
 .margin-top-25 {
   margin-top: 25px;
 }
 
 .margin-bottom-25 {
   margin-bottom: 25px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
 }
 
 .raised-page {

@@ -64,7 +64,7 @@ function Message(props) {
     cookiesBtn = (<Link
       title="What do cookies mean for you?"
       onClick={showCookies}
-      className="btn btn-default message-btn">
+      className="btn btn-warning message-btn">
       <span className="glyphicon glyphicon-info-sign" />What do cookies mean for you?</Link>);
   }
 
@@ -73,7 +73,7 @@ function Message(props) {
     cookiesDeleteBtn = (<Link
       title="Delete cookies"
       onClick={deleteCookies}
-      className="btn btn-default message-btn">
+      className="btn btn-info message-btn">
       <span className="glyphicon glyphicon-remove-sign" />Delete cookies and start over?</Link>);
   }
 
@@ -83,7 +83,7 @@ function Message(props) {
     suppressBtn = (<button
       title="Suppress all messages"
       onClick={suppressMessages}
-      className="btn btn-default message-btn">
+      className="btn btn-info message-btn">
       <span className="glyphicon glyphicon-remove-sign" />Suppress further messages.</button>);
   }
 

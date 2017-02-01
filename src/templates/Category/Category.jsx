@@ -53,7 +53,7 @@ class Category extends Component {
         >
           <Link
             to={`item/${category.items[i].post_name}`}
-            className="btn btn-info recipe-btn"
+            className="btn btn-danger recipe-btn"
           >
             <h3>{categories[i].post_title || ''}</h3>
             <p>{categories[i].acf.short_description || ''}</p>

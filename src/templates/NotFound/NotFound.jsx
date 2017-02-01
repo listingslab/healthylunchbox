@@ -12,16 +12,17 @@ class NotFound extends Component {
 
   render() {
     return (
-      <div className="col-md-12 text-center">
-        <h2>Route not Found :(</h2>
-        <p>
+      <div className="container raised-page margin-top-25">
+        <h2>Not Found :(</h2>
+        <p>Sorry, the requested content coule not be found. Go home go or back?</p>
           <Link
-            className="btn btn-warning btn-lg"
+            className="btn btn-success proximity-btns"
             onClick={browserHistory.goBack}
-            >
-            &laquo; Back ?
-          </Link>
-        </p>
+            >Back</Link>
+          <Link
+            className="btn btn-success"
+            to='/'
+            >Home</Link>
       </div>
     );
   }

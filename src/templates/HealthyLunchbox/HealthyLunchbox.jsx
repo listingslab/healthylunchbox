@@ -5,6 +5,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import './HealthyLunchbox.scss';
 
 class HealthyLunchbox extends Component {
   static propTypes = {
@@ -12,8 +13,8 @@ class HealthyLunchbox extends Component {
 
   render() {
     return (
-      <div className="container raised-page">
-        <h1>Lunchbox builder</h1>
+      <div className="hlb container raised-page">
+        <h1></h1>
       </div>
     );
   }
