@@ -14,7 +14,7 @@ class NotFound extends Component {
     return (
       <div className="container raised-page margin-top-25">
         <h2>Not Found :(</h2>
-        <p>Sorry, the requested content coule not be found. Go home go or back?</p>
+        <p>Sorry, your content could not be found. Go home go or back?</p>
           <Link
             className="btn btn-success proximity-btns"
             onClick={browserHistory.goBack}

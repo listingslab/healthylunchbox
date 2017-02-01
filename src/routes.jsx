@@ -24,8 +24,10 @@ const routes = (
       <Route path="/healthy-lunch-box" component={HealthyLunchbox} />
       <Route path="/recipes" component={Recipes} />
       <Route path="/recipes/:slug" component={Category} />
+      <Route path="/recipe/:slug" component={Item} />
       <Route path="/tips" component={Tips} />
       <Route path="/tips/:slug" component={Category} />
+      <Route path="/tip/:slug" component={Item} />
       <Route path="/item" component={Item} />
       <Route path="/item/:slug" component={Item} />
       <Route path="/snacks" component={Snacks} />

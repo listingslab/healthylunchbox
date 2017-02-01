@@ -139,4 +139,15 @@ export default Home;
 <div className="row">
   {featuredItems}
 </div>
+
+<Hero
+  title={this.state.cmsData.heroTitle || 'Title'}
+  subTitle={this.state.cmsData.heroSubTitle || 'Sub title'}
+  linkUrl={this.state.cmsData.linkUrl || '/'}
+  linkType={this.state.cmsData.linkType || 'to'}
+  linkText={this.state.cmsData.linkText || 'Click here'}
+  showEdit={editor}
+  editUrl={editUrl}
+  colour="blue"
+/>
 */

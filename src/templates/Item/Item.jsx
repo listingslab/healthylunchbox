@@ -1,10 +1,11 @@
+/* global editor */
+/* global cms */
 /**
  * Created by Chris Dorward on 22/01/2017
  * templates/Item/Item
  */
 
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header';
 
 class Item extends Component {
 
@@ -16,6 +17,9 @@ class Item extends Component {
   }
 
   render() {
+    console.log(this.props.routeParams.slug);
+    // get details of whatever item this is from cms store
+    console.log(cms);
     return (
       <div className="recipe-item container">
         item
