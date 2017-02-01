@@ -46,7 +46,7 @@ class Home extends Component {
     }
     // console.log(cms.app.data.home_page.hero.data);
     return (
-      <div className="home container">
+      <div className="home container raised-page">
         {editBtn}
         <h1>{cms.app.data.home_page.hero.data.heroTitle}</h1>
         <p>{cms.app.data.home_page.hero.data.heroSubTitle}</p>

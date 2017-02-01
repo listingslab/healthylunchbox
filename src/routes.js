@@ -15,20 +15,22 @@ import Home from './templates/Home/Home';
 import Item from './templates/Item/Item';
 import NotFound from './templates/NotFound//NotFound';
 import Recipes from './templates/Recipes/Recipes';
+import Tips from './templates/Tips/Tips';
 import Snacks from './templates/Snacks/Snacks';
 
 const routes = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/category" component={Category} />
-      <Route path="/categories" component={Categories} />
-      <Route path="/recipes" component={Recipes} />
-      <Route path="/tips" component={Recipes} />
-      <Route path="/snacks" component={Snacks} />
-      <Route path="/item" component={Item} />
-      <Route path="/about" component={About} />
       <Route path="/healthy-lunch-box" component={HealthyLunchbox} />
+      <Route path="/recipes" component={Recipes} />
+      <Route path="/recipes/:slug" component={Category} />
+      <Route path="/tips" component={Tips} />
+      <Route path="/tips/:slug" component={Category} />
+      <Route path="/item" component={Item} />
+      <Route path="/item/:slug" component={Item} />
+      <Route path="/snacks" component={Snacks} />
+      <Route path="/about" component={About} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

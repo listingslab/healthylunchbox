@@ -13,7 +13,7 @@ class About extends Component {
     input: PropTypes.string
   }
 
-  makeMarkup(){
+  makeMarkup() {
     return { __html: cms.app.data.about.post.post_content };
   }
 
@@ -27,7 +27,7 @@ class About extends Component {
       );
     }
     return (
-      <div className="container">
+      <div className="container raised-page">
         {editBtn}
         <div dangerouslySetInnerHTML={this.makeMarkup()} />
           <div className="text-center">

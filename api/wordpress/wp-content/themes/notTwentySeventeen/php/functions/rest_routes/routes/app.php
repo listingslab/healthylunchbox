@@ -6,12 +6,13 @@
 function hlbapi_app( WP_REST_Request $request ) {
   // Initialise the response
   $response = new stdClass();
-  $response->code = "init";
-  $response->message = "Initial content";
+  $response->code = "app";
+  $response->message = "Initial WordPress content";
   // start data
   $response->data = new stdClass();
   $response->data->status = 418;
-  // navigation
+
+  /////////// Navigation
   $str = file_get_contents('http://api.healthylunchbox.com.au/wp-json/wp-api-menus/v2/menus/37');
   $json = json_decode($str, true);
   $navArr = array ();
@@ -23,6 +24,8 @@ function hlbapi_app( WP_REST_Request $request ) {
     $navItem->url = htmlspecialchars_decode($json['items'][$i]['url']);
     $navArr[] = $navItem;
   }
+  $response->data->navigation = $navArr;
+  /////////// END Navigation
 
   ///////// Home page & Hero Edit page ID = 672
   $home_id = 672;
@@ -30,15 +33,13 @@ function hlbapi_app( WP_REST_Request $request ) {
   $response->data->home_page->hero = new stdClass();
   $response->data->home_page->hero->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$home_id.'&action=edit';
   $response->data->home_page->hero->data = get_fields($home_id);
-
-  //////// load featured_recipes
   $featured_recipes = array ();
   $args = array(
-  	'posts_per_page'	=> 2,
-  	'post_type'		=> ['recipe'],
+    'posts_per_page'	=> 2,
+    'post_type'		=> ['recipe'],
     'orderby'     => 'modified',
-  	'meta_key'		=> 'is_featured',
-  	'meta_value'	=> 'yes'
+    'meta_key'		=> 'is_featured',
+    'meta_value'	=> 'yes'
   );
   $query = query_posts( $args );
   foreach ($query as $post){
@@ -57,15 +58,13 @@ function hlbapi_app( WP_REST_Request $request ) {
     $featured_recipes[] = $tempObj;
   }
   $response->data->home_page->featured_recipes = $featured_recipes;
-
-  //////// Load featured_tips
   $featured_tips = array ();
   $args = array(
-  	'posts_per_page'	=> 2,
-  	'post_type'		=> ['tip'],
+    'posts_per_page'	=> 2,
+    'post_type'		=> ['tip'],
     'orderby'     => 'modified',
-  	'meta_key'		=> 'is_featured',
-  	'meta_value'	=> 'yes'
+    'meta_key'		=> 'is_featured',
+    'meta_value'	=> 'yes'
   );
   $query = query_posts( $args );
   foreach ($query as $post){
@@ -84,26 +83,181 @@ function hlbapi_app( WP_REST_Request $request ) {
     $featured_tips[] = $tempObj;
   }
   $response->data->home_page->featured_tips = $featured_tips;
+  ///////// END Home page & Hero Edit page ID = 672
 
-  /////////// Recipe categories
-  $response->data->navigation = $navArr;
+  ///////// Recipes & Ideas  page (wordpress ID = 553)
+  $recipe_id = 553;
+  $response->data->recipes = new stdClass();
+  $response->data->recipes->post = get_post($recipe_id);
+  $response->data->recipes->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$recipe_id.'&action=edit';
+  unset($response->data->recipes->post->post_password);
+  unset($response->data->recipes->post->post_date_gmt);
+  unset($response->data->recipes->post->post_author);
+  unset($response->data->recipes->post->menu_order);
+  unset($response->data->recipes->post->post_excerpt);
+  unset($response->data->recipes->post->comment_status);
+  unset($response->data->recipes->post->pinged);
+  unset($response->data->recipes->post->ping_status);
+  unset($response->data->recipes->post->to_ping);
+  unset($response->data->recipes->post->post_modified_gmt);
+  unset($response->data->recipes->post->post_content_filtered);
+  unset($response->data->recipes->post->post_mime_type);
+  unset($response->data->recipes->post->comment_count);
+  unset($response->data->recipes->post->guid);
+  unset($response->data->recipes->post->filter);
+  $taxonomy = 'recipes';
+  $categories = get_terms( array(
+    'taxonomy' => $taxonomy,
+    'hide_empty' => false,
+  ));
+  if (!isset($categories->errors)) {
+    $response->data->recipes->categories = array();
+    for ($i = 0; $i < count($categories); $i++){
+      $category = new stdClass();
+      $category->term_id = $categories[$i]->term_id;
+      $category->title = htmlspecialchars_decode($categories[$i]->name);
+      $category->subTitle = htmlspecialchars_decode($categories[$i]->description);
+      if (function_exists('z_taxonomy_image_url')) {
+        $category->image = z_taxonomy_image_url($category->term_id);
+      }
+      $category->slug = $categories[$i]->slug;
+      $category->taxonomy = $categories[$i]->taxonomy;
+      $category->route = '/' . $category->taxonomy . '/' . $category->slug;
+      $category->linkText = $category->title;
+      $category->linkType = 'to';
+      $category->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/term.php?taxonomy=';
+      $category->editUrl = $category->editUrl . $category->taxonomy;
+      $category->editUrl = $category->editUrl . '&tag_ID=' . $category->term_id;
+      $args = array(
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+          array(
+            'taxonomy' => $taxonomy,
+            'field' => 'id',
+            'terms' => $category->term_id
+          )
+        )
+      );
+      $query = new WP_Query( $args );
+      $items = array();
+      foreach ($query->posts as &$post) {
+        $item = new stdClass();
+        $item->ID = $post->ID;
+        $item->post_type = $post->post_type;
+        $item->post_title = $post->post_title;
+        $item->post_name = $post->post_name;
+        $item->post_modified = $post->post_modified;
+        $item->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=' . $item->ID . '&action=edit';
+        $acf = get_fields($post);
+        $item->acf = $acf;
+        $items[] = $item;
+      }
+      $category->items = $items;
+      $response->data->recipes->categories[] = $category;
+    }
+  }
+  ///////// END Recipes & Ideas  page (wordpress ID = 553)
 
+  ///////// Tips Categories & Items (wordpress ID = 561)
+  $tip_id = 561;
+  $response->data->tips = new stdClass();
+  $response->data->tips->post = get_post($tip_id);
+  $response->data->tips->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tip_id.'&action=edit';
+  unset($response->data->tips->post->post_password);
+  unset($response->data->tips->post->post_date_gmt);
+  unset($response->data->tips->post->post_author);
+  unset($response->data->tips->post->menu_order);
+  unset($response->data->tips->post->post_excerpt);
+  unset($response->data->tips->post->comment_status);
+  unset($response->data->tips->post->pinged);
+  unset($response->data->tips->post->ping_status);
+  unset($response->data->tips->post->to_ping);
+  unset($response->data->tips->post->post_modified_gmt);
+  unset($response->data->tips->post->post_content_filtered);
+  unset($response->data->tips->post->post_mime_type);
+  unset($response->data->tips->post->comment_count);
+  unset($response->data->tips->post->guid);
+  unset($response->data->tips->post->filter);
+  $taxonomy = 'tips';
+  $categories = get_terms( array(
+    'taxonomy' => $taxonomy,
+    'hide_empty' => false,
+  ));
+  if (!isset($categories->errors)) {
+    $response->data->tips->categories = array();
+    for ($i = 0; $i < count($categories); $i++){
+      $category = new stdClass();
+      $category->term_id = $categories[$i]->term_id;
+      $category->title = htmlspecialchars_decode($categories[$i]->name);
+      $category->subTitle = htmlspecialchars_decode($categories[$i]->description);
+      if (function_exists('z_taxonomy_image_url')) {
+        $category->image = z_taxonomy_image_url($category->term_id);
+      }
+      $category->slug = $categories[$i]->slug;
+      $category->taxonomy = $categories[$i]->taxonomy;
+      $category->route = '/' . $category->taxonomy . '/' . $category->slug;
+      $category->linkText = $category->title;
+      $category->linkType = 'to';
+      $category->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/term.php?taxonomy=';
+      $category->editUrl = $category->editUrl . $category->taxonomy;
+      $category->editUrl = $category->editUrl . '&tag_ID=' . $category->term_id;
+      $args = array(
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+          array(
+            'taxonomy' => $taxonomy,
+            'field' => 'id',
+            'terms' => $category->term_id
+          )
+        )
+      );
+      $query = new WP_Query( $args );
+      $items = array();
+      foreach ($query->posts as &$post) {
+        $item = new stdClass();
+        $item->ID = $post->ID;
+        $item->post_type = $post->post_type;
+        $item->post_title = $post->post_title;
+        $item->post_name = $post->post_name;
+        $item->post_modified = $post->post_modified;
+        $item->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=' . $item->ID . '&action=edit';
+        $acf = get_fields($post);
+        $item->acf = $acf;
+        $items[] = $item;
+      }
+      $category->items = $items;
+      $response->data->tips->categories[] = $category;
+      /// End Categories & Items
+    }
+  }
+  ///////// End Tips page
 
-  ///////// About page ID =
+  ///////// About page (wordpress ID = 510)
   $about_id = 510;
   $response->data->about = new stdClass();
   $response->data->about->post = get_post($about_id);
-  $response->data->about->act = get_fields($about_id);
+  unset($response->data->about->post->post_password);
+  unset($response->data->about->post->post_date_gmt);
+  unset($response->data->about->post->post_author);
+  unset($response->data->about->post->menu_order);
+  unset($response->data->about->post->post_excerpt);
+  unset($response->data->about->post->comment_status);
+  unset($response->data->about->post->pinged);
+  unset($response->data->about->post->ping_status);
+  unset($response->data->about->post->to_ping);
+  unset($response->data->about->post->post_modified_gmt);
+  unset($response->data->about->post->post_content_filtered);
+  unset($response->data->about->post->post_mime_type);
+  unset($response->data->about->post->comment_count);
+  unset($response->data->about->post->filter);
+  unset($response->data->about->post->guid);
   $response->data->about->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$about_id.'&action=edit';
 
-  ///////// Recipe page ID =
-  $recipe_id = 553;
-  $response->data->recipe = new stdClass();
-  $response->data->recipe->post = get_post($recipe_id);
-  $response->data->recipe->act = get_fields($recipe_id);
-  $response->data->recipe->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$recipe_id.'&action=edit';
 
 
+  $response->data->tips->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tip_id.'&action=edit';
 
 
   return $response;

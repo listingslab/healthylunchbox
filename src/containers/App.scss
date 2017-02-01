@@ -14,5 +14,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .edit-btn {
-  margin-left: 5px;
+  margin: 5px;
+}
+
+.margin-top-25{
+  margin-top: 25px
+}
+
+.raised-page {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 20px;
+
+  /* x-offset, bottom-offset, spread, size */
+  box-shadow: 0 8px 25px 2px #a8a094;
 }
