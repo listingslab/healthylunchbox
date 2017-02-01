@@ -22,7 +22,7 @@ class Recipes extends Component {
     };
   }
 
-  makeMarkup(){
+  makeMarkup() {
     return { __html: cms.app.data.recipes.post.post_content };
   }
 
@@ -50,7 +50,7 @@ class Recipes extends Component {
             className="btn btn-success recipe-btn"
           >
             <h3>{categories[i].title || ''}</h3>
-
+            <p>{categories[i].subTitle || ''}</p>
           </Link>
         </div>
       );

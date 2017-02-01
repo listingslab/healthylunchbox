@@ -83,40 +83,11 @@ class App extends Component {
     const showCookies = false;
     const showDeleteCookies = true;
     const showSuppress = true;
-
     this.showMessages = true;
     const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
     if (HLBcookieSuppress === 'yes' || this.returningUser) {
       this.showMessages = false;
     }
-
-    if (!this.showMessages) {
-      return (
-        <div className="template-app">
-          <Navigation />
-          <div className="container">{children}</div>
-          <Footer />
-        </div>
-      );
-    }
-    return (
-      <div className="template-app">
-        <div id="message">
-          <Message
-            type={messageType}
-            showDismiss={showDismiss}
-            showCookies={showCookies}
-            showDeleteCookies={showDeleteCookies}
-            showSuppress={showSuppress}
-            title={title}
-            message={message}
-             />
-        </div>
-        <Navigation />
-        <div className="container">{children}</div>
-        <Footer />
-      </div>
-    );
   }
 }
 

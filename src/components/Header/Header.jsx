@@ -1,4 +1,5 @@
 /* global editor */
+/* global cms */
 /**
  * Created by Chris Dorward on 31/01/2017
  * components/Header/Header
@@ -8,16 +9,17 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import './Header.scss';
 
-function Header(props) {
+function Header() {
   const className = 'header container';
   const navigation = [];
-  for (let i = 0; i < props.navItems.length; i += 1) {
+  const navItems = cms.app.data.navigation;
+  for (let i = 0; i < navItems.length; i += 1) {
     navigation.push(
       <Link
         key={`navItem_${i}`}
         className="nav-link"
-        to={props.navItems[i].url}
-        >{props.navItems[i].title}</Link>
+        to={navItems[i].url}
+        >{navItems[i].title}</Link>
     );
   }
   return (
@@ -37,7 +39,7 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  navItems: PropTypes.array.isRequired
+  navItems: PropTypes.array
 };
 
 export default Header;
