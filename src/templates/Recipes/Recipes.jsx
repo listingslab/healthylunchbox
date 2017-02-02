@@ -39,19 +39,29 @@ class Recipes extends Component {
     const categoriesArr = [];
     const categories = cms.app.data.recipes.categories;
     for (let i = 0; i < categories.length; i += 1) {
-      const catKey = `cat_${i}`;
+      const key = `cat_${i}`;
+      const image = (
+        <div className="container">
+            <img
+              alt={categories[i].title}
+              src={categories[i].image}
+              className="img-responsive pull-right card-category-image"
+            />
+        </div>);
       categoriesArr.push(
         <div
-          key={catKey}
-          className="recipe col-sm-12 col-md-6 col-lg-4"
+          key={key}
+          className="col-md-6"
         >
-          <Link
-            to={categories[i].route}
-            className="btn btn-success recipe-btn"
-          >
-            <h3>{categories[i].title || ''}</h3>
-            <p>{categories[i].subTitle || ''}</p>
-          </Link>
+          <div className="card-category">
+              {image}
+              <div className="card-color-overlay" />
+                <div className="card-center-overlay-text">
+                <h2>{categories[i].title || ''}</h2>
+                <p>{categories[i].subTitle || ''}</p>
+              </div>
+            <div className="recipe-center-overlay">61 RECIPES</div>
+          </div>
         </div>
       );
     }

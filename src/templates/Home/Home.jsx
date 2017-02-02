@@ -86,46 +86,32 @@ class Home extends Component {
 
         <div className="container raised-page margin-top-25">
 
-          <div className="container col-md-6 margin-top-25">
+          <div className="container col-md-6 margin-top-10">
             <h3>Featured recipes</h3>
-            <div className="container">
-              <div className="row margin-top-10">
-                <Link
-                  className=""
-                  to="/recipes"
-                >Recipes page</Link>
-              </div>
-              {featuredRecipes}
-            </div>
+            <Link
+              className=""
+              to="/recipes"
+            >Recipes page</Link>
+            {featuredRecipes}
           </div>
 
-          <div className="container col-md-6 margin-top-25">
+          <div className="container col-md-6 margin-top-10">
             <h3>Featured tips</h3>
-              <div className="container">
-                <div className="row margin-top-10">
-                  <Link
-                    className=""
-                    to="/tips"
-                  >Tips page</Link>
-                </div>
-                {featuredTips}
-              </div>
+            <Link
+              className=""
+              to="/tips"
+            >Tips page</Link>
+            {featuredTips}
           </div>
 
         </div>
 
-        <div className="container raised-page margin-top-25">
-          <h3>Featured Category</h3>
-          <div className="container col-md-6">
-            <div className="container">
-              <div className="row margin-top-10">
-                <Link
-                  className="btn btn-success"
-                  to="/recipes/packed-lunches"
-                >Packed Lunches</Link>
-              </div>
-            </div>
-          </div>
+        <div className="container margin-top-25">
+          <h3>Featured category</h3>
+          <Link
+            className="btn btn-success"
+            to="/recipes/packed-lunches"
+          >Packed Lunches</Link>
         </div>
 
       </div>
