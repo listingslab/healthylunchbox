@@ -48,21 +48,26 @@ class Recipes extends Component {
               className="img-responsive pull-right card-category-image"
             />
         </div>);
+        // console.log(categories[i]);
       categoriesArr.push(
-        <div
+        <Link
           key={key}
-          className="col-md-6"
+          to={categories[i].route}
         >
-          <div className="card-category">
-              {image}
-              <div className="card-color-overlay" />
-                <div className="card-center-overlay-text">
-                <h2>{categories[i].title || ''}</h2>
-                <p>{categories[i].subTitle || ''}</p>
-              </div>
-            <div className="recipe-center-overlay">61 RECIPES</div>
+          <div
+            className="col-md-6"
+          >
+            <div className="card-category">
+                {image}
+                <div className="card-color-overlay" />
+                  <div className="card-center-overlay-text">
+                  <h2>{categories[i].title || ''}</h2>
+                  <p>{categories[i].subTitle || ''}</p>
+                </div>
+              <div className="recipe-center-overlay">61 RECIPES</div>
+            </div>
           </div>
-        </div>
+        </Link>
       );
     }
 

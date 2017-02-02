@@ -17,9 +17,9 @@ class Item extends Component {
   }
 
   render() {
-    console.log(this.props.routeParams.slug);
+    // console.log(this.props.routeParams.slug);
     // get details of whatever item this is from cms store
-    console.log(cms);
+    // console.log(cms);
     return (
       <div className="recipe-item container">
         {this.props.routeParams.slug}
