@@ -22,7 +22,7 @@ class Item extends Component {
     console.log(cms);
     return (
       <div className="recipe-item container">
-        item
+        {this.props.routeParams.slug}
       </div>
     );
   }
