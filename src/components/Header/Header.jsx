@@ -6,11 +6,10 @@
  */
 
 import React, { PropTypes } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import './Header.scss';
 
 function Header() {
-
   const navigation = [];
   const navItems = cms.app.data.navigation || [];
   for (let i = 0; i < navItems.length; i += 1) {
@@ -22,23 +21,59 @@ function Header() {
         >{navItems[i].title}</Link>
     );
   }
-  const className = 'header container';
+  // const className = 'header container';
   return (
-    <div className={className}>
+    <div className="header container">
+      <div className="row">
+        <div className="col-sm-8 col-xs-2 col-sm-push-2">
+          <nav className="navbar navbar-default navbar-whole">
+            <div className="container-fluid" id="nav">
+              <div className="navbar-header ">
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar" />
+                  <span className="icon-bar" />
+                  <span className="icon-bar" />
+                  <span className="icon-text">MENU</span>
+                </button>
+              </div>
+              <div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav ">
+                  <li><a href="/healthy-lunch-box"><h4>LUNCH BOX BUILDER</h4></a></li>
+                  <li><a href="/recipes"><h4>RECIPES &amp; IDEAS</h4></a></li>
+                  <li><a href="/tips"><h4>TIPS</h4></a></li>
+                  <li><a href="/about"><h4>ABOUT</h4></a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
 
-      <div className="row margin-bottom-25">
-        <div className="logo pull-left">
-          <Link
-            to="/"
+        <div className="col-sm-2 col-xs-3 col-sm-pull-8">
+          <a
+            href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
           >
-            <img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
-          </Link>
+            <img
+              alt="Healhy Lunch Box"
+              src="/img/logos/HLB_logo-90.png"
+              className="img-responsive header-logo-left "
+            />
+          </a>
         </div>
-        <div className="nav pull-right">
-          {navigation}
+
+        <div className="col-sm-2 col-xs-7">
+          <a
+            href="/"
+            title="Eat it to beat it"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/img/logos/EITBI.png" alt="Eat it to beat it" className="img-responsive header-logo-right" /></a>
         </div>
+
       </div>
     </div>
+
   );
 }
 
@@ -49,6 +84,22 @@ Header.propTypes = {
 export default Header;
 
 /*
+
+<div className={className}>
+
+  <div className="row margin-bottom-25">
+    <div className="logo pull-left">
+      <Link
+        to="/"
+      >
+        <img src="/img/logos/HLB_logo-90.png" alt="Healthy Lunch Box" />
+      </Link>
+    </div>
+    <div className="nav pull-right">
+      {navigation}
+    </div>
+  </div>
+</div>
 <Link
   className="context-buttons"
   onClick={browserHistory.goBack}
