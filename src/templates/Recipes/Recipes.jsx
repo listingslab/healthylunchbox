@@ -6,8 +6,8 @@
  */
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
+import CardCategory from '../../components/CardCategory/CardCategory';
 import './Recipes.scss';
 
 class Recipes extends Component {
@@ -18,26 +18,28 @@ class Recipes extends Component {
     super(props);
     this.state = {
       isLoaded: false,
+      post_content: cms.app.data.recipes.post.post_content || null,
+      recipes: cms.app.data.recipes || null,
       taxonomy: 'recipes'
     };
   }
 
   makeMarkup() {
-    return { __html: cms.app.data.recipes.post.post_content };
+    return { __html: this.state.post_content };
   }
 
   render() {
-    const title = cms.app.data.recipes.post.post_title || '';
+    const title = this.state.post_content || '';
     let editBtn = null;
     if (editor) {
       editBtn = (
         <EditLink
-          editUrl={cms.app.data.recipes.editUrl || ''}
+          editUrl={this.state.recipes.editUrl || ''}
         />
       );
     }
     const categoriesArr = [];
-    const categories = cms.app.data.recipes.categories;
+    const categories = this.state.recipes.categories;
     for (let i = 0; i < categories.length; i += 1) {
       const key = `cat_${i}`;
       const image = (
@@ -48,33 +50,28 @@ class Recipes extends Component {
               className="img-responsive pull-right card-category-image"
             />
         </div>);
-        // console.log(categories[i]);
       categoriesArr.push(
-        <Link
+        <div
           key={key}
-          to={categories[i].route}
+          className="col-md-6"
         >
-          <div
-            className="col-md-6"
-          >
-            <div className="card-category">
-                {image}
-                <div className="card-color-overlay" />
-                  <div className="card-center-overlay-text">
-                  <h2>{categories[i].title || ''}</h2>
-                  <p>{categories[i].subTitle || ''}</p>
-                </div>
-              <div className="recipe-center-overlay">61 RECIPES</div>
-            </div>
-          </div>
-        </Link>
+          <CardCategory
+            route={categories[i].route}
+            title={categories[i].title || ''}
+            subTitle={categories[i].subTitle || ''}
+            numberItems={categories[i].items.length}
+            colour="blue"
+            itemType="recipe"
+            image={categories[i].image}
+          />
+        </div>
       );
     }
 
     return (
       <div className="container">
         {editBtn}
-        <div className="raised-page" >
+        <div className="row" >
           <h1>{title}</h1>
           <div dangerouslySetInnerHTML={this.makeMarkup()} />
         </div>
@@ -87,7 +84,3 @@ class Recipes extends Component {
 }
 
 export default Recipes;
-
-/*
-  <p>{categories[i].subTitle || ''}</p>
-*/

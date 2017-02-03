@@ -8,9 +8,7 @@ function hlbapi_categories( WP_REST_Request $request ) {
   $response = new stdClass();
   $response->status = "get_categories";
   $response->message = "Returns categories & title for specified taxonomy";
-
   $response->data = new stdClass();
-  $response->data->code = 418;
   $taxonomy = $request['taxonomy'];
 
   if (isset ($taxonomy) ) {

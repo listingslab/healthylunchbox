@@ -8,6 +8,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
+import CardCategory from '../../components/CardCategory/CardCategory';
 import './Tips.scss';
 
 class Tips extends Component {
@@ -40,31 +41,33 @@ class Tips extends Component {
     const categories = cms.app.data.tips.categories;
 
     for (let i = 0; i < categories.length; i += 1) {
-      const catKey = `cat_${i}`;
+      const key = `cardcat_${i}`;
       // console.log(categories[i].route);
       categoriesArr.push(
         <div
-          key={catKey}
-          className="tip col-sm-12 col-md-6 col-lg-4"
+          key={key}
+          className="col-md-6"
         >
-          <Link
-            to={categories[i].route}
-            className="btn btn-warning tip-btn"
-          >
-            <h3>{categories[i].title || ''}</h3>
-            <p>{categories[i].subTitle || ''}</p>
-          </Link>
+          <CardCategory
+            route={categories[i].route}
+            title={categories[i].title || ''}
+            subTitle={categories[i].subTitle || ''}
+            numberItems={10}
+            colour="green"
+            itemType="tip"
+            image={categories[i].image}
+          />
         </div>
       );
     }
     return (
       <div className="container">
         {editBtn}
-          <div className="raised-page" >
+          <div className="row" >
             <h1>{title}</h1>
             <div dangerouslySetInnerHTML={this.makeMarkup()} />
           </div>
-          <div className="margin-top-25" >
+          <div className="row margin-top-25" >
             {categoriesArr}
           </div>
       </div>

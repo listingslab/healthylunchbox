@@ -12,7 +12,7 @@ import './Header.scss';
 function Header() {
 
   const navigation = [];
-  const navItems = cms.app.data.navigation;
+  const navItems = cms.app.data.navigation || [];
   for (let i = 0; i < navItems.length; i += 1) {
     navigation.push(
       <Link
@@ -29,10 +29,6 @@ function Header() {
       <div className="row margin-bottom-25">
         <div className="logo pull-left">
           <Link
-            className="context-buttons"
-            onClick={browserHistory.goBack}
-          ><span className="glyphicon glyphicon-arrow-left" />&nbsp;Back</Link>
-          <Link
             to="/"
           >
             <img src="/img/HLB_logo.png" alt="Healthy Lunch Box" />
@@ -41,10 +37,6 @@ function Header() {
         <div className="nav pull-right">
           {navigation}
         </div>
-          <div className="margin-bottom-25 pull-right">
-
-          </div>
-
       </div>
     </div>
   );
@@ -55,3 +47,10 @@ Header.propTypes = {
 };
 
 export default Header;
+
+/*
+<Link
+  className="context-buttons"
+  onClick={browserHistory.goBack}
+><span className="glyphicon glyphicon-arrow-left" />&nbsp;Back</Link>
+*/

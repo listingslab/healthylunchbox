@@ -55,6 +55,8 @@ function hlbapi_app( WP_REST_Request $request ) {
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
     $tempObj->itemModified = $post->post_modified;
+    $image = get_fields($post->ID);
+    $tempObj->image = $image['image']['url'];
     $featured_recipes[] = $tempObj;
   }
   $response->data->home_page->featured_recipes = $featured_recipes;
@@ -80,6 +82,8 @@ function hlbapi_app( WP_REST_Request $request ) {
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
     $tempObj->itemModified = $post->post_modified;
+    $image = get_fields($post->ID);
+    $tempObj->image = $image['image']['url'];
     $featured_tips[] = $tempObj;
   }
   $response->data->home_page->featured_tips = $featured_tips;
@@ -159,6 +163,7 @@ function hlbapi_app( WP_REST_Request $request ) {
   }
   ///////// END Recipes & Ideas  page (wordpress ID = 553)
 
+
   ///////// Tips Categories & Items (wordpress ID = 561)
   $tip_id = 561;
   $response->data->tips = new stdClass();
@@ -219,6 +224,8 @@ function hlbapi_app( WP_REST_Request $request ) {
         $item = new stdClass();
         $item->ID = $post->ID;
         $item->post_type = $post->post_type;
+        $acf = get_fields($post->ID);
+        $item->image = $acf['image'];
         $item->post_title = $post->post_title;
         $item->post_name = $post->post_name;
         $item->post_modified = $post->post_modified;

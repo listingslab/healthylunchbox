@@ -10,39 +10,36 @@ import { Link } from 'react-router';
 import './CardCategory.scss';
 
 function CardCategory(props) {
-  let className = '';
-  if (props.displayType === 'featured') {
-    className = 'card-category col-md-12';
-  } else {
-    className = 'card-category col-md-6';
-  }
+  // console.log(props.acf.image.sizes.medium);
+  let image = props.image || '/img/defaults/CardCategory.jpg';
   return (
-    <Link
-      to={props.route || ''}
-    >
-      <div className={className}>
-        <div className="card-center-overlay-text">
+    <div className="card-category">
+      <Link
+        to={props.route}
+      >
+        <img
+          alt=""
+          src={image}
+          className="img-responsive card-category-image"
+        />
+      <div className={`card-color-overlay card-color-overlay-${props.colour}`} />
+          <div className={`card-center-overlay-text card-color-overlay-text-${props.colour}`}>
           <h2>{props.title || ''}</h2>
           <p>{props.subTitle || ''}</p>
         </div>
-      </div>
-    </Link>
+        <div className="recipe-center-overlay">{props.numberItems} RECIPES</div>
+      </Link>
+    </div>
   );
 }
 
 CardCategory.propTypes = {
   route: PropTypes.string.isRequired,
-  displayType: PropTypes.string.isRequired,
+  numberItems: PropTypes.number.isRequired,
+  itemType: PropTypes.string.isRequired,
+  colour: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired
 };
 
 export default CardCategory;
-
-/*
-<img src="/img/bg_CardCategory.jpg" className="img-responsive" alt={props.title || ''} />
-<div className="card-color-overlay"></div>
-  <div className="card-center-overlay">
-
-  </div>
-*/

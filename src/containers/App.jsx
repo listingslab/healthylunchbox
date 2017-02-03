@@ -5,7 +5,6 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import { Link, browserHistory } from 'react-router';
 import cookie from 'react-cookie';
 import $ from 'jquery';
 import Loader from '../components/Loader/Loader';
@@ -45,7 +44,7 @@ class App extends Component {
     cms.HLBcookieCode = HLBcookieCode;
     if (cms.init === undefined) {
       const api = new API(this.state.endPoint);
-      api.getDataIfNeeded(`${this.state.endPoint}`, this.apiCallback.bind(this));
+      api.getData(`${this.state.endPoint}`, this.apiCallback.bind(this));
     } else {
       this.reRender();
     }
@@ -59,6 +58,24 @@ class App extends Component {
 
   apiCallback(cmsData) {
     cms.app = cmsData;
+
+    // create a new items array on data
+    cms.items = [];
+    // Create an array of items. Each has a loaded value set to false
+    // Loop through init content and save items
+
+    // console.log(cms.app);
+    //
+    /*
+    const tempItem = {};
+    tempItem.isLoaded = false;
+    tempItem.ID = 123;
+    tempItem.slug = 'a-slug';
+    tempItem.post_type = 'recipe';
+    tempItem.data = {};
+    cms.items.push(tempItem);
+    */
+
     this.setState({
       isLoaded: true
     });

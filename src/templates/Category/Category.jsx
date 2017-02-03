@@ -6,12 +6,13 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
+import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 
 class Category extends Component {
   static propTypes = {
-    routeParams: PropTypes.any
+    routeParams: PropTypes.any,
+    route: PropTypes.any
   }
 
   getItemsInCatSlug(slug) {
@@ -32,7 +33,6 @@ class Category extends Component {
 
   render() {
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
-
     let editBtn = null;
     if (editor) {
       editBtn = (
@@ -42,34 +42,51 @@ class Category extends Component {
       );
     }
     const categoriesArr = [];
+    let itemType = 'unknown';
+    if (this.props.route.path.search('/recipes/') !== -1) {
+      itemType = 'recipe';
+    }
+    if (this.props.route.path.search('/tips/') !== -1) {
+      itemType = 'tip';
+    }
     const categories = category.items;
     for (let i = 0; i < categories.length; i += 1) {
-      // console.log();
-      const catKey = `cat_${i}`;
+      const key = `cat_${i}`;
+      // console.log(categories[i].image);
+      let image = '';
+      if (categories[i].acf.image !== false) {
+        image = categories[i].acf.image.url;
+      }
+      let icon = 'blue';
+      if (categories[i].post_type === 'tip') {
+        icon = 'green';
+      }
       categoriesArr.push(
-        <div
-          key={catKey}
-          className="recipe col-sm-12 col-md-6 col-lg-4"
-        >
-          <Link
-            to={`item/${category.items[i].post_name}`}
-            className="btn btn-danger recipe-btn"
-          >
-            <h3>{categories[i].post_title || ''}</h3>
-            <p>{categories[i].acf.short_description || ''}</p>
-          </Link>
+        <div key={key} className="col-md-6">
+          <CardRecipeItem
+            route={`/${itemType}/${categories[i].post_name}`}
+            title={categories[i].post_title}
+            subTitle={categories[i].acf.short_description || ''}
+            tabText={categories[i].post_type}
+            image={image}
+            icon={icon}
+            itemType={itemType}
+            acf={categories[i].acf || {}}
+          />
         </div>
       );
     }
     return (
       <div className="container">
         {editBtn}
-        <div className="row raised-page" >
-          <h1>{category.title}</h1>
-          <p>{category.subTitle}</p>
+        <div className="row" >
+          <div className="" >
+            <h1>{category.title}</h1>
+            <p>{category.subTitle}</p>
+          </div>
         </div>
 
-        <div className="margin-top-25">
+        <div className="row margin-top-25">
           {categoriesArr}
         </div>
       </div>

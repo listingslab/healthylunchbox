@@ -6,10 +6,10 @@
  */
 
 import React, { Component } from 'react';
-import Hero from '../../components/Hero/Hero';
-import Tile from '../../components/Tile/Tile';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
+import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
+import CardCategory from '../../components/CardCategory/CardCategory';
 
 class Home extends Component {
   constructor(props) {
@@ -44,36 +44,29 @@ class Home extends Component {
         />
       );
     }
-
     const featuredRecipes = [];
-    for (let i = 0; i < cms.app.data.home_page.featured_recipes.length; i += 1) {
+    const fr = cms.app.data.home_page.featured_recipes || [];
+    for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
+      // console.log(fr[i]);
       featuredRecipes.push(
         <div key={key} className="row margin-top-10">
-          <Link
-            className="btn btn-success"
-            to={`/recipe/${cms.app.data.home_page.featured_recipes[i].itemSlug}`}
-          >{cms.app.data.home_page.featured_recipes[i].title}</Link>
-        </div>
-      );
-    }
-
-    const featuredTips = [];
-    for (let i = 0; i < cms.app.data.home_page.featured_tips.length; i += 1) {
-      const key = `tip_${i}`;
-      featuredTips.push(
-        <div key={key} className="row margin-top-10">
-          <Link
-            className="btn btn-warning"
-            to={`/recipe/${cms.app.data.home_page.featured_tips[i].itemSlug}`}
-          >{cms.app.data.home_page.featured_tips[i].title}</Link>
+          <CardRecipeItem
+            route={`/recipe/${fr[i].itemSlug}`}
+            title={fr[i].title}
+            subTitle={fr[i].subTitle}
+            tabText="Featured Recipe"
+            itemType="recipe"
+            image={fr[i].image}
+            icon="orange"
+          />
         </div>
       );
     }
 
     return (
-      <div className="home">
-        <div className="container raised-page">
+      <div className="home container">
+        <div className="row">
           {editBtn}
           <h1>{cms.app.data.home_page.hero.data.heroTitle}</h1>
           <p>{cms.app.data.home_page.hero.data.heroSubTitle}</p>
@@ -84,56 +77,36 @@ class Home extends Component {
           {cms.app.data.home_page.hero.data.linkText}</Link>
         </div>
 
-        <div className="container raised-page margin-top-25">
-
-          <div className="container col-md-6 margin-top-10">
-            <h3>Featured recipes</h3>
-            <Link
-              className=""
-              to="/recipes"
-            >Recipes page</Link>
-            {featuredRecipes}
-          </div>
-
-          <div className="container col-md-6 margin-top-10">
-            <h3>Featured tips</h3>
-            <Link
-              className=""
-              to="/tips"
-            >Tips page</Link>
-            {featuredTips}
-          </div>
-
+        <div className="margin-top-10 col-md-4">
+          {featuredRecipes}
         </div>
 
-        <div className="container margin-top-25">
-          <h3>Featured category</h3>
-          <Link
-            className="btn btn-success"
-            to="/recipes/packed-lunches"
-          >Packed Lunches</Link>
-        </div>
+        <div className="margin-top-25 col-md-8">
 
+          <CardCategory
+            route="/recipes/packed-lunches"
+            title="Packed lunches"
+            subTitle="link to category"
+            numberItems={3}
+            itemType="recipe"
+            colour="green"
+            image="http://api.healthylunchbox.com.au/wp-content/uploads/onions.jpg"
+          />
+
+          <CardCategory
+            route="/tips/grandmas-wisdom"
+            title="Grandma's wisdom"
+            subTitle="Wisdom is perhaps the scarcest resource in our world today."
+            numberItems={4}
+            itemType="tip"
+            colour="green"
+            image="http://api.healthylunchbox.com.au/wp-content/uploads/onions.jpg"
+          />
+
+        </div>
       </div>
     );
   }
 }
 
 export default Home;
-
-/*
-<div className="row">
-  {featuredItems}
-</div>
-
-<Hero
-  title={this.state.cmsData.heroTitle || 'Title'}
-  subTitle={this.state.cmsData.heroSubTitle || 'Sub title'}
-  linkUrl={this.state.cmsData.linkUrl || '/'}
-  linkType={this.state.cmsData.linkType || 'to'}
-  linkText={this.state.cmsData.linkText || 'Click here'}
-  showEdit={editor}
-  editUrl={editUrl}
-  colour="blue"
-/>
-*/
