@@ -45,27 +45,31 @@ class Home extends Component {
     return (
       <div className="home container">
         {editBtn}
-        <h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
-        <h2>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h2>
-        <div className="margin-top-10 col-md-4">
-          {featuredRecipes}
-        </div>
-
-        <div className="margin-top-25 col-md-8">
-          <CardCategory
-            route="/recipes/packed-lunches"
-            title="Packed lunches"
-            subTitle="link to category"
-            numberItems={3}
-            itemType="recipe"
-            colour="purple"
-            image="http://api.healthylunchbox.com.au/wp-content/uploads/onions.jpg"
-          />
-        </div>
-
       </div>
     );
   }
 }
 
 export default Home;
+
+/*
+
+<h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
+<h2>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h2>
+
+<div className="margin-top-10 col-md-4">
+  {featuredRecipes}
+</div>
+
+<div className="margin-top-25 col-md-8">
+  <CardCategory
+    route="/recipes/packed-lunches"
+    title="Packed lunches"
+    subTitle="link to category"
+    numberItems={3}
+    itemType="recipe"
+    colour="purple"
+    image="http://api.healthylunchbox.com.au/wp-content/uploads/onions.jpg"
+  />
+</div>
+*/

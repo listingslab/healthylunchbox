@@ -6,6 +6,8 @@
 
 html, body, #root {
   font-family: 'Arial';
+  font-size: 16px;
+  line-height: 26px;
   background: $hlb-background;
   color: $hlb-text;
 }
@@ -15,15 +17,23 @@ h1, h2, h3, h4, h5, h6 {
   color: $hlb-blue-dark;
 }
 
-h1 { font-size: 40px; }
-h2 { font-size: 36px; }
-h3 { font-size: 28px; }
-h4 { font-size: 18px; }
-h5 { font-size: 16px; }
-h6 { font-size: 14px; }
+h1 {
+  font-size: 40px;
+  color: $hlb-titles;
+}
+
+h2 { font-size: 36px; color: $hlb-titles; }
+h3 { font-size: 28px; color: $hlb-titles; }
+h4 { font-size: 18px; color: $hlb-titles; }
+h5 { font-size: 16px; color: $hlb-titles; }
+h6 { font-size: 14px; color: $hlb-titles; }
 
 a, a:hover, a:visited, a:active a:link {
   text-decoration: none;
+}
+
+table tr td {
+  padding: 15px;
 }
 
 .proximity-btns {

@@ -50,25 +50,29 @@ function Header() {
         </div>
 
         <div className="col-sm-2 col-xs-3 col-sm-pull-8">
-          <a
-            href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
+          <Link
+            to="/"
           >
             <img
               alt="Healhy Lunch Box"
               src="/img/logos/HLB_logo-90.png"
               className="img-responsive header-logo-left "
             />
-          </a>
+        </Link>
         </div>
 
         <div className="col-sm-2 col-xs-7">
-          <a
-            href="/"
+          <Link
+            to="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
             title="Eat it to beat it"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/logos/EITBI.png" alt="Eat it to beat it" className="img-responsive header-logo-right" /></a>
+            <img
+              src="/img/logos/EITBI.png"
+              alt="Eat it to beat it"
+              className="img-responsive header-logo-right"
+            /></Link>
         </div>
 
       </div>
@@ -82,26 +86,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-/*
-
-<div className={className}>
-
-  <div className="row margin-bottom-25">
-    <div className="logo pull-left">
-      <Link
-        to="/"
-      >
-        <img src="/img/logos/HLB_logo-90.png" alt="Healthy Lunch Box" />
-      </Link>
-    </div>
-    <div className="nav pull-right">
-      {navigation}
-    </div>
-  </div>
-</div>
-<Link
-  className="context-buttons"
-  onClick={browserHistory.goBack}
-><span className="glyphicon glyphicon-arrow-left" />&nbsp;Back</Link>
-*/
