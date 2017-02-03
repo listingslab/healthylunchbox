@@ -14,11 +14,10 @@ function Header() {
   const navItems = cms.app.data.navigation || [];
   for (let i = 0; i < navItems.length; i += 1) {
     navigation.push(
-      <Link
-        key={`navItem_${i}`}
+      <li key={`navItem_${i}`}><Link
         className="nav-link"
         to={navItems[i].url}
-        >{navItems[i].title}</Link>
+        ><h4>{navItems[i].title.toUpperCase()}</h4></Link></li>
     );
   }
   // const className = 'header container';
@@ -39,10 +38,7 @@ function Header() {
               </div>
               <div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav ">
-                  <li><Link to="/healthy-lunch-box"><h4>LUNCH BOX BUILDER</h4></Link></li>
-                  <li><Link to="/recipes"><h4>RECIPES &amp; IDEAS</h4></Link></li>
-                  <li><Link to="/tips"><h4>TIPS</h4></Link></li>
-                  <li><Link to="/about"><h4>ABOUT</h4></Link></li>
+                  {navigation}
                 </ul>
               </div>
             </div>
