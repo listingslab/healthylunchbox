@@ -39,10 +39,10 @@ function Header() {
               </div>
               <div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav ">
-                  <li><a href="/healthy-lunch-box"><h4>LUNCH BOX BUILDER</h4></a></li>
-                  <li><a href="/recipes"><h4>RECIPES &amp; IDEAS</h4></a></li>
-                  <li><a href="/tips"><h4>TIPS</h4></a></li>
-                  <li><a href="/about"><h4>ABOUT</h4></a></li>
+                  <li><Link to="/healthy-lunch-box"><h4>LUNCH BOX BUILDER</h4></Link></li>
+                  <li><Link to="/recipes"><h4>RECIPES &amp; IDEAS</h4></Link></li>
+                  <li><Link to="/tips"><h4>TIPS</h4></Link></li>
+                  <li><Link to="/about"><h4>ABOUT</h4></Link></li>
                 </ul>
               </div>
             </div>

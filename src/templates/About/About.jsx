@@ -32,17 +32,8 @@ class About extends Component {
         <div className="raised-page" >
           <h1>{cms.app.data.about.post.post_title}</h1>
           <div dangerouslySetInnerHTML={this.makeMarkup()} />
-            <div className="text-center margin-top-25">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/"
-              >
-                <img height="75" alt="Eat it to beat it" src="/img/EatItToBeatIt_trans.png" />
-              </a>
-          </div>
         </div>
-      </div>
+    </div>
     );
   }
 }
