@@ -24,11 +24,10 @@ class Home extends Component {
     }
     const featuredRecipes = [];
     const fr = cms.app.data.home_page.featured_recipes || [];
-    // fr.length
-    for (let i = 0; i < 1; i += 1) {
+    for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
       featuredRecipes.push(
-        <div key={key} className="row margin-top-10">
+        <div key={key} className="row margin-top-10 col-md-4">
           <CardRecipeItem
             route={`/recipe/${fr[i].itemSlug}`}
             title={fr[i].title}
@@ -45,6 +44,20 @@ class Home extends Component {
     return (
       <div className="home container">
         {editBtn}
+        <div className="raised-page" >
+
+          <Link
+            to="/recipes"
+            className="pull-right"
+          >More recipes &amp; ideas</Link>
+
+          <h3>Lunch box recipes &amp; ideas</h3>
+          <div className="container">
+            <div className="row">
+              {featuredRecipes}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

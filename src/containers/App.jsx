@@ -108,7 +108,7 @@ class App extends Component {
     const showCookies = false;
     const showDeleteCookies = true;
     const showSuppress = true;
-    this.showMessages = true;
+    this.showMessages = false;
     const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
     if (HLBcookieSuppress === 'yes') {
       this.showMessages = false;

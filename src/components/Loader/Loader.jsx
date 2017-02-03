@@ -13,6 +13,11 @@ function Loader(props) {
   return (
     <div className="loader container row text-center">
       <img
+        className="logo-graphic"
+        src="/img/logos/HLB_logo-90.png"
+        alt="HLB"
+      /><br />
+      <img
         height="75"
         className="loader-graphic"
         alt="loading"

@@ -13,8 +13,8 @@ class HealthyLunchbox extends Component {
 
   render() {
     return (
-      <div className="hlb container raised-page">
-        <h1></h1>
+      <div className="hlb container">
+        <h1>Lunch Box Builder</h1>
       </div>
     );
   }

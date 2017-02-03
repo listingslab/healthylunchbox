@@ -35,7 +35,7 @@ function hlbapi_app( WP_REST_Request $request ) {
   $response->data->home_page->hero->data = get_fields($home_id);
   $featured_recipes = array ();
   $args = array(
-    'posts_per_page'	=> 2,
+    'posts_per_page'	=> 3,
     'post_type'		=> ['recipe'],
     'orderby'     => 'modified',
     'meta_key'		=> 'is_featured',
@@ -62,7 +62,7 @@ function hlbapi_app( WP_REST_Request $request ) {
   $response->data->home_page->featured_recipes = $featured_recipes;
   $featured_tips = array ();
   $args = array(
-    'posts_per_page'	=> 2,
+    'posts_per_page'	=> 3,
     'post_type'		=> ['tip'],
     'orderby'     => 'modified',
     'meta_key'		=> 'is_featured',
@@ -167,6 +167,8 @@ function hlbapi_app( WP_REST_Request $request ) {
     }
   }
   ///////// End Tips page
+
+  include 'app/recipes.php';
 
   ///////// About page (wordpress ID = 510)
   $about_id = 510;

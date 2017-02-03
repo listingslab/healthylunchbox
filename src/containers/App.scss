@@ -78,9 +78,10 @@ table tr td {
 }
 
 .raised-page {
+  margin-top: 50px;
   border: 1px solid #ddd;
   background: white;
-  padding: 20px;
+  padding: 30px;
 
   /* x-offset, bottom-offset, spread, size */
   box-shadow: 0 8px 25px 2px #a8a094;

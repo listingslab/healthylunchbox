@@ -13,3 +13,7 @@ Tags: accessibility-ready, rtl-language-support, translation-ready, wordpress
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo';
+}

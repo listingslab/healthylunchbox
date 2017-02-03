@@ -19,6 +19,7 @@ class Recipes extends Component {
     this.state = {
       isLoaded: false,
       post_content: cms.app.data.recipes.post.post_content || null,
+      post_title: cms.app.data.recipes.post.post_title || null,
       recipes: cms.app.data.recipes || null,
       taxonomy: 'recipes'
     };
@@ -29,7 +30,7 @@ class Recipes extends Component {
   }
 
   render() {
-    const title = this.state.post_content || '';
+    const title = this.state.post_title || '';
     let editBtn = null;
     if (editor) {
       editBtn = (

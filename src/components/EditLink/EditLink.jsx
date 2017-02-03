@@ -15,7 +15,7 @@ function EditLink(props) {
         <Link className="btn btn-default edit-btn"
           href={props.editUrl || ''}
           title="Edit content"
-      ><span className="glyphicon glyphicon-pencil" /> EDIT</Link>
+      ><span className="glyphicon glyphicon-pencil" /></Link>
     </div>
   );
 }
