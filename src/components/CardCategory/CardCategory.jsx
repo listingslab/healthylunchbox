@@ -11,7 +11,7 @@ import './CardCategory.scss';
 
 function CardCategory(props) {
   // console.log(props.acf.image.sizes.medium);
-  let image = props.image || '/img/defaults/CardCategory.jpg';
+  const image = props.image || '/img/defaults/CardCategory.jpg';
   return (
     <div className="card-category">
       <Link
@@ -39,6 +39,7 @@ CardCategory.propTypes = {
   itemType: PropTypes.string.isRequired,
   colour: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
   subTitle: PropTypes.string.isRequired
 };
 

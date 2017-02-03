@@ -23,15 +23,32 @@ class Item extends Component {
       isLoaded: false,
       slug: this.props.routeParams.slug
     };
+    this.item = {};
   }
 
   componentDidMount() {
-    if (cms.items[this.state.slug] === undefined) {
-      const api = new API(`item/${this.state.slug}`);
-      api.getData(`item/${this.state.slug}`, this.apiCallback.bind(this));
-    } else {
-      this.reRender();
+    let loadData = true;
+    if (cms.items === undefined) {
+      cms.items = [];
+      loadData = true;
+    } else if (cms.items !== undefined) {
+      for (let i = 0; i < cms.items.length; i += 1) {
+        if (cms.items[i].slug === this.state.slug) {
+          // console.log('FOUND! do not load');
+          this.item = cms.items[i];
+          loadData = false;
+          this.reRender();
+        }
+      }
     }
+    if (loadData) {
+      this.getData();
+    }
+  }
+
+  getData() {
+    const api = new API(`item/${this.state.slug}`);
+    api.getData(`item/${this.state.slug}`, this.apiCallback.bind(this));
   }
 
   reRender() {
@@ -40,17 +57,14 @@ class Item extends Component {
     });
   }
 
-  apiCallback(cmsData) {
-    // console.log(cmsData);
-    cms.app = cmsData;
-    // create a new items array on data
-    // console.log(cmsData);
-    cms.items[cmsData.data.post_name] = {
-      ID: cmsData.data.ID,
-      slug: cmsData.data.post_name,
-      data: cmsData.data
+  apiCallback(itemData) {
+    const item = {
+      ID: itemData.data.ID,
+      slug: itemData.data.post_name,
+      data: itemData.data
     };
-
+    this.item = item;
+    cms.items.push(item);
     this.setState({
       isLoaded: true
     });
@@ -61,16 +75,6 @@ class Item extends Component {
   }
 
   render() {
-    // http://api.healthylunchbox.com.au/wp-json/hlbapi/item/the-footlong
-    // console.log(cms.items);
-    let itemData = null;
-    let result = 'no action?';
-    for (let i = 0; i < cms.items.length; i += 1) {
-      if (cms.items[this.state.slug] !== undefined) {
-        itemData = cms.items[i];
-        itemLoaded = true;
-      }
-    }
     if (!this.state.isLoaded) {
       const loaderText = `Loading ${this.state.slug}`;
       const loader = (
@@ -81,37 +85,29 @@ class Item extends Component {
         </div>);
       return loader;
     }
-    const item = cms.items[this.state.slug];
-    // console.log(item);
     let editBtn = null;
     if (editor) {
       editBtn = (
         <EditLink
-          editUrl={`http://api.healthylunchbox.com.au/wp-admin/post.php?post=${item.ID}&action=edit`}
+          editUrl={`http://api.healthylunchbox.com.au/wp-admin/post.php?post=${this.item.ID}&action=edit`}
         />
       );
-    };
-    let image = <img src="/img/no-image.png" alt="set image" />;
-    if (item.data.acf.image !== false) {
-      image = <img src={item.data.acf.image.url} alt={item.data.title} />
     }
-
-
+    let image = (<img alt={this.item.data.title} src="/img/no-image.png" />);
+    if (this.item.data.acf.image !== false) {
+      image = (<img src={this.item.data.acf.image.url} alt={this.item.data.title} />);
+    }
     return (
       <div className="item container">
         {editBtn}
-        <h1>{item.data.title}</h1>
+        <h1>{this.item.data.title}</h1>
         {image}
-        <h2>{item.data.subTitle}</h2>
-        <p>This page is a <strong>{item.data.post_type}</strong> page</p>
-        <small>WordPress ID: <strong>{item.ID}</strong></small>
+        <h2>{this.item.data.subTitle}</h2>
+        <p>This page is a <strong>{this.item.data.post_type}</strong> page</p>
+        <small>WordPress ID: <strong>{this.item.ID}</strong></small>
       </div>
     );
   }
 }
 
 export default Item;
-
-/*
-<div dangerouslySetInnerHTML={this.createMarkup('')} />
-*/

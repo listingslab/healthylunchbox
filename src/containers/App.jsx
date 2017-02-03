@@ -58,24 +58,6 @@ class App extends Component {
 
   apiCallback(cmsData) {
     cms.app = cmsData;
-
-    // create a new items array on data
-    cms.items = [];
-    // Create an array of items. Each has a loaded value set to false
-    // Loop through init content and save items
-
-    // console.log(cms.app);
-    //
-    /*
-    const tempItem = {};
-    tempItem.isLoaded = false;
-    tempItem.ID = 123;
-    tempItem.slug = 'a-slug';
-    tempItem.post_type = 'recipe';
-    tempItem.data = {};
-    cms.items.push(tempItem);
-    */
-
     this.setState({
       isLoaded: true
     });

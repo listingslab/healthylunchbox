@@ -40,27 +40,31 @@ class Recipes extends Component {
     }
     const categoriesArr = [];
     const categories = this.state.recipes.categories;
+    const colours = ['purple', 'orange', 'green', 'blue'];
+    let colourIndex = -1;
     for (let i = 0; i < categories.length; i += 1) {
+      colourIndex += 1;
+      if (colourIndex === 4){
+        colourIndex = 0;
+      }
+      const colour = colours[colourIndex];
+      // console.log(colourIndex);
+      let cols = 'col-md-6';
+      if (i === 0) {
+        cols = 'col-md-12';
+      }
       const key = `cat_${i}`;
-      const image = (
-        <div className="container">
-            <img
-              alt={categories[i].title}
-              src={categories[i].image}
-              className="img-responsive pull-right card-category-image"
-            />
-        </div>);
       categoriesArr.push(
         <div
           key={key}
-          className="col-md-6"
+          className={cols}
         >
           <CardCategory
             route={categories[i].route}
             title={categories[i].title || ''}
             subTitle={categories[i].subTitle || ''}
             numberItems={categories[i].items.length}
-            colour="blue"
+            colour={colour}
             itemType="recipe"
             image={categories[i].image}
           />

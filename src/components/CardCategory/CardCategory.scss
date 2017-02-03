@@ -40,6 +40,10 @@ h2 {
   background: $hlb-blue-trans;
 }
 
+.card-color-overlay-purple {
+  background: $hlb-purple-trans;
+}
+
 .card-center-overlay-text {
   position: absolute;
   width: 70%;
@@ -62,6 +66,10 @@ h2 {
 
 .card-color-overlay-text-orange {
   background: $hlb-orange;
+}
+
+.card-color-overlay-text-purple {
+  background: $hlb-purple;
 }
 
 .recipe-center-overlay {

@@ -39,23 +39,34 @@ class Tips extends Component {
     }
     const categoriesArr = [];
     const categories = cms.app.data.tips.categories;
-
+    const colours = ['purple', 'orange', 'green', 'blue'];
+    let colourIndex = -1;
     for (let i = 0; i < categories.length; i += 1) {
+      colourIndex += 1;
+      if (colourIndex === 4){
+        colourIndex = 0;
+      }
+      const colour = colours[colourIndex];
+      // console.log(colourIndex);
+      let cols = 'col-md-6';
+      if (i === 0) {
+        cols = 'col-md-12';
+      }
       const key = `cardcat_${i}`;
       // console.log(categories[i].route);
       categoriesArr.push(
         <div
           key={key}
-          className="col-md-6"
+          className={cols}
         >
           <CardCategory
             route={categories[i].route}
             title={categories[i].title || ''}
             subTitle={categories[i].subTitle || ''}
             numberItems={10}
-            colour="green"
+            colour={colour}
             itemType="tip"
-            image={categories[i].image}
+            image={categories[i].image || ''}
           />
         </div>
       );
