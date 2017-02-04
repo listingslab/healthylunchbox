@@ -28,11 +28,19 @@ class About extends Component {
     }
     return (
       <div className="container">
-        {editBtn}
-        <div className="raised-page" >
-          <h1>{cms.app.data.about.post.post_title}</h1>
-          <div dangerouslySetInnerHTML={this.makeMarkup()} />
+        <div className="row">
+
+          <div className="raised-page" >
+            <h1>{cms.app.data.about.post.post_title}</h1>
+            <div dangerouslySetInnerHTML={this.makeMarkup()} />
+          </div>
+
         </div>
+
+        <div className="row margin-top-25">
+          {editBtn}
+        </div>
+
     </div>
     );
   }

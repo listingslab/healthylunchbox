@@ -22,7 +22,7 @@ function Header() {
   }
   // const className = 'header container';
   return (
-    <div className="header container">
+    <div id="hlb-header" className="header container">
       <div className="row">
         <div className="col-sm-8 col-xs-2 col-sm-push-2">
           <nav className="navbar navbar-default navbar-whole">

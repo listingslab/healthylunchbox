@@ -15,7 +15,6 @@ import Item from './templates/Item/Item';
 import NotFound from './templates/NotFound//NotFound';
 import Recipes from './templates/Recipes/Recipes';
 import Tips from './templates/Tips/Tips';
-import Snacks from './templates/Snacks/Snacks';
 
 const routes = (
   <Router>
@@ -30,7 +29,6 @@ const routes = (
       <Route path="/tip/:slug" component={Item} />
       <Route path="/item" component={Item} />
       <Route path="/item/:slug" component={Item} />
-      <Route path="/recipes/snacks" component={Snacks} />
       <Route path="/about" component={About} />
       <Route path="*" component={NotFound} />
     </Route>

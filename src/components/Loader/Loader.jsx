@@ -9,14 +9,21 @@ import React, { PropTypes } from 'react';
 import './Loader.scss';
 
 function Loader(props) {
-  const text = props.text || 'default';
-  return (
-    <div className="loader container row text-center">
+  let logo = null;
+  if (props.showLogo) {
+    logo = (
       <img
         className="logo-graphic"
         src="/img/logos/HLB_logo-90.png"
         alt="HLB"
-      /><br />
+      />
+    );
+  }
+  const text = props.text || 'default';
+  return (
+    <div className="loader container row text-center">
+      {logo}
+      <br />
       <div className="loader-text">
         <small><strong>{text}</strong></small>
       </div>
@@ -32,7 +39,8 @@ function Loader(props) {
 }
 
 Loader.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  showLogo: PropTypes.bool.isRequired
 };
 
 export default Loader;

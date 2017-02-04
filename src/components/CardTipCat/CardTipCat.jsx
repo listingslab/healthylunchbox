@@ -12,6 +12,7 @@ import './CardCategory.scss';
 function CardTipCat(props) {
   // console.log(props.acf.image.sizes.medium);
   const image = props.image || '/img/defaults/CardCategory.jpg';
+  // console.log(props);
   return (
     <div className="card-category">
       <Link
@@ -27,7 +28,6 @@ function CardTipCat(props) {
           <h2>{props.title || ''}</h2>
           <p>{props.subTitle || ''}</p>
         </div>
-        <div className="recipe-center-overlay">{props.numberItems} RECIPES</div>
       </Link>
     </div>
   );
@@ -35,8 +35,6 @@ function CardTipCat(props) {
 
 CardTipCat.propTypes = {
   route: PropTypes.string.isRequired,
-  numberItems: PropTypes.number.isRequired,
-  itemType: PropTypes.string.isRequired,
   colour: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string,

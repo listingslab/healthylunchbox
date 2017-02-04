@@ -9,11 +9,11 @@ import { Link, browserHistory } from 'react-router';
 import './Breadcrumb.scss';
 
 function Breadcrumb(props) {
-  console.log('Breadcrumb props');
-  console.log(props);
+  // console.log('Breadcrumb props');
+  // console.log(props);
 
   return (
-    <div className="hlb-breadcrumb container">
+    <div id="hlbBreadcrumb" className="hlb-breadcrumb container">
       <div className="row">
         <Link className=""
           to={'/'}

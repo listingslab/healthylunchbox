@@ -11,11 +11,11 @@ import './EditLink.scss';
 function EditLink(props) {
   // const text = props.text || 'default';
   return (
-    <div className="edit-link pull-right">
+    <div className="text-center">
         <Link className="btn btn-default edit-btn"
           href={props.editUrl || ''}
           title="Edit content"
-      ><span className="glyphicon glyphicon-pencil" /></Link>
+      ><span className="glyphicon glyphicon-pencil" />&nbsp;&nbsp;EDIT</Link>
     </div>
   );
 }

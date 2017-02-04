@@ -26,26 +26,28 @@ class Home extends Component {
     const fr = cms.app.data.home_page.featured_recipes || [];
     for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
+      // console.log(fr[i].freezable);
       featuredRecipes.push(
         <div key={key} className="col-md-4">
           <CardRecipeItem
             route={`/recipe/${fr[i].itemSlug}`}
-            title={fr[i].title}
-            subTitle={fr[i].subTitle}
-            tabText="Featured Recipe"
+            title={fr[i].title || ''}
+            subTitle={fr[i].subTitle || ''}
+            freezable={fr[i].freezable || false}
+            tabText="Freezable"
             itemType="recipe"
             image={fr[i].image}
-            icon="orange"
+            icon="freezable"
           />
         </div>
       );
     }
-    console.log(cms.app.data.home_page.hero.data.heroTitle);
+    // console.log(cms.app.data.home_page.hero.data.heroTitle);
     const linkText = 'More recipes & ideas';
     const headerText = 'Lunch box recipes & ideas';
     return (
       <div className="home container">
-        {editBtn}
+
         <div className="flat-page" >
             <div className="page-header">
               <Link
@@ -58,6 +60,9 @@ class Home extends Component {
               </div>
             </div>
         </div>
+
+        {editBtn}
+
       </div>
     );
   }
