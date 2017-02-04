@@ -32,6 +32,7 @@
     				<ul>
     					<li><a href="/wp-admin/">WordPress</a></li>
     				  <li><a href="http://beta.healthylunchbox.com.au/">Beta App</a></li>
+              <li><a href="http://localhost:8080/">http://localhost:8080</a></li>
     				</ul>
           </div>
 

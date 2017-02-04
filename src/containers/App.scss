@@ -22,11 +22,30 @@ h1 {
   color: $hlb-titles;
 }
 
-h2 { font-size: 36px; color: $hlb-titles; }
-h3 { font-size: 28px; color: $hlb-titles; }
-h4 { font-size: 18px; color: $hlb-titles; }
-h5 { font-size: 16px; color: $hlb-titles; }
-h6 { font-size: 14px; color: $hlb-titles; }
+h2 {
+  font-size: 36px;
+  color: $hlb-titles;
+}
+
+h3 {
+  font-size: 28px;
+  color: $hlb-titles;
+}
+
+h4 {
+  font-size: 18px;
+  color: $hlb-titles;
+}
+
+h5 {
+  font-size: 16px;
+  color: $hlb-titles;
+}
+
+h6 {
+  font-size: 14px;
+  color: $hlb-titles;
+}
 
 a, a:hover, a:visited, a:active a:link {
   text-decoration: none;
@@ -85,4 +104,11 @@ table tr td {
 
   /* x-offset, bottom-offset, spread, size */
   box-shadow: 0 8px 25px 2px #a8a094;
+}
+
+.flat-page {
+  margin-top: 50px;
+  border: 1px solid #ddd;
+  background: white;
+  padding: 30px;
 }
