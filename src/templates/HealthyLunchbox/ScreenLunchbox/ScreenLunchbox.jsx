@@ -6,10 +6,13 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import './ScreenLunchbox.scss';
-
 function ScreenLunchbox(props) {
   const text = props.text || 'default';
+
+  const alertMessage = () => {
+    alert('ok');
+  };
+
   return (
     <div className="screen-lunchbox">
       <div className="container">
@@ -17,25 +20,49 @@ function ScreenLunchbox(props) {
             <div className="builder-screen-1">
                 <div className="builder-screen-1-lunchbox">
                 <div className="row builder-1-row-responsive">
-                  <div className="col-xs-8 builder-screen-1-item ">
-                      <div className="row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
-                        <div className="col-xs-5 col-md-5 builder-screen-1-tile-center"><img src="/img/builder/bread-icon.png" className="builder-screen-1-img builder-screen-1-align img-responsive" /></div>
-                        <div className="col-xs-7 col-md-7 builder-screen-1-align"><h2>Breads &amp;
+                  <div className="col-xs-8 builder-screen-1-item">
+
+                    <Link
+                      onClick={alertMessage}
+                      >
+                      <div className="cereals row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
+                        <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
+                          <img
+                            src="/img/builder/bread-icon.png"
+                            className="builder-screen-1-img builder-screen-1-align img-responsive"
+                        /></div>
+                        <div className="col-xs-7 col-md-7 builder-screen-1-align">
+                          <h2>Breads &amp;
                         <br /> Cereals</h2></div>
                       </div>
-                      <div className="row builder-1-right-dash builder-screen-1-tile">
-                        <div className="col-xs-5 col-md-5 builder-screen-1-tile-center"><img src="/img/builder/carrot-icon.png" className="builder-screen-1-img builder-screen-1-align img-responsive" /></div>
-                        <div className="col-xs-7 col-md-7 builder-screen-1-align"><h2>Vegies &amp;
-                        <br /> Salad</h2></div>
+                    </Link>
+
+                    <Link
+                      onClick={alertMessage}
+                      >
+                      <div className="vegies hlb-border row builder-1-right-dash builder-screen-1-tile">
+                        <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
+                          <img
+                            src="/img/builder/carrot-icon.png"
+                            className="builder-screen-1-img builder-screen-1-align img-responsive"
+                          />
+                        </div>
+                        <div className="col-xs-7 col-md-7 builder-screen-1-align">
+                          <h2>Vegies &amp;<br /> Salad</h2>
+                        </div>
                       </div>
-                  </div>
-                  <div className="col-xs-4 builder-screen-1-item">
-                      <div className="row builder-screen-1-tile builder-screen-1-tile-center">
-                        <img src="/img/builder/water-icon.png" className="builder-screen-1-img img-responsive" />
-                          <h2>Water</h2>
-                      </div>
-                  </div>
+                    </Link>
+
+
+          </div>
+                <div className="col-xs-4 builder-screen-1-item">
+                    <div className="row builder-screen-1-tile builder-screen-1-tile-center">
+                      <img src="/img/builder/water-icon.png" className="builder-screen-1-img img-responsive" />
+                      <h2>Water</h2>
+                    </div>
                 </div>
+            </div>
+
 
                 <div className="row row-eq-height builder-1-row-responsive">
                   <div className="col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center ">

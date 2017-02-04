@@ -31,19 +31,21 @@ class HealthyLunchbox extends Component {
   }
 
   hideHeader() {
-    // $('#hlb-header').hide();
-    $('#hlbBreadcrumb').hide();
+    $('#hlb-header').hide();
+    // $('#hlbBreadcrumb').hide();
   }
 
   showHeader() {
-    // $('#hlb-header').show();
-    $('#hlbBreadcrumb').show();
+    $('#hlb-header').show();
+    // $('#hlbBreadcrumb').show();
   }
 
   render() {
     return (
       <div className="hlb container">
-        <ScreenLunchbox />
+        <div className="row">
+          <ScreenLunchbox />
+        </div>
       </div>
     );
   }

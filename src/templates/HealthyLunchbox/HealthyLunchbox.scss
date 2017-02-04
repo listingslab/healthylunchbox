@@ -6,6 +6,17 @@
 @import '../../vars.scss';
 
 .screen-lunchbox {
+  .hlb-border {
+    border: 1px solid $hlb-white;
+  }
+
+  .cereals, .vegies {
+    cursor: pointer;
+  }
+
+  h2 {
+    color: white;
+  }
 }
 
 /**
