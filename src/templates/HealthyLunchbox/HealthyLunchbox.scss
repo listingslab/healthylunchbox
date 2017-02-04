@@ -10,8 +10,12 @@
     border: 1px solid $hlb-white;
   }
 
-  .cereals, .vegies {
+  .cereals, .vegies, .water, .meat {
     cursor: pointer;
+  }
+
+  .cereals:hover, .vegies:hover, .water:hover, .meat:hover {
+    background: $hlb-blue-rollover;
   }
 
   h2 {

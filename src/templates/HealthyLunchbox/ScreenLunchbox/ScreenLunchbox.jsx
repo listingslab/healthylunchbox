@@ -22,10 +22,9 @@ function ScreenLunchbox(props) {
                 <div className="row builder-1-row-responsive">
                   <div className="col-xs-8 builder-screen-1-item">
 
-                    <Link
-                      onClick={alertMessage}
-                      >
-                      <div className="cereals row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
+                      <div
+                        onClick={alertMessage}
+                        className="cereals row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
                         <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                           <img
                             src="/img/builder/bread-icon.png"
@@ -35,15 +34,15 @@ function ScreenLunchbox(props) {
                           <h2>Breads &amp;
                         <br /> Cereals</h2></div>
                       </div>
-                    </Link>
 
-                    <Link
-                      onClick={alertMessage}
-                      >
-                      <div className="vegies hlb-border row builder-1-right-dash builder-screen-1-tile">
+
+                      <div
+                        onClick={alertMessage}
+                        className="vegies row builder-1-right-dash builder-screen-1-tile">
                         <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                           <img
                             src="/img/builder/carrot-icon.png"
+                            alt="Vegies and Salad"
                             className="builder-screen-1-img builder-screen-1-align img-responsive"
                           />
                         </div>
@@ -51,25 +50,41 @@ function ScreenLunchbox(props) {
                           <h2>Vegies &amp;<br /> Salad</h2>
                         </div>
                       </div>
-                    </Link>
 
 
           </div>
-                <div className="col-xs-4 builder-screen-1-item">
-                    <div className="row builder-screen-1-tile builder-screen-1-tile-center">
-                      <img src="/img/builder/water-icon.png" className="builder-screen-1-img img-responsive" />
-                      <h2>Water</h2>
-                    </div>
-                </div>
+
+
+                        <div
+                          onClick={alertMessage}
+                          className="water col-xs-4 builder-screen-1-item">
+                            <div className="row builder-screen-1-tile builder-screen-1-tile-center">
+                              <img
+                                src="/img/builder/water-icon.png"
+                                alt="Water"
+                                className="builder-screen-1-img img-responsive"
+                              />
+                              <h2>Water</h2>
+                            </div>
+                        </div>
+
+
             </div>
 
 
                 <div className="row row-eq-height builder-1-row-responsive">
-                  <div className="col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center ">
-                    <img src="/img/builder/meat-icon.png" className="builder-screen-1-img img-responsive" />
-                    <h2>Meats &amp;
-                    <br /> Alternatives</h2>
+                  <div
+                    onClick={alertMessage}
+                    className="hlb-border meat col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center" >
+                    <img
+                      alt="Meats and Alternatives"
+                      src="/img/builder/meat-icon.png"
+                      className="builder-screen-1-img img-responsive" />
+                    <h2>Meats &amp;<br /> Alternatives</h2>
                   </div>
+
+
+
                   <div className="col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
                     <img src="/img/builder/dairy-icon.png" className="builder-screen-1-img img-responsive" />
                     <h2>Dairy </h2>
