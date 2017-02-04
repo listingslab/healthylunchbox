@@ -8,6 +8,7 @@
 import React, { Component, PropTypes } from 'react';
 import $ from 'jquery';
 import { Link } from 'react-router';
+import verge from 'verge';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 
@@ -49,7 +50,13 @@ class Home extends Component {
     }
     const featuredRecipes = [];
     const fr = cms.app.data.home_page.featured_recipes || [];
-    for (let i = 0; i < fr.length; i += 1) {
+    let numToShow = 2;
+    if (verge.viewportW() > 1000) {
+      // console.log(verge.viewportH());
+      numToShow = 3;
+    }
+
+    for (let i = 0; i < numToShow; i += 1) {
       const key = `recipe_${i}`;
       // console.log(fr[i].freezable);
       featuredRecipes.push(

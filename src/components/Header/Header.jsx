@@ -21,8 +21,6 @@ function Header() {
         ><h4>{navItems[i].title.toUpperCase()}</h4></Link></li>
     );
   }
-  console.log(verge.viewportW());
-  console.log(verge.viewportH());
   // const className = 'header container';
   return (
     <div id="hlb-header" className="header container">
