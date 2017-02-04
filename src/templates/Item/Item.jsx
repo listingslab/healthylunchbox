@@ -77,10 +77,12 @@ class Item extends Component {
   render() {
     if (!this.state.isLoaded) {
       const loaderText = `Loading ${this.state.slug}`;
+      const showLogo = false;
       const loader = (
         <div className="container">
           <Loader
             text={loaderText}
+            showLogo={showLogo}
           />
         </div>);
       return loader;

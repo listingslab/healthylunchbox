@@ -16,12 +16,18 @@
   background: $hlb-white;
 }
 
+.card-recipe-img {
+  min-height: 200px;
+}
+
 .card-recipe-item-icon {
   padding-right: 5px;
 }
 
 .card-recipe-item-detail {
   margin: 20px;
+  height: 100px;
+  overflow: hidden;
 }
 
 .card-recipe-item-detail h4 {

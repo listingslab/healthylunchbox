@@ -5,13 +5,38 @@
  * templates/Home/Home
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
-import CardCategory from '../../components/CardCategory/CardCategory';
 
 class Home extends Component {
+  static propTypes = {
+    children: PropTypes.any
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  componentDidMount() {
+    this.hideBreadbrumb();
+  }
+
+  componentWillUnmount() {
+    this.showBreadbrumb();
+  }
+
+  hideBreadbrumb() {
+    $('#hlbBreadcrumb').hide();
+  }
+
+  showBreadbrumb() {
+    $('#hlbBreadcrumb').show();
+  }
 
   render() {
     let editBtn = null;
@@ -26,38 +51,43 @@ class Home extends Component {
     const fr = cms.app.data.home_page.featured_recipes || [];
     for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
+      // console.log(fr[i].freezable);
       featuredRecipes.push(
-        <div key={key} className="row margin-top-10 col-md-4">
+        <div key={key} className="col-md-4">
           <CardRecipeItem
             route={`/recipe/${fr[i].itemSlug}`}
-            title={fr[i].title}
-            subTitle={fr[i].subTitle}
-            tabText="Featured Recipe"
+            title={fr[i].title || ''}
+            subTitle={fr[i].subTitle || ''}
+            freezable={fr[i].freezable || false}
+            tabText="Freezable"
             itemType="recipe"
             image={fr[i].image}
-            icon="orange"
+            icon="freezable"
           />
         </div>
       );
     }
-    console.log(cms.app.data.home_page.hero.data.heroTitle);
+    // console.log(cms.app.data.home_page.hero.data.heroTitle);
+    const linkText = 'More recipes & ideas';
+    const headerText = 'Lunch box recipes & ideas';
     return (
       <div className="home container">
-        {editBtn}
-        <div className="raised-page" >
 
-          <Link
-            to="/recipes"
-            className="pull-right"
-          >More recipes &amp; ideas</Link>
-
-          <h3>Lunch box recipes &amp; ideas</h3>
-          <div className="container">
-            <div className="row">
-              {featuredRecipes}
+        <div className="flat-page" >
+            <div className="page-header">
+              <Link
+                to="/recipes"
+                className="pull-right hlb-page-btn"
+              ><h4>{linkText}</h4></Link>
+              <h3>{headerText}</h3>
+              <div className="page-header">
+                {featuredRecipes}
+              </div>
             </div>
-          </div>
         </div>
+
+        {editBtn}
+
       </div>
     );
   }

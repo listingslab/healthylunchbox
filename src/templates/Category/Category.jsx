@@ -42,13 +42,6 @@ class Category extends Component {
       );
     }
     const categoriesArr = [];
-    let itemType = 'unknown';
-    if (this.props.route.path.search('/recipes/') !== -1) {
-      itemType = 'recipe';
-    }
-    if (this.props.route.path.search('/tips/') !== -1) {
-      itemType = 'tip';
-    }
     const categories = category.items;
     for (let i = 0; i < categories.length; i += 1) {
       const key = `cat_${i}`;
@@ -57,20 +50,16 @@ class Category extends Component {
       if (categories[i].acf.image !== false) {
         image = categories[i].acf.image.url;
       }
-      let icon = 'blue';
-      if (categories[i].post_type === 'tip') {
-        icon = 'green';
-      }
+      const freezable = false;
       categoriesArr.push(
-        <div key={key} className="col-md-6">
+        <div key={key} className="col-md-4">
           <CardRecipeItem
-            route={`/${itemType}/${categories[i].post_name}`}
+            route={`/recipe/${categories[i].post_name}`}
             title={categories[i].post_title}
             subTitle={categories[i].acf.short_description || ''}
             tabText={categories[i].post_type}
+            frezable={freezable}
             image={image}
-            icon={icon}
-            itemType={itemType}
             acf={categories[i].acf || {}}
           />
         </div>
