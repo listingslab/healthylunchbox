@@ -29,7 +29,8 @@ develop into them. Create a feature. Develop that. Once it's done, merge into de
 ```
 git clone git@github.com:ustwo/healthy-lunch-box.git
 npm install
-npm start```
+npm start
+```
 
 Basta. That's it. You should be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
 
