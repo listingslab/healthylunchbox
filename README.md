@@ -5,6 +5,10 @@ Developed by usTwo for the Cancer Council, January 2017. This is a React Applica
 currently rsynced to an AWS server where it is accessed from it's url
 http://beta.healthylunchbox.com.au
 
+### Beta Login
+
+cc : healthy
+
 The app connects to a WordPress installation on another subdomain http://api.healthylunchbox.com.au/
 to get its content via WordPress's native JSON API support.
 
