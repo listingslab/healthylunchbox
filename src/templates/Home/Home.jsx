@@ -41,17 +41,21 @@ class Home extends Component {
       );
     }
     console.log(cms.app.data.home_page.hero.data.heroTitle);
+    const linkText = 'More recipes & ideas';
+    const headerText = 'Lunch box recipes & ideas';
     return (
       <div className="home container">
         {editBtn}
         <div className="flat-page" >
-            <Link
-              to="/recipes"
-              className="pull-right"
-            >More recipes &amp; ideas</Link>
-            <h3>Lunch box recipes &amp; ideas</h3>
-            <div className="row">
-              {featuredRecipes}
+            <div className="page-header">
+              <Link
+                to="/recipes"
+                className="pull-right hlb-page-btn"
+              ><h4>{linkText}</h4></Link>
+              <h3>{headerText}</h3>
+              <div className="page-header">
+                {featuredRecipes}
+              </div>
             </div>
         </div>
       </div>

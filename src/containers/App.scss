@@ -108,7 +108,19 @@ table tr td {
 
 .flat-page {
   margin-top: 50px;
-  border: 1px solid #ddd;
   background: white;
-  padding: 30px;
+  padding: 10px;
+}
+
+/* hlb-page-btn - a text button with a yello line underneath it */
+.hlb-page-btn {
+  border-bottom: 3px solid $hlb-yellow;
+}
+
+.hlb-page-btn:hover {
+  border-bottom: 3px solid $hlb-blue;
+}
+
+/* hlb-page-header => controls how the page titles look */
+.page-header {
 }

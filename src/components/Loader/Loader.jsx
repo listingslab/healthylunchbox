@@ -17,15 +17,16 @@ function Loader(props) {
         src="/img/logos/HLB_logo-90.png"
         alt="HLB"
       /><br />
+      <div className="loader-text">
+        <small><strong>{text}</strong></small>
+      </div>
       <img
         height="75"
         className="loader-graphic"
         alt="loading"
         src="/img/loader.gif"
       />
-      <div className="loader-text">
-        <small><strong>{text}</strong></small>
-      </div>
+
     </div>
   );
 }
