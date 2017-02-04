@@ -46,16 +46,24 @@ This is a complete Webpack build development environment which enables fast in-e
 Install IDE linting. It's proper helpful
 
 ```apm install linter-eslint```
-&
+
 ```apm install linter-stylelint```
 
 ### rsync commands for uploading to the AWS
 
-```rsync -avz /Users/listingslab/node/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/```
+Ask hooch to hook you up with the correct access for this to work.
 
-```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/```
+To upload latest build
 
-```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/wp-content/themes/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/wp-content/themes/```
+```
+rsync -avz /<your-path>/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/
+```
+
+To upload latest WordPress API
+
+```
+rsync -avz /<your-path>/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/
+```
 
 ### NPM Scripts
 
