@@ -8,9 +8,10 @@ http://beta.healthylunchbox.com.au
 The app connects to a WordPress installation on another subdomain http://api.healthylunchbox.com.au/
 to get its content via WordPress's native JSON API support.
 
-WordPress Logins
+### WordPress Logins
 
 admin : healthy (admin user)
+
 editor : lunchbox (editor role)
 
 The WordPress install folder is in /api, but you'll need to ask Hooch (Chris Langlands <hooch@ustwo.com>)
