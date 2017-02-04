@@ -34,32 +34,28 @@ npm start
 
 Basta. That's it. You should be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
 
-## Tech Stack Overview
+## Tech Stack
 
 A React frontend designed to consume a WordPress REST-API backend service found here:
 [healthylunchbox.com.au](http://api.healthylunchbox.com.au/).
 
 This is a complete Webpack build development environment which enables fast in-editor pre-testing of our React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
 
-### More Info
-Using Atom editor?
+### Using Atom editor?
+
 Install IDE linting. It's proper helpful
 
 ```apm install linter-eslint```
 &
 ```apm install linter-stylelint```
 
-## Bootstrap
-https://github.com/ustwo/healthy-lunch-box/tree/feature/phase2/src/bootstrap-sass
-
-## rsync commands for uploading to the AWS
+### rsync commands for uploading to the AWS
 
 ```rsync -avz /Users/listingslab/node/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/```
 
 ```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/```
 
 ```rsync -avz /Users/listingslab/node/healthy-lunch-box/api/wordpress/wp-content/themes/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/wp-content/themes/```
-
 
 ### NPM Scripts
 
