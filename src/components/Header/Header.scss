@@ -4,7 +4,9 @@
  */
 
 @import '../../vars.scss';
+
 .header {
+  border: 5px solid $hlb-border;
 }
 
 .navbar-whole {

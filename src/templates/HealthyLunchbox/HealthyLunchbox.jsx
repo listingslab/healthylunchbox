@@ -5,7 +5,6 @@
 
 import React, { Component, PropTypes } from 'react';
 import $ from 'jquery';
-import { Link } from 'react-router';
 import ScreenLunchbox from './ScreenLunchbox/ScreenLunchbox';
 import './HealthyLunchbox.scss';
 

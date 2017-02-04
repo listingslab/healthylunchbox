@@ -5,13 +5,38 @@
  * templates/Home/Home
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
-import CardCategory from '../../components/CardCategory/CardCategory';
 
 class Home extends Component {
+  static propTypes = {
+    children: PropTypes.any
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  componentDidMount() {
+    this.hideBreadbrumb();
+  }
+
+  componentWillUnmount() {
+    this.showBreadbrumb();
+  }
+
+  hideBreadbrumb() {
+    $('#hlbBreadcrumb').hide();
+  }
+
+  showBreadbrumb() {
+    $('#hlbBreadcrumb').show();
+  }
 
   render() {
     let editBtn = null;
