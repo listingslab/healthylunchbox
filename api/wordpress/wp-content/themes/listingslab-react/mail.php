@@ -6,7 +6,7 @@
   $subject = $from_name;
 
   $headers = "From: " . $from_name . "\r\n";
-  $headers .= "Reply-To: ".$from_name." <". $from_address . ">\r\n";
+  $headers .= "Reply-To: ". $from_address . "\r\n";
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 

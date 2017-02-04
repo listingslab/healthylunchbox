@@ -53,7 +53,7 @@ class Home extends Component {
       const key = `recipe_${i}`;
       // console.log(fr[i].freezable);
       featuredRecipes.push(
-        <div key={key} className="col-md-4">
+        <div key={key} className="col-md-4 col-sm-6">
           <CardRecipeItem
             route={`/recipe/${fr[i].itemSlug}`}
             title={fr[i].title || ''}
@@ -73,16 +73,16 @@ class Home extends Component {
     return (
       <div className="home container">
 
-        <div className="flat-page" >
+        <div className="" >
             <div className="page-header">
               <Link
                 to="/recipes"
                 className="pull-right hlb-page-btn"
               ><h4>{linkText}</h4></Link>
               <h3>{headerText}</h3>
-              <div className="page-header">
-                {featuredRecipes}
-              </div>
+            </div>
+            <div className="page-header">
+              {featuredRecipes}
             </div>
         </div>
 

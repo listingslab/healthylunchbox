@@ -6,7 +6,15 @@
 @import '../../vars.scss';
 
 .header {
-  border: 5px solid $hlb-border;
+  border: 3px solid $hlb-border;
+}
+
+.nav-link h4 {
+  color: $hlb-links;
+}
+
+.nav-link h4:hover {
+  color: $hlb-links-hover;
 }
 
 .navbar-whole {
@@ -19,10 +27,6 @@
 .navbar .navbar-nav {
   float: none;
   display: inline-block;
-}
-
-.navbar .nav-link {
-  color: pink;
 }
 
 .navbar .navbar-collapse {

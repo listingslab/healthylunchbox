@@ -5,13 +5,19 @@
 
 $hlb-background: #f8f8f8;
 
+$hlb-border: pink;
+
 $hlb-text: #4a4a4a;
 $hlb-black: #000;
 $hlb-white: #fff;
 
-$hlb-border: green;
+$hlb-blue: #0096d6;
+$hlb-blue-rollover: #14b2f5;
+$hlb-blue-trans: rgba(0, 150, 214, 0.5);
 
-$hlb-titles: #4a4a4a;
+$hlb-links-hover: $hlb-blue;
+$hlb-links: $hlb-text;
+$hlb-titles: $hlb-text;
 
 $hlb-grey-light: #f4f2ec;
 $hlb-grey-dark: #6b6b6b;
@@ -23,9 +29,7 @@ $hlb-yellow-trans: rgba(255, 207, 0, 0.5);
 $hlb-orange: #faa61a;
 $hlb-orange-trans: rgba(250, 166, 26, 0.5);
 
-$hlb-blue: #0096d6;
-$hlb-blue-rollover: #14b2f5;
-$hlb-blue-trans: rgba(0, 150, 214, 0.5);
+
 
 $hlb-green: #70b04a;
 $hlb-green-trans: rgba(112, 176, 74, 0.5);
