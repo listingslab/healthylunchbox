@@ -3,6 +3,8 @@
  * coponents/ScreenLunchbox/ScreenLunchbox
  */
 
- .screen-lunchbox {
-   border: 1px solid $hlb-border;
- }
+@import '../../../vars.scss';
+
+.screen-lunchbox {
+  border: 1px solid $hlb-black;
+}

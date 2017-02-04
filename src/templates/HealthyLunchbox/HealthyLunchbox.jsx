@@ -6,6 +6,7 @@
 import React, { Component, PropTypes } from 'react';
 import $ from 'jquery';
 import { Link } from 'react-router';
+import ScreenLunchbox from './ScreenLunchbox/ScreenLunchbox';
 import './HealthyLunchbox.scss';
 
 class HealthyLunchbox extends Component {
@@ -30,20 +31,19 @@ class HealthyLunchbox extends Component {
   }
 
   hideHeader() {
-    $('#hlb-header').hide();
+    // $('#hlb-header').hide();
     $('#hlbBreadcrumb').hide();
   }
 
   showHeader() {
-    $('#hlb-header').show();
+    // $('#hlb-header').show();
     $('#hlbBreadcrumb').show();
   }
 
   render() {
     return (
       <div className="hlb container">
-        #hlbNav
-        Use jquery to hide the top of the page
+        <ScreenLunchbox />
       </div>
     );
   }
