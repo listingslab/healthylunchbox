@@ -76,23 +76,13 @@ class Recipes extends Component {
 
     return (
       <div className="row">
-
         <Breadcrumb />
         <div className="container">
-
-          <div className="row" >
             <h1>{title}</h1>
             <div dangerouslySetInnerHTML={this.makeMarkup()} />
-          </div>
-
-          <div className="row margin-top-10" >
             {categoriesArr}
-          </div>
-
         </div>
-
         {editBtn}
-
       </div>
     );
   }

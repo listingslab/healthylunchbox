@@ -8,6 +8,7 @@
 import React, { Component, PropTypes } from 'react';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class Category extends Component {
   static propTypes = {
@@ -66,18 +67,14 @@ class Category extends Component {
       );
     }
     return (
-      <div className="container">
-        {editBtn}
-        <div className="row" >
-          <div className="" >
+      <div className="row">
+        <Breadcrumb />
+        <div className="container">
             <h1>{category.title}</h1>
             <p>{category.subTitle}</p>
-          </div>
+            {categoriesArr}
         </div>
-
-        <div className="row margin-top-25">
-          {categoriesArr}
-        </div>
+        {editBtn}
       </div>
     );
   }

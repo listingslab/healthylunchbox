@@ -76,6 +76,7 @@ class Item extends Component {
   }
 
   render() {
+    console.log(this.props);
     if (!this.state.isLoaded) {
       const loaderText = `Loading ${this.state.slug}`;
       const showLogo = false;
@@ -96,13 +97,7 @@ class Item extends Component {
         />
       );
     }
-    let image = (
-      <img
-        className="img-responsive"
-        alt={this.item.data.title}
-        src="/img/defaults/RecipeImage.jpg"
-        />
-      );
+    let image = null;
     if (this.item.data.acf.image !== false) {
       image = (
         <img
@@ -119,6 +114,8 @@ class Item extends Component {
             <h1>{this.item.data.title}</h1>
             {image}
           </div>
+        </div>
+        <div className="margin-top-25">
           {editBtn}
         </div>
       </div>
@@ -131,4 +128,10 @@ export default Item;
 /*
 <p>This page is a <strong>{this.item.data.post_type}</strong> page</p>
 <small>WordPress ID: <strong>{this.item.ID}</strong></small>
+
+<img
+  className="img-responsive item-img"
+  alt={this.item.data.title}
+  src="/img/defaults/RecipeImage.jpg"
+  />
 */

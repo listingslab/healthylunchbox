@@ -12,7 +12,11 @@ html, body, #root {
   color: $hlb-text;
 }
 
-.item-img{
+#root {
+  padding:30px;
+}
+
+.item-img {
   margin-top: 40px;
 }
 
@@ -31,6 +35,7 @@ html, body, #root {
 }
 
 .raised-page {
+  margin-top: 15px;
   border: 1px solid #ddd;
   background: white;
   padding: 25px;
