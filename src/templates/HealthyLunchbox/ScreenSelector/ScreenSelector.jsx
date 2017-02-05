@@ -9,12 +9,9 @@ import { Link, browserHistory } from 'react-router';
 import $ from 'jquery';
 
 function ScreenSelector(props) {
-  const gotoScreenLunchbox = (speed) => {
-    console.log(cms.builder.currentFoodgroup);
-
-  };
+  console.log(cms.app.data.foodgroups);
   console.log(props.foodgroup);
-  //console.log(cms.builder.currentFoodgroup);
+  //
   const fgs = cms.app.data.lunchbox.foodgroups;
   let foodgroupData = null;
   for (let i = 0; i < fgs.length; i += 1) {
@@ -37,11 +34,7 @@ function ScreenSelector(props) {
       <div className="row row-eq-height">
         <div className="col-sm-1 hidden-xs" />
         <div className="col-xs-2 col-sm-1">
-          <img
-            alt="HLB"
-            src="/img/builder/green-carrot.png"
-            className="img-responsive builder-screen-2-header-img"
-          />
+
         </div>
         <div className="col-xs-4 col-sm-4 builder-screen-2-header-title">
           <h2>{props.foodgroup || ''}</h2>
@@ -61,3 +54,11 @@ ScreenSelector.propTypes = {
 };
 
 export default ScreenSelector;
+
+/*
+<img
+  alt="HLB"
+  src="/img/builder/green-carrot.png"
+  className="img-responsive builder-screen-2-header-img"
+/>
+*/
