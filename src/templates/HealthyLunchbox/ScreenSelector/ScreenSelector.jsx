@@ -15,7 +15,15 @@ function ScreenSelector(props) {
   };
   console.log(props.foodgroup);
   //console.log(cms.builder.currentFoodgroup);
-  //console.log(cms.app.data.lunchbox);
+  const fgs = cms.app.data.lunchbox.foodgroups;
+  let foodgroupData = null;
+  for (let i = 0; i < fgs.length; i += 1) {
+    if (props.foodgroup === fgs[i].cat.slug) {
+      foodgroupData = fgs[i];
+    }
+  }
+  console.log(foodgroupData.cat.description);
+
   return (
     <div id="screen-selector" className="screen-selector margin-top-25">
       <div className="builder-screen-2-header">
@@ -39,8 +47,7 @@ function ScreenSelector(props) {
           <h2>{props.foodgroup || ''}</h2>
         </div>
         <div className="col-xs-6 col-sm-5 builder-screen-2-header-text">
-          <p>Eating vegies and salads helps maintain a healthy weight and can help to
-            prevent cancer.</p>
+          <p>{foodgroupData.cat.description || ''}</p>
         </div>
         <div className="col-md-1 hidden-xs" />
       </div>
@@ -50,6 +57,7 @@ function ScreenSelector(props) {
 }
 
 ScreenSelector.propTypes = {
+  foodgroup: PropTypes.string.isRequired
 };
 
 export default ScreenSelector;

@@ -34,6 +34,17 @@ class Foodgroup extends Component {
       <div className="hlb container">
         <div className="row">
           <ScreenSelector foodgroup={this.props.routeParams.foodgroup}/>
+
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+    					<div className="builder-2-card">
+    						<img src="assets/green-carrot.png" className="img-responsive builder-screen-2-card-img" />
+    							<div className="builder-2-card-text">
+    								<h4>Leftover baked vegies</h4>
+    								<p>Great in sandwiches or as snacks!</p>
+    							</div>
+
+    					</div>
+    		   		</div>
         </div>
       </div>
     );

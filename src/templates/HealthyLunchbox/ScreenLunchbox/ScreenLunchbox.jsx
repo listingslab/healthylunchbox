@@ -24,7 +24,7 @@ function ScreenLunchbox(props) {
                 <div className="row builder-1-row-responsive">
                   <div className="col-xs-8 builder-screen-1-item">
                       <div
-                        onClick={() => selectFoodgroup('cereal')}
+                        onClick={() => selectFoodgroup('breads-cereals')}
                         className="cereals row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
                         <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                           <img
@@ -38,7 +38,7 @@ function ScreenLunchbox(props) {
                       </div>
 
                       <div
-                        onClick={() => selectFoodgroup('vegies')}
+                        onClick={() => selectFoodgroup('vegetables-salads')}
                         className="vegies row builder-1-right-dash builder-screen-1-tile">
                         <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                           <img
@@ -71,7 +71,7 @@ function ScreenLunchbox(props) {
 
                 <div className="row row-eq-height builder-1-row-responsive">
                   <div
-                    onClick={() => selectFoodgroup('meats')}
+                    onClick={() => selectFoodgroup('meat-alternatives')}
                     className="meat col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center" >
                     <img
                       alt="Meats and Alternatives"
