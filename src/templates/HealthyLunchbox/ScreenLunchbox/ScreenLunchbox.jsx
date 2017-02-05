@@ -15,6 +15,8 @@ function ScreenLunchbox(props) {
     browserHistory.push(`/healthy-lunch-box/${cms.builder.currentFoodgroup}`);
   };
 
+  console.log(cms.builder);
+
   return (
     <div id="screen-lunchbox" className="screen-lunchbox margin-top-25">
       <div className="container">
@@ -80,8 +82,6 @@ function ScreenLunchbox(props) {
                     <h2>Meats &amp;<br /> Alternatives</h2>
                   </div>
 
-
-
                   <div
                     onClick={() => selectFoodgroup('dairy')}
                     className="dairy col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
@@ -90,7 +90,7 @@ function ScreenLunchbox(props) {
                   </div>
 
                   <div
-                    onClick={() => selectFoodgroup('fruits')}
+                    onClick={() => selectFoodgroup('fruit')}
                     className="fruits col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
                     <img src="/img/builder/fruit-icon.png" alt="HLB" className="builder-screen-1-img img-responsive" />
                     <h2>Fruits</h2>
