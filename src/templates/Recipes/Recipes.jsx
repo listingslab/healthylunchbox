@@ -75,7 +75,7 @@ class Recipes extends Component {
     }
 
     return (
-      <div className="row">
+      <div className="row margin-top-25">
         <Breadcrumb />
         <div className="container">
             <h1>{title}</h1>

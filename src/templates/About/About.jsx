@@ -28,7 +28,7 @@ class About extends Component {
       );
     }
     return (
-      <div className="row">
+      <div className="row margin-top-25">
         <Breadcrumb />
           <div className="container">
             <div className="row" >

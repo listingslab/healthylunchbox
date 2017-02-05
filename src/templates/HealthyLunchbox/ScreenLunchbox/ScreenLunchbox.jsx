@@ -14,7 +14,7 @@ function ScreenLunchbox(props) {
   };
 
   return (
-    <div className="screen-lunchbox">
+    <div className="screen-lunchbox margin-top-25">
       <div className="container">
           <div className="row">
             <div className="builder-screen-1">

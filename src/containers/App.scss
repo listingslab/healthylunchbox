@@ -4,10 +4,9 @@
  */
 @import '../vars.scss';
 
-#hlb-header_xxx {
-  border: 1px solid $hlb-border;
+#root {
+  margin: 0px;
 }
-
 
 html, body, #root {
   font-family: 'Arial';
@@ -15,6 +14,33 @@ html, body, #root {
   line-height: 26px;
   background: $hlb-background;
   color: $hlb-text;
+}
+
+.home-featured-recipes {
+  background: $hlb-white;
+  padding: 30px;
+}
+
+.hidden-menu {
+  position: absolute;
+  width: 250px;
+  text-align: left;
+}
+
+.hidden-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hidden-menu ul .hidden-menu li {
+  display: inline;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +59,7 @@ h2 {
 }
 
 h3 {
-  font-size: 28px;
+  font-size: 24px;
   color: $hlb-titles;
 }
 
@@ -102,17 +128,16 @@ table tr td {
 }
 
 .raised-page {
-  margin-top: 50px;
   border: 1px solid #ddd;
   background: white;
   padding: 25px;
+  margin-top: 25px;
 
   /* x-offset, bottom-offset, spread, size */
   box-shadow: 0 8px 25px 2px #a8a094;
 }
 
 .flat-page {
-  margin-top: 50px;
   background: white;
   padding: 10px;
   min-height: 500px;

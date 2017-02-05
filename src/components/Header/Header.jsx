@@ -26,41 +26,32 @@ function Header() {
 
   for (let i = 0; i < navItems.length; i += 1) {
     navigation.push(
-        <Link
-          key={`navItem_${i}`}
-          className="nav-link hidden-menu-links"
+        <li key={`navItem_${i}`}><Link
+          className="nav-link inline"
           to={navItems[i].url}
           >
           <h4>{navItems[i].title.toUpperCase()}</h4>
-        </Link>
+        </Link></li>
     );
   }
   // const className = 'header container';
   return (
-    <div id="hlb-header" className="header container">
-
+    <div id="hlb-header" className="container">
       <div className="row">
         <div className="col-sm-8 col-xs-2 col-sm-push-2">
-          <nav className="navbar navbar-default navbar-whole">
-            <div className="container-fluid" id="nav">
-              <div className="navbar-header">
+            <div className="container-fluid">
 
-                <Navbar
-                  className="hidden-menu">
-                  <Navbar.Header className="navigation-bar">
-                  <Navbar.Toggle className="pull-left" />
+                  <Navbar.Header>
+                    <Navbar.Toggle/>
                   </Navbar.Header>
-                  <Navbar.Collapse>
-                    <div className="hidden-menu-links">
-                      {navigation}
+                  <Navbar.Collapse className="hidden-menu">
+                    <div>
+                      <ul>
+                        {navigation}
+                      </ul>
                     </div>
                   </Navbar.Collapse>
-                </Navbar>
-
-              </div>
-
             </div>
-          </nav>
         </div>
 
         <div className="col-sm-2 col-xs-3 col-sm-pull-8">
