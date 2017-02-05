@@ -8,6 +8,7 @@ $hlb-text: #4a4a4a;
 $hlb-titles: $hlb-text;
 $hlb-black: #000;
 $hlb-white: #fff;
+$hlb-white-trans: rgba(255, 255, 255, 0.5);
 
 $hlb-blue: #0096d6;
 $hlb-blue-rollover: #14b2f5;
@@ -24,7 +25,7 @@ $hlb-purple-trans: rgba(0, 68, 126, 0.5);
 $hlb-border: $hlb-purple;
 $hlb-breadcrumb: #747679;
 $hlb-links: $hlb-breadcrumb;
-$hlb-links-hover: $hlb-green;
+$hlb-links-hover: $hlb-blue;
 
 $hlb-grey-light: #f4f2ec;
 $hlb-grey-dark: #6b6b6b;

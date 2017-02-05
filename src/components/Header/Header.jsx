@@ -8,35 +8,52 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import verge from 'verge';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, CollapsibleNav } from 'react-bootstrap';
 import './Header.scss';
 
 function Header() {
   const navigation = [];
   const navItems = cms.app.data.navigation || [];
+
+  const itemSelected = () => {
+    // alert ('close the menu');
+  };
+
+  const itemClick = () => {
+    // alert ('item Click');
+    // onSelect={itemClick}
+  };
+
   for (let i = 0; i < navItems.length; i += 1) {
     navigation.push(
-      <li key={`navItem_${i}`}><Link
-        className="nav-link"
-        to={navItems[i].url}
-        ><h4>{navItems[i].title.toUpperCase()}</h4></Link></li>
+        <Link
+          key={`navItem_${i}`}
+          className="nav-link hidden-menu-links"
+          to={navItems[i].url}
+          >
+          <h4>{navItems[i].title.toUpperCase()}</h4>
+        </Link>
     );
   }
   // const className = 'header container';
   return (
     <div id="hlb-header" className="header container">
+
       <div className="row">
         <div className="col-sm-8 col-xs-2 col-sm-push-2">
           <nav className="navbar navbar-default navbar-whole">
             <div className="container-fluid" id="nav">
-              <div className="navbar-header ">
+              <div className="navbar-header">
 
-                <Navbar className="navigation-navbar hidden-menu">
+                <Navbar
+                  className="hidden-menu">
                   <Navbar.Header className="navigation-bar">
-                  <Navbar.Toggle />
+                  <Navbar.Toggle className="pull-left" />
                   </Navbar.Header>
                   <Navbar.Collapse>
-                    {navigation}
+                    <div className="hidden-menu-links">
+                      {navigation}
+                    </div>
                   </Navbar.Collapse>
                 </Navbar>
 
