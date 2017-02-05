@@ -14,23 +14,21 @@ function Breadcrumb(props) {
 
   return (
     <div id="hlbBreadcrumb" className="hlb-breadcrumb container">
-      <div className="row">
-        <Link className=""
-              to={''}
-              onClick={browserHistory.goBack}
-              title="Back"
-        >Back</Link>
-
-        &nbsp;&nbsp;&lt;&nbsp;&nbsp;
 
         <Link className=""
           to={'/'}
           title="Home"
       ><span className="glyphicon glyphicon-home" /></Link>
 
+    &nbsp;&nbsp;<span className="yellow-text">&lt;</span>&nbsp;&nbsp;
 
+        <Link
+          className=""
+          to={''}
+          onClick={browserHistory.goBack}
+          title="Back"
+        >Back</Link>
 
-      </div>
     </div>
   );
 }

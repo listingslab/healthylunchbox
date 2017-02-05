@@ -12,8 +12,25 @@ html, body, #root {
   color: $hlb-text;
 }
 
+.item-img{
+  margin-top: 40px;
+}
+
+.container_xxx {
+  border: 1px solid grey;
+}
+
+.orange-text {
+  color: $hlb-orange;
+  font-family: 'Baloo';
+}
+
+.yellow-text {
+  color: $hlb-yellow;
+  font-family: 'Baloo';
+}
+
 .raised-page {
-  margin-top: 50px;
   border: 1px solid #ddd;
   background: white;
   padding: 25px;
@@ -26,13 +43,11 @@ html, body, #root {
   margin-top: 50px;
   background: white;
   padding: 10px;
-  min-height: 500px;
 
   h3 {
     padding: 15px;
   }
 }
-
 
 a, a:hover, a:visited, a:active a:link {
   text-decoration: none;

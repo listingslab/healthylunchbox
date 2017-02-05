@@ -12,7 +12,7 @@ import './CardRecipeItem.scss';
 function CardRecipeItem(props) {
   // console.log(props);
   const tabText = props.tabText.toUpperCase();
-  const image = props.image || '/img/defaults/CardRecipeItem.jpg';
+  const image = props.image || '/img/defaults/RecipeImage.jpg';
   const freezableIcon = '/img/icons/icon-freezeable.png';
 
   let iconTab = null;
@@ -28,6 +28,7 @@ function CardRecipeItem(props) {
   }
 
   //
+  const decodedSubTitle = props.subTitle;
   return (
     <div className="card-recipe-item">
 
@@ -45,7 +46,7 @@ function CardRecipeItem(props) {
 
         <div className="card-recipe-item-detail">
           <h4>{props.title || ''}</h4>
-          <p>{props.subTitle || ''}</p>
+          <p>{ decodedSubTitle || ''}</p>
         </div>
 
       </Link>

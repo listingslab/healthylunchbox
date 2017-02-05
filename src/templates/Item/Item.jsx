@@ -9,6 +9,7 @@ import React, { Component, PropTypes } from 'react';
 import API from '../../API';
 import Loader from '../../components/Loader/Loader';
 import EditLink from '../../components/EditLink/EditLink';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class Item extends Component {
 
@@ -95,21 +96,39 @@ class Item extends Component {
         />
       );
     }
-    let image = (<img alt={this.item.data.title} src="/img/no-image.png" />);
+    let image = (
+      <img
+        className="img-responsive"
+        alt={this.item.data.title}
+        src="/img/defaults/RecipeImage.jpg"
+        />
+      );
     if (this.item.data.acf.image !== false) {
-      image = (<img src={this.item.data.acf.image.url} alt={this.item.data.title} />);
+      image = (
+        <img
+          className="img-responsive item-img"
+          src={this.item.data.acf.image.url}
+          alt={this.item.data.title}
+        />);
     }
     return (
-      <div className="item container">
-        {editBtn}
-        <h1>{this.item.data.title}</h1>
-        {image}
-        <h2>{this.item.data.subTitle}</h2>
-        <p>This page is a <strong>{this.item.data.post_type}</strong> page</p>
-        <small>WordPress ID: <strong>{this.item.ID}</strong></small>
+      <div className="">
+        <Breadcrumb />
+        <div className="item container">
+          <div className="raised-page">
+            <h1>{this.item.data.title}</h1>
+            {image}
+          </div>
+          {editBtn}
+        </div>
       </div>
     );
   }
 }
 
 export default Item;
+
+/*
+<p>This page is a <strong>{this.item.data.post_type}</strong> page</p>
+<small>WordPress ID: <strong>{this.item.ID}</strong></small>
+*/

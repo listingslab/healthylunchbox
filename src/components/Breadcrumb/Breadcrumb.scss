@@ -6,4 +6,14 @@
 @import '../../vars.scss';
 
 .hlb-breadcrumb {
+  /* border: 1px solid $hlb-blue; */
+}
+
+.hlb-breadcrumb a {
+  color: $hlb-breadcrumb;
+  font-family: 'Baloo';
+}
+
+.hlb-breadcrumb a:hover {
+  color: $hlb-links-hover;
 }

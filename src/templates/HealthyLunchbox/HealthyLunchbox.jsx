@@ -22,11 +22,11 @@ class HealthyLunchbox extends Component {
   }
 
   componentDidMount() {
-    this.hideHeader();
+    // this.hideHeader();
   }
 
   componentWillUnmount() {
-    this.showHeader();
+    // this.showHeader();
   }
 
   hideHeader() {

@@ -24,11 +24,11 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.hideBreadbrumb();
+    // this.hideBreadbrumb();
   }
 
   componentWillUnmount() {
-    this.showBreadbrumb();
+    // this.showBreadbrumb();
   }
 
   hideBreadbrumb() {

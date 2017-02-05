@@ -50,7 +50,7 @@ function hlbapi_app( WP_REST_Request $request ) {
     $act = get_fields($tempObj->ID);
     $tempObj->subTitle = '';
     if (isset($act['short_description'])){
-      $tempObj->subTitle = $act['short_description'];
+      $tempObj->subTitle = htmlspecialchars_decode($act['short_description']);
     }
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
@@ -85,7 +85,7 @@ function hlbapi_app( WP_REST_Request $request ) {
     $act = get_fields($tempObj->ID);
     $tempObj->subTitle = '';
     if (isset($act['short_description'])){
-      $tempObj->subTitle = $act['short_description'];
+      $tempObj->subTitle = htmlspecialchars_decode($act['short_description']);
     }
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
