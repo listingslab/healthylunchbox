@@ -1,21 +1,18 @@
+/* global cms */
 /**
  * Created by Chris Dorward on 04/02/2017
  * components/ScreenLunchbox/ScreenLunchbox
  */
 
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import $ from 'jquery';
 
-function ScreenLunchbox() {
-  const gotoScreenSelector = (speed) => {
-    $('#screen-lunchbox').fadeOut(speed);
-    $('#screen-selector').fadeIn(speed);
-  };
-
+function ScreenLunchbox(props) {
+  console.log('ScreenLunchbox Render');
   const selectFoodgroup = (foodgroup) => {
-    console.log(foodgroup);
-    gotoScreenSelector('fast');
+    cms.builder.currentFoodgroup = foodgroup;
+    browserHistory.push(`/healthy-lunch-box/${cms.builder.currentFoodgroup}`);
   };
 
   return (
@@ -31,6 +28,7 @@ function ScreenLunchbox() {
                         className="cereals row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
                         <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                           <img
+                            alt="HLB"
                             src="/img/builder/bread-icon.png"
                             className="builder-screen-1-img builder-screen-1-align img-responsive"
                         /></div>
