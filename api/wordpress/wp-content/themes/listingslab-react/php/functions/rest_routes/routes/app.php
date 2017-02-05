@@ -203,6 +203,6 @@ function hlbapi_app( WP_REST_Request $request ) {
 
   $response->data->tips->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tip_id.'&action=edit';
 
-
+  include 'app/lunchbox.php';
   return $response;
 }

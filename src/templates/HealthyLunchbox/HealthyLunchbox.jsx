@@ -6,6 +6,7 @@
 import React, { Component, PropTypes } from 'react';
 import $ from 'jquery';
 import ScreenLunchbox from './ScreenLunchbox/ScreenLunchbox';
+import ScreenSelector from './ScreenSelector/ScreenSelector';
 import './HealthyLunchbox.scss';
 
 class HealthyLunchbox extends Component {
@@ -23,6 +24,7 @@ class HealthyLunchbox extends Component {
 
   componentDidMount() {
     // this.hideHeader();
+    $('#screen-selector').hide();
   }
 
   componentWillUnmount() {
@@ -31,6 +33,7 @@ class HealthyLunchbox extends Component {
 
   hideHeader() {
     $('#hlb-header').hide();
+    console.log('dsajdhaus');
     // $('#hlbBreadcrumb').hide();
   }
 
@@ -43,6 +46,7 @@ class HealthyLunchbox extends Component {
     return (
       <div className="hlb container">
         <div className="row">
+          <ScreenSelector />
           <ScreenLunchbox />
         </div>
       </div>

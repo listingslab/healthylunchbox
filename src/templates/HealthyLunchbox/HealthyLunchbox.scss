@@ -5,20 +5,27 @@
 
 @import '../../vars.scss';
 
+.screen-selector {
+
+  h2 {
+    color: white;
+  }
+}
+
 .screen-lunchbox {
   .hlb-border {
     border: 1px solid $hlb-white;
   }
 
-  .cereals, .vegies, .water, .meat {
+  .cereals, .vegies, .water, .meat, .dairy, .fruits {
     cursor: pointer;
   }
 
-  .cereals:hover, .vegies:hover, .water:hover, .meat:hover {
+  .cereals:hover, .vegies:hover, .water:hover, .meat:hover, .dairy:hover, .fruits:hover {
     background: $hlb-blue-rollover;
   }
 
-  h2 {
+  h1, h2, h3, h4, h5, h6 {
     color: white;
   }
 }
@@ -169,4 +176,34 @@
 
 .builder-screen-3 {
   border: 1px solid blue;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .screen-lunchbox {
+    h2 {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+
 }
