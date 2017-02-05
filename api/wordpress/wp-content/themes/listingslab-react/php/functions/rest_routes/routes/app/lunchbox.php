@@ -13,6 +13,7 @@ if (!isset($cats->errors)) {
     $cat = new stdClass();
     $cat->catID = $cats[$i]->term_id;
     $cat->cat = $cats[$i];
+    $cat->image = z_taxonomy_image_url($cat->catID);
     $cat->items = array();
     $posts = get_posts(array(
     'post_type' => 'lunchbox_item',

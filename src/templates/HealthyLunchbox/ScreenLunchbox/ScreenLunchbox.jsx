@@ -15,7 +15,7 @@ function ScreenLunchbox(props) {
     browserHistory.push(`/healthy-lunch-box/${cms.builder.currentFoodgroup}`);
   };
 
-  console.log(cms.builder);
+  // console.log(cms.builder);
 
   return (
     <div id="screen-lunchbox" className="screen-lunchbox margin-top-25">
