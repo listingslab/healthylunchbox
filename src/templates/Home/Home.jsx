@@ -79,22 +79,19 @@ class Home extends Component {
     const headerText = 'Lunch box recipes & ideas';
     return (
       <div className="home container">
-
-        <div className="" >
-            <div className="page-header">
-              <Link
-                to="/recipes"
-                className="pull-right hlb-page-btn"
-              ><h4>{linkText}</h4></Link>
-              <h3>{headerText}</h3>
-            </div>
-            <div className="page-header">
-              {featuredRecipes}
-            </div>
+        <div className="row">
+          <Link
+            to="/recipes"
+            className="pull-right hlb-page-btn"
+          ><h4>{linkText}</h4></Link>
         </div>
-
-        {editBtn}
-
+        <div className="row">
+          <h3>{headerText}</h3>
+          </div>
+          <div className="row">
+            {featuredRecipes}
+          </div>
+          {editBtn}
       </div>
     );
   }

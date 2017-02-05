@@ -8,6 +8,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import verge from 'verge';
+import { Navbar } from 'react-bootstrap';
 import './Header.scss';
 
 function Header() {
@@ -29,19 +30,18 @@ function Header() {
           <nav className="navbar navbar-default navbar-whole">
             <div className="container-fluid" id="nav">
               <div className="navbar-header ">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                  <span className="icon-text">MENU</span>
-                </button>
+
+                <Navbar className="navigation-navbar hidden-menu">
+                  <Navbar.Header className="navigation-bar">
+                  <Navbar.Toggle />
+                  </Navbar.Header>
+                  <Navbar.Collapse>
+                    {navigation}
+                  </Navbar.Collapse>
+                </Navbar>
+
               </div>
-              <div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav ">
-                  {navigation}
-                </ul>
-              </div>
+
             </div>
           </nav>
         </div>
@@ -83,3 +83,26 @@ Header.propTypes = {
 };
 
 export default Header;
+
+/*
+
+<div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+  <ul className="nav navbar-nav ">
+    {navigation}
+  </ul>
+</div>
+
+
+<button
+  type="button"
+  className="navbar-toggle collapsed"
+  data-toggle="collapse"
+  data-target="#bs-example-navbar-collapse-1"
+  aria-expanded="false"
+>
+  <span className="sr-only">Toggle navigation</span>
+  <span className="icon-bar" />
+  <span className="icon-bar" />
+  <span className="icon-bar" />
+</button>
+*/
