@@ -4,12 +4,45 @@
  */
 @import '../vars.scss';
 
+#root {
+  margin: 0px;
+}
+
 html, body, #root {
   font-family: 'Arial';
   font-size: 16px;
   line-height: 26px;
   background: $hlb-background;
   color: $hlb-text;
+}
+
+.home-featured-recipes {
+  background: $hlb-white;
+  padding: 30px;
+  margin: 20px;
+  margin-top: -20px;
+}
+
+.hidden-menu {
+  position: absolute;
+  width: 250px;
+  text-align: left;
+}
+
+.hidden-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hidden-menu ul .hidden-menu li {
+  display: inline;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,11 +55,30 @@ h1 {
   color: $hlb-titles;
 }
 
-h2 { font-size: 36px; color: $hlb-titles; }
-h3 { font-size: 28px; color: $hlb-titles; }
-h4 { font-size: 18px; color: $hlb-titles; }
-h5 { font-size: 16px; color: $hlb-titles; }
-h6 { font-size: 14px; color: $hlb-titles; }
+h2 {
+  font-size: 36px;
+  color: $hlb-titles;
+}
+
+h3 {
+  font-size: 24px;
+  color: $hlb-titles;
+}
+
+h4 {
+  font-size: 18px;
+  color: $hlb-titles;
+}
+
+h5 {
+  font-size: 16px;
+  color: $hlb-titles;
+}
+
+h6 {
+  font-size: 14px;
+  color: $hlb-titles;
+}
 
 a, a:hover, a:visited, a:active a:link {
   text-decoration: none;
@@ -78,11 +130,34 @@ table tr td {
 }
 
 .raised-page {
-  margin-top: 50px;
   border: 1px solid #ddd;
   background: white;
-  padding: 30px;
+  padding: 25px;
+  margin-top: 25px;
 
   /* x-offset, bottom-offset, spread, size */
   box-shadow: 0 8px 25px 2px #a8a094;
+}
+
+.flat-page {
+  background: white;
+  padding: 10px;
+  min-height: 500px;
+
+  h3 {
+    padding: 15px;
+  }
+}
+
+/* hlb-page-btn - a text button with a yello line underneath it */
+.hlb-page-btn {
+  border-bottom: 3px solid $hlb-yellow;
+}
+
+.hlb-page-btn:hover {
+  border-bottom: 3px solid $hlb-blue;
+}
+
+/* hlb-page-header => controls how the page titles look */
+.page-header {
 }

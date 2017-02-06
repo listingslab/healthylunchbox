@@ -5,15 +5,35 @@
  * templates/Home/Home
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import { Link } from 'react-router';
+import verge from 'verge';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
-import CardCategory from '../../components/CardCategory/CardCategory';
+import './Home.scss';
 
 class Home extends Component {
+  static propTypes = {
+    children: PropTypes.any
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  hideBreadbrumb() {
+    $('#hlbBreadcrumb').hide();
+  }
+
+  showBreadbrumb() {
+    $('#hlbBreadcrumb').show();
+  }
 
   render() {
+    console.log(cms.app.data.home_page.hero.data)
     let editBtn = null;
     if (editor) {
       editBtn = (
@@ -24,40 +44,74 @@ class Home extends Component {
     }
     const featuredRecipes = [];
     const fr = cms.app.data.home_page.featured_recipes || [];
-    for (let i = 0; i < fr.length; i += 1) {
+    let numToShow = 2;
+    if (verge.viewportW() > 1000) {
+      // console.log(verge.viewportH());
+      numToShow = 3;
+    }
+
+    for (let i = 0; i < numToShow; i += 1) {
       const key = `recipe_${i}`;
+      // console.log(fr[i].freezable);
       featuredRecipes.push(
-        <div key={key} className="row margin-top-10 col-md-4">
+        <div key={key} className="col-md-4 col-sm-6">
           <CardRecipeItem
             route={`/recipe/${fr[i].itemSlug}`}
-            title={fr[i].title}
-            subTitle={fr[i].subTitle}
-            tabText="Featured Recipe"
+            title={fr[i].title || ''}
+            subTitle={fr[i].subTitle || ''}
+            freezable={fr[i].freezable || false}
+            tabText="Freezable"
             itemType="recipe"
             image={fr[i].image}
-            icon="orange"
+            icon="freezable"
           />
         </div>
       );
     }
-    console.log(cms.app.data.home_page.hero.data.heroTitle);
+    // console.log(cms.app.data.home_page.hero.data.heroTitle);
+    const linkText = 'More recipes & ideas';
+    const headerText = 'Featured lunchbox recipes';
     return (
       <div className="home container">
-        {editBtn}
-        <div className="raised-page" >
 
-          <Link
-            to="/recipes"
-            className="pull-right"
-          >More recipes &amp; ideas</Link>
+        <div className="home-hero">
 
-          <h3>Lunch box recipes &amp; ideas</h3>
-          <div className="container">
+          <div className="row">
+
+            <div className="col-md-6" >
+              <img
+                className="img-responsive"
+                src="/img/hero.png"
+              />
+            </div>
+
+            <div className="col-md-6 pad_25" >
+              <h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
+              <h3>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h3>
+              <Link
+                to={cms.app.data.home_page.hero.data.linkUrl || '/'}
+                className="btn btn-warning btn-lg"
+              >{cms.app.data.home_page.hero.data.linkText || 'Click'}</Link>
+            {editBtn}
+            </div>
+          </div>
+        </div>
+
+        <div className="home-featured-recipes">
+          <div className="row pull-right">
+            <Link
+              to="/recipes"
+              className="pull-right hlb-page-btn"
+            ><h4>{linkText}</h4></Link>
+          </div>
+          <div className="row margin-bottom-25">
+            <h3>{headerText}</h3>
+            </div>
             <div className="row">
               {featuredRecipes}
             </div>
           </div>
-        </div>
+          {editBtn}
       </div>
     );
   }

@@ -10,7 +10,7 @@ import $ from 'jquery';
 import Loader from '../components/Loader/Loader';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import Message from '../components/Message/Message';
+
 import API from '../API';
 
 import './App.scss';
@@ -92,27 +92,7 @@ class App extends Component {
 
   render() {
     const { children } = this.props;
-    const firstMessage = `<p>Your unique cookie code is <strong>${cms.HLBcookieCode}</strong></p>
-    <p>Please quote this as a reference if you have any problems of issues with this website.</p>`;
-    const firstTitle = 'Hello and welcome';
-    const secondMessage = '';
-    const secondTitle = `Welcome back, ${cms.HLBcookieCode}`;
-    let title = firstTitle;
-    let message = firstMessage;
-    if (this.returningUser) {
-      title = secondTitle;
-      message = secondMessage;
-    }
-    const messageType = 'info';
-    const showDismiss = true;
-    const showCookies = false;
-    const showDeleteCookies = true;
-    const showSuppress = true;
-    this.showMessages = false;
-    const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
-    if (HLBcookieSuppress === 'yes') {
-      this.showMessages = false;
-    }
+    const showLogo = true;
     // If we're loading show the loader
     if (!this.state.isLoaded) {
       const loaderText = 'Loading Healthy Lunchbox';
@@ -120,6 +100,7 @@ class App extends Component {
         <div className="container">
           <Loader
             text={loaderText}
+            showLogo={showLogo}
           />
         </div>);
       return loader;
@@ -135,17 +116,6 @@ class App extends Component {
     }
     return (
       <div className="template-app">
-        <div id="message">
-          <Message
-            type={messageType}
-            showDismiss={showDismiss}
-            showCookies={showCookies}
-            showDeleteCookies={showDeleteCookies}
-            showSuppress={showSuppress}
-            title={title}
-            message={message}
-             />
-        </div>
         <Header />
         {children}
         <Footer />
@@ -155,3 +125,44 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+
+const messageType = 'info';
+const showDismiss = true;
+const showCookies = false;
+const showDeleteCookies = true;
+
+const showSuppress = true;
+this.showMessages = false;
+
+const HLBcookieSuppress = cookie.load('HLBcookieSuppress');
+if (HLBcookieSuppress === 'yes') {
+  this.showMessages = false;
+}
+
+const firstMessage = `<p>Your unique cookie code is <strong>${cms.HLBcookieCode}</strong></p>
+<p>Please quote this as a reference if you have any problems of issues with this website.</p>`;
+const firstTitle = 'Hello and welcome';
+const secondMessage = '';
+const secondTitle = `Welcome back, ${cms.HLBcookieCode}`;
+let title = firstTitle;
+let message = firstMessage;
+if (this.returningUser) {
+  title = secondTitle;
+  message = secondMessage;
+}
+
+
+<div id="message">
+  <Message
+    type={messageType}
+    showDismiss={showDismiss}
+    showCookies={showCookies}
+    showDeleteCookies={showDeleteCookies}
+    showSuppress={showSuppress}
+    title={title}
+    message={message}
+     />
+</div>
+*/

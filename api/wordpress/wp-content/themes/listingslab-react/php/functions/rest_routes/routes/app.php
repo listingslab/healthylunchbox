@@ -50,16 +50,24 @@ function hlbapi_app( WP_REST_Request $request ) {
     $act = get_fields($tempObj->ID);
     $tempObj->subTitle = '';
     if (isset($act['short_description'])){
-      $tempObj->subTitle = $act['short_description'];
+      $tempObj->subTitle = htmlspecialchars_decode($act['short_description']);
     }
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
     $tempObj->itemModified = $post->post_modified;
     $image = get_fields($post->ID);
     $tempObj->image = $image['image']['url'];
+    $tempObj->freezable = false;
+    if (isset($act['freezable'])){
+      $tempObj->freezable = $act['freezable'];
+    }
+
+    $tempObj->image = $image['image']['url'];
     $featured_recipes[] = $tempObj;
   }
   $response->data->home_page->featured_recipes = $featured_recipes;
+
+
   $featured_tips = array ();
   $args = array(
     'posts_per_page'	=> 3,
@@ -77,7 +85,7 @@ function hlbapi_app( WP_REST_Request $request ) {
     $act = get_fields($tempObj->ID);
     $tempObj->subTitle = '';
     if (isset($act['short_description'])){
-      $tempObj->subTitle = $act['short_description'];
+      $tempObj->subTitle = htmlspecialchars_decode($act['short_description']);
     }
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
@@ -128,7 +136,7 @@ function hlbapi_app( WP_REST_Request $request ) {
       }
       $category->slug = $categories[$i]->slug;
       $category->taxonomy = $categories[$i]->taxonomy;
-      $category->route = '/' . $category->taxonomy . '/' . $category->slug;
+      $category->route = "/tip/" . $category->slug;
       $category->linkText = $category->title;
       $category->linkType = 'to';
       $category->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/term.php?taxonomy=';
@@ -195,6 +203,6 @@ function hlbapi_app( WP_REST_Request $request ) {
 
   $response->data->tips->editUrl = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post='.$tip_id.'&action=edit';
 
-
+  include 'app/lunchbox.php';
   return $response;
 }

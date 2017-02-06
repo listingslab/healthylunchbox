@@ -7,6 +7,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import EditLink from '../../components/EditLink/EditLink';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class About extends Component {
   static propTypes = {
@@ -27,13 +28,18 @@ class About extends Component {
       );
     }
     return (
-      <div className="container">
+      <div className="row margin-top-25">
+        <Breadcrumb />
+          <div className="container">
+            <div className="row" >
+              <div className="raised-page" >
+                <h1>{cms.app.data.about.post.post_title}</h1>
+                <div dangerouslySetInnerHTML={this.makeMarkup()} />
+              </div>
+            </div>
+          </div>
         {editBtn}
-        <div className="raised-page" >
-          <h1>{cms.app.data.about.post.post_title}</h1>
-          <div dangerouslySetInnerHTML={this.makeMarkup()} />
-        </div>
-    </div>
+      </div>
     );
   }
 }

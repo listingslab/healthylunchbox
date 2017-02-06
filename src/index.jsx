@@ -10,8 +10,7 @@ import ReactGA from 'react-ga';
 import 'bootstrap/dist/css/bootstrap.css';
 import Root from './containers/Root';
 
-
-ReactGA.initialize('UA-000000-01');
+ReactGA.initialize('UA-91375404-1');
 
 render(
   <Root history={browserHistory} />,

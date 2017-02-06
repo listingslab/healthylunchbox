@@ -8,6 +8,7 @@
 import React, { Component } from 'react';
 import EditLink from '../../components/EditLink/EditLink';
 import CardCategory from '../../components/CardCategory/CardCategory';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './Recipes.scss';
 
 class Recipes extends Component {
@@ -74,15 +75,14 @@ class Recipes extends Component {
     }
 
     return (
-      <div className="container">
-        {editBtn}
-        <div className="row" >
-          <h1>{title}</h1>
-          <div dangerouslySetInnerHTML={this.makeMarkup()} />
-        </div>
-          <div className="margin-top-25" >
+      <div className="row margin-top-25">
+        <Breadcrumb />
+        <div className="container">
+            <h1>{title}</h1>
+            <div dangerouslySetInnerHTML={this.makeMarkup()} />
             {categoriesArr}
-          </div>
+        </div>
+        {editBtn}
       </div>
     );
   }

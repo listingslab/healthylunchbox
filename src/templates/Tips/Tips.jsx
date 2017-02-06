@@ -8,7 +8,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
-import CardCategory from '../../components/CardCategory/CardCategory';
+import CardTipCat from '../../components/CardTipCat/CardTipCat';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './Tips.scss';
 
 class Tips extends Component {
@@ -39,11 +40,11 @@ class Tips extends Component {
     }
     const categoriesArr = [];
     const categories = cms.app.data.tips.categories;
-    const colours = ['purple', 'orange', 'green', 'blue'];
+    const colours = ['green', 'blue', 'purple', 'orange'];
     let colourIndex = -1;
     for (let i = 0; i < categories.length; i += 1) {
       colourIndex += 1;
-      if (colourIndex === 4){
+      if (colourIndex === 4) {
         colourIndex = 0;
       }
       const colour = colours[colourIndex];
@@ -53,34 +54,31 @@ class Tips extends Component {
         cols = 'col-md-12';
       }
       const key = `cardcat_${i}`;
-      // console.log(categories[i].route);
+      // console.log(categories[i]);
       categoriesArr.push(
         <div
           key={key}
           className={cols}
         >
-          <CardCategory
+          <CardTipCat
             route={categories[i].route}
             title={categories[i].title || ''}
             subTitle={categories[i].subTitle || ''}
-            numberItems={10}
             colour={colour}
-            itemType="tip"
             image={categories[i].image || ''}
           />
         </div>
       );
     }
     return (
-      <div className="container">
-        {editBtn}
-          <div className="row" >
+      <div className="row margin-top-25">
+        <Breadcrumb />
+        <div className="container">
             <h1>{title}</h1>
             <div dangerouslySetInnerHTML={this.makeMarkup()} />
-          </div>
-          <div className="row margin-top-25" >
-            {categoriesArr}
-          </div>
+          {categoriesArr}
+        </div>
+        {editBtn}
       </div>
     );
   }

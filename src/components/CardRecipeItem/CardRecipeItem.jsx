@@ -10,11 +10,30 @@ import './CardRecipeItem.scss';
 
 
 function CardRecipeItem(props) {
+  // console.log(props);
   const tabText = props.tabText.toUpperCase();
-  const image = props.image || '/img/defaults/CardRecipeItem.jpg';
-  const icon = `/img/icons/icon-${props.icon}.png` || '/img/icons/icon-green.png'
+  const image = props.image || '/img/defaults/RecipeImage.jpg';
+  const freezableIcon = '/img/icons/icon-freezeable.png';
+
+  let iconTab = null;
+  if (props.freezable) {
+    iconTab = (
+      <p><span>
+      <img
+        alt={props.title || ''}
+        className="card-recipe-item-icon"
+        src={freezableIcon}
+      /> {tabText || ''}</span></p>
+    );
+  }
+
+  //
+  let decodedSubTitle = props.subTitle.replace('&amp;', '&');
+  decodedSubTitle = props.subTitle.replace('&#039;', '\'');
+
   return (
     <div className="card-recipe-item">
+
       <Link
         to={props.route}
       >
@@ -24,17 +43,12 @@ function CardRecipeItem(props) {
             className="card-recipe-img img-responsive"
             src={image}
           />
-          <p><span>
-          <img
-            alt={props.title || ''}
-            className="card-recipe-item-icon"
-            src={icon}
-          /> {tabText || ''}</span></p>
+          {iconTab}
         </div>
 
         <div className="card-recipe-item-detail">
           <h4>{props.title || ''}</h4>
-          <p>{props.subTitle || ''}</p>
+          <p>{ decodedSubTitle || ''}</p>
         </div>
 
       </Link>
@@ -46,9 +60,9 @@ CardRecipeItem.propTypes = {
   route: PropTypes.string.isRequired,
   tabText: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  itemType: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired
+  subTitle: PropTypes.string.isRequired,
+  freezable: PropTypes.bool
 };
 
 export default CardRecipeItem;
