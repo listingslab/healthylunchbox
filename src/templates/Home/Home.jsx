@@ -11,6 +11,7 @@ import { Link } from 'react-router';
 import verge from 'verge';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
+import CardCategory from '../../components/CardCategory/CardCategory';
 import './Home.scss';
 
 class Home extends Component {
@@ -75,9 +76,7 @@ class Home extends Component {
       <div className="home container">
 
         <div className="home-hero">
-
           <div className="row">
-
             <div className="col-md-6" >
               <img
                 className="img-responsive"
@@ -92,7 +91,6 @@ class Home extends Component {
                 to={cms.app.data.home_page.hero.data.linkUrl || '/'}
                 className="btn btn-warning btn-lg"
               >{cms.app.data.home_page.hero.data.linkText || 'Click'}</Link>
-            {editBtn}
             </div>
           </div>
         </div>
@@ -111,6 +109,29 @@ class Home extends Component {
               {featuredRecipes}
             </div>
           </div>
+
+          <div className="home-bottom">
+            <div className="row">
+
+              <div className="col-md-6" >
+                Featured tips
+              </div>
+
+              <div className="col-md-6 pad_25" >
+                <CardCategory
+                  route="/recipes/packed-lunches"
+                  title="Packed lunches"
+                  subTitle=""
+                  numberItems={3}
+                  itemType="recipe"
+                  colour="purple"
+                  image="http://api.healthylunchbox.com.au/wp-content/uploads/eggplant.jpg"
+                />
+              </div>
+
+            </div>
+          </div>
+
           {editBtn}
       </div>
     );
@@ -129,14 +150,6 @@ export default Home;
 </div>
 
 <div className="margin-top-25 col-md-8">
-  <CardCategory
-    route="/recipes/packed-lunches"
-    title="Packed lunches"
-    subTitle="link to category"
-    numberItems={3}
-    itemType="recipe"
-    colour="purple"
-    image="http://api.healthylunchbox.com.au/wp-content/uploads/onions.jpg"
-  />
+
 </div>
 */
