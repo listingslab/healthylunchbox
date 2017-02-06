@@ -11,6 +11,7 @@ import { Link } from 'react-router';
 import verge from 'verge';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
+import './Home.scss';
 
 class Home extends Component {
   static propTypes = {
@@ -23,14 +24,6 @@ class Home extends Component {
     };
   }
 
-  componentDidMount() {
-    // this.hideBreadbrumb();
-  }
-
-  componentWillUnmount() {
-    // this.showBreadbrumb();
-  }
-
   hideBreadbrumb() {
     $('#hlbBreadcrumb').hide();
   }
@@ -40,6 +33,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(cms.app.data.home_page.hero.data)
     let editBtn = null;
     if (editor) {
       editBtn = (
@@ -80,7 +74,28 @@ class Home extends Component {
     return (
       <div className="home container">
 
-        <div className=" home-featured-recipes margin-top-25">
+        <div className="home-hero">
+
+          <div className="row">
+
+            <div className="text-center col-md-6" >
+              <img
+                className="img-responsive"
+                src="/img/hero.png"
+              />
+            </div>
+            <div className="text-center col-md-6" >
+              <h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
+              <h2>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h2>
+              <button
+                className="btn btn-warning btn-lg"
+              >{cms.app.data.home_page.hero.data.linkText || 'Click'}</button>
+            {editBtn}
+            </div>
+          </div>
+        </div>
+
+        <div className="home-featured-recipes">
           <div className="row pull-right">
             <Link
               to="/recipes"
