@@ -16,8 +16,12 @@
   background: $hlb-white;
 }
 
-.card-recipe-img {
-  min-height: 200px;
+.card-recipe-item a {
+  color: $hlb-links;
+}
+
+.card-recipe-item a:hover {
+  color: $hlb-links-hover;
 }
 
 .card-recipe-item-icon {

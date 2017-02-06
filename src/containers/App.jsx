@@ -10,8 +10,7 @@ import $ from 'jquery';
 import Loader from '../components/Loader/Loader';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-// import Message from '../components/Message/Message';
-import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+
 import API from '../API';
 
 import './App.scss';
@@ -110,7 +109,6 @@ class App extends Component {
       return (
         <div className="template-app">
           <Header />
-          <Breadcrumb />
           {children}
           <Footer />
         </div>
@@ -119,7 +117,6 @@ class App extends Component {
     return (
       <div className="template-app">
         <Header />
-        <Breadcrumb />
         {children}
         <Footer />
       </div>

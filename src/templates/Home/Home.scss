@@ -1,0 +1,38 @@
+/**
+ * Created by Chris Dorward on 02/02/2017
+ * templates/HealthyLunchbox/HealthyLunchbox.scss
+ */
+
+@import '../../vars.scss';
+
+.home-hero {
+  background: $hlb-hero-bg;
+
+  .pad_25 {
+    padding: 25px;
+  }
+
+  h1, h2, h3, h4 {
+    color: white;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+}
