@@ -11,8 +11,8 @@ import $ from 'jquery';
 import EditLink from '../../../components/EditLink/EditLink';
 
 function ScreenSelector(props) {
-  console.log('ScreenSelector Render');
-  console.log(cms.builder);
+  // console.log('ScreenSelector Render');
+  // console.log(cms.builder);
   const fgs = cms.app.data.lunchbox.foodgroups;
   let foodgroupData = null;
   for (let i = 0; i < fgs.length; i += 1) {
@@ -62,9 +62,6 @@ function ScreenSelector(props) {
     }
     if (props.foodgroup === 'breads-cereals') {
       cms.builder.cereals = itemObj
-    }
-    if (props.foodgroup === 'breads-cereals') {
-      cms.builder.cereals = itemObj;
     }
     browserHistory.push('/healthy-lunch-box');
   };

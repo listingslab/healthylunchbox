@@ -160,8 +160,35 @@ function ScreenLunchbox(props) {
           alt={cms.builder.dairy.post.post_title || 'Dairy'}
           className="builder-screen-1-img img-responsive"
         />
-        <h2>Dairy</h2>
+        <h2>{cms.builder.dairy.post.post_title || 'Dairy'}</h2>
       </div>);
+  }
+
+  let fruit = null;
+  if (cms.builder.fruit === 0) {
+    fruit = (
+      <div
+        onClick={() => selectFoodgroup('fruit')}
+        className="fruits col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
+        <img
+          src="/img/builder/fruit-icon.png"
+          alt="HLB"
+          className="builder-screen-1-img img-responsive"
+        />
+        <h2>Fruits</h2>
+      </div>
+    );
+  } else {
+    fruit = (<div
+      onClick={() => selectFoodgroup('fruit')}
+      className="fruits fruits-selected col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
+      <img
+        src={cms.builder.fruit.acf.image.url || '/img/builder/fruit-icon.png'}
+        alt={cms.builder.fruit.post.post_title || 'Fruit'}
+        className="builder-screen-1-img img-responsive"
+      />
+      <h2>{cms.builder.fruit.post.post_title || 'Dairy'}</h2>
+    </div>);
   }
 
   return (
@@ -172,26 +199,17 @@ function ScreenLunchbox(props) {
                 <div className="builder-screen-1-lunchbox">
                 <div className="row builder-1-row-responsive">
                   <div className="col-xs-8 builder-screen-1-item">
-
                       {cereals}
-
                       {salad}
                     </div>
-
-                    {water}
-
+                      {water}
                 </div>
                 <div className="row row-eq-height builder-1-row-responsive">
-
                   {meat}
                   {dairy}
+                  {fruit}
 
-                  <div
-                    onClick={() => selectFoodgroup('fruit')}
-                    className="fruits col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
-                    <img src="/img/builder/fruit-icon.png" alt="HLB" className="builder-screen-1-img img-responsive" />
-                    <h2>Fruits</h2>
-                  </div>
+
                 </div>
                 <div className="border-1-item-tab" />
                  </div>
