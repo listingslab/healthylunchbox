@@ -18,7 +18,6 @@ class Foodgroup extends Component {
     super(props);
     // this.onChange = this.onChange.bind(this)
     this.state = { date: new Date() };
-    cms.builder = {};
   }
 
   componentDidMount() {

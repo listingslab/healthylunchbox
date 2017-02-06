@@ -11,6 +11,8 @@ import $ from 'jquery';
 import EditLink from '../../../components/EditLink/EditLink';
 
 function ScreenSelector(props) {
+  console.log('ScreenSelector Render');
+  console.log(cms.builder);
   const fgs = cms.app.data.lunchbox.foodgroups;
   let foodgroupData = null;
   for (let i = 0; i < fgs.length; i += 1) {
@@ -31,8 +33,81 @@ function ScreenSelector(props) {
   }
 
   const toggeleMore = () => {
-    console.log('toggeleMore');
+    if ($('#more_screen').hasClass('hidden')) {
+      $('#more_screen').removeClass('hidden');
+      $('#more_btn').addClass('hidden');
+      $('#less_btn').removeClass('hidden');
+    } else {
+      $('#more_screen').addClass('hidden');
+      $('#more_btn').removeClass('hidden');
+      $('#less_btn').addClass('hidden');
+    }
   };
+
+  const selectItem = (itemObj) => {
+    if (props.foodgroup === 'fruit') {
+      cms.builder.fruit= itemObj;
+    }
+    if (props.foodgroup === 'dairy') {
+      cms.builder.dairy = itemObj;
+    }
+    if (props.foodgroup === 'meat-alternatives') {
+      cms.builder.meat = itemObj
+    }
+    if (props.foodgroup === 'vegetables-salads') {
+      cms.builder.salad = itemObj;
+    }
+    if (props.foodgroup === 'water') {
+      cms.builder.water = itemObj;
+    }
+    if (props.foodgroup === 'breads-cereals') {
+      cms.builder.cereals = itemObj
+    }
+    if (props.foodgroup === 'breads-cereals') {
+      cms.builder.cereals = itemObj;
+    }
+    browserHistory.push('/healthy-lunch-box');
+  };
+
+  const items = [];
+
+  for (let i = 0; i < foodgroupData.items.length; i += 1) {
+    const ID = foodgroupData.items[i].ID || 0;
+    const item = foodgroupData.items[i] || {};
+    // const slug = foodgroupData.items[i].post.post_name || '';
+    const image = foodgroupData.items[i].acf.image.url || '/img/builder/green-carrot_top.png';
+    const cardTitle = foodgroupData.items[i].post.post_title || 'Lunchbox item';
+    const further = foodgroupData.items[i].acf.image.further_information || '';
+    const key = `lb-item_${i}`;
+    let editBtn = null;
+    const editURL = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${ID}&action=edit`;
+    if (editor) {
+      editBtn = (
+        <EditLink
+          editUrl={editURL || ''}
+        />
+      );
+    }
+    items.push(
+      <div
+        key={key}
+        className="col-lg-4 col-md-4 col-sm-4 col-xs-6 item-card"
+      >
+        <div className="builder-2-card">
+          <img
+            onClick={() => selectItem(item)}
+            alt={cardTitle}
+            src={image}
+            className="img-responsive builder-screen-2-card-img"
+          />
+          <div className="builder-2-card-text">
+            <h4>{cardTitle}</h4>
+          </div>
+          {editBtn}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id="screen-selector" className="screen-selector margin-top-25">
@@ -66,15 +141,18 @@ function ScreenSelector(props) {
       </div>
       <div className="row">
         <div className="col-xs-12 builder-screen-2-extend">
-          <h4 id="less" className="hidden">Hide serving size information<span className="glyphicon glyphicon-chevron-up btn-lg" aria-hidden="true"></span></h4>
           <h4
-            id="more"
-            onClick={() => selectFoodgroup('meat-alternatives')}
+            onClick={() => toggeleMore()}
+            id="less_btn"
+            className="hidden">Hide serving size information<span className="glyphicon glyphicon-chevron-up btn-lg" aria-hidden="true"></span></h4>
+          <h4
+            id="more_btn"
+            onClick={() => toggeleMore()}
           >Show serving size information<span className="glyphicon glyphicon-chevron-down btn-lg" aria-hidden="true"></span></h4>
         </div>
       </div>
 
-      <div id="more" className="hidden">
+      <div id="more_screen" className="hidden">
 
         <div className="row">
           <div className="col-xs-12 lunchbox-servings">
@@ -106,7 +184,13 @@ function ScreenSelector(props) {
         </div>
 
       </div>
+    </div>
+    <div className="col-md-12 builder-screen-2-cards-title">
+      <h4>Select one to pack it!</h4>
+    </div>
 
+    <div className="container">
+      {items}
     </div>
 
     </div>

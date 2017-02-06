@@ -5,23 +5,11 @@
 
 @import '../../vars.scss';
 
-.header {
-  /* border: 1px solid $hlb-blue; */
-}
-
-.nav-link h4 {
-  color: $hlb-links;
-}
-
-.nav-link h4:hover {
-  color: $hlb-links-hover;
-}
-
 .navbar-whole {
-  border: none;
+  border:none;
+  background-color: $hlb-background;
   background-image: none;
   box-shadow: none;
-  z-index: 99 !important;
 }
 
 .navbar .navbar-nav {
@@ -33,56 +21,117 @@
   text-align: center;
 }
 
-.header-logo-left {
-  margin-left: -15px;
-  margin-right: -15px;
-  margin-top: 15px;
+.header-logo-right {
+  float: right;
+  padding-top: 24px;
 }
 
-.header-logo-right {
-  margin-left: -15px;
-  margin-right: -15px;
-  margin-top: 15px;
-  float: right;
+.header-logo-right-div {
+  display: table;
+  width: 100%;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+  margin-right: 0;
 }
 
 .icon-text {
   text-align: center;
   margin-top: 30px;
+  color: #9b9b9b;
 }
 
-.navbar-toggle .icon-bar {
-  width: 30px;
-  margin-left: 3px;
+.icon-text h4 {
+  font-size: 16px;
+  margin-bottom: 0;
 }
+
+.navbar-toggle .icon-bar{
+  width: 40px;
+  margin-left: a2px;
+  background-color: #9b9b9b;
+  height: 4px;
+}\
+
+.navbar-toggle .icon-bar+.icon-bar {
+  margin-top: 6px;
+}
+
+/* ==========  Media Queries for responsiveness  ========== */
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1200px) {
-  .header {
-  }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  .header {
+
+  .navbar-collapse.collapse {
+    display: none !important;
   }
+  .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+  .navbar-header .collapse, .navbar-toggle {
+    display:block !important;
+  }
+  .navbar-header {
+    float:none;
+  }
+  .header-logo-left {
+    border-left: solid 1px #9b9b9b;
+    padding-left:40px;
+    margin-left: -30px;
+  }
+  .header-logo-right {
+  padding-top:15px;
+  }
+
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
   .header {
   }
- .header-logo-left {
-   border-left: solid 1px #6b6b6b;
-   padding-left:20px;
+   .header-logo-left {
+     padding: 5px 20px;
 }
-
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
   .header {
   }
+   .header-logo-left {
+     padding: 5px 10px;
+     max-width:75px;
+}
+    .header-logo-right {
+     padding-top:7px;
+
+}
+
+  .navbar-toggle {
+    margin-top: 0px;
+  }
+
+ .icon-text h4 {
+   font-size: 12px;
+   margin-bottom: 0;
+}
+
+
+ .navbar-toggle .icon-bar{
+   width: 33px;
+   margin-left:0;
+   background-color:#9b9b9b;
+   height:3px;
+}
+
+ .navbar-toggle .icon-bar+.icon-bar{
+   margin-top: 4px;
+}
 }
 
 /* Custom, iPhone Retina */
