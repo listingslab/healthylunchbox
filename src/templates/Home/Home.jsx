@@ -78,18 +78,20 @@ class Home extends Component {
 
           <div className="row">
 
-            <div className="text-center col-md-6" >
+            <div className="col-md-6" >
               <img
                 className="img-responsive"
                 src="/img/hero.png"
               />
             </div>
-            <div className="text-center col-md-6" >
+
+            <div className="col-md-6 pad_25" >
               <h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
-              <h2>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h2>
-              <button
+              <h3>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h3>
+              <Link
+                to={cms.app.data.home_page.hero.data.linkUrl || '/'}
                 className="btn btn-warning btn-lg"
-              >{cms.app.data.home_page.hero.data.linkText || 'Click'}</button>
+              >{cms.app.data.home_page.hero.data.linkText || 'Click'}</Link>
             {editBtn}
             </div>
           </div>
