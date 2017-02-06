@@ -28,7 +28,9 @@ function CardRecipeItem(props) {
   }
 
   //
-  const decodedSubTitle = props.subTitle;
+  let decodedSubTitle = props.subTitle.replace('&amp;', '&');
+  decodedSubTitle = props.subTitle.replace('&#039;', '\'');
+
   return (
     <div className="card-recipe-item">
 

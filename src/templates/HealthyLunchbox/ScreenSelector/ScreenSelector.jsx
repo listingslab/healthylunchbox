@@ -30,6 +30,10 @@ function ScreenSelector(props) {
     );
   }
 
+  const toggeleMore = () => {
+    console.log('toggeleMore');
+  };
+
   return (
     <div id="screen-selector" className="screen-selector margin-top-25">
       <div className="builder-screen-2-header">
@@ -60,7 +64,51 @@ function ScreenSelector(props) {
         </div>
         <div className="col-md-1 hidden-xs" />
       </div>
+      <div className="row">
+        <div className="col-xs-12 builder-screen-2-extend">
+          <h4 id="less" className="hidden">Hide serving size information<span className="glyphicon glyphicon-chevron-up btn-lg" aria-hidden="true"></span></h4>
+          <h4
+            id="more"
+            onClick={() => selectFoodgroup('meat-alternatives')}
+          >Show serving size information<span className="glyphicon glyphicon-chevron-down btn-lg" aria-hidden="true"></span></h4>
+        </div>
+      </div>
+
+      <div id="more" className="hidden">
+
+        <div className="row">
+          <div className="col-xs-12 lunchbox-servings">
+            <img
+              alt="HLB"
+              src="/img/builder/servings.png"
+              className="img-responsive"
+            />
+          </div>
+        </div>
+
+        <div id="more" className="row">
+          <div className="col-xs-12 lunchbox-more">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis rutrum tellus.
+            Cras lobortis sem sit amet sapien tristique, sit amet dignissim libero ornare.
+            Vestibulum condimentum, orci nec placerat rhoncus, dui arcu molestie dui, dictum
+            pellentesque massa nisl ac massa.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis rutrum tellus.
+            Cras lobortis sem sit amet sapien tristique, sit amet dignissim libero ornare.
+            Vestibulum condimentum, orci nec placerat rhoncus, dui arcu molestie dui, dictum
+            pellentesque massa nisl ac massa.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis rutrum tellus.
+            Cras lobortis sem sit amet sapien tristique, sit amet dignissim libero ornare.
+            Vestibulum condimentum, orci nec placerat rhoncus, dui arcu molestie dui, dictum
+            pellentesque massa nisl ac massa.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
     </div>
   );
 }

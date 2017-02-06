@@ -148,6 +148,7 @@
 }
 
 .builder-screen-2-extend {
+  background: #54b948;
   text-align: center;
   border-top: solid 1px #fff;
   text-transform: uppercase;
@@ -159,13 +160,25 @@
   background-color: #54b948;
 }
 
-.moreIcons{
-  margin-top:15px;
+.lunchbox-servings {
+  color: $hlb-text;
+  border-top: solid 1px #fff;
+  background-color: white;
+  padding:10px;
 }
 
-.moreText{
+.lunchbox-more {
+  border-top: solid 1px #fff;
+  padding:10px;
+}
+
+.moreIcons {
+  margin-top: 15px;
+}
+
+.moreText {
   color: white;
-  padding:15px;
+  padding: 15px;
 }
 
 .builder-screen-2-extend h4 {
