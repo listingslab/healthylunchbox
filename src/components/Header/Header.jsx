@@ -75,7 +75,7 @@ function Header() {
           <div className="col-md-2 col-sm-6 col-xs-5 ">
             <span id="center">
         			<span id="wrap">
-                <a href="#"><img src="/img/logos/logo_cceitbi_200.png" className="img-responsive header-logo-right" /></a>
+                <a href="https://www.cancercouncil.com.au/cancer-prevention/diet-exercise/eat-it-to-beat-it/" target="_blank"><img src="/img/logos/logo_cceitbi_200.png" className="img-responsive header-logo-right" /></a>
         		   </span>
       		     </span>
           </div>

@@ -51,15 +51,18 @@ class Category extends Component {
       if (categories[i].acf.image !== false) {
         image = categories[i].acf.image.url;
       }
-      const freezable = false;
+      // console.log(categories[i].acf.cooking_time);
       categoriesArr.push(
         <div key={key} className="col-md-4">
           <CardRecipeItem
             route={`/recipe/${categories[i].post_name}`}
             title={categories[i].post_title}
             subTitle={categories[i].acf.short_description || ''}
-            tabText={categories[i].post_type}
-            frezable={freezable}
+            tabText="Easy to freeze"
+            preparation_time={categories[i].preparation_time || ''}
+            veg_serves={categories[i].veg_serves || ''}
+            cooking_time={categories[i].acf.cooking_time || ''}
+            freezable={categories[i].acf.freezable || false}
             image={image}
             acf={categories[i].acf || {}}
           />

@@ -10,10 +10,10 @@ import './CardRecipeItem.scss';
 
 
 function CardRecipeItem(props) {
-  // console.log(props);
   const tabText = props.tabText.toUpperCase();
   const image = props.image || '/img/defaults/RecipeImage.jpg';
   const freezableIcon = '/img/icons/icon-freezeable.png';
+  const leftoverIcon = '/img/icons/icon-leftover.png';
 
   let iconTab = null;
   if (props.freezable) {
@@ -27,13 +27,8 @@ function CardRecipeItem(props) {
     );
   }
 
-  //
-  let decodedSubTitle = props.subTitle.replace('&amp;', '&');
-  decodedSubTitle = props.subTitle.replace('&#039;', '\'');
-
   return (
     <div className="card-recipe-item">
-
       <Link
         to={props.route}
       >
@@ -45,10 +40,13 @@ function CardRecipeItem(props) {
           />
           {iconTab}
         </div>
-
         <div className="card-recipe-item-detail">
           <h4>{props.title || ''}</h4>
-          <p>{ decodedSubTitle || ''}</p>
+          <p>
+            Prep time <strong>{props.preparation_time || '0'} mins</strong>
+          &nbsp;
+          Cook time <strong>{ props.cooking_time || '0'} mins</strong>
+          </p>
         </div>
 
       </Link>
@@ -59,10 +57,18 @@ function CardRecipeItem(props) {
 CardRecipeItem.propTypes = {
   route: PropTypes.string.isRequired,
   tabText: PropTypes.string.isRequired,
+  cooking_time: PropTypes.string.isRequired,
+  preparation_time: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
   freezable: PropTypes.bool
+  // veg_serves: PropTypes.string.isRequired,
+  // subTitle: PropTypes.string.isRequired,
 };
 
 export default CardRecipeItem;
+
+/*
+let decodedSubTitle = props.subTitle.replace('&amp;', '&');
+decodedSubTitle = props.subTitle.replace('&#039;', '\'');
+*/

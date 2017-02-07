@@ -16,8 +16,62 @@ html, body, #root {
   color: $hlb-text;
 }
 
+p a {
+  color: $hlb-blue;
+}
+
+p a:hover {
+  color: $hlb-green;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.yellow-line {
+  border-bottom: 2px solid $hlb-yellow;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.item-icons {
+  margin-bottom: 15px;
+
+  .item-icon {
+    float: left;
+    margin-right: 10px;
+
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+
+    p {
+      float: left;
+      margin-top: 4px;
+    }
+  }
+}
+
+.item-content-pad{
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.item-content-ingredients {
+    padding-top: 20px;
+
+}
+
 .home-featured-recipes {
   background: $hlb-white;
+  padding: 30px;
+  margin: 20px;
+  margin-top: -20px;
+}
+
+.home-bottom {
   padding: 30px;
   margin: 20px;
   margin-top: -20px;
