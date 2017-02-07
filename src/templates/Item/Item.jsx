@@ -126,6 +126,14 @@ class Item extends Component {
           <div>Vegie servings {this.item.data.acf.veg_serves}</div>
         );
       }
+
+      let serves = null;
+      if (this.item.data.acf.serves !== '') {
+        serves = (
+          <div>Serves {this.item.data.acf.serves}</div>
+        );
+      }
+
       let ingredients = null;
       if (this.item.data.acf.ingredients !== '') {
         ingredients = (
@@ -135,31 +143,93 @@ class Item extends Component {
           </div>
         );
       }
-      recipeInfo = (
 
+      let method = null;
+      if (this.item.data.acf.method !== '') {
+        method = (
+          <div>
+            <h4>Method</h4>
+            <div dangerouslySetInnerHTML={this.createMarkup(this.item.data.acf.method)} />
+          </div>
+        );
+      }
+
+      recipeInfo = (
         <div className="item-content-pad">
 
           <div className="item-content-meta">
-            <h3>{cookingTime}
-            {preparationTime}
-            {vegServes}</h3>
+            <h3>
+              {serves}
+              {preparationTime}
+              {cookingTime}
+              {vegServes}
+            </h3>
           </div>
 
           <div className="item-content-ingredients">
             {ingredients}
+            {method}
           </div>
 
         </div>
       );
     }
+
+    let showIcons = null;
+    if (this.item.data.acf.freezable || this.item.data.acf.leftovers) {
+      let freezable = null;
+      if (this.item.data.acf.freezable) {
+        freezable = (
+            <div className="item-icon">
+              <img
+                src="/img/icons/icon-freezeable.png"
+                alt="Easy to freeze"
+              />
+            <p>EASY TO FREEZE</p>
+            </div>
+        );
+      }
+      let leftovers = null;
+      if (this.item.data.acf.leftovers) {
+        leftovers = (
+            <div className="item-icon">
+              <img
+                src="/img/icons/icon-leftover.png"
+                alt="Easy to freeze"
+              />
+            <p>LEFTOVERS FOR LUNCHBOXES</p>
+            </div>
+        );
+      }
+      showIcons = (
+        <div className="item-icons">
+          {freezable}
+          {leftovers}
+          <div className="clear-both" />
+        </div>
+      )
+    }
+
+    let tipInfo = null;
+    //console.log(this.item.data.acf.tip);
+    if (this.item.data.post_type === 'tip') {
+      tipInfo = (
+        <div className="item-content-pad margin-top-25">
+          <div dangerouslySetInnerHTML={this.createMarkup(this.item.data.acf.tip)} />
+        </div>
+      );
+    }
+
     return (
       <div className="">
         <Breadcrumb />
         <div className="item container">
           <div className="raised-page">
             <h1>{this.item.data.title}</h1>
+            {showIcons}
             {image}
             {recipeInfo}
+            {tipInfo}
           </div>
         </div>
         <div className="margin-top-25">

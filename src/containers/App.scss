@@ -16,9 +16,33 @@ html, body, #root {
   color: $hlb-text;
 }
 
+.clear-both {
+  clear: both;
+}
+
+.item-icons {
+  margin-bottom: 15px;
+
+  .item-icon {
+    float: left;
+    margin-right: 10px;
+
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+
+    p {
+      float: left;
+      margin-top: 4px;
+    }
+  }
+}
+
 .item-content-pad{
   padding-top: 10px;
   padding-left: 50px;
+  padding-right: 50px;
 }
 
 .item-content-ingredients {

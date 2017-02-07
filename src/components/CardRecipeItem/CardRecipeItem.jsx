@@ -29,7 +29,6 @@ function CardRecipeItem(props) {
 
   return (
     <div className="card-recipe-item">
-
       <Link
         to={props.route}
       >
@@ -41,13 +40,12 @@ function CardRecipeItem(props) {
           />
           {iconTab}
         </div>
-
         <div className="card-recipe-item-detail">
           <h4>{props.title || ''}</h4>
           <p>
-            Prep time <strong>{props.preparation_time || ''} mins</strong>
+            Prep time <strong>{props.preparation_time || '0'} mins</strong>
           &nbsp;
-          Cook time <strong>{ props.cooking_time || ''} mins</strong>
+          Cook time <strong>{ props.cooking_time || '0'} mins</strong>
           </p>
         </div>
 
