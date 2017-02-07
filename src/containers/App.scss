@@ -16,8 +16,22 @@ html, body, #root {
   color: $hlb-text;
 }
 
+p a {
+  color: $hlb-blue;
+}
+
+p a:hover {
+  color: $hlb-green;
+}
+
 .clear-both {
   clear: both;
+}
+
+.yellow-line {
+  border-bottom: 2px solid $hlb-yellow;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .item-icons {

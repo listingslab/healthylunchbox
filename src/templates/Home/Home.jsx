@@ -34,7 +34,6 @@ class Home extends Component {
   }
 
   render() {
-    // console.log(cms.app.data.home_page.hero.data)
     let editBtn = null;
     if (editor) {
       editBtn = (
@@ -47,13 +46,11 @@ class Home extends Component {
     const fr = cms.app.data.home_page.featured_recipes || [];
     let numToShow = 2;
     if (verge.viewportW() > 1000) {
-      // console.log(verge.viewportH());
       numToShow = 3;
     }
 
     for (let i = 0; i < numToShow; i += 1) {
       const key = `recipe_${i}`;
-      // console.log(fr[i].freezable);
       featuredRecipes.push(
         <div key={key} className="col-md-4 col-sm-6">
           <CardRecipeItem
@@ -72,14 +69,13 @@ class Home extends Component {
         </div>
       );
     }
-    // console.log(cms.app.data.home_page.hero.data.heroTitle);
     const linkText = 'More recipes & ideas';
     const headerText = 'Featured lunchbox recipes';
 
     const ft = cms.app.data.home_page.featured_tips || [];
     const quickTips = [];
 
-    for (let i = 0; i < ft.length; i += 1) {
+    for (let i = 0; i < 2; i += 1) {
       const item = cms.app.data.home_page.featured_tips[i];
       const tipLink = `/tip/${item.itemSlug}`;
       const key = `tip_${i}`;
@@ -102,13 +98,8 @@ class Home extends Component {
         featuredCatData = cms.app.data.recipes.categories[i];
       }
     }
-    console.log(featuredCat);
-    console.log(featuredCatData);
-
-    // get featured ctegory info
     return (
       <div className="home container">
-
         <div className="home-hero">
           <div className="row">
             <div className="col-md-6" >

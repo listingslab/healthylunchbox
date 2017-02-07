@@ -27,13 +27,17 @@ class About extends Component {
         />
       );
     }
+    console.log(cms.app.data.about.acf.about_leader);
     return (
       <div className="row margin-top-25">
         <Breadcrumb />
           <div className="container">
             <div className="row" >
               <div className="raised-page" >
-                <div dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.post.post_content)} />
+                <h2><div dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.acf.about_leader)} /></h2>
+                <div className="yellow-line col-md-3" />
+                <div className="clear-both" />
+                <div dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.acf.about_fulltext)} />
               </div>
             </div>
           </div>
