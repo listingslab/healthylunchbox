@@ -1,4 +1,4 @@
-# Healthy Lunch Box vs 3.0.1
+# Healthy Lunch Box vs 3.0.2
 
 Developed by usTwo for the Cancer Council, January 2017. This is a React Applicaition
 (/src) which compiles into a standalone HTML folder called build. This build folder is
