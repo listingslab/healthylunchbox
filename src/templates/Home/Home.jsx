@@ -75,6 +75,37 @@ class Home extends Component {
     // console.log(cms.app.data.home_page.hero.data.heroTitle);
     const linkText = 'More recipes & ideas';
     const headerText = 'Featured lunchbox recipes';
+
+    const ft = cms.app.data.home_page.featured_tips || [];
+    const quickTips = [];
+
+    for (let i = 0; i < ft.length; i += 1) {
+      const item = cms.app.data.home_page.featured_tips[i];
+      const tipLink = `/tip/${item.itemSlug}`;
+      const key = `tip_${i}`;
+      quickTips.push(
+        <div
+          key={key}
+          className="quicktip"
+        >
+          <h3>{item.home_tip_text}</h3>
+          <Link
+            to={tipLink}
+          >More like this.</Link>
+        </div>
+      );
+    }
+    let featuredCatData = null;
+    const featuredCat = cms.app.data.home_page.hero.data.featured_category;
+    for (let i = 0; i < cms.app.data.recipes.categories.length; i += 1) {
+      if (featuredCat === cms.app.data.recipes.categories[i].slug) {
+        featuredCatData = cms.app.data.recipes.categories[i];
+      }
+    }
+    console.log(featuredCat);
+    console.log(featuredCatData);
+
+    // get featured ctegory info
     return (
       <div className="home container">
 
@@ -118,28 +149,18 @@ class Home extends Component {
             <div className="row">
                 <div className="col-md-6 home-quicktip">
                   <h2>Quick Tips</h2>
-                  <div className="quicktip">
-                    <h3>In season fruits and veggies are uso a good option.</h3>
-                    <a href="/">More shopping tips.</a>
-                  </div>
-
-                  <div className="quicktip">
-                    <h3>Pack a frozen water bottle in the lunch box to give kids a
-                      cold drink and help keep the lunch cool.</h3>
-                    <a href="/">More food safety tips.</a>
-                  </div>
-
+                  {quickTips}
                 </div>
 
               <div className="col-md-6 pad_25" >
                 <CardCategory
-                  route="/recipes/packed-lunches"
-                  title="Packed lunches"
-                  subTitle=""
-                  numberItems={1}
+                  route={featuredCatData.route}
+                  title={featuredCatData.title}
+                  subTitle={featuredCatData.subTitle}
+                  numberItems={featuredCatData.items.length}
                   itemType="recipe"
-                  colour="purple"
-                  image="http://api.healthylunchbox.com.au/wp-content/uploads/eggplant.jpg"
+                  colour="orange"
+                  image={featuredCatData.image}
                 />
               </div>
 

@@ -100,6 +100,10 @@ function hlbapi_app( WP_REST_Request $request ) {
     if (isset($act['short_description'])){
       $tempObj->subTitle = htmlspecialchars_decode($act['short_description']);
     }
+    $tempObj->home_tip_text = '';
+    if (isset($act['home_tip_text'])){
+      $tempObj->home_tip_text = htmlspecialchars_decode($act['home_tip_text']);
+    }
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
     $tempObj->itemModified = $post->post_modified;
@@ -195,6 +199,7 @@ function hlbapi_app( WP_REST_Request $request ) {
   $about_id = 510;
   $response->data->about = new stdClass();
   $response->data->about->post = get_post($about_id);
+  $response->data->about->acf = get_fields($about_id);
   unset($response->data->about->post->post_password);
   unset($response->data->about->post->post_date_gmt);
   unset($response->data->about->post->post_author);

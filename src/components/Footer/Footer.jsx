@@ -25,7 +25,7 @@ function Footer() {
   return (
     <div className="footer text-center">
       <div className="container">
-        <small>&copy; Cancer Council NSW 2017 vs3.0.0</small><br />
+        <small>&copy; Cancer Council NSW 2017 vs3.0.1</small><br />
         <Link
           onClick={deleteCookies}
           className="btn start-again">Start again.</Link>
