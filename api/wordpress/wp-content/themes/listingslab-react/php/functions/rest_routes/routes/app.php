@@ -62,6 +62,19 @@ function hlbapi_app( WP_REST_Request $request ) {
       $tempObj->freezable = $act['freezable'];
     }
 
+    $tempObj->preparation_time = '';
+    if (isset($act['preparation_time'])){
+      $tempObj->preparation_time = $act['preparation_time'];
+    }
+    $tempObj->veg_serves = '';
+    if (isset($act['veg_serves'])){
+      $tempObj->veg_serves = $act['veg_serves'];
+    }
+    $tempObj->cooking_time = '';
+    if (isset($act['cooking_time'])){
+      $tempObj->cooking_time = $act['cooking_time'];
+    }
+
     $tempObj->image = $image['image']['url'];
     $featured_recipes[] = $tempObj;
   }
@@ -86,6 +99,10 @@ function hlbapi_app( WP_REST_Request $request ) {
     $tempObj->subTitle = '';
     if (isset($act['short_description'])){
       $tempObj->subTitle = htmlspecialchars_decode($act['short_description']);
+    }
+    $tempObj->home_tip_text = '';
+    if (isset($act['home_tip_text'])){
+      $tempObj->home_tip_text = htmlspecialchars_decode($act['home_tip_text']);
     }
     $tempObj->itemType = $post->post_type;
     $tempObj->itemSlug = $post->post_name;
@@ -182,6 +199,7 @@ function hlbapi_app( WP_REST_Request $request ) {
   $about_id = 510;
   $response->data->about = new stdClass();
   $response->data->about->post = get_post($about_id);
+  $response->data->about->acf = get_fields($about_id);
   unset($response->data->about->post->post_password);
   unset($response->data->about->post->post_date_gmt);
   unset($response->data->about->post->post_author);

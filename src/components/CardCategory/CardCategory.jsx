@@ -36,7 +36,7 @@ function CardCategory(props) {
 CardCategory.propTypes = {
   route: PropTypes.string.isRequired,
   numberItems: PropTypes.number.isRequired,
-  itemType: PropTypes.string.isRequired,
+  // itemType: PropTypes.string.isRequired,
   colour: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
