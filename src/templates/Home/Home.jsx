@@ -82,6 +82,7 @@ class Home extends Component {
           <div className="row">
             <div className="col-md-6" >
               <img
+                alt="Healthy Lunch Box"
                 className="img-responsive"
                 src="/img/hero.png"
               />
@@ -115,10 +116,20 @@ class Home extends Component {
 
           <div className="home-bottom">
             <div className="row">
+                <div className="col-md-6 home-quicktip">
+                  <h2>Quick Tips</h2>
+                  <div className="quicktip">
+                    <h3>In season fruits and veggies are uso a good option.</h3>
+                    <a href="/">More shopping tips.</a>
+                  </div>
 
-              <div className="col-md-6" >
-                Featured tips
-              </div>
+                  <div className="quicktip">
+                    <h3>Pack a frozen water bottle in the lunch box to give kids a
+                      cold drink and help keep the lunch cool.</h3>
+                    <a href="/">More food safety tips.</a>
+                  </div>
+
+                </div>
 
               <div className="col-md-6 pad_25" >
                 <CardCategory
