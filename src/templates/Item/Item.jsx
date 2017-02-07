@@ -76,7 +76,6 @@ class Item extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (!this.state.isLoaded) {
       const loaderText = `Loading ${this.state.slug}`;
       const showLogo = false;
@@ -106,6 +105,53 @@ class Item extends Component {
           alt={this.item.data.title}
         />);
     }
+    let recipeInfo = null;
+    if (this.item.data.post_type === 'recipe') {
+      console.log(this.item.data.acf.cooking_time);
+      let cookingTime = null;
+      if (this.item.data.acf.cooking_time !== '') {
+        cookingTime = (
+          <div>Cooking time {this.item.data.acf.cooking_time} mins</div>
+        );
+      }
+      let preparationTime = null;
+      if (this.item.data.acf.preparation_time !== '') {
+        preparationTime = (
+          <div>Preparation time {this.item.data.acf.preparation_time} mins</div>
+        );
+      }
+      let vegServes = null;
+      if (this.item.data.acf.veg_serves !== '') {
+        vegServes = (
+          <div>Vegie servings {this.item.data.acf.veg_serves}</div>
+        );
+      }
+      let ingredients = null;
+      if (this.item.data.acf.ingredients !== '') {
+        ingredients = (
+          <div>
+            <h4>Ingredients</h4>
+            <div dangerouslySetInnerHTML={this.createMarkup(this.item.data.acf.ingredients)} />
+          </div>
+        );
+      }
+      recipeInfo = (
+
+        <div className="item-content-pad">
+
+          <div className="item-content-meta">
+            <h3>{cookingTime}
+            {preparationTime}
+            {vegServes}</h3>
+          </div>
+
+          <div className="item-content-ingredients">
+            {ingredients}
+          </div>
+
+        </div>
+      );
+    }
     return (
       <div className="">
         <Breadcrumb />
@@ -113,6 +159,7 @@ class Item extends Component {
           <div className="raised-page">
             <h1>{this.item.data.title}</h1>
             {image}
+            {recipeInfo}
           </div>
         </div>
         <div className="margin-top-25">

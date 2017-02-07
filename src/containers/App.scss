@@ -16,6 +16,16 @@ html, body, #root {
   color: $hlb-text;
 }
 
+.item-content-pad{
+  padding-top: 10px;
+  padding-left: 50px;
+}
+
+.item-content-ingredients {
+    padding-top: 20px;
+
+}
+
 .home-featured-recipes {
   background: $hlb-white;
   padding: 30px;

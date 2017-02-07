@@ -62,6 +62,19 @@ function hlbapi_app( WP_REST_Request $request ) {
       $tempObj->freezable = $act['freezable'];
     }
 
+    $tempObj->preparation_time = '';
+    if (isset($act['preparation_time'])){
+      $tempObj->preparation_time = $act['preparation_time'];
+    }
+    $tempObj->veg_serves = '';
+    if (isset($act['veg_serves'])){
+      $tempObj->veg_serves = $act['veg_serves'];
+    }
+    $tempObj->cooking_time = '';
+    if (isset($act['cooking_time'])){
+      $tempObj->cooking_time = $act['cooking_time'];
+    }
+
     $tempObj->image = $image['image']['url'];
     $featured_recipes[] = $tempObj;
   }

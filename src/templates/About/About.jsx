@@ -14,8 +14,8 @@ class About extends Component {
     input: PropTypes.string
   }
 
-  makeMarkup() {
-    return { __html: cms.app.data.about.post.post_content };
+  makeMarkup(html) {
+    return { __html: html };
   }
 
   render() {
@@ -33,8 +33,7 @@ class About extends Component {
           <div className="container">
             <div className="row" >
               <div className="raised-page" >
-                <h1>{cms.app.data.about.post.post_title}</h1>
-                <div dangerouslySetInnerHTML={this.makeMarkup()} />
+                <div dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.post.post_content)} />
               </div>
             </div>
           </div>

@@ -34,7 +34,7 @@ class Home extends Component {
   }
 
   render() {
-    console.log(cms.app.data.home_page.hero.data)
+    // console.log(cms.app.data.home_page.hero.data)
     let editBtn = null;
     if (editor) {
       editBtn = (
@@ -61,6 +61,9 @@ class Home extends Component {
             title={fr[i].title || ''}
             subTitle={fr[i].subTitle || ''}
             freezable={fr[i].freezable || false}
+            preparation_time={fr[i].preparation_time || ''}
+            veg_serves={fr[i].veg_serves || ''}
+            cooking_time={fr[i].cooking_time || ''}
             tabText="Freezable"
             itemType="recipe"
             image={fr[i].image}
@@ -122,7 +125,7 @@ class Home extends Component {
                   route="/recipes/packed-lunches"
                   title="Packed lunches"
                   subTitle=""
-                  numberItems={3}
+                  numberItems={1}
                   itemType="recipe"
                   colour="purple"
                   image="http://api.healthylunchbox.com.au/wp-content/uploads/eggplant.jpg"
@@ -131,7 +134,6 @@ class Home extends Component {
 
             </div>
           </div>
-
           {editBtn}
       </div>
     );
