@@ -12,8 +12,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class Category extends Component {
   static propTypes = {
-    routeParams: PropTypes.any,
-    route: PropTypes.any
+    routeParams: PropTypes.any
   }
 
   getItemsInCatSlug(slug) {
@@ -33,14 +32,12 @@ class Category extends Component {
   }
 
   render() {
+    console.log('Category Page');
+    console.log(this.props.routeParams);
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
     let editBtn = null;
     if (editor) {
-      editBtn = (
-        <EditLink
-          editUrl={category.editUrl}
-        />
-      );
+      editBtn = (<EditLink editUrl={category.editUrl} />);
     }
     const categoriesArr = [];
     const categories = category.items;

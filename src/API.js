@@ -1,5 +1,3 @@
-/* global apiBaseUrl */
-
 /**
  * Created by Chris Dorward on 28/01/2017
  * API
@@ -11,7 +9,7 @@ export default class API {
 
   constructor(apiRoute) {
     this.apiBaseUrl = 'http://api.healthylunchbox.com.au/wp-json/hlbapi/';
-    this.apiUrl = `${apiBaseUrl}${apiRoute}`;
+    this.apiUrl = `${this.apiBaseUrl}${apiRoute}`;
     this.homeData = false;
     this.state = {
       isLoaded: false,
