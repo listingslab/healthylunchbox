@@ -12,7 +12,8 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class Category extends Component {
   static propTypes = {
-    routeParams: PropTypes.any
+    routeParams: PropTypes.any,
+    route: PropTypes.any
   }
 
   getItemsInCatSlug(slug) {
@@ -32,8 +33,6 @@ class Category extends Component {
   }
 
   render() {
-    // console.log('Category Page');
-    // console.log(this.props.routeParams);
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
     let editBtn = null;
     if (editor) {
@@ -43,12 +42,10 @@ class Category extends Component {
     const categories = category.items;
     for (let i = 0; i < categories.length; i += 1) {
       const key = `cat_${i}`;
-      // console.log(categories[i].image);
       let image = '';
       if (categories[i].acf.image !== false) {
         image = categories[i].acf.image.url;
       }
-      // console.log(categories[i].acf.cooking_time);
       categoriesArr.push(
         <div key={key} className="col-md-4">
           <CardRecipeItem
@@ -67,17 +64,19 @@ class Category extends Component {
       );
     }
     return (
-      <div className="row">
-        <Breadcrumb
-          route={this.props.route}
-          thisTitle={category.title}
-        />
-        <div className="container">
-            <h1>{category.title}</h1>
-            <p>{category.subTitle}</p>
-            {categoriesArr}
+      <div className="container">
+        <div className="row">
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={category.title}
+          />
+          <div className="container">
+              <h1>{category.title}</h1>
+              <p>{category.subTitle}</p>
+              {categoriesArr}
+          </div>
+          {editBtn}
         </div>
-        {editBtn}
       </div>
     );
   }
