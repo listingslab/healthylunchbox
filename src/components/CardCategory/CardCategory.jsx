@@ -27,7 +27,7 @@ function CardCategory(props) {
           <h2>{props.title || ''}</h2>
           <p>{props.subTitle || ''}</p>
         </div>
-        <div className="recipe-center-overlay">{props.numberItems} RECIPES</div>
+        <div className="recipe-center-overlay">{props.numberItems} {props.countText}</div>
       </Link>
     </div>
   );
@@ -40,6 +40,7 @@ CardCategory.propTypes = {
   colour: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
+  countText: PropTypes.string,
   subTitle: PropTypes.string.isRequired
 };
 

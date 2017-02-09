@@ -1,4 +1,4 @@
-# Healthy Lunch Box vs 3.0.5
+# Healthy Lunch Box vs 3.0.6
 
 Developed by usTwo for the Cancer Council, January 2017. This is a React Applicaition
 (/src) which compiles into a standalone HTML folder called build. This build folder is
@@ -34,7 +34,12 @@ http://api.healthylunchbox.com.au/wp-json/hlbapi/app
 
 http://api.healthylunchbox.com.au/wp-json/hlbapi/item/tabbouleh
 
-## Installation
+### Global JavaScript variables
+There are two global variables used in the React app. Firstly 'editor' (Boolean) which turns the edit buttons on or off. The second is called cms & is the global information store where the data loaded from the API are stored.
+
+These are initialised in /public/index.html
+
+## Developer Installation
 Developers will need to be invited to collaborate on this private GitHub repo. Ask Petch or Hooch
 
 cd to your working directory (ours is ~/node) and run the following. Clone the directory,

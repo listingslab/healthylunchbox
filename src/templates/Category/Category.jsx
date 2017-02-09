@@ -9,6 +9,7 @@ import React, { Component, PropTypes } from 'react';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import './Category.scss';
 
 class Category extends Component {
   static propTypes = {
@@ -33,11 +34,30 @@ class Category extends Component {
   }
 
   render() {
-    const category = this.getItemsInCatSlug(this.props.routeParams.slug);
-    let editBtn = null;
-    if (editor) {
-      editBtn = (<EditLink editUrl={category.editUrl} />);
+    const catType = this.props.routeParams.slug;
+    let pageHead = null;
+    if (catType === 'packed-lunches') {
+      pageHead = (
+        <div className="packed-lunch-header margin-bottom-25">
+          <div className="row">
+            <div className="col-md-12" >
+              <h1>{cms.app.data.special.data.packed_lunch_category_hero_text || ''}</h1>
+              <div className="image-center">
+                <img
+                  alt="Healthy Lunch Box"
+                  className="img-responsive "
+                  src="/img/hero.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     }
+
+    const category = this.getItemsInCatSlug(this.props.routeParams.slug);
+    // console.log (this.props.routeParams.slug);
+
     const categoriesArr = [];
     const categories = category.items;
     for (let i = 0; i < categories.length; i += 1) {
@@ -46,6 +66,7 @@ class Category extends Component {
       if (categories[i].acf.image !== false) {
         image = categories[i].acf.image.url;
       }
+      
       categoriesArr.push(
         <div key={key} className="col-md-4">
           <CardRecipeItem
@@ -63,6 +84,8 @@ class Category extends Component {
         </div>
       );
     }
+    let editBtn = null;
+    if (editor) { editBtn = (<EditLink editUrl={category.editUrl} />); }
     return (
       <div className="container">
         <div className="row">
@@ -73,6 +96,7 @@ class Category extends Component {
           <div className="container">
               <h1>{category.title}</h1>
               <p>{category.subTitle}</p>
+              {pageHead}
               {categoriesArr}
           </div>
           {editBtn}
