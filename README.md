@@ -29,10 +29,10 @@ can be found in the theme - /api/wordpress/wp-content/themes/listingslab-react.
 
 ### Endpoint examples
 http://api.healthylunchbox.com.au/wp-json/hlbapi/hello
+
 http://api.healthylunchbox.com.au/wp-json/hlbapi/app
+
 http://api.healthylunchbox.com.au/wp-json/hlbapi/item/tabbouleh
-
-
 
 ## Installation
 Developers will need to be invited to collaborate on this private GitHub repo. Ask Petch or Hooch
