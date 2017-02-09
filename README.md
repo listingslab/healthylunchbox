@@ -23,6 +23,11 @@ to dump an up to date DB for you for you if you wish to set up a local version. 
 
 For any other info, contact listingslab@gmail.com
 
+## API
+The react application uses custom WordPress API endpoints
+/api/wordpress/wp-content/themes/listingslab-react
+
+
 ## Installation
 Developers will need to be invited to collaborate on this private GitHub repo. Ask Petch or Hooch
 

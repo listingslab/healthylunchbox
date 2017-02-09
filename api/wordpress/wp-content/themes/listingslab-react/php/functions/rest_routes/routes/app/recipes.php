@@ -1,5 +1,4 @@
 <?php
-<?php
 /**
   * Adds recipes to /app endpoint : recipe categories with items
 */
