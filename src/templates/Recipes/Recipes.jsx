@@ -77,7 +77,10 @@ class Recipes extends Component {
     return (
       <div className="container">
         <div className="row margin-top-25">
-          <Breadcrumb />
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={title}
+          />
           <div className="container">
               <h1>{title}</h1>
               <div dangerouslySetInnerHTML={this.makeMarkup()} />

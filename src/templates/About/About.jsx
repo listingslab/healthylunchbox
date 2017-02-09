@@ -11,7 +11,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class About extends Component {
   static propTypes = {
-    input: PropTypes.string
+    route: PropTypes.any
   }
 
   makeMarkup(html) {
@@ -27,11 +27,13 @@ class About extends Component {
         />
       );
     }
-    console.log(cms.app.data.about.acf.about_leader);
     return (
       <div className="container">
         <div className="row margin-top-25">
-          <Breadcrumb />
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={cms.app.data.about.post.post_title}
+          />
             <div className="container">
               <div className="row" >
                 <div className="raised-page" >

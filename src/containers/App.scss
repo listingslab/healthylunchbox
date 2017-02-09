@@ -12,6 +12,11 @@ html, body, #root {
   color: $hlb-text;
 }
 
+.breadcrumb-this-page {
+  color: $hlb-blue;
+  font-family: 'Baloo';
+}
+
 p a {
   color: $hlb-blue;
 }

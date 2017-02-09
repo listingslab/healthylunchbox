@@ -32,8 +32,8 @@ class Category extends Component {
   }
 
   render() {
-    console.log('Category Page');
-    console.log(this.props.routeParams);
+    // console.log('Category Page');
+    // console.log(this.props.routeParams);
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
     let editBtn = null;
     if (editor) {
@@ -68,7 +68,10 @@ class Category extends Component {
     }
     return (
       <div className="row">
-        <Breadcrumb />
+        <Breadcrumb
+          route={this.props.route}
+          thisTitle={category.title}
+        />
         <div className="container">
             <h1>{category.title}</h1>
             <p>{category.subTitle}</p>
