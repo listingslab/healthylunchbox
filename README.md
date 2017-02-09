@@ -24,8 +24,14 @@ to dump an up to date DB for you for you if you wish to set up a local version. 
 For any other info, contact listingslab@gmail.com
 
 ## API
-The react application uses custom WordPress API endpoints
-/api/wordpress/wp-content/themes/listingslab-react
+The react application uses some custom WordPress API endpoints to retrieve data. The php for this
+can be found in the theme - /api/wordpress/wp-content/themes/listingslab-react.
+
+### Endpoint examples
+http://api.healthylunchbox.com.au/wp-json/hlbapi/hello
+http://api.healthylunchbox.com.au/wp-json/hlbapi/app
+http://api.healthylunchbox.com.au/wp-json/hlbapi/item/tabbouleh
+
 
 
 ## Installation
@@ -65,7 +71,7 @@ Ask hooch to hook you up with the correct access for this to work.
 To upload latest build
 
 ```
-rsync -avz /<your-path>/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/
+rsync -avz --delete /<your-path>/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/
 ```
 
 To upload latest WordPress API
