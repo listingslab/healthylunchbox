@@ -39,4 +39,11 @@
     }
   }
   $lunchbox->foodgroups = $catArr;
+
+  $instructions = new stdClass();
+  $instructions->editURL = "http://api.healthylunchbox.com.au/wp-admin/post.php?post=1083&action=edit";
+  $instructions->data = get_fields(1083);
+
+  $lunchbox->instructions = $instructions;
+
   $response->data->lunchbox = $lunchbox;

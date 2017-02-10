@@ -41,7 +41,7 @@ function Header() {
   }
   // const className = 'header container';
   return (
-    <div className="container">
+    <div className="header container">
       <div className="row">
           <div className="col-md-8 col-sm-2 col-xs-3  col-md-push-2">
       				<nav className="navbar navbar-default navbar-whole">
