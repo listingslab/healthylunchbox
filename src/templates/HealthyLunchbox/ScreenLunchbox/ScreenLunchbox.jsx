@@ -70,6 +70,7 @@ function ScreenLunchbox() {
       <div className="border-1-item-tab"></div>
     </div>
 
+
     <div className="builder-1-start-over-button">
       <button
         className="btn blue-circle-button"
@@ -87,6 +88,7 @@ function ScreenLunchbox() {
         <h3>Select any food group to begin.</h3>
       </div>
 
+      <div className="clear-both" />
 
 </div>
 
