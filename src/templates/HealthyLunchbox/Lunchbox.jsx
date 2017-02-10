@@ -30,16 +30,9 @@ class Lunchbox extends Component {
     }
   }
 
-  componentDidMount() {
-    // $('#screen-selector').hide();
-  }
-
-  componentWillUnmount() {
-  }
-
   render() {
     return (
-      <div className="hlb container">
+      <div className="container">
         <div className="row">
           <ScreenLunchbox />
         </div>

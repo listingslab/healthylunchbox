@@ -11,7 +11,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class About extends Component {
   static propTypes = {
-    input: PropTypes.string
+    route: PropTypes.any
   }
 
   makeMarkup(html) {
@@ -27,21 +27,31 @@ class About extends Component {
         />
       );
     }
-    console.log(cms.app.data.about.acf.about_leader);
     return (
-      <div className="row margin-top-25">
-        <Breadcrumb />
-          <div className="container">
-            <div className="row" >
-              <div className="raised-page" >
-                <h2><div dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.acf.about_leader)} /></h2>
-                <div className="yellow-line col-md-3" />
-                <div className="clear-both" />
-                <div dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.acf.about_fulltext)} />
+      <div className="container">
+        <div className="row margin-top-25">
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={cms.app.data.about.post.post_title}
+          />
+            <div className="container">
+              <div className="row" >
+                <div className="raised-page" >
+                  <h2>
+                    <div
+                      dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.acf.about_leader)}
+                    />
+                  </h2>
+                  <div className="yellow-line col-md-3" />
+                  <div className="clear-both" />
+                  <div
+                    dangerouslySetInnerHTML={this.makeMarkup(cms.app.data.about.acf.about_fulltext)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        {editBtn}
+          {editBtn}
+        </div>
       </div>
     );
   }

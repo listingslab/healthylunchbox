@@ -49,7 +49,7 @@ class Home extends Component {
       numToShow = 3;
     }
 
-    for (let i = 0; i < numToShow; i += 1) {
+    for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
       featuredRecipes.push(
         <div key={key} className="col-md-4 col-sm-6">
@@ -152,6 +152,7 @@ class Home extends Component {
                   itemType="recipe"
                   colour="orange"
                   image={featuredCatData.image}
+                  countText="Examples"
                 />
               </div>
 

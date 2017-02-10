@@ -9,9 +9,27 @@ import { Link, browserHistory } from 'react-router';
 import './Breadcrumb.scss';
 
 function Breadcrumb(props) {
-  // console.log('Breadcrumb props');
-  // console.log(props);
-
+  const routePath = props.route.path.split('/');
+  let parentPage = null;
+  if (routePath.length > 2) {
+    let parentPath = null;
+    let parentTitle = null;
+    if (routePath[1] === 'tip') {
+      parentPath = '/tips';
+      parentTitle = 'Tips';
+    }
+    if (routePath[1] === 'recipe' || routePath[1] === 'recipes') {
+      parentPath = '/recipes';
+      parentTitle = 'Recipes & Ideas';
+    }
+    parentPage = (
+      <span>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+        <Link className=""
+          to={parentPath}
+          title="Home"
+      >{parentTitle}</Link>
+      </span>);
+  }
   return (
     <div id="hlbBreadcrumb" className="hlb-breadcrumb container">
 
@@ -20,21 +38,26 @@ function Breadcrumb(props) {
           title="Home"
       ><span className="glyphicon glyphicon-home" /></Link>
 
-    &nbsp;&nbsp;<span className="yellow-text">&lt;</span>&nbsp;&nbsp;
+      <span>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
 
-        <Link
-          className=""
-          to={''}
-          onClick={browserHistory.goBack}
-          title="Back"
-        >Back</Link>
+          <Link
+            className=""
+            to={''}
+            onClick={browserHistory.goBack}
+            title="Back"
+          >Back</Link></span>
 
+        {parentPage}
+
+      <span>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+          <span className="breadcrumb-this-page">{props.thisTitle || ''}</span>
+      </span>
     </div>
   );
 }
 
 Breadcrumb.propTypes = {
-  editUrl: PropTypes.string
+  thisTitle: PropTypes.string
 };
 
 export default Breadcrumb;

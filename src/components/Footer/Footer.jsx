@@ -25,10 +25,10 @@ function Footer() {
   return (
     <div className="footer text-center">
       <div className="container">
-        <small>&copy; Cancer Council NSW 2017 vs3.0.2</small><br />
+        <small>vs3.0.7
         <Link
           onClick={deleteCookies}
-          className="btn start-again">Start again.</Link>
+          className="btn start-again">Refresh</Link></small>
       </div>
     </div>
   );

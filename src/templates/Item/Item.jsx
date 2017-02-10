@@ -221,19 +221,24 @@ class Item extends Component {
     }
 
     return (
-      <div className="">
-        <Breadcrumb />
-        <div className="item container">
-          <div className="raised-page">
-            <h1>{this.item.data.title}</h1>
-            {showIcons}
-            {image}
-            {recipeInfo}
-            {tipInfo}
+      <div className="container">
+        <div className="row margin-top-25">
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={this.item.data.title}
+          />
+          <div className="item container">
+            <div className="raised-page">
+              <h1>{this.item.data.title}</h1>
+              {showIcons}
+              {image}
+              {recipeInfo}
+              {tipInfo}
+            </div>
           </div>
-        </div>
-        <div className="margin-top-25">
-          {editBtn}
+          <div className="margin-top-25">
+            {editBtn}
+          </div>
         </div>
       </div>
     );

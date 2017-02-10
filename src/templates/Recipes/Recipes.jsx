@@ -56,6 +56,10 @@ class Recipes extends Component {
         cols = 'col-md-12';
       }
       const key = `cat_${i}`;
+      let countText = 'Recipes';
+      if (categories[i].slug === 'packed-lunches') {
+        countText = 'Examples';
+      }
       categoriesArr.push(
         <div
           key={key}
@@ -68,6 +72,7 @@ class Recipes extends Component {
             numberItems={categories[i].items.length}
             colour={colour}
             itemType="recipe"
+            countText={countText}
             image={categories[i].image}
           />
         </div>
@@ -75,14 +80,19 @@ class Recipes extends Component {
     }
 
     return (
-      <div className="row margin-top-25">
-        <Breadcrumb />
-        <div className="container">
-            <h1>{title}</h1>
-            <div dangerouslySetInnerHTML={this.makeMarkup()} />
-            {categoriesArr}
+      <div className="container">
+        <div className="row margin-top-25">
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={title}
+          />
+          <div className="container">
+              <h1>{title}</h1>
+              <div dangerouslySetInnerHTML={this.makeMarkup()} />
+              {categoriesArr}
+          </div>
+          {editBtn}
         </div>
-        {editBtn}
       </div>
     );
   }

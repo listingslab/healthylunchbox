@@ -4,16 +4,17 @@
  */
 @import '../vars.scss';
 
-#root {
-  margin: 0px;
-}
-
 html, body, #root {
   font-family: 'Arial';
   font-size: 16px;
   line-height: 26px;
   background: $hlb-background;
   color: $hlb-text;
+}
+
+.breadcrumb-this-page {
+  color: $hlb-blue;
+  font-family: 'Baloo';
 }
 
 p a {
@@ -61,7 +62,6 @@ p a:hover {
 
 .item-content-ingredients {
     padding-top: 20px;
-
 }
 
 .home-featured-recipes {
@@ -181,6 +181,14 @@ table tr td {
 
 .margin-bottom-10 {
   margin-bottom: 10px;
+}
+
+.margin-bottom-15 {
+  margin-bottom: 15px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
 }
 
 .raised-page {

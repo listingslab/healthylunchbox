@@ -71,14 +71,19 @@ class Tips extends Component {
       );
     }
     return (
-      <div className="row margin-top-25">
-        <Breadcrumb />
-        <div className="container">
-            <h1>{title}</h1>
-            <div dangerouslySetInnerHTML={this.makeMarkup()} />
-          {categoriesArr}
+      <div className="container">
+        <div className="row margin-top-25">
+          <Breadcrumb
+            route={this.props.route}
+            thisTitle={title}
+          />
+          <div className="container">
+              <h1>{title}</h1>
+              <div dangerouslySetInnerHTML={this.makeMarkup()} />
+            {categoriesArr}
+          </div>
+          {editBtn}
         </div>
-        {editBtn}
       </div>
     );
   }
