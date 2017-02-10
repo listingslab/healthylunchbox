@@ -9,6 +9,30 @@
  * Amy's Builder CSS
  */
 
+.foodgroup-breads-cereals {
+  background-color: #00447e;
+}
+
+.foodgroup-water {
+  background-color: #0480b4;
+}
+
+.foodgroup-vegetables-salads {
+  background-color: #54b948;
+}
+
+.foodgroup-meat-alternatives {
+  background-color: #faa61a;
+}
+
+.foodgroup-dairy {
+  background-color: #747679;
+}
+
+.foodgroup-fruit {
+  background-color: #0096d6;
+}
+
 .itemClickable:hover {
   cursor: pointer;
   background: #14b2f5;
@@ -177,16 +201,14 @@
   box-shadow: 0 2px 15px 3px #535454;
 }
 
-  .builder-screen-2-header {
-  	background-color: #54b948;
- 	padding:0 20px;
- 	color: #ffffff;
- 	box-shadow: 0 10px  25px -1px #a8a094;
- }
+.builder-screen-2-header {
+  padding: 0 20px;
+  color: #fff;
+  box-shadow: 0 10px  25px -1px #a8a094;
+}
 
- .builder-screen-2-header-bkg {
-
- }
+.builder-screen-2-header-bkg {
+}
 
  .builder-screen-2-header-back {
  	margin-bottom:-20px;

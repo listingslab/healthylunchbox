@@ -11,19 +11,23 @@ import React, { PropTypes } from 'react';
 // import EditLink from '../../../components/EditLink/EditLink';
 
 function ScreenSelector(props) {
-  console.log(props);
   const foodgroups = cms.app.data.lunchbox.foodgroups;
   let foodgroupData = null;
   for (let i = 0; i < foodgroups.length; i += 1) {
-    if (props.foodgroup === foodgroups[i].cat.slug) {
+    if (props.foodgroup === foodgroups[i].category.slug) {
       foodgroupData = foodgroups[i];
       break;
     }
   }
   console.log(foodgroupData);
+  const headerClass = `builder-screen-2-header foodgroup-${props.foodgroup}`;
   return (
-    <div id="screen-selector" className="">
-      screen-selector
+    <div id="screen-selector" className="container">
+      <div className="row">
+        <div className={headerClass}>
+        {props.foodgroup}
+      </div>
+      </div>
     </div>
   );
 }

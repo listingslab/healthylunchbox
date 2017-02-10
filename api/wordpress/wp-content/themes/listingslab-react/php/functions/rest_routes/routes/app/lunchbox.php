@@ -14,9 +14,10 @@
     $catArr = array ();
     for ($i = 0; $i < count($cats); $i++){
       $cat = new stdClass();
-      $cat->catID = $cats[$i]->term_id;
-      $cat->cat = $cats[$i];
-      $cat->image = z_taxonomy_image_url($cat->catID);
+      // $cat->catID = $cats[$i]->term_id;
+      $cat->category = $cats[$i];
+      $cat->info = get_fields($cats[$i]->description);
+      // $cat->image = z_taxonomy_image_url($cat->catID);
       $cat->items = array();
       $posts = get_posts(array(
       'post_type' => 'lunchbox_item',
@@ -24,7 +25,7 @@
       'tax_query' => array(array(
           'taxonomy' => 'lunchbox',
           'field' => 'slug',
-          'terms' => array($cat->cat->slug),
+          'terms' => array($cat->category->slug),
           'operator' => 'IN'
         ))
       ));

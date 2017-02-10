@@ -21,6 +21,37 @@ function ScreenLunchbox() {
   };
 
   const lunchboxHeader = cms.app.data.lunchbox.content.data.lunchbox_header || '';
+
+  let breadsTitle = null;
+  let dairyTitle = null;
+  let fruitTitle = null;
+  let meatTitle = null;
+  let vegetablesTitle = null;
+  let waterTitle = null;
+  for (let i = 0; i < cms.app.data.lunchbox.foodgroups.length; i += 1) {
+    switch (cms.app.data.lunchbox.foodgroups[i].category.slug) {
+    case 'breads-cereals':
+      breadsTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      break;
+    case 'dairy':
+      dairyTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      break;
+    case 'fruit':
+      fruitTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      break;
+    case 'meat-alternatives':
+      meatTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      break;
+    case 'vegetables-salads':
+      vegetablesTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      break;
+    case 'water':
+      waterTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      break;
+    default:
+      break;
+    }
+  }
   const completedItems = 0;
   /*
   let cereals = null;
@@ -74,11 +105,14 @@ function ScreenLunchbox() {
                   </div>
                   <div
                     className="col-xs-7 col-md-7 builder-screen-1-align">
-                    <h2>Breads &amp;<br /> Cereals</h2>
+                    <h2>{breadsTitle}</h2>
                   </div>
                 </div>
 
-                <div className="itemClickable row builder-1-right-dash builder-screen-1-tile">
+                <div
+                  onClick={() => foodgroupClicked('vegetables-salads')}
+                  className="itemClickable row builder-1-right-dash builder-screen-1-tile"
+                >
                   <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                     <img
                       alt="Vegies &amp;<br /> Salad"
@@ -87,51 +121,63 @@ function ScreenLunchbox() {
                     />
                   </div>
                   <div className="col-xs-7 col-md-7 builder-screen-1-align">
-                    <h2>Vegies &amp;<br /> Salad</h2>
+                    <h2>{vegetablesTitle}</h2>
                   </div>
                 </div>
 
               </div>
 
-                <div className="itemClickable col-xs-4 builder-screen-1-item">
+                <div
+                  onClick={() => foodgroupClicked('water')}
+                  className="itemClickable col-xs-4 builder-screen-1-item"
+                >
                   <div className="row builder-screen-1-tile builder-screen-1-tile-center">
                     <img
                       alt="Water"
                       src="/img/builder/water-icon.png"
                       className="builder-screen-1-img img-responsive"
                     />
-                    <h2>Water</h2>
+                    <h2>{waterTitle}</h2>
                   </div>
                 </div>
 
             </div>
             <div className="row row-eq-height builder-1-row-responsive">
 
-              <div className="itemClickable col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center ">
+              <div
+                onClick={() => foodgroupClicked('meat-alternatives')}
+                className="itemClickable col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center "
+              >
                 <img
                   alt="Meats &amp;<br /> Alternatives"
                   src="/img/builder/meat-icon.png"
                   className="builder-screen-1-img img-responsive"
                 />
-                <h2>Meats &amp;<br /> Alternatives</h2>
+                <h2>{meatTitle}</h2>
               </div>
 
-              <div className="itemClickable col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
+              <div
+                onClick={() => foodgroupClicked('dairy')}
+                className="itemClickable col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center"
+              >
                 <img
                   alt="Dairy"
                   src="/img/builder/dairy-icon.png"
                   className="builder-screen-1-img img-responsive"
                 />
-                <h2>Dairy </h2>
+              <h2>{dairyTitle}</h2>
               </div>
 
-              <div className="itemClickable col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center">
+              <div
+                onClick={() => foodgroupClicked('fruit')}
+                className="itemClickable col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center"
+              >
                 <img
                   alt="Fruits"
                   src="/img/builder/fruit-icon.png"
                   className="builder-screen-1-img img-responsive"
                 />
-                <h2>Fruits</h2>
+                <h2>{fruitTitle}</h2>
               </div>
 
             </div>
