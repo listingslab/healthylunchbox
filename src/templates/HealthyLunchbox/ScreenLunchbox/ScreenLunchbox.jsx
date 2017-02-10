@@ -1,4 +1,5 @@
 /* global cms */
+/* global editor */
 /**
  * Created by Chris Dorward on 04/02/2017
  * components/ScreenLunchbox/ScreenLunchbox
@@ -7,9 +8,10 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
+import EditLink from '../../../components/EditLink/EditLink';
 
 function ScreenLunchbox() {
-  const selectFoodgroup = (foodgroup) => {
+  const foodgroupClicked = (foodgroup) => {
     cms.builder.currentFoodgroup = foodgroup;
     browserHistory.push(`/healthy-lunch-box/${cms.builder.currentFoodgroup}`);
   };
@@ -18,18 +20,36 @@ function ScreenLunchbox() {
     alert('Start Over');
   };
 
+  const lunchboxHeader = cms.app.data.lunchbox.content.data.lunchbox_header || '';
+  const completedItems = 0;
+  /*
   let cereals = null;
   if (cms.builder.cereals === 0) {
-
   }
-
+  cms.builder.cereals = 0;
+  cms.builder.salad = 0;
+  cms.builder.meat = 0;
+  cms.builder.dairy = 0;
+  cms.builder.fruit = 0;
+  cms.builder.water = 0;
+  */
+  let promptSmall = null;
+  let promptLarge = null;
+  if (completedItems === 0) {
+    promptSmall = cms.app.data.lunchbox.content.data.completed_items_s_0 || '';
+    promptLarge = cms.app.data.lunchbox.content.data.completed_items_l_0 || '';
+  }
+  const editURL = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=1083&action=edit';
+  let editBtn = null;
+  if (editor) { editBtn = (<EditLink editUrl={editURL || ''} />); }
   return (
-    <div className="healthy-lunch-box container">
+    <div className="healthy-lunch-box">
+    <div className="container">
 
       <div className="row margin-bottom-10">
         <div className="builder-screen-1-lunchbox-heading">
           <div className="builder-screen-1-lunchbox-title">
-            <h1>A healthy lunchbox contains...</h1>
+            <h1>{lunchboxHeader}</h1>
           </div>
         </div>
       </div>
@@ -40,7 +60,10 @@ function ScreenLunchbox() {
             <div className="row builder-1-row-responsive">
               <div className="col-xs-8 builder-screen-1-item">
 
-                <div className="itemClickable row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile">
+                <div
+                  onClick={() => foodgroupClicked('breads-cereals')}
+                  className="itemClickable row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile"
+                >
                   <div
                     className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                     <img
@@ -118,7 +141,10 @@ function ScreenLunchbox() {
           </div>
 
           <div className="builder-1-start-over-button">
-            <button className="btn blue-circle-button" href="">
+            <button
+              onClick={startOver}
+              className="btn blue-circle-button"
+            >
             <img
               alt="start over"
               src="/img/builder/start-over-arrow.png"
@@ -130,13 +156,16 @@ function ScreenLunchbox() {
 
         </div>
 
-          <div className="border-1-prompt-box">
-            <h4>Lets start building!</h4>
-            <h3>Select any food group to begin.</h3>
-          </div>
+
       </div>
 
     </div>
+    <div className="border-1-prompt-box">
+      <h4>{promptSmall}</h4>
+      <h3>{promptLarge}</h3>
+    </div>
+    {editBtn}
+  </div>
   );
 }
 
