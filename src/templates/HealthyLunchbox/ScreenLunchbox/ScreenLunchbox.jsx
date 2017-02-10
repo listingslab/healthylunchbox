@@ -14,10 +14,14 @@ function ScreenLunchbox() {
     browserHistory.push(`/healthy-lunch-box/${cms.builder.currentFoodgroup}`);
   };
 
+  const startOver = () => {
+    alert('Start Over');
+  };
+
   return (
     <div className="container">
       <div className="row">
-        <div className="builder-screen-1-lunchbox-heading">
+        <div className="builder-screen-1-lunchbox-heading margin-bottom-10">
           <div className="builder-screen-1-lunchbox-title">
             <h1>A healthy lunchbox contains...</h1>
           </div>
@@ -66,7 +70,15 @@ function ScreenLunchbox() {
       <div className="border-1-item-tab"></div>
     </div>
 
-    akdhf
+    <div className="builder-1-start-over-button">
+      <button
+        className="btn blue-circle-button"
+        onClick={startOver}
+      >
+        <img src="/img/builder/start-over-arrow.png" className="img-responsive builder-1-start-over-icon" />
+        <h4>START<br />OVER</h4>
+      </button>
+    </div>
   </div>
 
 
