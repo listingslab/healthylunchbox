@@ -8,6 +8,7 @@
 import React, { Component, PropTypes } from 'react';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
+import CardText from '../../components/CardText/CardText';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './Category.scss';
 
@@ -36,6 +37,7 @@ class Category extends Component {
   render() {
     const catType = this.props.routeParams.slug;
     let pageHead = null;
+    let pageSubHead = null;
     if (catType === 'packed-lunches') {
       pageHead = (
         <div className="packed-lunch-header margin-bottom-25">
@@ -53,6 +55,9 @@ class Category extends Component {
           </div>
         </div>
       );
+      pageSubHead = (
+        <h3 className="text-center margin-bottom-15">{cms.app.data.special.data.packed_lunch_page_sub_heading || ''}</h3>
+      );
     }
 
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
@@ -66,23 +71,34 @@ class Category extends Component {
       if (categories[i].acf.image !== false) {
         image = categories[i].acf.image.url;
       }
-      
-      categoriesArr.push(
-        <div key={key} className="col-md-4">
-          <CardRecipeItem
-            route={`/recipe/${categories[i].post_name}`}
-            title={categories[i].post_title}
-            subTitle={categories[i].acf.short_description || ''}
-            tabText="Easy to freeze"
-            preparation_time={categories[i].preparation_time || ''}
-            veg_serves={categories[i].veg_serves || ''}
-            cooking_time={categories[i].acf.cooking_time || ''}
-            freezable={categories[i].acf.freezable || false}
-            image={image}
-            acf={categories[i].acf || {}}
-          />
-        </div>
-      );
+      // console.log(categories[i].post_type);
+      if (categories[i].post_type === 'recipe') {
+        categoriesArr.push(
+          <div key={key} className="col-md-4">
+            <CardRecipeItem
+              route={`/recipe/${categories[i].post_name}`}
+              title={categories[i].post_title}
+              subTitle={categories[i].acf.short_description || ''}
+              tabText="Easy to freeze"
+              preparation_time={categories[i].preparation_time || ''}
+              veg_serves={categories[i].veg_serves || ''}
+              cooking_time={categories[i].acf.cooking_time || ''}
+              freezable={categories[i].acf.freezable || false}
+              image={image}
+              acf={categories[i].acf || {}}
+            />
+          </div>
+        );
+      }
+      if (categories[i].post_type === 'packed_lunch') {
+        categoriesArr.push(
+          <div key={key} className="col-md-4">
+            <CardText
+              cardData={categories[i]}
+            />
+          </div>
+        );
+      }
     }
     let editBtn = null;
     if (editor) { editBtn = (<EditLink editUrl={category.editUrl} />); }
@@ -97,6 +113,7 @@ class Category extends Component {
               <h1>{category.title}</h1>
               <p>{category.subTitle}</p>
               {pageHead}
+              {pageSubHead}
               {categoriesArr}
           </div>
           {editBtn}
