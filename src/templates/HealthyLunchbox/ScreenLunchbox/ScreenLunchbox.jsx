@@ -17,7 +17,6 @@ function ScreenLunchbox() {
   };
 
   const startOver = () => {
-    // alert('Start Over');
     location.reload();
   };
 
@@ -255,7 +254,7 @@ function ScreenLunchbox() {
     water = (
       <div
         onClick={() => foodgroupClicked('water')}
-        className="itemClickable col-xs-4 builder-screen-1-item"
+        className="itemClickable col-xs-4 builder-screen-1-item water-tile"
       >
         <div className="row builder-screen-1-tile builder-screen-1-tile-center">
           <img
@@ -272,12 +271,12 @@ function ScreenLunchbox() {
     water = (
       <div
         onClick={() => foodgroupClicked('water')}
-        className="itemSelected col-xs-4 builder-screen-1-item"
+        className="itemSelected col-xs-4 builder-screen-1-item water-tile"
       >
         <div className="row builder-screen-1-tile builder-screen-1-tile-center">
           <img
             alt={waterTitle}
-            src={cms.builder.water.acf.image || waterIcon}
+            src={waterIcon}
             className="builder-screen-1-img-water img-responsive"
           />
         <h2 dangerouslySetInnerHTML={makeMarkup(waterTitle)} />
@@ -340,22 +339,14 @@ function ScreenLunchbox() {
               <div className="col-xs-8 builder-screen-1-item">
                 {cereals}
                 {salad}
-
-
               </div>
                 {water}
-
-
             </div>
             <div className="row row-eq-height builder-1-row-responsive">
-
               {meat}
               {dairy}
-
               {fruit}
-
             </div>
-
             <div className="border-1-item-tab" />
 
           </div>

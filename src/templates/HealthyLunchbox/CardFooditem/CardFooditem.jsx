@@ -13,10 +13,35 @@ function CardFooditem(props) {
   let className = 'builder-2-card';
   if (cms.builder.cereals !== 0) {
     if (cms.builder.cereals.ID === props.itemData.post.ID) {
-      console.log('selected');
       className = 'builder-2-card builder-2-card-selected';
     }
   }
+  if (cms.builder.salad !== 0) {
+    if (cms.builder.salad.ID === props.itemData.post.ID) {
+      className = 'builder-2-card builder-2-card-selected';
+    }
+  }
+  if (cms.builder.meat !== 0) {
+    if (cms.builder.meat.ID === props.itemData.post.ID) {
+      className = 'builder-2-card builder-2-card-selected';
+    }
+  }
+  if (cms.builder.dairy !== 0) {
+    if (cms.builder.dairy.ID === props.itemData.post.ID) {
+      className = 'builder-2-card builder-2-card-selected';
+    }
+  }
+  if (cms.builder.fruit !== 0) {
+    if (cms.builder.fruit.ID === props.itemData.post.ID) {
+      className = 'builder-2-card builder-2-card-selected';
+    }
+  }
+  if (cms.builder.water !== 0) {
+    if (cms.builder.water.ID === props.itemData.post.ID) {
+      className = 'builder-2-card builder-2-card-selected';
+    }
+  }
+
   const itemClicked = () => {
     if (props.foodgroup === 'fruit') {
       cms.builder.fruit = props.itemData;
