@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { browserHistory } from 'react-router';
-import $ from 'jquery';
+// import $ from 'jquery';
 import EditLink from '../../../components/EditLink/EditLink';
 
 function ScreenLunchbox() {
@@ -20,6 +20,10 @@ function ScreenLunchbox() {
     alert('Start Over');
   };
 
+  const makeMarkup = (html) => {
+    return { __html: html };
+  };
+
   const lunchboxHeader = cms.app.data.lunchbox.content.data.lunchbox_header || '';
 
   let breadsTitle = null;
@@ -28,25 +32,37 @@ function ScreenLunchbox() {
   let meatTitle = null;
   let vegetablesTitle = null;
   let waterTitle = null;
+  let breadsIcon = null;
+  let dairyIcon = null;
+  let fruitIcon = null;
+  let meatIcon = null;
+  let vegetablesIcon = null;
+  let waterIcon = null;
   for (let i = 0; i < cms.app.data.lunchbox.foodgroups.length; i += 1) {
     switch (cms.app.data.lunchbox.foodgroups[i].category.slug) {
     case 'breads-cereals':
       breadsTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      breadsIcon = cms.app.data.lunchbox.foodgroups[i].info.icon;
       break;
     case 'dairy':
       dairyTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      dairyIcon = cms.app.data.lunchbox.foodgroups[i].info.icon;
       break;
     case 'fruit':
       fruitTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      fruitIcon = cms.app.data.lunchbox.foodgroups[i].info.icon;
       break;
     case 'meat-alternatives':
       meatTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      meatIcon = cms.app.data.lunchbox.foodgroups[i].info.icon;
       break;
     case 'vegetables-salads':
       vegetablesTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      vegetablesIcon = cms.app.data.lunchbox.foodgroups[i].info.icon;
       break;
     case 'water':
       waterTitle = cms.app.data.lunchbox.foodgroups[i].info.foodgroup_name;
+      waterIcon = cms.app.data.lunchbox.foodgroups[i].info.icon;
       break;
     default:
       break;
@@ -98,14 +114,14 @@ function ScreenLunchbox() {
                   <div
                     className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                     <img
-                      alt="Bread"
-                      src="/img/builder/bread-icon.png"
+                      alt={breadsTitle}
+                      src={breadsIcon}
                       className="builder-screen-1-img builder-screen-1-align img-responsive"
                     />
                   </div>
                   <div
                     className="col-xs-7 col-md-7 builder-screen-1-align">
-                    <h2>{breadsTitle}</h2>
+                    <h2 dangerouslySetInnerHTML={makeMarkup(breadsTitle)} />
                   </div>
                 </div>
 
@@ -115,13 +131,13 @@ function ScreenLunchbox() {
                 >
                   <div className="col-xs-5 col-md-5 builder-screen-1-tile-center">
                     <img
-                      alt="Vegies &amp;<br /> Salad"
-                      src="/img/builder/carrot-icon.png"
+                      alt={vegetablesTitle}
+                      src={vegetablesIcon}
                       className="builder-screen-1-img builder-screen-1-align img-responsive"
                     />
                   </div>
                   <div className="col-xs-7 col-md-7 builder-screen-1-align">
-                    <h2>{vegetablesTitle}</h2>
+                    <h2 dangerouslySetInnerHTML={makeMarkup(vegetablesTitle)} />
                   </div>
                 </div>
 
@@ -133,11 +149,11 @@ function ScreenLunchbox() {
                 >
                   <div className="row builder-screen-1-tile builder-screen-1-tile-center">
                     <img
-                      alt="Water"
-                      src="/img/builder/water-icon.png"
+                      alt={waterTitle}
+                      src={waterIcon}
                       className="builder-screen-1-img img-responsive"
                     />
-                    <h2>{waterTitle}</h2>
+                  <h2 dangerouslySetInnerHTML={makeMarkup(waterTitle)} />
                   </div>
                 </div>
 
@@ -149,11 +165,11 @@ function ScreenLunchbox() {
                 className="itemClickable col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center "
               >
                 <img
-                  alt="Meats &amp;<br /> Alternatives"
-                  src="/img/builder/meat-icon.png"
+                  alt={meatTitle}
+                  src={meatIcon}
                   className="builder-screen-1-img img-responsive"
                 />
-                <h2>{meatTitle}</h2>
+              <h2 dangerouslySetInnerHTML={makeMarkup(meatTitle)} />
               </div>
 
               <div
@@ -161,11 +177,11 @@ function ScreenLunchbox() {
                 className="itemClickable col-xs-4 builder-1-right-dash builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center"
               >
                 <img
-                  alt="Dairy"
-                  src="/img/builder/dairy-icon.png"
+                  alt={dairyTitle}
+                  src={dairyIcon}
                   className="builder-screen-1-img img-responsive"
                 />
-              <h2>{dairyTitle}</h2>
+              <h2 dangerouslySetInnerHTML={makeMarkup(dairyTitle)} />
               </div>
 
               <div
@@ -173,11 +189,11 @@ function ScreenLunchbox() {
                 className="itemClickable col-xs-4 builder-1-top-dash builder-screen-1-tile builder-screen-1-tile-center"
               >
                 <img
-                  alt="Fruits"
-                  src="/img/builder/fruit-icon.png"
+                  alt={fruitTitle}
+                  src={fruitIcon}
                   className="builder-screen-1-img img-responsive"
                 />
-                <h2>{fruitTitle}</h2>
+              <h2 dangerouslySetInnerHTML={makeMarkup(fruitTitle)} />
               </div>
 
             </div>

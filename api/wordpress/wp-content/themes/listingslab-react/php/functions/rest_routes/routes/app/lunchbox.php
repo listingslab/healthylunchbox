@@ -17,7 +17,8 @@
       // $cat->catID = $cats[$i]->term_id;
       $cat->category = $cats[$i];
       $cat->info = get_fields($cats[$i]->description);
-      // $cat->image = z_taxonomy_image_url($cat->catID);
+
+      $cat->editUrl = "http://api.healthylunchbox.com.au/wp-admin/post.php?post=".$cats[$i]->description."&action=edit";
       $cat->items = array();
       $posts = get_posts(array(
       'post_type' => 'lunchbox_item',

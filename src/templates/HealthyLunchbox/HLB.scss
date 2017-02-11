@@ -207,156 +207,140 @@
   box-shadow: 0 10px  25px -1px #a8a094;
 }
 
-.builder-screen-2-header-bkg {
+.builder-screen-2-header-back {
+  /* margin-bottom: inherit;-20px; */
+  cursor: pointer;
 }
 
- .builder-screen-2-header-back {
- 	margin-bottom:-20px;
- }
+.builder-screen-2-header-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  float: right;
+}
 
- .builder-screen-2-header-img {
-   	position:absolute;
-     top:0;
-     bottom:0;
-     margin:auto;
- 	float: right;
- }
- .builder-screen-2-header-title {
- 	padding-left:30px;
- }
+.builder-screen-2-header-title {
+  padding-left: 30px;
 
-  .builder-screen-2-header-text {
- 	 padding: 15px 10px;
- }
-
- .builder-screen-2-extend {
- 	text-align: center;
- 	border-top: solid 1px #ffffff;
- 	text-transform: uppercase;
- }
-
- .builder-screen-2-extend h4 {
- 	margin-top: -5px;
- 	margin-bottom: 5px;
- }
-
- .builder-screen-2-extend a {
- 	color: #ffffff;
- }
-
-
-  .builder-2-card {
-    /*border: 1px solid black;*/
-    margin-bottom: 30px;
-    box-shadow: 0 8px 25px 2px #a8a094;
-    padding-bottom: 5px;
-    text-align: center;
-    margin-left: -5px;
-    margin-right: -5px;
+  h2 {
+    color: white;
   }
+}
 
- .builder-screen-2-cards-title {
- 	text-align: center;
- 	padding: 10px 0;
- }
+.builder-screen-2-header-text {
+  padding: 15px 10px;
 
-  .builder-2-card-text {
- 	 margin: 25px;
+  h4 {
+    color: white;
   }
+}
 
- .builder-screen-2-card-img {
- 	display: inline;
- 	margin-top: 25px;
- }
+.builder-screen-2-extend {
+  text-align: center;
+  border-top: solid 1px #fff;
+  text-transform: uppercase;
+}
 
- .builder-screen-2-expand {
- 	margin: 10px 10px 40px 0;
+.builder-screen-2-extend h4 {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
 
- 	 }
+.builder-screen-2-extend a {
+  color: #fff;
+}
 
- .builder-screen-2-top-chart {
- 	padding: 15px 30px;
- 	margin-top:-1px;
- 	padding-bottom: 10px;
- }
+.builder-2-card {
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px 2px #a8a094;
+  padding-bottom: 5px;
+  text-align: center;
+  margin-left: -5px;
+  margin-right: -5px;
+}
 
- .builder-screen-2-top-border{
- 	border-top: solid 1px #ffffff;
+.builder-screen-2-cards-title {
+  text-align: center;
+  padding: 10px 0;
+}
 
- }
+.builder-2-card-text {
+  margin: 25px;
+}
 
- .builder-screen-2-expand-title h2 {
- 	margin-left: -15px;
- }
+.builder-screen-2-card-img {
+  display: inline;
+  margin-top: 25px;
+}
 
- .builder-screen-2-expand-text {
- 	padding-top: 20px;
+.builder-screen-2-expand {
+  margin: 10px 10px 40px 0;
+}
 
- }
+.builder-screen-2-top-chart {
+  padding: 15px 30px;
+  margin-top: -1px;
+  padding-bottom: 10px;
+}
 
- .builder-screen-2-infographics {
- 	background-color: #ffffff;
- 	color: #6b6b6b;
- 	margin: 0 -20px;
- 	padding-bottom:40px;
- }
+.builder-screen-2-top-border {
+  border-top: solid 1px #fff;
+}
 
- .builder-screen-2-infographics-img {
- 	float: left;
- 	margin-top: 10px;
- }
+.builder-screen-2-expand-title h2 {
+  margin-left: -15px;
+}
 
- /*Start new code for infographic table*/
+.builder-screen-2-expand-text {
+  padding-top: 20px;
+}
 
- .builder-screen-2-infographics-expanded {
- 	background-color: #ffffff;
- 	color: #6b6b6b;
- 	margin: 0 -20px;
- }
+.builder-screen-2-infographics {
+  background-color: #fff;
+  color: #6b6b6b;
+  margin: 0 -20px;
+  padding-bottom: 40px;
+}
 
- .builder-screen-2-infographics-img-expanded {
- 	float: left;
- 	padding-top: 10px;
- 	padding-bottom: 20px;
+.builder-screen-2-infographics-img {
+  float: left;
+  margin-top: 10px;
+}
 
- }
+.builder-screen-2-infographics-expanded {
+  background-color: #fff;
+  color: #6b6b6b;
+  margin: 0 -20px;
+}
 
- /*End new code for infographic table*/
+.builder-screen-2-infographics-img-expanded {
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
 
-  .builder-screen-3 {
-    border: 1px solid blue;
-  }
+.builder-screen-3 {
+  border: 1px solid blue;
+}
 
- .builder-screen-2-chart-link a {
- 	float: right;
- 	text-decoration: none;
- }
+.builder-screen-2-chart-link a {
+  float: right;
+  text-decoration: none;
+}
 
+/* ==========  Media Queries for responsiveness  ========== */
 
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+}
 
-
-
-
-
-  /* ==========  Media Queries for responsiveness  ========== */
-
-  /* Large Devices, Wide Screens */
-  @media only screen and (max-width: 1200px) {
-    .card-recipe-item {
-    }
- }
-
-  /* Medium Devices, Desktops */
-  @media only screen and (max-width: 992px) {
-    .card-recipe-item {
-    }
-  }
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+}
 
   /* Small Devices, Tablets */
   @media only screen and (max-width: 768px) {
-    .card-recipe-item {
-    }
-
  	 .builder-screen-1-lunchbox h2 {
  		 font-size: 20px;
  		 margin-top: 10px;
