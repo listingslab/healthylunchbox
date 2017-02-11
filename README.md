@@ -97,14 +97,14 @@ rsync -avz /<your-path>/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylu
 
 ### NPM Scripts
 
-npm start
+`npm start`
 Runs webpack-dev-server with hot reload
 
-npm run build
+`npm run build`
 Creates production ready application into /build folder
 
-npm run elint
+`npm run elint`
 Run & Summarise the linting process
 
-npm run slint
+`npm run slint`
 Run the style lint process
