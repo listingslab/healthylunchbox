@@ -9,13 +9,32 @@
  * Amy's Builder CSS
  */
 
+.itemClickable h2 {
+  color: white;
+}
+
+.itemClickable:hover {
+  cursor: pointer;
+  background: #14b2f5;
+}
+
 .builder-screen-1-img {
   max-height: 75px;
+  display: inline;
+}
+
+.builder-screen-1-img-water {
+  max-width: 75px;
+  display: inline;
 }
 
 .itemSelected {
   cursor: pointer;
   background: white;
+}
+
+.builder-2-card-selected {
+  border: 4px solid $hlb-green;
 }
 
 .builder-2-card {
@@ -24,12 +43,8 @@
   -webkit-box-sizing: border-box;
 }
 
-.builder-2-card-selected {
-  border: 3px solid $hlb-green;
-}
-
 .builder-2-card:hover {
-  border: 3px solid #14b2f5;
+  border: 4px solid #14b2f5;
   cursor: pointer;
 }
 
@@ -64,11 +79,6 @@
 
 .foodgroup-fruit {
   background-color: #0096d6;
-}
-
-.itemClickable:hover {
-  cursor: pointer;
-  background: #14b2f5;
 }
 
 .builder-screen-1-lunchbox-heading {
@@ -180,9 +190,7 @@
   text-align: center;
 }
 
-.builder-screen-1-img {
-  display: inline;
-}
+
 
 .row-eq-height {
   display: -webkit-box;
@@ -433,7 +441,8 @@
  		  font-size: 14px;
  	 }
  	.builder-screen-1-img {
- 	 	 max-width: 60px;}
+ 	 	 max-width: 60px;
+  }
 
 
  	 .border-1-prompt-box {

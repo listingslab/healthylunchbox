@@ -28,7 +28,7 @@ function CardFooditem(props) {
       cms.builder.meat = props.itemData;
     }
     if (props.foodgroup === 'vegetables-salads') {
-      cms.builder.salad = props.itemDataj;
+      cms.builder.salad = props.itemData;
     }
     if (props.foodgroup === 'water') {
       cms.builder.water = props.itemData;
