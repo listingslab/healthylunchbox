@@ -18,6 +18,7 @@ function ScreenLunchbox() {
 
   const startOver = () => {
     // alert('Start Over');
+    location.reload();
   };
 
   const makeMarkup = (html) => {
@@ -112,7 +113,7 @@ function ScreenLunchbox() {
     cereals = (
       <div
         onClick={() => foodgroupClicked('breads-cereals')}
-        className="itemClickable row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile"
+        className="itemSelected row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile"
       >
         <div
           className="col-xs-5 col-md-5 builder-screen-1-tile-center">

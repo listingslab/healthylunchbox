@@ -9,10 +9,23 @@
  * Amy's Builder CSS
  */
 
+.builder-screen-1-img {
+  max-height: 75px;
+}
+
+.itemSelected {
+  cursor: pointer;
+  background: white;
+}
+
 .builder-2-card {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+
+.builder-2-card-selected {
+  border: 3px solid $hlb-green;
 }
 
 .builder-2-card:hover {
@@ -143,10 +156,6 @@
   border-top-right-radius: 20px;
   background-color: #0096d6;
   overflow: auto;
-
-  h1, h2, h3, h4, h5, h6 {
-    color: $hlb-white;
-  }
 }
 
  /*End Updated code for builder heading*/
@@ -379,7 +388,7 @@
  	 }
 
   .builder-screen-1-img {
-    max-height: 75px;
+    max-width: 75px;
   }
 
   .builder-screen-1-tile-center h2 {

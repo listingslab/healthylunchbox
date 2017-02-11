@@ -147,7 +147,13 @@ function ScreenSelector(props) {
           <div className="col-md-12 builder-screen-2-cards-title">
             <h4>{cms.app.data.lunchbox.content.data.select_instruction || 'Select one to pack it'}</h4>
           </div>
-          {items}
+
+          <div className="container">
+            <div className="row">
+              {items}
+            </div>
+          </div>
+
         </div>
       </div>
       {editBtn}

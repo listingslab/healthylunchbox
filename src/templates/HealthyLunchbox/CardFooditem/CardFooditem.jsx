@@ -10,6 +10,13 @@ import { Link, browserHistory } from 'react-router';
 
 function CardFooditem(props) {
   // const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${props.itemData.post.ID}&action=edit`;
+  let className = 'builder-2-card';
+  if (cms.builder.cereals !== 0) {
+    if (cms.builder.cereals.ID === props.itemData.post.ID) {
+      console.log('selected');
+      className = 'builder-2-card builder-2-card-selected';
+    }
+  }
   const itemClicked = () => {
     if (props.foodgroup === 'fruit') {
       cms.builder.fruit = props.itemData;
@@ -37,7 +44,7 @@ function CardFooditem(props) {
       onClick={() => itemClicked()}
       className="col-lg-4 col-md-4 col-sm-4 col-xs-6"
     >
-      <div className="builder-2-card">
+      <div className={className}>
         <img
           alt={props.itemData.post.post_title || ''}
           src={props.itemData.acf.image || '/img/builder/green-carrot.png'}
