@@ -10,6 +10,7 @@ import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 import CardText from '../../components/CardText/CardText';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import HealthySwap from '../../components/HealthySwap/HealthySwap';
 import './Category.scss';
 
 class Category extends Component {
@@ -61,8 +62,6 @@ class Category extends Component {
     }
 
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
-    // console.log (this.props.routeParams.slug);
-
     const categoriesArr = [];
     const categories = category.items;
     for (let i = 0; i < categories.length; i += 1) {
@@ -96,6 +95,14 @@ class Category extends Component {
             <CardText
               cardData={categories[i]}
             />
+          </div>
+        );
+      }
+      if (categories[i].post_type === 'healthy_swap') {
+        console.log(categories[i]);
+        categoriesArr.push(
+          <div key={key} className="col-md-4">
+            healthy swap
           </div>
         );
       }
