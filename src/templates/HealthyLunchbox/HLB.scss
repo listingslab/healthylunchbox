@@ -9,6 +9,15 @@
  * Amy's Builder CSS
  */
 
+.serveinfo {
+  background: white;
+  color: $hlb-text;
+}
+
+.dark-text {
+  color: $hlb-text;
+}
+
 .foodgroup-breads-cereals {
   background-color: #00447e;
 }
@@ -218,6 +227,7 @@
   bottom: 0;
   margin: auto;
   float: right;
+  max-height: 100px;
 }
 
 .builder-screen-2-header-title {
@@ -245,6 +255,7 @@
 .builder-screen-2-extend h4 {
   margin-top: -5px;
   margin-bottom: 5px;
+  color: white;
 }
 
 .builder-screen-2-extend a {
@@ -288,7 +299,8 @@
   border-top: solid 1px #fff;
 }
 
-.builder-screen-2-expand-title h2 {
+.builder-screen-2-expand-title h3 {
+  color: white;
   margin-left: -15px;
 }
 
@@ -413,12 +425,12 @@
  		 margin-bottom: 0;
  	 }
 
- 	 .builder-screen-2-header-title p {
- 		 padding-left: 15px;
- 	 }
+  .builder-screen-2-header-title p {
+    padding-left: 15px;
+  }
 
- 	 .builder-screen-2-extend h4 {
- 	margin-bottom: 0;
- }
+  .builder-screen-2-extend h4 {
+    margin-bottom: 0;
+  }
 
   }

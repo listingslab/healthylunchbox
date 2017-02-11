@@ -7,10 +7,11 @@
 
 import React, { PropTypes } from 'react';
 import { browserHistory } from 'react-router';
-// import $ from 'jquery';
+import $ from 'jquery';
 import EditLink from '../../../components/EditLink/EditLink';
 
 function ScreenSelector(props) {
+  let hidden = true;
   const backClicked = () => {
     browserHistory.push('/healthy-lunch-box/');
   };
@@ -18,6 +19,17 @@ function ScreenSelector(props) {
   const makeMarkup = (html) => {
     return { __html: html };
   };
+
+  const toggleArrow = () => {
+    $('#arrow').toggleClass('glyphicon-chevron-down glyphicon-chevron-up', 200);
+    hidden = hidden !== true;
+    if (hidden) {
+      $('#more_info_text').html(cms.app.data.lunchbox.content.data.show_more_info_text);
+    } else {
+      $('#more_info_text').html(cms.app.data.lunchbox.content.data.hide_more_info_text);
+    }
+  };
+
 
   const foodgroups = cms.app.data.lunchbox.foodgroups;
   let foodgroupData = null;
@@ -27,7 +39,6 @@ function ScreenSelector(props) {
       break;
     }
   }
-  console.log(foodgroupData);
   const headerClass = `builder-screen-2-header foodgroup-${props.foodgroup}`;
   let editBtn = null;
   if (editor) { editBtn = (<EditLink editUrl={foodgroupData.editUrl || ''} />); }
@@ -61,7 +72,61 @@ function ScreenSelector(props) {
               <div className="col-md-1 hidden-xs" />
             </div>
 
+            <div className="row">
+              <a
+                onClick={toggleArrow}
+                data-toggle="collapse"
+                href="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+              <div className="col-xs-12 builder-screen-2-extend" >
+                  <h4><span id="more_info_text">{cms.app.data.lunchbox.content.data.show_more_info_text}</span>
+                    <span id="arrow" className="glyphicon glyphicon-chevron-down btn-lg" aria-hidden="true" />
+                  </h4>
+              </div>
+              </a>
+            </div>
+
+            <div className="collapse" id="collapseExample">
+              <div className="row builder-screen-2-top-border">
+
+                <div className="col-xs-12 builder-screen-2-expand">
+                  <div className="col-sm-1 hidden-xs" />
+                  <div className="col-sm-5 builder-screen-2-expand-title hidden-xs">
+                    <h3 dangerouslySetInnerHTML={makeMarkup(foodgroupData.info.info_left)} />
+                  </div>
+                  <div className="col-sm-5 col-xs-12 builder-screen-2-expand-text">
+                    <p className="visible-xs" />
+                    <p dangerouslySetInnerHTML={makeMarkup(foodgroupData.info.info_right)} />
+                  </div>
+                  <div className="col-sm-1 hidden-xs" />
+                </div>
+
+                <div className="col-xs-12 builder-screen-2-expand serveinfo">
+                  <div className="col-sm-1 hidden-xs" />
+                  <div className="col-sm-5">
+                    <h3 className="dark-text">{foodgroupData.info.serve_size_title || ''}</h3>
+                    <img
+                      alt={foodgroupData.info.serve_size_title || ''}
+                      src={foodgroupData.info.serve_size_graphic || ''}
+                      className="img-responsive builder-screen-2-infographics-img-expanded"
+                    />
+                  </div>
+
+                  <div className="col-sm-5 col-xs-12">
+                    <h3 className="dark-text">{foodgroupData.info.serves_per_day_title || ''}</h3>
+                    <img
+                      alt={foodgroupData.info.serves_per_day_title || ''}
+                      src={foodgroupData.info.serves_per_day_graphic || ''}
+                      className="img-responsive builder-screen-2-infographics-img-expanded"
+                    />
+                  </div>
+                  <div className="col-sm-1 hidden-xs" />
+                </div>
+              </div>
           </div>
+        </div>
       </div>
       {editBtn}
     </div>

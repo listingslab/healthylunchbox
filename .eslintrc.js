@@ -17,6 +17,7 @@ module.exports = {
   "rules": {
     "strict": 0,
     "brace-style": 0,
+    "arrow-body-style": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-indent": 0,

@@ -25,7 +25,7 @@ function Footer() {
   return (
     <div className="footer text-center">
       <div className="container">
-        <small>vs3.0.7
+        <small>vs3.0.8
         <Link
           onClick={deleteCookies}
           className="btn start-again">Refresh</Link></small>
