@@ -9,6 +9,16 @@
  * Amy's Builder CSS
  */
 
+.builder-2-card {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.builder-2-card:hover {
+  border: 3px solid #14b2f5;
+}
+
 .serveinfo {
   background: white;
   color: $hlb-text;

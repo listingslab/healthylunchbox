@@ -6,13 +6,14 @@
  */
 
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 function CardFooditem(props) {
   const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${props.itemData.post.ID}&action=edit`;
   const itemClicked = () => {
-    browserHistory.push('/healthy-lunch-box/');
+    //browserHistory.push('/healthy-lunch-box/');
   };
+
   return (
     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-6">
       <div className="builder-2-card">
@@ -22,7 +23,7 @@ function CardFooditem(props) {
           className="img-responsive builder-screen-2-card-img"
         />
         <div className="builder-2-card-text">
-          <h4><a href={editUrl} target="_blank">{props.itemData.post.post_title || ''}</a></h4>
+          <h4>{props.itemData.post.post_title || ''}</h4>
           <p>{props.itemData.acf.card_sub_text || ''}</p>
         </div>
       </div>
