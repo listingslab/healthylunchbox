@@ -1,5 +1,7 @@
 # Healthy Lunch Box vs 3.1.0
 
+![alt text](http://api.healthylunchbox.com.au/wp-content/uploads/HLB_logo-1.png "Healthy Lunch Box")
+
 Developed by usTwo for the Cancer Council, January 2017. This is a React Applicaition
 (/src) which compiles into a standalone HTML folder called build. This build folder is
 currently rsynced to an AWS server where it is accessed from it's url
@@ -23,14 +25,16 @@ to dump an up to date DB for you for you if you wish to set up a local version. 
 
 For any other info, contact listingslab@gmail.com
 
+---
+
 ## CSS (scss)
 Styling for the various react components and templates has been split out into the same folders as the React code they relate to, but there are a few other files to look out for.
 
-```/src/containers/App.scss```
+*/src/containers/App.scss*
 
 This file can be used to apply styles application wide. It's a useful place for responsiveness related styling.
 
-```/src/templates/HeathlyLunchbox/HLB.scss```
+*/src/templates/HeathlyLunchbox/HLB.scss*
 
 This file controls the style for all of the lunchbox builder screens.
 
