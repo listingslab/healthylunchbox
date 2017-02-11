@@ -9,6 +9,7 @@ import React, { PropTypes } from 'react';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import EditLink from '../../../components/EditLink/EditLink';
+import CardFooditem from '../CardFooditem/CardFooditem';
 
 function ScreenSelector(props) {
   let hidden = true;
@@ -30,7 +31,6 @@ function ScreenSelector(props) {
     }
   };
 
-
   const foodgroups = cms.app.data.lunchbox.foodgroups;
   let foodgroupData = null;
   for (let i = 0; i < foodgroups.length; i += 1) {
@@ -39,9 +39,24 @@ function ScreenSelector(props) {
       break;
     }
   }
+
+
+  const items = [];
+  for (let i = 0; i < foodgroupData.items.length; i += 1) {
+    const key = `item_${i}`;
+    items.push (
+      <CardFooditem
+        key={key}
+        foodgroup={props.foodgroup}
+        itemData={foodgroupData.items[i]}
+      />
+    );
+  }
+
   const headerClass = `builder-screen-2-header foodgroup-${props.foodgroup}`;
   let editBtn = null;
   if (editor) { editBtn = (<EditLink editUrl={foodgroupData.editUrl || ''} />); }
+
   return (
     <div id="screen-selector" className="container">
       <div className="row">
@@ -126,6 +141,13 @@ function ScreenSelector(props) {
                 </div>
               </div>
           </div>
+        </div>
+
+        <div className="row builder-screen-2-cards">
+          <div className="col-md-12 builder-screen-2-cards-title">
+            <h4>{cms.app.data.lunchbox.content.data.select_instruction || 'Select one to pack it'}</h4>
+          </div>
+          {items}
         </div>
       </div>
       {editBtn}
