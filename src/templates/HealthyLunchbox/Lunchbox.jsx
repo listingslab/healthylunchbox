@@ -17,8 +17,6 @@ class Lunchbox extends Component {
 
   constructor(props) {
     super(props);
-    // this.onChange = this.onChange.bind(this)
-    this.state = { date: new Date() };
     if (cms.builder === undefined) {
       cms.builder = {};
       cms.builder.cereals = 0;

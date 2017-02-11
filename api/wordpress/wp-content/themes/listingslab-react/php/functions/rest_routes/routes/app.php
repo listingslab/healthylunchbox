@@ -12,13 +12,13 @@ function hlbapi_app( WP_REST_Request $request ) {
   $response->data->status = 418;
   $response->data->status_info = "https://tinyurl.com/7u3ebv2";
 
+  include 'app/lunchbox.php';
   include 'app/special.php';
   include 'app/navigation.php';
   include 'app/home.php';
   include 'app/tips.php';
   include 'app/recipes.php';
   include 'app/about.php';
-  include 'app/lunchbox.php';
-
+  
   return $response;
 }

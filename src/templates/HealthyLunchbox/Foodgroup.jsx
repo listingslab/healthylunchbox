@@ -20,16 +20,16 @@ class Foodgroup extends Component {
     this.state = { date: new Date() };
   }
 
-  componentDidMount() {
-    // $('#screen-selector').hide();
-  }
-
-  componentWillUnmount() {
-  }
-
   render() {
-
-    // console.log('render hlb');
+    if (cms.builder === undefined) {
+      cms.builder = {};
+      cms.builder.cereals = 0;
+      cms.builder.salad = 0;
+      cms.builder.meat = 0;
+      cms.builder.dairy = 0;
+      cms.builder.fruit = 0;
+      cms.builder.water = 0;
+    }
     return (
       <div className="hlb container">
         <div className="row">
