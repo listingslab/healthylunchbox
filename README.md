@@ -1,6 +1,4 @@
-# Healthy Lunch Box vs 3.1.0
-
-![alt text](http://api.healthylunchbox.com.au/wp-content/uploads/HLB_logo-1.png "Healthy Lunch Box")
+# ![alt text](http://api.healthylunchbox.com.au/wp-content/uploads/HLB_logo-1.png "Healthy Lunch Box") vs 3.1.0
 
 Developed by usTwo for the Cancer Council, January 2017. This is a React Applicaition
 (/src) which compiles into a standalone HTML folder called build. This build folder is
@@ -79,9 +77,9 @@ This is a complete Webpack build development environment which enables fast in-e
 
 Install IDE linting. It's proper helpful
 
-apm install linter-eslint
+`apm install linter-eslint`
 
-apm install linter-stylelint
+`apm install linter-stylelint`
 
 ### rsync commands for uploading to the AWS
 
@@ -89,11 +87,11 @@ Ask hooch to hook you up with the correct access for this to work.
 
 To upload latest build
 
-rsync -avz --delete /<your-path>/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/
+`rsync -avz --delete /<your-path>/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/``
 
 To upload latest WordPress API
 
-rsync -avz /<your-path>/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/
+`rsync -avz /<your-path>/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/``
 
 ### NPM Scripts
 
