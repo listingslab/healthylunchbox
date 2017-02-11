@@ -17,7 +17,7 @@ function ScreenLunchbox() {
   };
 
   const startOver = () => {
-    alert('Start Over');
+    // alert('Start Over');
   };
 
   const makeMarkup = (html) => {
@@ -70,9 +70,7 @@ function ScreenLunchbox() {
   }
   const completedItems = 0;
   /*
-  let cereals = null;
-  if (cms.builder.cereals === 0) {
-  }
+
   cms.builder.cereals = 0;
   cms.builder.salad = 0;
   cms.builder.meat = 0;
@@ -89,6 +87,49 @@ function ScreenLunchbox() {
   const editURL = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=1083&action=edit';
   let editBtn = null;
   if (editor) { editBtn = (<EditLink editUrl={editURL || ''} />); }
+
+  let cereals = null;
+  if (cms.builder.cereals === 0) {
+    cereals = (
+      <div
+        onClick={() => foodgroupClicked('breads-cereals')}
+        className="itemClickable row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile"
+      >
+        <div
+          className="col-xs-5 col-md-5 builder-screen-1-tile-center">
+          <img
+            alt={breadsTitle}
+            src={breadsIcon}
+            className="builder-screen-1-img builder-screen-1-align img-responsive"
+          />
+        </div>
+        <div
+          className="col-xs-7 col-md-7 builder-screen-1-align">
+          <h2 dangerouslySetInnerHTML={makeMarkup(breadsTitle)} />
+        </div>
+      </div>);
+  } else {
+    cereals = (
+      <div
+        onClick={() => foodgroupClicked('breads-cereals')}
+        className="itemClickable row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile"
+      >
+        <div
+          className="col-xs-5 col-md-5 builder-screen-1-tile-center">
+          <img
+            alt={breadsTitle}
+            src={cms.builder.cereals.acf.image || breadsIcon}
+            className="builder-screen-1-img builder-screen-1-align img-responsive"
+          />
+        </div>
+        <div
+          className="col-xs-7 col-md-7 builder-screen-1-align">
+          <h2 dangerouslySetInnerHTML={makeMarkup(breadsTitle)} />
+        </div>
+      </div>);
+  }
+
+
   return (
     <div className="healthy-lunch-box">
     <div className="container">
@@ -106,24 +147,8 @@ function ScreenLunchbox() {
           <div className="builder-screen-1-lunchbox">
             <div className="row builder-1-row-responsive">
               <div className="col-xs-8 builder-screen-1-item">
+                {cereals}
 
-                <div
-                  onClick={() => foodgroupClicked('breads-cereals')}
-                  className="itemClickable row builder-1-bottom-dash builder-1-right-dash builder-screen-1-tile"
-                >
-                  <div
-                    className="col-xs-5 col-md-5 builder-screen-1-tile-center">
-                    <img
-                      alt={breadsTitle}
-                      src={breadsIcon}
-                      className="builder-screen-1-img builder-screen-1-align img-responsive"
-                    />
-                  </div>
-                  <div
-                    className="col-xs-7 col-md-7 builder-screen-1-align">
-                    <h2 dangerouslySetInnerHTML={makeMarkup(breadsTitle)} />
-                  </div>
-                </div>
 
                 <div
                   onClick={() => foodgroupClicked('vegetables-salads')}

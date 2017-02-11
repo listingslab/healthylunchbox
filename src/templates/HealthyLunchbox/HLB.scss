@@ -17,6 +17,7 @@
 
 .builder-2-card:hover {
   border: 3px solid #14b2f5;
+  cursor: pointer;
 }
 
 .serveinfo {
@@ -378,7 +379,7 @@
  	 }
 
   .builder-screen-1-img {
-    max-width: 100px;
+    max-height: 75px;
   }
 
   .builder-screen-1-tile-center h2 {

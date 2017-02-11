@@ -9,13 +9,34 @@ import React, { PropTypes } from 'react';
 import { Link, browserHistory } from 'react-router';
 
 function CardFooditem(props) {
-  const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${props.itemData.post.ID}&action=edit`;
+  // const editUrl = `http://api.healthylunchbox.com.au/wp-admin/post.php?post=${props.itemData.post.ID}&action=edit`;
   const itemClicked = () => {
-    //browserHistory.push('/healthy-lunch-box/');
+    if (props.foodgroup === 'fruit') {
+      cms.builder.fruit = props.itemData;
+    }
+    if (props.foodgroup === 'dairy') {
+      cms.builder.dairy = props.itemData;
+    }
+    if (props.foodgroup === 'meat-alternatives') {
+      cms.builder.meat = props.itemData;
+    }
+    if (props.foodgroup === 'vegetables-salads') {
+      cms.builder.salad = props.itemDataj;
+    }
+    if (props.foodgroup === 'water') {
+      cms.builder.water = props.itemData;
+    }
+    if (props.foodgroup === 'breads-cereals') {
+      cms.builder.cereals = props.itemData;
+    }
+    browserHistory.push('/healthy-lunch-box');
   };
 
   return (
-    <div className="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+    <div
+      onClick={() => itemClicked()}
+      className="col-lg-4 col-md-4 col-sm-4 col-xs-6"
+    >
       <div className="builder-2-card">
         <img
           alt={props.itemData.post.post_title || ''}
@@ -32,7 +53,8 @@ function CardFooditem(props) {
 }
 
 CardFooditem.propTypes = {
-  itemData: PropTypes.any.isRequired
+  itemData: PropTypes.any.isRequired,
+  foodgroup: PropTypes.string.isRequired
 };
 
 export default CardFooditem;
