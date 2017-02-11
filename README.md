@@ -61,11 +61,10 @@ cd to your working directory (ours is ~/node) and run the following. Clone the d
 which uses a GitFlow methodology. Checkout both master and develop branches but DO NOT
 develop into them. Create a feature. Develop that. Once it's done, merge into develop.
 
-```
 git clone git@github.com:ustwo/healthy-lunch-box.git
 npm install
 npm start
-```
+
 
 Basta. That's it. You should be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
 
@@ -80,9 +79,9 @@ This is a complete Webpack build development environment which enables fast in-e
 
 Install IDE linting. It's proper helpful
 
-```apm install linter-eslint```
+apm install linter-eslint
 
-```apm install linter-stylelint```
+apm install linter-stylelint
 
 ### rsync commands for uploading to the AWS
 
@@ -90,26 +89,22 @@ Ask hooch to hook you up with the correct access for this to work.
 
 To upload latest build
 
-```
 rsync -avz --delete /<your-path>/healthy-lunch-box/build/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/healthylunchbox.com.au/
-```
 
 To upload latest WordPress API
 
-```
 rsync -avz /<your-path>/healthy-lunch-box/api/wordpress/ ec2-user@beta.healthylunchbox.com.au:/var/www/html/api.healthylunchbox.com.au/
-```
 
 ### NPM Scripts
 
-```npm start```
+npm start
 Runs webpack-dev-server with hot reload
 
-```npm run build```
+npm run build
 Creates production ready application into /build folder
 
-```npm run elint```
+npm run elint
 Run & Summarise the linting process
 
-```npm run slint```
+npm run slint
 Run the style lint process
