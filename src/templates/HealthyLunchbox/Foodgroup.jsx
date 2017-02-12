@@ -14,6 +14,10 @@ class Foodgroup extends Component {
     routeParams: PropTypes.any
   }
 
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+  }
+
   render() {
     if (cms.builder === undefined) {
       cms.builder = {};
@@ -28,7 +32,7 @@ class Foodgroup extends Component {
       <div className="hlb container">
         <div className="row">
           <ScreenSelector
-            foodgroup={this.props.routeParams.foodgroup} 
+            foodgroup={this.props.routeParams.foodgroup}
           />
         </div>
       </div>

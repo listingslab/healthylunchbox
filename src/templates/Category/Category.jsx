@@ -6,6 +6,7 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 import CardText from '../../components/CardText/CardText';
@@ -17,6 +18,10 @@ class Category extends Component {
   static propTypes = {
     routeParams: PropTypes.any,
     route: PropTypes.any
+  }
+
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
   getItemsInCatSlug(slug) {

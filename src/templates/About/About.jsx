@@ -6,12 +6,17 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import EditLink from '../../components/EditLink/EditLink';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 class About extends Component {
   static propTypes = {
     route: PropTypes.any
+  }
+
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
   makeMarkup(html) {

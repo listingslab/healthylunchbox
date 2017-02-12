@@ -6,6 +6,7 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import API from '../../API';
 import Loader from '../../components/Loader/Loader';
 import EditLink from '../../components/EditLink/EditLink';
@@ -28,6 +29,7 @@ class Item extends Component {
   }
 
   componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     let loadData = true;
     if (cms.items === undefined) {
       cms.items = [];

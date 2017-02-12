@@ -25,6 +25,10 @@ class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+  }
+
   hideBreadbrumb() {
     $('#hlbBreadcrumb').hide();
   }

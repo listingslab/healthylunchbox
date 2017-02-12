@@ -103,8 +103,10 @@ function ScreenLunchbox() {
       />
     );
     if (cms.builder.cereals.acf.recipe_slug !== undefined) {
+      const key = `yourRecipes_${completedItems}`;
       yourRecipes.push(
-        <div>recipie</div>
+        <div
+          key={key}>recipie</div>
       );
     }
 
@@ -370,16 +372,20 @@ function ScreenLunchbox() {
     promptSmall = cms.app.data.lunchbox.content.data.completed_items_s_finished || '';
     promptLarge = cms.app.data.lunchbox.content.data.completed_items_l_finished || '';
   }
+
   let recipesMore = null;
   if (yourRecipes.length === 0) {
     recipesMore = (
-      <h2>
-        <Link
-          to='recipes'
+      <div className="margin-bottom-25">
+        <h4><Link
+          to="recipes"
+          className="recipes-more-btn"
         >
-          {cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</Link>
-      </h2>
+          {cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</Link></h4>
+      </div>
     );
+  } else {
+    recipesMore = yourRecipes;
   }
 
   return (

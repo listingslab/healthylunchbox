@@ -6,6 +6,7 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import Slider from 'react-slick';
 import './Snacks.scss';
 
@@ -13,6 +14,10 @@ import './Snacks.scss';
 class Snacks extends Component {
   static propTypes = {
     input: PropTypes.string
+  }
+
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
   makeMarkup() {

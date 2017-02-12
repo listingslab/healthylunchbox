@@ -6,6 +6,7 @@
  */
 
 import React, { Component } from 'react';
+import $ from 'jquery';
 import { Link } from 'react-router';
 import EditLink from '../../components/EditLink/EditLink';
 import CardTipCat from '../../components/CardTipCat/CardTipCat';
@@ -22,6 +23,10 @@ class Tips extends Component {
       isLoaded: false,
       taxonomy: 'tips'
     };
+  }
+
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
   makeMarkup(){

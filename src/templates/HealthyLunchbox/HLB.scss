@@ -9,6 +9,16 @@
  * Amy's Builder CSS
  */
 
+.recipes-more-btn {
+  color: $hlb-text;
+  margin-left: 25px;
+  border-bottom: 3px solid $hlb-yellow;
+}
+
+.recipes-more-btn:hover {
+  border-bottom: 3px solid $hlb-blue;
+}
+
 .your-tip {
   padding-bottom: 5px;
 }

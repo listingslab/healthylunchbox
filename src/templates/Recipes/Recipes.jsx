@@ -6,6 +6,7 @@
  */
 
 import React, { Component } from 'react';
+import $ from 'jquery';
 import EditLink from '../../components/EditLink/EditLink';
 import CardCategory from '../../components/CardCategory/CardCategory';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
@@ -24,6 +25,10 @@ class Recipes extends Component {
       recipes: cms.app.data.recipes || null,
       taxonomy: 'recipes'
     };
+  }
+
+  componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
   makeMarkup() {

@@ -30,6 +30,7 @@ class Lunchbox extends Component {
 
   componentDidMount() {
     $('#hlb-content').addClass('healthy-lunch-box-bg');
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
   componentWillUnmount() {

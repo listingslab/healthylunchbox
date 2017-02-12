@@ -30,6 +30,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     this.returningUser = false;
     let HLBcookieCode = cookie.load('HLBcookieCode');
     if (HLBcookieCode === undefined) {
