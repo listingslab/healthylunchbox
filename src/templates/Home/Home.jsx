@@ -8,7 +8,6 @@
 import React, { Component, PropTypes } from 'react';
 import $ from 'jquery';
 import { Link } from 'react-router';
-import verge from 'verge';
 import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 import CardCategory from '../../components/CardCategory/CardCategory';
@@ -106,7 +105,7 @@ class Home extends Component {
       <div className="home container">
         <div className="home-hero">
           <div className="row">
-            <div className="col-md-6" >
+            <div className="col-md-6 col-sm-12 pad_25" >
               <img
                 alt="Healthy Lunch Box"
                 className="img-responsive"
@@ -169,17 +168,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-/*
-
-<h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
-<h2>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h2>
-
-<div className="margin-top-10 col-md-4">
-  {featuredRecipes}
-</div>
-
-<div className="margin-top-25 col-md-8">
-
-</div>
-*/
