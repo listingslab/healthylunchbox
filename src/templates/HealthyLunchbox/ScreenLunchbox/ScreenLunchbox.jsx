@@ -8,12 +8,50 @@
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 import YourTip from '../YourTip/YourTip';
+import CardRecipeItem from '../../../components/CardRecipeItem/CardRecipeItem';
 
 
 function ScreenLunchbox() {
+  const yourTips = [];
+  const yourRecipes = [];
+  let completedItems = 0;
   const foodgroupClicked = (foodgroup) => {
     cms.builder.currentFoodgroup = foodgroup;
     browserHistory.push(`/healthy-lunch-box/${cms.builder.currentFoodgroup}`);
+  };
+
+  const addYourRecipe = (slug) => {
+    console.log('addYourRecipe');
+    console.log(slug);
+    let recipeData = null;
+    const key2 = `yourRecipes_${completedItems}`;
+    for (let i = 0; i < cms.app.data.recipes.categories.length; i += 1) {
+      const catRecipes = cms.app.data.recipes.categories[i].items;
+      for (let j = 0; j < catRecipes.length; j += 1) {
+        if (slug === catRecipes[j].post_name) {
+          recipeData = catRecipes[j];
+        }
+      }
+    }
+    yourRecipes.push(
+      <div
+        key={key2}
+        className="col-md-4"
+      >
+        <CardRecipeItem
+          route={`/recipe/${recipeData.post_name}`}
+          title={recipeData.post_title}
+          subTitle={recipeData.acf.short_description || ''}
+          tabText="Easy to freeze"
+          preparation_time={recipeData.preparation_time || ''}
+          veg_serves={recipeData.veg_serves || ''}
+          cooking_time={recipeData.acf.cooking_time || ''}
+          freezable={recipeData.acf.freezable || false}
+          image={recipeData.acf.image.url || ''}
+          acf={recipeData.acf || {}}
+        />
+      </div>
+    );
   };
 
   const startOver = () => {
@@ -69,9 +107,7 @@ function ScreenLunchbox() {
       break;
     }
   }
-  const yourTips = [];
-  const yourRecipes = [];
-  let completedItems = 0;
+
   let cereals = null;
   if (cms.builder.cereals === 0) {
     cereals = (
@@ -102,14 +138,10 @@ function ScreenLunchbox() {
         icon={breadsIcon}
       />
     );
-    if (cms.builder.cereals.acf.recipe_slug !== undefined) {
-      const key = `yourRecipes_${completedItems}`;
-      yourRecipes.push(
-        <div
-          key={key}>recipie</div>
-      );
+    if (cms.builder.cereals.acf.recipe_slug !== undefined
+      && cms.builder.cereals.acf.recipe_slug !== '') {
+      addYourRecipe(cms.builder.cereals.acf.recipe_slug);
     }
-
     cereals = (
       <div
         onClick={() => foodgroupClicked('breads-cereals')}
@@ -159,6 +191,10 @@ function ScreenLunchbox() {
         icon={vegetablesIcon}
       />
     );
+    if (cms.builder.salad.acf.recipe_slug !== undefined
+      && cms.builder.salad.acf.recipe_slug !== '') {
+      addYourRecipe(cms.builder.salad.acf.recipe_slug);
+    }
     salad = (
       <div
         onClick={() => foodgroupClicked('vegetables-salads')}
@@ -203,6 +239,10 @@ function ScreenLunchbox() {
         icon={meatIcon}
       />
     );
+    if (cms.builder.meat.acf.recipe_slug !== undefined
+      && cms.builder.meat.acf.recipe_slug !== '') {
+      addYourRecipe(cms.builder.meat.acf.recipe_slug);
+    }
     meat = (
       <div
         onClick={() => foodgroupClicked('meat-alternatives')}
@@ -243,6 +283,10 @@ function ScreenLunchbox() {
         icon={dairyIcon}
       />
     );
+    if (cms.builder.dairy.acf.recipe_slug !== undefined
+      && cms.builder.dairy.acf.recipe_slug !== '') {
+      addYourRecipe(cms.builder.dairy.acf.recipe_slug);
+    }
     dairy = (
       <div
         onClick={() => foodgroupClicked('dairy')}
@@ -283,6 +327,10 @@ function ScreenLunchbox() {
         icon={fruitIcon}
       />
     );
+    if (cms.builder.fruit.acf.recipe_slug !== undefined
+      && cms.builder.fruit.acf.recipe_slug !== '') {
+      addYourRecipe(cms.builder.fruit.acf.recipe_slug);
+    }
     fruit = (
       <div
         onClick={() => foodgroupClicked('fruit')}
@@ -325,6 +373,10 @@ function ScreenLunchbox() {
         icon={waterIcon}
       />
     );
+    if (cms.builder.water.acf.recipe_slug !== undefined
+      && cms.builder.water.acf.recipe_slug !== '') {
+      addYourRecipe(cms.builder.water.acf.recipe_slug);
+    }
     water = (
       <div
         onClick={() => foodgroupClicked('water')}
@@ -385,7 +437,12 @@ function ScreenLunchbox() {
       </div>
     );
   } else {
-    recipesMore = yourRecipes;
+    recipesMore = (
+      <div>
+        <h2>{cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</h2>
+        {yourRecipes}
+      </div>
+    );
   }
 
   return (
@@ -432,12 +489,8 @@ function ScreenLunchbox() {
             <h4>START<br />OVER</h4>
             </button>
           </div>
-
         </div>
-
-
       </div>
-
     </div>
     <div className="border-1-prompt-box">
       <h4>{promptSmall}</h4>
@@ -450,11 +503,9 @@ function ScreenLunchbox() {
         <div className="row">
           {yourTips}
         </div>
-
         <div className="row">
           {recipesMore}
         </div>
-
       </div>
     </div>
 

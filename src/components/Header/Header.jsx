@@ -7,24 +7,16 @@
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import verge from 'verge';
-import { Navbar, Nav, NavItem, CollapsibleNav } from 'react-bootstrap';
+import $ from 'jquery';
 import './Header.scss';
 
 function Header() {
-
   const navItems = cms.app.data.navigation || [];
-
-  const itemSelected = () => {
-    // alert ('close the menu');
-  };
-
-  const itemClick = () => {
-    // alert ('item Click');
-    // onSelect={itemClick}
-  };
-
   const navigation = [];
+
+  const menuClick = () => {
+    $('.navbar-toggle').click();
+  };
   for (let i = 0; i < navItems.length; i += 1) {
     navigation.push(
         <li
@@ -33,13 +25,13 @@ function Header() {
             <Link
               className="nav-link inline"
               to={navItems[i].url}
+              onClick={menuClick}
             >
             <h4>{navItems[i].title.toUpperCase()}</h4>
           </Link>
         </li>
     );
   }
-  // const className = 'header container';
   return (
     <div className="header container">
       <div className="row">
@@ -47,7 +39,7 @@ function Header() {
       				<nav className="navbar navbar-default navbar-whole">
       					  <div className="container-fluid" id="nav">
 
-      						<div className="navbar-header ">
+      						<div className="navbar-header">
       						  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       							<span className="sr-only">Toggle navigation</span>
       							<span className="icon-bar"></span>
@@ -57,7 +49,7 @@ function Header() {
       						  </button>
       						</div>
 
-      						<div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1 visible-lg visible-md">
+      						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1 visible-lg visible-md">
       						  <ul className="nav navbar-nav ">
       							{navigation}
       						  </ul>
@@ -100,26 +92,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-/*
-
-<div className="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-  <ul className="nav navbar-nav ">
-    {navigation}
-  </ul>
-</div>
-
-
-<button
-  type="button"
-  className="navbar-toggle collapsed"
-  data-toggle="collapse"
-  data-target="#bs-example-navbar-collapse-1"
-  aria-expanded="false"
->
-  <span className="sr-only">Toggle navigation</span>
-  <span className="icon-bar" />
-  <span className="icon-bar" />
-  <span className="icon-bar" />
-</button>
-*/
