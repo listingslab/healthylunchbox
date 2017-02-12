@@ -55,7 +55,9 @@ class About extends Component {
                 </div>
               </div>
             </div>
-          {editBtn}
+            <div className="row margin-top-25">
+              {editBtn}
+            </div>
         </div>
       </div>
     );

@@ -2,12 +2,11 @@
 /* global cms */
 /**
  * Created by Chris Dorward on 16/01/2017
- * templates/Category
+ * templates/Category/Category
  */
 
 import React, { Component, PropTypes } from 'react';
 import $ from 'jquery';
-import EditLink from '../../components/EditLink/EditLink';
 import CardRecipeItem from '../../components/CardRecipeItem/CardRecipeItem';
 import CardText from '../../components/CardText/CardText';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
@@ -126,8 +125,7 @@ class Category extends Component {
       }
     }
     categoriesArr.push(ideasArr);
-    let editBtn = null;
-    if (editor) { editBtn = (<EditLink editUrl={category.editUrl} />); }
+
     return (
       <div className="container">
         <div className="row">
@@ -144,7 +142,7 @@ class Category extends Component {
                 {categoriesArr}
               </div>
           </div>
-          {editBtn}
+
         </div>
       </div>
     );
@@ -152,3 +150,10 @@ class Category extends Component {
 }
 
 export default Category;
+
+/*
+import EditLink from '../../components/EditLink/EditLink';
+let editBtn = null;
+if (editor) { editBtn = (<EditLink editUrl={category.editUrl} />); }
+{editBtn}
+*/
