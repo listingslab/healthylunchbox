@@ -9,9 +9,25 @@
  * Amy's Builder CSS
  */
 
- .your-tip {
-   border: 1px solid black;
- }
+.your-tip {
+  padding-bottom: 5px;
+}
+
+.your-tip-text-content h3 {
+  margin-top: 0;
+}
+
+.your-tip-text-content img {
+  height: 25px;
+  margin-right: 10px;
+  float: left;
+}
+
+.your-tip-text-content {
+  margin: 20px 20px 20px 0;
+  padding: 20px 5px 20px 20px;
+  border-left: solid 3px #ffcf00;
+}
 
 .finished-tips {
   background: #f3f2ec;

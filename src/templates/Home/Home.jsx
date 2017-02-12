@@ -44,11 +44,6 @@ class Home extends Component {
     }
     const featuredRecipes = [];
     const fr = cms.app.data.home_page.featured_recipes || [];
-    let numToShow = 2;
-    if (verge.viewportW() > 1000) {
-      numToShow = 3;
-    }
-
     for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
       featuredRecipes.push(
@@ -69,8 +64,6 @@ class Home extends Component {
         </div>
       );
     }
-    const linkText = 'More recipes & ideas';
-    const headerText = 'Featured lunchbox recipes';
 
     const ft = cms.app.data.home_page.featured_tips || [];
     const quickTips = [];
@@ -92,7 +85,7 @@ class Home extends Component {
       );
     }
     let featuredCatData = null;
-    const featuredCat = cms.app.data.home_page.hero.data.featured_category;
+    const featuredCat = 'packed-lunches';
     for (let i = 0; i < cms.app.data.recipes.categories.length; i += 1) {
       if (featuredCat === cms.app.data.recipes.categories[i].slug) {
         featuredCatData = cms.app.data.recipes.categories[i];
@@ -126,10 +119,10 @@ class Home extends Component {
             <Link
               to="/recipes"
               className="pull-right hlb-page-btn"
-            ><h4>{linkText}</h4></Link>
+            ><h4>{cms.app.data.home_page.hero.data.more_recipes_text || 'More recipes & ideas'}</h4></Link>
           </div>
           <div className="row margin-bottom-25">
-            <h3>{headerText}</h3>
+            <h3>{cms.app.data.home_page.hero.data.featured_recipes_heading || 'Featured lunchbox recipes'}</h3>
             </div>
             <div className="row">
               {featuredRecipes}
@@ -139,7 +132,7 @@ class Home extends Component {
           <div className="home-bottom">
             <div className="row">
                 <div className="col-md-6 home-quicktip">
-                  <h2>Quick Tips</h2>
+                  <h2>{cms.app.data.home_page.hero.data.quick_tips_title || 'Quick Tips'}</h2>
                   {quickTips}
                 </div>
 

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import YourTip from '../YourTip/YourTip';
 
 
@@ -69,7 +69,8 @@ function ScreenLunchbox() {
       break;
     }
   }
-  let yourTips = [];
+  const yourTips = [];
+  const yourRecipes = [];
   let completedItems = 0;
   let cereals = null;
   if (cms.builder.cereals === 0) {
@@ -98,8 +99,15 @@ function ScreenLunchbox() {
       <YourTip
         key={key}
         tipData={cms.builder.cereals}
+        icon={breadsIcon}
       />
     );
+    if (cms.builder.cereals.acf.recipe_slug !== undefined) {
+      yourRecipes.push(
+        <div>recipie</div>
+      );
+    }
+
     cereals = (
       <div
         onClick={() => foodgroupClicked('breads-cereals')}
@@ -146,6 +154,7 @@ function ScreenLunchbox() {
       <YourTip
         key={key}
         tipData={cms.builder.salad}
+        icon={vegetablesIcon}
       />
     );
     salad = (
@@ -189,6 +198,7 @@ function ScreenLunchbox() {
       <YourTip
         key={key}
         tipData={cms.builder.meat}
+        icon={meatIcon}
       />
     );
     meat = (
@@ -228,6 +238,7 @@ function ScreenLunchbox() {
       <YourTip
         key={key}
         tipData={cms.builder.dairy}
+        icon={dairyIcon}
       />
     );
     dairy = (
@@ -267,6 +278,7 @@ function ScreenLunchbox() {
       <YourTip
         key={key}
         tipData={cms.builder.fruit}
+        icon={fruitIcon}
       />
     );
     fruit = (
@@ -308,6 +320,7 @@ function ScreenLunchbox() {
       <YourTip
         key={key}
         tipData={cms.builder.water}
+        icon={waterIcon}
       />
     );
     water = (
@@ -356,6 +369,17 @@ function ScreenLunchbox() {
   if (completedItems === 6) {
     promptSmall = cms.app.data.lunchbox.content.data.completed_items_s_finished || '';
     promptLarge = cms.app.data.lunchbox.content.data.completed_items_l_finished || '';
+  }
+  let recipesMore = null;
+  if (yourRecipes.length === 0) {
+    recipesMore = (
+      <h2>
+        <Link
+          to='recipes'
+        >
+          {cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</Link>
+      </h2>
+    );
   }
 
   return (
@@ -415,11 +439,16 @@ function ScreenLunchbox() {
     </div>
 
     <div className="finished-tips">
-      <h2>Your lunchbox tips</h2>
+      <h2>{cms.app.data.lunchbox.content.data.your_lunchbox_tips || 'Your lunch box tips'}</h2>
       <div className="container">
         <div className="row">
           {yourTips}
         </div>
+
+        <div className="row">
+          {recipesMore}
+        </div>
+
       </div>
     </div>
 
