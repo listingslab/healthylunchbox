@@ -30,13 +30,34 @@ class Lunchbox extends Component {
 
   componentDidMount() {
     $('#hlb-content').addClass('healthy-lunch-box-bg');
-    $("html, body").animate({
-        scrollTop: $('#healthy-lunch-box').offset().top
-    }, 'fast');
+    if (
+      cms.builder.cereals === 0 ||
+      cms.builder.salad === 0 ||
+      cms.builder.meat === 0 ||
+      cms.builder.dairy === 0 ||
+      cms.builder.fruit === 0 ||
+      cms.builder.water === 0)
+    {
+      this.scrollToBuilderTop();
+    } else {
+      this.scrollToFinishTop();
+    }
   }
 
   componentWillUnmount() {
     $('#hlb-content').removeClass('healthy-lunch-box-bg');
+  }
+
+  scrollToBuilderTop() {
+    $('html, body').animate({
+      scrollTop: $('#healthy-lunch-box').offset().top
+    }, 'fast');
+  }
+
+  scrollToFinishTop() {
+    $('html, body').animate({
+      scrollTop: $('#start-over').offset().top
+    }, 'fast');
   }
 
   render() {

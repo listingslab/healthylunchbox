@@ -15,7 +15,9 @@ class Foodgroup extends Component {
   }
 
   componentDidMount() {
-    $('html, body').animate({ scrollTop: 0 }, 'fast');
+    $('html, body').animate({
+      scrollTop: $('#screen-selector').offset().top
+    }, 'fast');
   }
 
   render() {

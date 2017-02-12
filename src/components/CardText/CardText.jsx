@@ -11,7 +11,6 @@ import { Link } from 'react-router';
 import './CardText.scss';
 
 function CardText(props) {
-  console.log(props);
   let title = 'H3 title';
   let text = 'Item text';
   if (props.cardData.post_type) {

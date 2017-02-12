@@ -11,7 +11,7 @@ import YourTip from '../YourTip/YourTip';
 import CardRecipeItem from '../../../components/CardRecipeItem/CardRecipeItem';
 
 
-function ScreenLunchbox() {
+function ScreenLunchbox(props) {
   const yourTips = [];
   const yourRecipes = [];
   let completedItems = 0;
@@ -21,8 +21,6 @@ function ScreenLunchbox() {
   };
 
   const addYourRecipe = (slug) => {
-    console.log('addYourRecipe');
-    console.log(slug);
     let recipeData = null;
     const key2 = `yourRecipes_${completedItems}`;
     for (let i = 0; i < cms.app.data.recipes.categories.length; i += 1) {
@@ -491,7 +489,7 @@ function ScreenLunchbox() {
 
           </div>
 
-          <div className="builder-1-start-over-button">
+          <div id="start-over" className="builder-1-start-over-button">
             <button
               onClick={startOver}
               className="btn blue-circle-button"
@@ -507,11 +505,10 @@ function ScreenLunchbox() {
         </div>
       </div>
     </div>
-    <div id="prompt" className="border-1-prompt-box">
+    <div className="border-1-prompt-box">
       <h4>{promptSmall}</h4>
       <h3>{promptLarge}</h3>
     </div>
-    arrow
     {finishSection}
   </div>
   );

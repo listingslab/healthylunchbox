@@ -10,7 +10,7 @@ function Footer() {
   return (
     <div className="footer text-center">
       <div className="container">
-        <small>vs3.1.1</small>
+        <small>vs3.1.2</small>
       </div>
     </div>
   );
