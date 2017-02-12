@@ -52,8 +52,8 @@ class Category extends Component {
               <div className="image-center">
                 <img
                   alt="Healthy Lunch Box"
-                  className="img-responsive "
-                  src="/img/hero.png"
+                  className="img-responsive"
+                  src="/img/hero_graphic.png"
                 />
               </div>
             </div>
