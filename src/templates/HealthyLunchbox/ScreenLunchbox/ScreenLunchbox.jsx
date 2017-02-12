@@ -396,6 +396,28 @@ function ScreenLunchbox() {
 
   let promptSmall = null;
   let promptLarge = null;
+  let finishSection = null;
+
+  let recipesMore = null;
+  if (yourRecipes.length === 0) {
+    recipesMore = (
+      <div className="margin-bottom-25">
+        <h4><Link
+          to="recipes"
+          className="recipes-more-btn"
+        >
+          {cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</Link></h4>
+      </div>
+    );
+  } else {
+    recipesMore = (
+      <div>
+        <h2>{cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</h2>
+        {yourRecipes}
+      </div>
+    );
+  }
+
   if (completedItems === 0) {
     promptSmall = cms.app.data.lunchbox.content.data.completed_items_s_0 || '';
     promptLarge = cms.app.data.lunchbox.content.data.completed_items_l_0 || '';
@@ -423,30 +445,23 @@ function ScreenLunchbox() {
   if (completedItems === 6) {
     promptSmall = cms.app.data.lunchbox.content.data.completed_items_s_finished || '';
     promptLarge = cms.app.data.lunchbox.content.data.completed_items_l_finished || '';
-  }
-
-  let recipesMore = null;
-  if (yourRecipes.length === 0) {
-    recipesMore = (
-      <div className="margin-bottom-25">
-        <h4><Link
-          to="recipes"
-          className="recipes-more-btn"
-        >
-          {cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</Link></h4>
-      </div>
-    );
-  } else {
-    recipesMore = (
-      <div>
-        <h2>{cms.app.data.lunchbox.content.data.recipes_more || 'Recipes & more'}</h2>
-        {yourRecipes}
+    finishSection = (
+      <div className="finished-tips">
+        <h2 className="finished-tips-top">{cms.app.data.lunchbox.content.data.your_lunchbox_tips || 'Your lunch box tips'}</h2>
+        <div className="container">
+          <div className="row">
+            {yourTips}
+          </div>
+          <div className="row">
+            {recipesMore}
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="healthy-lunch-box">
+    <div id="healthy-lunch-box" className="healthy-lunch-box">
     <div className="container">
 
       <div className="row margin-bottom-10">
@@ -492,23 +507,12 @@ function ScreenLunchbox() {
         </div>
       </div>
     </div>
-    <div className="border-1-prompt-box">
+    <div id="prompt" className="border-1-prompt-box">
       <h4>{promptSmall}</h4>
       <h3>{promptLarge}</h3>
     </div>
-
-    <div className="finished-tips">
-      <h2>{cms.app.data.lunchbox.content.data.your_lunchbox_tips || 'Your lunch box tips'}</h2>
-      <div className="container">
-        <div className="row">
-          {yourTips}
-        </div>
-        <div className="row">
-          {recipesMore}
-        </div>
-      </div>
-    </div>
-
+    arrow
+    {finishSection}
   </div>
   );
 }

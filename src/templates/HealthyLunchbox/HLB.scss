@@ -9,6 +9,9 @@
  * Amy's Builder CSS
  */
 
+.healthy-lunch-box {
+}
+
 .recipes-more-btn {
   color: $hlb-text;
   margin-left: 25px;
@@ -17,10 +20,6 @@
 
 .recipes-more-btn:hover {
   border-bottom: 3px solid $hlb-blue;
-}
-
-.your-tip {
-  padding-bottom: 5px;
 }
 
 .your-tip-text-content h3 {
@@ -44,9 +43,12 @@
   margin-bottom: 25px;
 
   h2 {
-    margin-left: 25px;
-    padding-top: 25px;
+    margin-left: 15px;
   }
+}
+
+.finished-tips-top {
+  padding-top: 35px;
 }
 
 .itemClickable h2 {
