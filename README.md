@@ -1,5 +1,5 @@
 ![alt text](http://api.healthylunchbox.com.au/wp-content/uploads/HLB_logo-1.png "Healthy Lunch Box")
-# vs 3.1.0
+# vs 3.1.1
 
 Developed by usTwo for the Cancer Council, January 2017. This is a React Applicaition
 (/src) which compiles into a standalone HTML folder called build. This build folder is
