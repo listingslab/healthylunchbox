@@ -109,15 +109,20 @@ class App extends Component {
       return (
         <div className="template-app">
           <Header />
-          {children}
+          <div id="hlb-content">
+            {children}
+          </div>
           <Footer />
+
         </div>
       );
     }
     return (
       <div className="template-app">
         <Header />
-        {children}
+        <div id="hlb-content">
+          {children}
+        </div>
         <Footer />
       </div>
     );

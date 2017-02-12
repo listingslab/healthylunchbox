@@ -28,6 +28,14 @@ class Lunchbox extends Component {
     }
   }
 
+  componentDidMount() {
+    $('#hlb-content').addClass('healthy-lunch-box-bg');
+  }
+
+  componentWillUnmount() {
+    $('#hlb-content').removeClass('healthy-lunch-box-bg');
+  }
+
   render() {
     return (
       <div className="container">

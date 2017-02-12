@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { browserHistory } from 'react-router';
-// import $ from 'jquery';
-import EditLink from '../../../components/EditLink/EditLink';
+import YourTip from '../YourTip/YourTip';
+
 
 function ScreenLunchbox() {
   const foodgroupClicked = (foodgroup) => {
@@ -69,7 +69,7 @@ function ScreenLunchbox() {
       break;
     }
   }
-
+  let yourTips = [];
   let completedItems = 0;
   let cereals = null;
   if (cms.builder.cereals === 0) {
@@ -93,6 +93,13 @@ function ScreenLunchbox() {
       </div>);
   } else {
     completedItems += 1;
+    const key = `yourTips_${completedItems}`;
+    yourTips.push(
+      <YourTip
+        key={key}
+        tipData={cms.builder.cereals}
+      />
+    );
     cereals = (
       <div
         onClick={() => foodgroupClicked('breads-cereals')}
@@ -134,6 +141,13 @@ function ScreenLunchbox() {
     );
   } else {
     completedItems += 1;
+    const key = `yourTips_${completedItems}`;
+    yourTips.push(
+      <YourTip
+        key={key}
+        tipData={cms.builder.salad}
+      />
+    );
     salad = (
       <div
         onClick={() => foodgroupClicked('vegetables-salads')}
@@ -170,6 +184,13 @@ function ScreenLunchbox() {
     );
   } else {
     completedItems += 1;
+    const key = `yourTips_${completedItems}`;
+    yourTips.push(
+      <YourTip
+        key={key}
+        tipData={cms.builder.meat}
+      />
+    );
     meat = (
       <div
         onClick={() => foodgroupClicked('meat-alternatives')}
@@ -202,6 +223,13 @@ function ScreenLunchbox() {
     );
   } else {
     completedItems += 1;
+    const key = `yourTips_${completedItems}`;
+    yourTips.push(
+      <YourTip
+        key={key}
+        tipData={cms.builder.dairy}
+      />
+    );
     dairy = (
       <div
         onClick={() => foodgroupClicked('dairy')}
@@ -234,6 +262,13 @@ function ScreenLunchbox() {
     );
   } else {
     completedItems += 1;
+    const key = `yourTips_${completedItems}`;
+    yourTips.push(
+      <YourTip
+        key={key}
+        tipData={cms.builder.fruit}
+      />
+    );
     fruit = (
       <div
         onClick={() => foodgroupClicked('fruit')}
@@ -268,6 +303,13 @@ function ScreenLunchbox() {
     );
   } else {
     completedItems += 1;
+    const key = `yourTips_${completedItems}`;
+    yourTips.push(
+      <YourTip
+        key={key}
+        tipData={cms.builder.water}
+      />
+    );
     water = (
       <div
         onClick={() => foodgroupClicked('water')}
@@ -315,10 +357,6 @@ function ScreenLunchbox() {
     promptSmall = cms.app.data.lunchbox.content.data.completed_items_s_finished || '';
     promptLarge = cms.app.data.lunchbox.content.data.completed_items_l_finished || '';
   }
-
-  const editURL = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=1083&action=edit';
-  let editBtn = null;
-  if (editor) { editBtn = (<EditLink editUrl={editURL || ''} />); }
 
   return (
     <div className="healthy-lunch-box">
@@ -375,7 +413,16 @@ function ScreenLunchbox() {
       <h4>{promptSmall}</h4>
       <h3>{promptLarge}</h3>
     </div>
-    {editBtn}
+
+    <div className="finished-tips">
+      <h2>Your lunchbox tips</h2>
+      <div className="container">
+        <div className="row">
+          {yourTips}
+        </div>
+      </div>
+    </div>
+
   </div>
   );
 }
@@ -385,3 +432,10 @@ ScreenLunchbox.propTypes = {
 };
 
 export default ScreenLunchbox;
+
+/*
+// import EditLink from '../../../components/EditLink/EditLink';
+const editURL = 'http://api.healthylunchbox.com.au/wp-admin/post.php?post=1083&action=edit';
+let editBtn = null;
+if (editor) { editBtn = (<EditLink editUrl={editURL || ''} />); }
+*/

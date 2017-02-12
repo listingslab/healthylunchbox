@@ -17,13 +17,6 @@ function HealthySwap(props) {
 
       <div className="row row-eq-height hidden-xs">
         <div className="col-sm-4 col-xs-12 swap-header-banner">
-          <div className="swap-image-overlay_">
-            <img
-              alt={props.swapData.post_name || 'Unhealthy option'}
-              src={unhealthyImage}
-              className="img-responsive"
-            />
-          </div>
 
           <div className="col-sm-8 col-xs-12 swap-header-banner">
             <div className="swap-header-text">
@@ -35,13 +28,7 @@ function HealthySwap(props) {
 
       <div className="row visible-xs">
         <div className="col-xs-12 swap-header-banner ">
-        <div className="swap-image-overlay-small_">
-          <img
-            alt={props.swapData.post_name || 'Unhealthy option'}
-            src={unhealthyImage}
-            className="img-responsive"
-          />
-        </div>
+
       </div>
 
       <div className="col-xs-12 swap-header-banner">
@@ -63,7 +50,7 @@ function HealthySwap(props) {
       </div>
     </div>
 
-    <div clas="row">
+    <div className="row">
 
       <div className="col-md-4 col-sm-4 col-xs-6">
         <div className="swap-item">
@@ -114,3 +101,14 @@ HealthySwap.propTypes = {
 };
 
 export default HealthySwap;
+
+/*
+
+<div className="swap-image-overlay-small_">
+  <img
+    alt={props.swapData.post_name || 'Unhealthy option'}
+    src={unhealthyImage}
+    className="img-responsive"
+  />
+</div>
+*/

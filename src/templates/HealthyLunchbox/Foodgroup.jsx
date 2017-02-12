@@ -11,13 +11,7 @@ import './HLB.scss';
 
 class Foodgroup extends Component {
   static propTypes = {
-    children: PropTypes.any
-  }
-
-  constructor(props) {
-    super(props);
-    // this.onChange = this.onChange.bind(this)
-    this.state = { date: new Date() };
+    routeParams: PropTypes.any
   }
 
   render() {
@@ -33,7 +27,9 @@ class Foodgroup extends Component {
     return (
       <div className="hlb container">
         <div className="row">
-          <ScreenSelector foodgroup={this.props.routeParams.foodgroup}/>
+          <ScreenSelector
+            foodgroup={this.props.routeParams.foodgroup} 
+          />
         </div>
       </div>
     );

@@ -8,7 +8,18 @@
 /**
  * Amy's Builder CSS
  */
-.water-tile{
+
+ .your-tip {
+   border: 1px solid black;
+ }
+
+.finished-tips {
+  background: #f3f2ec;
+
+  h2 {
+    margin-left: 25px;
+    padding-top: 25px;
+  }
 }
 
 .itemClickable h2 {
