@@ -16,6 +16,22 @@ html, body, #root {
   color: $hlb-text;
 }
 
+.hlb-button {
+  font-family: 'Baloo';
+  font-size: 18px;
+  color: $hlb-white;
+  text-transform: uppercase;
+  background: $hlb-orange;
+  padding: 8px 16px;
+  margin: 16px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.hlb-button:hover {
+  color: $hlb-black;
+}
+
 .healthy-lunch-box-bg {
   background: $hlb-yellow;
 }
@@ -183,6 +199,10 @@ table tr td {
 
 .margin-top-25 {
   margin-top: 25px;
+}
+
+.margin-bottom-50 {
+  margin-bottom: 50px;
 }
 
 .margin-bottom-25 {

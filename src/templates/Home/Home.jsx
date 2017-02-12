@@ -105,22 +105,29 @@ class Home extends Component {
       <div className="home container">
         <div className="home-hero">
           <div className="row">
+
+
+            <div className="col-md-6 pad_25" >
+              <div className="pad_25">
+                <h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
+                <h3>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h3>
+              </div>
+              <div className="pad_25">
+                <Link
+                  to={cms.app.data.home_page.hero.data.linkUrl || '/'}
+                  className="hlb-button"
+                >{cms.app.data.home_page.hero.data.linkText || 'Click'}</Link>
+              </div>
+            </div>
+
             <div className="col-md-6 col-sm-12 pad_25" >
               <img
                 alt="Healthy Lunch Box"
                 className="img-responsive"
-                src="/img/hero.png"
+                src="/img/hero_graphic.png"
               />
             </div>
 
-            <div className="col-md-6 pad_25" >
-              <h1>{cms.app.data.home_page.hero.data.heroTitle || ''}</h1>
-              <h3>{cms.app.data.home_page.hero.data.heroSubTitle || ''}</h3>
-              <Link
-                to={cms.app.data.home_page.hero.data.linkUrl || '/'}
-                className="btn btn-warning btn-lg"
-              >{cms.app.data.home_page.hero.data.linkText || 'Click'}</Link>
-            </div>
           </div>
         </div>
 
