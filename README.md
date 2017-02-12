@@ -26,6 +26,29 @@ For any other info, contact listingslab@gmail.com
 
 ---
 
+## Developer Installation
+Developers will need to be invited to collaborate on this private GitHub repo. Ask Petch or Hooch
+
+cd to your working directory (ours is ~/node) and run the following. Clone the directory,
+which uses a GitFlow methodology. Checkout both master and develop branches but DO NOT
+develop into them. Create a feature. Develop that. Once it's done, merge into develop.
+
+git clone git@github.com:ustwo/healthy-lunch-box.git
+npm install
+npm start
+
+
+Basta. That's it. You should be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
+
+### Tech Stack
+
+A React frontend designed to consume a WordPress REST-API backend service found here:
+[healthylunchbox.com.au](http://api.healthylunchbox.com.au/).
+
+This is a complete Webpack build development environment which enables fast in-editor pre-testing of our React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
+
+---
+
 ## CSS (scss)
 Styling for the various react components and templates has been split out into the same folders as the React code they relate to, but there are a few other files to look out for.
 
@@ -52,27 +75,6 @@ http://api.healthylunchbox.com.au/wp-json/hlbapi/item/tabbouleh
 There are two global variables used in the React app. Firstly 'editor' (Boolean) which turns the edit buttons on or off. The second is called cms & is the global information store where the data loaded from the API are stored.
 
 These are initialised in /public/index.html
-
-## Developer Installation
-Developers will need to be invited to collaborate on this private GitHub repo. Ask Petch or Hooch
-
-cd to your working directory (ours is ~/node) and run the following. Clone the directory,
-which uses a GitFlow methodology. Checkout both master and develop branches but DO NOT
-develop into them. Create a feature. Develop that. Once it's done, merge into develop.
-
-git clone git@github.com:ustwo/healthy-lunch-box.git
-npm install
-npm start
-
-
-Basta. That's it. You should be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
-
-## Tech Stack
-
-A React frontend designed to consume a WordPress REST-API backend service found here:
-[healthylunchbox.com.au](http://api.healthylunchbox.com.au/).
-
-This is a complete Webpack build development environment which enables fast in-editor pre-testing of our React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
 
 ### Using Atom editor?
 

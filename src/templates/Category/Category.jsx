@@ -99,11 +99,11 @@ class Category extends Component {
         );
       }
       if (categories[i].post_type === 'healthy_swap') {
-        console.log(categories[i]);
         categoriesArr.push(
-          <div key={key} className="col-md-4">
-            healthy swap
-          </div>
+          <HealthySwap
+            key={key}
+            swapData={categories[i]}
+          />
         );
       }
     }
