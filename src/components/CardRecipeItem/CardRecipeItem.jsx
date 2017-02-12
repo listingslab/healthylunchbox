@@ -13,7 +13,6 @@ function CardRecipeItem(props) {
   const tabText = props.tabText.toUpperCase();
   const image = props.image || '/img/defaults/RecipeImage.jpg';
   const freezableIcon = '/img/icons/icon-freezeable.png';
-  const leftoverIcon = '/img/icons/icon-leftover.png';
 
   let iconTab = null;
   if (props.freezable) {
@@ -62,13 +61,6 @@ CardRecipeItem.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   freezable: PropTypes.bool
-  // veg_serves: PropTypes.string.isRequired,
-  // subTitle: PropTypes.string.isRequired,
 };
 
 export default CardRecipeItem;
-
-/*
-let decodedSubTitle = props.subTitle.replace('&amp;', '&');
-decodedSubTitle = props.subTitle.replace('&#039;', '\'');
-*/

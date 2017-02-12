@@ -50,8 +50,15 @@ class Home extends Component {
     const fr = cms.app.data.home_page.featured_recipes || [];
     for (let i = 0; i < fr.length; i += 1) {
       const key = `recipe_${i}`;
+      let className = 'col-md-4 col-sm-6';
+      if (i > 0){
+        className = `${className} hidden-xs`;
+      }
+      if (i > 1){
+        className = `${className} hidden-sm`;
+      }
       featuredRecipes.push(
-        <div key={key} className="col-md-4 col-sm-6">
+        <div key={key} className={className}>
           <CardRecipeItem
             route={`/recipe/${fr[i].itemSlug}`}
             title={fr[i].title || ''}
@@ -73,7 +80,7 @@ class Home extends Component {
     const quickTips = [];
 
     for (let i = 0; i < 2; i += 1) {
-      const item = cms.app.data.home_page.featured_tips[i];
+      const item = ft[i];
       const tipLink = `/tip/${item.itemSlug}`;
       const key = `tip_${i}`;
       quickTips.push(
@@ -84,7 +91,7 @@ class Home extends Component {
           <h3>{item.home_tip_text}</h3>
           <Link
             to={tipLink}
-          >More like this.</Link>
+          >More like this</Link>
         </div>
       );
     }

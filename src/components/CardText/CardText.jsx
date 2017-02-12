@@ -1,21 +1,23 @@
 /* global editor */
+/* global cms */
 /**
  * Created by Chris Dorward on 31/01/2017
  * components/CardText/CardText
  */
 
- //packed_lunch_card_title
-
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import './CardText.scss';
 
 function CardText(props) {
-  let title = 'H3 title';
-  let text = 'Item text';
-  if (props.cardData.post_type) {
+  let title = '';
+  let text = '';
+  if (props.cardData.post_type === 'packed_lunch') {
     title = cms.app.data.special.data.packed_lunch_card_title || '';
     text = props.cardData.acf.whats_inside_list || '';
+  }
+  if (props.cardData.post_type === 'idea') {
+    title = props.cardData.post_title || '';
+    text = props.cardData.acf.idea || '';
   }
   const textMarkup = { __html: text };
   return (
@@ -38,8 +40,3 @@ CardText.propTypes = {
 };
 
 export default CardText;
-
-/*
-let decodedSubTitle = props.subTitle.replace('&amp;', '&');
-decodedSubTitle = props.subTitle.replace('&#039;', '\'');
-*/

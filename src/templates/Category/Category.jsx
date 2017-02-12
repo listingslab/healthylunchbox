@@ -68,6 +68,8 @@ class Category extends Component {
 
     const category = this.getItemsInCatSlug(this.props.routeParams.slug);
     const categoriesArr = [];
+    const ideasArr = [];
+
     const categories = category.items;
     for (let i = 0; i < categories.length; i += 1) {
       const key = `cat_${i}`;
@@ -78,7 +80,7 @@ class Category extends Component {
       // console.log(categories[i].post_type);
       if (categories[i].post_type === 'recipe') {
         categoriesArr.push(
-          <div key={key} className="col-md-4">
+          <div key={key} className="col-md-4 col-sm-6 row-eq-height">
             <CardRecipeItem
               route={`/recipe/${categories[i].post_name}`}
               title={categories[i].post_title}
@@ -96,8 +98,9 @@ class Category extends Component {
       }
       if (categories[i].post_type === 'packed_lunch') {
         categoriesArr.push(
-          <div key={key} className="col-md-4">
+          <div key={key} className="col-md-4 col-sm-6 row-eq-height">
             <CardText
+              key={key}
               cardData={categories[i]}
             />
           </div>
@@ -111,7 +114,18 @@ class Category extends Component {
           />
         );
       }
+      if (categories[i].post_type === 'idea') {
+        ideasArr.push(
+          <div key={key} className="col-md-4 col-sm-6 row-eq-height">
+            <CardText
+              key={key}
+              cardData={categories[i]}
+            />
+          </div>
+        );
+      }
     }
+    categoriesArr.push(ideasArr);
     let editBtn = null;
     if (editor) { editBtn = (<EditLink editUrl={category.editUrl} />); }
     return (
@@ -126,7 +140,9 @@ class Category extends Component {
               <p>{category.subTitle}</p>
               {pageHead}
               {pageSubHead}
-              {categoriesArr}
+              <div className="row">
+                {categoriesArr}
+              </div>
           </div>
           {editBtn}
         </div>
